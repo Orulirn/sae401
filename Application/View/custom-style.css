@@ -1,0 +1,57 @@
+.email-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px;
+}
+.email-list {
+    list-style: none;
+    padding: 0;
+    width: 200px;
+    border: 1px solid #ccc;
+    height: 300px;
+    overflow-y: auto;
+}
+.selected-emails {
+    list-style: none;
+    padding: 0;
+    width: 200px;
+    border: 1px solid #ccc;
+    height: 300px;
+    overflow-y: auto;
+}
+.email-list-item, .selected-email-item {
+    cursor: pointer;
+    padding: 5px;
+
+    .custom-file {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .file-names {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .file-names ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        background: white;
+        border: 1px solid #ccc;
+        max-height: 100px; /* Ajustez la hauteur maximale selon vos besoins */
+        overflow-y: auto;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        display: none;
+    }
+
+    .file-names:hover ul {
+        display: block;
+    }
+}

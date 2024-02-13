@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <link rel="stylesheet" href="../View/bootstrap-5.3.1-dist/css/bootstrap.css">
+    <meta charset="UTF-8">
+    <title>Mon équipe</title>
+    <style>
+
+        table {
+            width: 50%;
+            border-collapse: collapse;
+        }
+
+        tr{
+            border: solid 2px #000000;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            
+        }
+    </style>
+</head>
+<body>
+    <h1 class="container-fluid p-3 bg-white text-dark text-center">Voici mon équipe</h1>
+    <div id="teamName" class="container-fluid p-3 bg-white text-dark text-center"> 
+        
+    </div>
+    <div class="container py-3 d-flex justify-content-center">
+    <table id="team" class="table table-bordered">
+        <thead>
+            <tr>
+              <th scope="col">Nom</th>
+              <th scope="col">Prénom</th>
+            </tr>
+          </thead>
+    </table>
+    </div>
+    <div id="infoCaptain"> 
+        <label>Le capitaine est :</label>
+    </div>
+
+    <script>
+        const table=document.getElementById("team");
+        dataPlayer = document.getElementById("dataPlayer").outerText;
+        dataPlayer = JSON.parse(dataPlayer);
+        dataPlayer.forEach(player => {
+            let body = document.createElement("tbody");
+            let section = document.createElement("tr");
+            let cell1 = document.createElement("td");
+            let cell2 = document.createElement("td");
+            let lastname = document.createTextNode(player.lastname);
+            let firstname = document.createTextNode(player.firstname);
+            cell1.appendChild(lastname); 
+            cell2.appendChild(firstname);
+            section.appendChild(cell1);
+            section.appendChild(cell2);
+            body.appendChild(section);
+            table.appendChild(body);
+        });
+        const divTeamName = document.getElementById("teamName");
+        dataNameTeam = document.getElementById("dataNameTeam").outerText;
+        dataNameTeam = JSON.parse(dataNameTeam);
+        let labelTeamName = document.createElement('h5');
+        labelTeamName.innerText = dataNameTeam["name"];
+        divTeamName.appendChild(labelTeamName);
+
+        const divCaptain = document.getElementById("infoCaptain");
+        dataCaptain = document.getElementById("dataCaptain").outerText;
+        dataCaptain = JSON.parse(dataCaptain);
+        let labelCaptain = document.createElement('label');
+        labelCaptain.innerText = dataCaptain[0]["firstname"] + '\t' + dataCaptain[0]["lastname"];
+        divCaptain.appendChild(labelCaptain);
+
+    </script>
+</body>

@@ -1,0 +1,148 @@
+    <!DOCTYPE html>
+    <html lang="fr">
+    <head>
+        <link rel="stylesheet" href="../View/bootstrap-5.3.1-dist/css/bootstrap.css">
+        <link rel="stylesheet" href="../View/ux.css">
+        <meta charset="UTF-8">
+        <title>Page d'inscription</title>
+    </head>
+    <body>
+    <section class="vh-100 gradient-custom">
+        <div class="container py-5 h-100">
+            <div class="row justify-content-center align-items-center h-100">
+                <div class="col-12 col-lg-9 col-xl-7">
+                    <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+                        <div class="card-body p-4 p-md-5">
+                            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Demande d'adhésion</h3>
+                            <form method="POST" id="formulaire">
+
+                                <div class="row">
+                                    <div class="col-md-6 mb-4">
+
+                                        <div class="form-outline">
+                                            <input type="text" id="firstname" name="firstname" class="form-control form-control-lg" />
+                                            <label class="form-label" for="firstname">Prénom</label>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+
+                                        <div class="form-outline">
+                                            <input type="text" id="lastname" name="lastname" class="form-control form-control-lg" />
+                                            <label class="form-label" for="lastname">Nom</label>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6 mb-4 d-flex align-items-center">
+
+                                        <div class="form-outline datepicker w-100">
+                                            <input type="mail" name="mail" class="form-control form-control-lg" id="mail" />
+                                            <label for="mail" class="form-label">Adresse mail</label>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-6 mb-4" id="type">
+
+                                        <h6 class="mb-2 pb-1">Type d'utilisateur: </h6>
+
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="usertype" id="player"
+                                                value="player" checked />
+                                            <label class="form-check-label" for="player">Joueur</label>
+                                        </div>
+
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="usertype" id="admin"
+                                                value="admin"/>
+                                            <label class="form-check-label" for="admin">Administrateur</label>
+                                        </div>
+
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="usertype" id="both"
+                                                    value="both" />
+                                            <label class="form-check-label" for="both">Les deux</label>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6 mb-4 pb-2">
+
+                                        <div class="form-outline">
+                                            <input type="password" id="password" name="password" class="form-control form-control-lg" />
+                                            <label class="form-label" for="password">Mot de passe</label>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-6 mb-4 pb-2">
+
+                                        <div class="form-outline">
+                                            <input type="password" id="verif" name="verif" class="form-control form-control-lg" />
+                                            <label class="form-label" for="verif">Vérification mot de passe</label>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="mt-4 pt-2">
+                                    <input class="btn btn-primary btn-lg" name="submit" id="register" type="submit" value="Submit" disabled/>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+
+        const register = document.getElementById("register");
+        const password = document.getElementById("password");
+        const verify = document.getElementById("verif");
+        const firstname = document.getElementById("firstname");
+        const lastname = document.getElementById("lastname");
+        const mail = document.getElementById("mail");
+        const regexPassword =/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&+-])[A-Za-z\d@$!%*?&+-]{8,}$/;
+        const regexMail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        mail.addEventListener('input',formIsValid);
+        
+        lastname.addEventListener('input',formIsValid);
+
+        firstname.addEventListener('input',formIsValid);
+
+        verify.addEventListener('input',formIsValid);
+
+        password.addEventListener('input',formIsValid);
+        
+
+        function formCompleted(){
+            const inputs = Array.from(document.getElementById('formulaire').querySelectorAll('input'));
+            return inputs.every(input => input.value.trim() !== '');
+        }
+        
+        function formIsValid(){
+            if (regexPassword.test(password.value) && regexMail.test(mail.value)){
+                if (verify.value === password.value && formCompleted()){
+                register.removeAttribute('disabled');
+                }
+                else{
+                    register.setAttribute('disabled',true);
+                }
+            }
+            else{
+                register.setAttribute('disabled',true);
+            }
+        }
+
+        if (JSON.parse(document.getElementById('userRole').outerText)!=="0"){
+            document.getElementById("type").style.visibility="hidden";
+        }
+    </script>
+    </body>
+    </html>

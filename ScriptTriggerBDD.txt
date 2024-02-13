@@ -1,0 +1,50 @@
+DELIMITER $$
+CREATE TRIGGER delete_team AFTER DELETE ON teams FOR EACH ROW
+    BEGIN
+        DELETE FROM team_player where team_player.idTeam = OLD.idTeam;
+        DELETE FROM team_tournoi where team_tournoi.idTeam = OLD.idTeam;
+      	DELETE FROM rencontre where rencontre.idTeamUn = OLD.idTeam OR rencontre.idTeamDeux = OLD.idTeam;
+    END
+    $$
+    
+   DELIMITER ;
+
+DELIMITER $$
+CREATE TRIGGER delete_tournoi before DELETE ON tournoi FOR EACH ROW
+    BEGIN
+        DELETE FROM tournoi_parcours where tournoi_parcours.idTournoi = OLD.idTournoi;
+        DELETE FROM team_tournoi where team_tournoi.idTournoi = OLD.idTournoi;
+	DELETE FROM rencontre where recontre.idTournoi = OLD.idTournoi;
+    END
+    $$
+    
+   DELIMITER ;
+
+DELIMITER $$
+CREATE TRIGGER delete_user before DELETE ON users FOR EACH ROW
+    BEGIN
+        DELETE FROM users_role where users_role.idUser = OLD.idUser;
+        DELETE FROM team_player where users_role.idUser = OLD.idUser;
+    END
+    $$
+    
+   DELIMITER ;
+
+DELIMITER $$
+CREATE TRIGGER delete_parcours AFTER DELETE ON parcours FOR EACH ROW
+    BEGIN
+        DELETE FROM tournoi_parcours where tournoi_parcours.idParcours = OLD.id;
+        DELETE FROM rencontre where rencontre.idParcours = OLD.id;
+    END
+    $$
+    
+   DELIMITER ;
+
+DELIMITER $$
+CREATE TRIGGER delete_marker_before
+BEFORE DELETE ON parcours FOR EACH ROW
+BEGIN
+    DELETE FROM marker WHERE marker.idParcours = OLD.id;
+END;
+$$
+DELIMITER ;
