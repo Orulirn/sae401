@@ -35,7 +35,7 @@ echo ("<p id='currentRole' visibility='hidden' style= 'display :none;'>".json_en
                 <a class="nav-link fw-bold" href="../Controller/ControllerMatchPlayer.php">Les matchs</a>
             </li>
             <li class="nav-item mt-auto">
-                <a class="nav-link fw-bold" href="../Controller/ModificationController.php">Modifier Joueur</a>
+                <a class="nav-link fw-bold" href="../Controller/updateDataController.php">Modifier Joueur</a>
             </li>
             <?php endif; ?>
         </ul>

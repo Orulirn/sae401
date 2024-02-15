@@ -1,11 +1,17 @@
 <?php
 include "../Model/UsersModel.php";
 include "../Model/User.php";
-include "../View/UpdateDataView.html";
+include "../View/updateDataView.php";
 session_start();
-$buttonIndex = $_GET['buttonIndex'];
+$role = GetRole($_SESSION['user_id'])[0]["idRole"];
+if ($role == 0){
+    $buttonIndex = $_GET['buttonIndex'];
+}
+else{
+    $buttonIndex = $_SESSION['user_id'];
+}
 $UsersData = Get1OfUsersTable($buttonIndex);
-$saveRole = $UsersData["idRole"];
+
 
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
@@ -14,7 +20,7 @@ ini_set("display_errors", 1);
 
 echo'<body>';
 echo'<center>';
-    echo'<form class="was-validated" method="post">';
+    echo'<form class="was-validated" method="post" id="form" action="userUpdate.php">';
         echo'<div class="w-50 p-3">';
             echo'<label>Firstname</label>';
             echo'<input type="text" class="form-control" name="firstname" size="30" maxlength="225" required="true" value='.$UsersData ["firstname"]. '>';
@@ -36,7 +42,7 @@ echo'<center>';
             echo'<div class="invalid-feedback">Please fill out this field.</div>';
         echo'</div>';
 
-if ($_SESSION['user']->GetRole()==0){
+if (GetRole($_SESSION['user_id'])[0]["idRole"]==0){
 
         echo'<div class="w-50 p-3">';
             echo'<label>Cotisation</label>';
@@ -47,7 +53,7 @@ if ($_SESSION['user']->GetRole()==0){
         echo'</div>';
 }
 
-        echo'<button type="submit" id="modify" class="btn btn-light">Modify</button>';
+        echo'<button type="button" id="modify" class="btn btn-light">Modify</button>';
         echo'<button type="reset" class="btn btn-light">Reset</button>';
     echo'</form>';
 echo'</center>';
@@ -61,8 +67,17 @@ echo'</center>';
     });
 
     function confirmation() {
-        <?php updateUserInfo($buttonIndex,$_POST["firstname"],$_POST["lastname"],$_POST["mail"],$_POST["cotisation"],$_POST["role"],$saveRole);
-        header("Location: ModificationController.php")?>
+        Swal.fire({
+            title: 'Modification',
+            text: "Informations modifiées avec succès !",
+            icon: 'success', // Corrigé ici
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'ok',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                document.getElementById("form").submit();
+            }
+        });
     }
 
 </script>
