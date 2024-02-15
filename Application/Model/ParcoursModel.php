@@ -88,7 +88,7 @@ function selectParticularParcours($name){
         )
     );
 
-    foreach ($markers as $marker){ //pour chaque markers,on crée une liste qu'on va push dans notre structure de données
+    foreach ($markers as $marker){ //pour chaque markers, on crée une liste qu'on va push dans notre structure de données
         $newMarker = array(
             "longitude" => $marker[0],
             "latitude" => $marker[1]
