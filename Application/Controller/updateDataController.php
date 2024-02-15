@@ -45,17 +45,17 @@ echo'<center>';
 if (GetRole($_SESSION['user_id'])[0]["idRole"]==0){
 
         echo'<div class="w-50 p-3">';
-            echo'<label>idUser</label>';
+            echo'<label>Cotisation</label>';
             echo'<br> 1 = Cotisé | 0 = Non cotisé';
-            echo'<input type="integer" class="form-control" name="idUser" size="30" maxlength="1" required="true" value='.$buttonIndex.'>';
+            echo'<input type="integer" class="form-control" name="cotisation" size="30" maxlength="1" required="true" value='.$UsersData["cotisation"].'>';
             echo'<div class="valid-feedback">Valid.</div>';
             echo'<div class="invalid-feedback">Please fill out this field.</div>';
         echo'</div>';
 }
 
-echo'<div class="w-50 p-3 hiding">';
-echo'<label hidden="hidden">Email</label>';
-echo'<input hidden="hidden" type="text" class="form-control" name="mail" size="30" maxlength="225" required="true" value='.$UsersData ['mail'].'>';
+echo'<div class="w-50 p-3" hidden="hidden">';
+echo'<label hidden="hidden">idUser</label>';
+echo'<input hidden="hidden" type="text" class="form-control" name="idUser" size="30" maxlength="225" required="true" value='.$buttonIndex.'>';
 echo'<div hidden="hidden" class="valid-feedback">Valid.</div>';
 echo'<div hidden="hidden" class="invalid-feedback">Please fill out this field.</div>';
 echo'</div>';

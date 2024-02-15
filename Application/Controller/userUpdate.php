@@ -2,7 +2,6 @@
 include "../Model/UsersModel.php";
 include "../Model/User.php";
 
-
 session_start();
 
 $firstname = $_POST["firstname"];
@@ -13,7 +12,6 @@ $userId = $_POST["idUser"];
 $role = GetRole($userId)[0]["idRole"];
 
 $UsersData = Get1OfUsersTable($userId);
-
 if ($role == 0) {
     $cotisation = $_POST["cotisation"];
 } else {
