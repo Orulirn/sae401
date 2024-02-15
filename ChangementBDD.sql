@@ -5,12 +5,11 @@ alter TABLE rencontre
     ADD CONSTRAINT FK_resultatRencontre FOREIGN KEY(resultatRencontre) REFERENCES teams(idTeam);
 
 /*
- sauvegarde fonction victoire défaite
+fonction pour récupérer le classement
  */
-SELECT name, COUNT(r1.resultatRencontre) as victoire,COUNT(r2.idTeamUn)+COUNT(r3.idTeamDeux) as defaite
-from teams
-         join rencontre r1 on idTeam=r1.resultatRencontre
-         JOIN rencontre r2 on idTeam=r2.idTeamUn
-         JOIN rencontre r3 on idTeam=r3.idTeamDeux
-where r1.idTournoi=1
-GROUP by teams.idTeam;
+SELECT teams.name,COUNT(r.idTeamUn)+COUNT(r1.idTeamDeux) as defaite,COUNT(r2.resultatRencontre) as victoire
+FROM teams
+         LEFT JOIN rencontre AS r ON r.idTeamUn = teams.idTeam and r.idTournoi=1 and r.idTeamUn!=r.resultatRencontre
+LEFT JOIN rencontre AS r1 ON r1.idTeamDeux = teams.idTeam and r1.idTournoi=1 and r1.idTeamDeux!=r1.resultatRencontre
+    left join rencontre as r2 on r2.resultatRencontre=teams.idTeam and r2.idTournoi=1
+GROUP BY teams.idTeam;
