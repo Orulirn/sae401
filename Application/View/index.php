@@ -34,9 +34,6 @@ echo ("<p id='currentRole' visibility='hidden' style= 'display :none;'>".json_en
             <li class="nav-item mt-auto">
                 <a class="nav-link fw-bold" href="../Controller/ControllerMatchPlayer.php">Les matchs</a>
             </li>
-            <li class="nav-item mt-auto">
-                <a class="nav-link fw-bold" href="../Controller/updateDataController.php">Modifier Joueur</a>
-            </li>
             <?php endif; ?>
         </ul>
     </div>
@@ -97,12 +94,22 @@ echo ("<p id='currentRole' visibility='hidden' style= 'display :none;'>".json_en
     const navbar = document.querySelector("#navbar");
     role = JSON.parse(role);
     if (role == 0 ){
+
         let li = document.createElement("li");
         li.setAttribute("class","nav-item mt-auto");
         let menu = document.createElement("a");
         menu.setAttribute("class","nav-link fw-bold");
         menu.innerText = "Vérifier Joueur";
         menu.setAttribute("href","../Controller/valideInscriptionController.php");
+        li.appendChild(menu);
+        navbar.appendChild(li);
+
+        li = document.createElement("li");
+        li.setAttribute("class","nav-item mt-auto");
+        menu = document.createElement("a");
+        menu.setAttribute("class","nav-link fw-bold");
+        menu.innerText = "Modifier joueur";
+        menu.setAttribute("href","../Controller/ModificationController.php");
         li.appendChild(menu);
         navbar.appendChild(li);
 
@@ -188,6 +195,19 @@ echo ("<p id='currentRole' visibility='hidden' style= 'display :none;'>".json_en
         navbar.appendChild(li);
     }
     else if (role == "1"){
+
+        let li = document.createElement("li");
+        li.setAttribute("class","nav-item mt-auto");
+        let menu = document.createElement("a");
+
+        li = document.createElement("li");
+        li.setAttribute("class","nav-item mt-auto");
+        menu = document.createElement("a");
+        menu.setAttribute("class","nav-link fw-bold");
+        menu.innerText = "Modifier mes infos";
+        menu.setAttribute("href","../Controller/updateDataController.php");
+        li.appendChild(menu);
+        navbar.appendChild(li);
         
         li = document.createElement("li");
         li.setAttribute("class","nav-item mt-auto");
