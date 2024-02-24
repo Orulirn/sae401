@@ -196,11 +196,12 @@ function saveModification(){
      *
      * Return void
      * */
-    deleteParcoursByID($_GET["idParcours"]);//on va supprimer le parcours
     //récupération des données
     $city = $_GET["cityModif"];
     $name = $_GET["nameModif"];
     $nbDecholeMax = $_GET["NombreDecholeModif"];
+    $idParcours = $_GET["idParcours"];
+    deleteMarkerByIdParcours($idParcours);//on va supprimer le parcours
 
     $nbMarkers =  (count($_GET)-4)/2 ;// on récupère le nombre d'éléments dans le get, on le divise par deux car il y a 2 éléments par marker. On retire 4 pour les trois informations lié au parcours en lui même
     $markers = array(); //création d'une liste qui contiendra des listes de coordonnées pour les markers (liste de deux éléments)
@@ -211,5 +212,61 @@ function saveModification(){
         );
         array_push($markers,$newMarker);
     }
-    insertParcours($name, $city, $nbDecholeMax, $markers);
+    updateParcours($idParcours,$name, $city, $nbDecholeMax, $markers);
+}
+
+function DeleteMarkerByIdParcours($idParcours){
+    /** Cette fonction permet de supprimer les markers lié à un parcours passé en paramètre
+     *
+     * @param :
+     *     idParcours (int) : l'identifiant du parcours dont on souhaite supprimer les markers
+     * */
+    global $db;
+    try{
+        $db->beginTransaction();
+
+        // Suppression des markers lié au parcours
+        $sqlDeleteMarkers = $db->prepare("DELETE FROM marker WHERE idParcours = :idParcours");
+        $sqlDeleteMarkers->execute(array("idParcours" => $idParcours));
+        $db->commit();
+    }
+    catch( PDOException $e) {
+        var_dump($e);
+        $db->rollBack(); // annule la transaction si une erreur est détecté.
+    }
+}
+
+function updateParcours($idParcours,$name, $city, $nbDecholeMax, $markers){
+    /** Cette fonction permet de modifier un parcours en faisant un update dans le parcours puis en insérant les markers lié à ce dernier
+     *
+     * @param :
+     *      idParcours (int) : l'identifiant du parcours dont on souhaite faire la mise à jour
+     *      name (str) : le nom du parcours (peut être un élément différent d'avant ou non)
+     *      city (str) : la ville dans laquelle le parcours se déroule (peut être un élément différent d'avant ou non)
+     *      nbDecholeMax (int) : le nombre max de déchole possible (peut être un élément différent d'avant ou non)
+     *      markers (lst) : liste de liste, chaque liste dans la liste contient 2 éléments : longitude et latitude (peut être les mêmes markers qu'avant la modification)
+     */
+    global $db;
+    try{//update du parcours
+        $sql = $db->prepare("UPDATE parcours SET nom = :name, ville = :city, nbDecholeMax = :nbDecholeMax WHERE id = :idParcours");
+        $sql->execute(array( 'name' => $name, 'city' => $city, 'nbDecholeMax' => $nbDecholeMax, 'idParcours' => $idParcours));
+    }catch (PDOException $e){
+        var_dump($e);
+        $db->rollBack();
+    }
+
+    $No = 0;
+    foreach ($markers as $marker){//ajout de chaque markers
+        $latitude = $marker['lat'];
+        $longitude = $marker['lng'];
+
+        try {
+            $sql = $db->prepare("INSERT INTO marker (idParcours,`No`,longitude,latitude) VALUES (:idParcours,:N,:longitude,:latitude)");
+            $sql->execute(array('idParcours' => $idParcours, 'N' => $No, 'longitude' => $longitude, 'latitude' => $latitude));
+        } catch(PDOException $error){
+            var_dump($error);
+        }
+
+        $No += 1;
+    }
 }
