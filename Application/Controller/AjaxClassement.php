@@ -12,5 +12,6 @@ if (gettype($idTournoi)!="NULL"){
             echo "/";
         }
         echo "\n";
+        $i++;
     }
 }

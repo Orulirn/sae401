@@ -13,3 +13,10 @@ FROM teams
     LEFT JOIN rencontre AS r1 ON r1.idTeamDeux = teams.idTeam and r1.idTournoi=1 and r1.idTeamDeux!=r1.resultatRencontre
     left join rencontre as r2 on r2.resultatRencontre=teams.idTeam and r2.idTournoi=1
 GROUP BY teams.idTeam;
+
+
+/*
+ modif BDD pour lié les équipes à un tournoi
+ */
+ALTER TABLE teams
+    ADD COLUMN idTournoi int NOT NULL REFERENCES tournoi(idTournoi);

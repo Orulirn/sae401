@@ -9,37 +9,71 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <style>
         .btn-toolbar{
-            margin-left: 10px;
+            height: max-content;
         }
         .tableau{
             margin: 5%;
             text-align: center;
         }
+        .scrollBarTop {
+            display: flex;
+            flex-wrap: nowrap;
+        }
 
     </style>
 </head>
 <br>
-<div class="btn-toolbar" role="toolbar">
-    <div class="btn-group mr-2" >
-        <?php
-        global $tournois;
-        foreach($tournois as $tournoi){
-            echo '<button type="button" class="btn btn-outline-secondary" onclick="GetResultAjax('.$tournoi["idTournoi"].')">'.$tournoi["place"]." | ".$tournoi["year"].'</button>';
-        }
-        ?>
+<div id="scrollBarTop" class="scrollBarTop">
+    <div class="col-1" id="flecheGaucheDiv">
+        <p id="flecheGauche"  style="width: 100%; height: 100%"> < </p>
     </div>
-
+    <div class="btn-toolbar col-xl-10" role="toolbar" style="margin: 0">
+        <div class="btn-group mr-2" id="btnGroupAfficher" >
+        </div>
+    </div>
+    <div class="col-1" id="flecheDroiteDiv" >
+        <p id="flecheDroite" style="width: 100%; height: 100%; text-size-adjust: inherit"> > </p>
+    </div>
 </div>
-
+<?php
+global $tournois;
+$i=0;
+foreach($tournois as $tournoi){
+    /*echo '<button type="button" class="btn btn-outline-secondary"
+    onclick="GetResultAjax('.$tournoi["idTournoi"].')">'.$tournoi["place"]." | ".$tournoi["year"].'
+    </button>';*/
+    echo '<input class="inputGestionBtn" type="hidden" id="'.$tournoi["idTournoi"].'" value="'.$tournoi["place"]." | ".$tournoi["year"].'">';
+}
+?>
 <script>
+    let button=null
+    let tabBouton=document.querySelectorAll(".inputGestionBtn")
+    if (tabBouton.length>7) {
+        let tabActuel = []
+        for (let i = 0; i < 10; i++) {
+            tabActuel.push(tabBouton[i])
+        }
+        let indexActuel = 0
+        initialiser(tabActuel)
+    }
+
 
     function GetResultAjax(idtournoi){
+        event.target.style.backgroundColor="#6c757d"
+        event.target.style.color="#ffffffff"
+        if(button===null){
+            button=event.target
+        }
+        else if (button!==event.target){
+            button.style.backgroundColor="#ffffff"
+            button.style.color="#6c757d"
+            button=event.target
+        }
         $.ajax({
             url:"../Controller/AjaxClassement.php",
             type:"POST",
             data:{idtournoi:idtournoi},
             success: function (response){
-                console.log(response)
                 apparitionTableau(response)
             },
             error: function (error){
@@ -47,6 +81,8 @@
             }
         })
     }
+
+
     function apparitionTableau(response){
         var result=response.split("\n")
 
@@ -67,7 +103,7 @@
 
         var thClassement=document.createElement("th")
         thClassement.scope="col"
-        thClassement.textContent="Classement"
+        thClassement.textContent=""
         tr.appendChild(thClassement)
 
         var thEquipe=document.createElement("th")
@@ -93,7 +129,6 @@
         table.appendChild(tbody)
         for(let i of result) {
             let result = i.split("/")
-            console.log(result)
             if (result.length!==1) {
                 var trbody = document.createElement("tr")
                 tbody.appendChild(trbody)
@@ -105,6 +140,28 @@
                     }
                 }
             }
+        }
+    }
+
+
+    function slide(){
+
+    }
+
+
+    function initialiser(tabActuel){
+        const btnGroup=document.getElementById("btnGroupAfficher")
+        for (x of tabActuel){
+            const btn=document.createElement("button")
+            btn.type="button"
+            btn.id="btn/"+x.id
+            btn.className="btn btn-outline-secondary"
+            btn.textContent=x.value
+            btn.addEventListener('click',function () {
+                let value=event.target.id.split("/")[1]
+                GetResultAjax(value)
+            })
+            btnGroup.appendChild(btn)
         }
     }
 </script>
