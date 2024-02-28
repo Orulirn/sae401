@@ -10,6 +10,8 @@
     <style>
         .btn-toolbar{
             height: max-content;
+            overflow-x: hidden;
+            white-space: nowrap;
         }
         .tableau{
             margin: 5%;
@@ -18,45 +20,58 @@
         .scrollBarTop {
             display: flex;
             flex-wrap: nowrap;
+            margin: 15px;
+        }
+        .btn{
+            margin-right: 10px;
         }
 
     </style>
 </head>
 <br>
 <div id="scrollBarTop" class="scrollBarTop">
-    <div class="col-1" id="flecheGaucheDiv">
-        <p id="flecheGauche"  style="width: 100%; height: 100%"> < </p>
+    <div id="flecheGaucheDiv" class="flecheGaucheDiv">
+        <button onclick="slideLeft()"> < </button>
     </div>
-    <div class="btn-toolbar col-xl-10" role="toolbar" style="margin: 0">
-        <div class="btn-group mr-2" id="btnGroupAfficher" >
+    <div class="btn-toolbar" role="toolbar" style="margin: 0" id="btnToolbar">
+        <div class="mr-2" id="btnGroupAfficher" >
+            <?php
+            global $tournois;
+            $i=0;
+            foreach($tournois as $tournoi){
+                echo '<button type="button" class="btn btn-outline-secondary"
+    onclick="GetResultAjax('.$tournoi["idTournoi"].')">'.$tournoi["place"]." | ".$tournoi["year"].'
+    </button>';
+
+            }
+            ?>
         </div>
     </div>
-    <div class="col-1" id="flecheDroiteDiv" >
-        <p id="flecheDroite" style="width: 100%; height: 100%; text-size-adjust: inherit"> > </p>
+    <div class="" id="flecheDroiteDiv" >
+        <button onclick="slideRight()"> > </button>
     </div>
 </div>
-<?php
-global $tournois;
-$i=0;
-foreach($tournois as $tournoi){
-    /*echo '<button type="button" class="btn btn-outline-secondary"
-    onclick="GetResultAjax('.$tournoi["idTournoi"].')">'.$tournoi["place"]." | ".$tournoi["year"].'
-    </button>';*/
-    echo '<input class="inputGestionBtn" type="hidden" id="'.$tournoi["idTournoi"].'" value="'.$tournoi["place"]." | ".$tournoi["year"].'">';
-}
-?>
 <script>
     let button=null
-    let tabBouton=document.querySelectorAll(".inputGestionBtn")
-    if (tabBouton.length>7) {
-        let tabActuel = []
-        for (let i = 0; i < 10; i++) {
-            tabActuel.push(tabBouton[i])
-        }
-        let indexActuel = 0
-        initialiser(tabActuel)
-    }
+    const  boutonGroup=document.getElementById("btnToolbar")
+    window.onload=function(){
+        let tailleFenetre=[window.innerHeight,window.innerWidth]
 
+        let fleceGaucheDiv=document.getElementById("flecheGaucheDiv")
+        fleceGaucheDiv.style.width=(tailleFenetre[1]/12).toString()+"px"
+
+
+        boutonGroup.style.width=(tailleFenetre[1]/1.2).toString()+"px"
+    }
+    window.onresize=function () {
+        let tailleFenetre=[window.innerHeight,window.innerWidth]
+
+        let fleceGaucheDiv=document.getElementById("flecheGaucheDiv")
+        fleceGaucheDiv.style.width=(tailleFenetre[1]/12).toString()+"px"
+
+
+        boutonGroup.style.width=(tailleFenetre[1]/1.2).toString()+"px"
+    }
 
     function GetResultAjax(idtournoi){
         event.target.style.backgroundColor="#6c757d"
@@ -144,25 +159,14 @@ foreach($tournois as $tournoi){
     }
 
 
-    function slide(){
+    function slideRight(){
+        boutonGroup.scrollLeft+=boutonGroup.offsetWidth
+
+    }
+    function slideLeft(){
+        boutonGroup.scrollLeft-=boutonGroup.offsetWidth
 
     }
 
-
-    function initialiser(tabActuel){
-        const btnGroup=document.getElementById("btnGroupAfficher")
-        for (x of tabActuel){
-            const btn=document.createElement("button")
-            btn.type="button"
-            btn.id="btn/"+x.id
-            btn.className="btn btn-outline-secondary"
-            btn.textContent=x.value
-            btn.addEventListener('click',function () {
-                let value=event.target.id.split("/")[1]
-                GetResultAjax(value)
-            })
-            btnGroup.appendChild(btn)
-        }
-    }
 </script>
 <body>
