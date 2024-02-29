@@ -7,11 +7,42 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <style>
+    <style id="monStyle">
+        @keyframes scroll-right {
+            0% {
+                transform: translateX(0);
+            }
+            50% {
+                transform: translateX(-100px);
+                opacity: 0;
+            }
+            51% {
+                transform: translateX(100px);
+                opacity: 0;
+            }
+        }
+        @keyframes scroll-left {
+            0% {
+                transform: translateX(0);
+            }
+            50% {
+                transform: translateX(100px);
+                opacity: 0;
+            }
+            51% {
+                transform: translateX(-100px);
+                opacity: 0;
+            }
+        }
         .btn-toolbar{
             height: max-content;
             overflow-x: hidden;
             white-space: nowrap;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            align-items: center;
+            box-sizing: border-box;
         }
         .tableau{
             margin: 5%;
@@ -20,18 +51,38 @@
         .scrollBarTop {
             display: flex;
             flex-wrap: nowrap;
-            margin: 15px;
+            margin-left: 15px;
+            margin-top: 15px;
         }
-        .btn{
+        .btnClassement{
             margin-right: 10px;
         }
-
+        .btn-outline-dark{
+            display: inline-block;
+            color: #1a1d20;
+            border-color: white;
+            border-radius:50%;
+        }
+        .flecheGaucheDiv{
+            display: flex;
+            justify-content: flex-end;
+        }
+        .flecheDroiteDiv{
+            display: flex;
+            text-align: left;
+        }
+        .btnRight{
+            margin-left: 15px;
+        }
+        .btnLeft{
+            margin-right: 15px;
+        }
     </style>
 </head>
 <br>
 <div id="scrollBarTop" class="scrollBarTop">
     <div id="flecheGaucheDiv" class="flecheGaucheDiv">
-        <button onclick="slideLeft()"> < </button>
+        <button onclick="slideLeft()" class="btn btn-outline-dark btnLeft" id="buttonLeft"> < </button>
     </div>
     <div class="btn-toolbar" role="toolbar" style="margin: 0" id="btnToolbar">
         <div class="mr-2" id="btnGroupAfficher" >
@@ -39,7 +90,7 @@
             global $tournois;
             $i=0;
             foreach($tournois as $tournoi){
-                echo '<button type="button" class="btn btn-outline-secondary"
+                echo '<button type="button" class="btn btn-outline-secondary btnClassement"
     onclick="GetResultAjax('.$tournoi["idTournoi"].')">'.$tournoi["place"]." | ".$tournoi["year"].'
     </button>';
 
@@ -47,30 +98,64 @@
             ?>
         </div>
     </div>
-    <div class="" id="flecheDroiteDiv" >
-        <button onclick="slideRight()"> > </button>
+    <div class="flecheDroiteDiv" id="flecheDroiteDiv" >
+        <button onclick="slideRight()" class="btn btn-outline-dark btnRight" id="buttonRight"> > </button>
     </div>
 </div>
 <script>
     let button=null
     const  boutonGroup=document.getElementById("btnToolbar")
-    window.onload=function(){
-        let tailleFenetre=[window.innerHeight,window.innerWidth]
-
-        let fleceGaucheDiv=document.getElementById("flecheGaucheDiv")
-        fleceGaucheDiv.style.width=(tailleFenetre[1]/12).toString()+"px"
-
-
-        boutonGroup.style.width=(tailleFenetre[1]/1.2).toString()+"px"
+    function checkTel(){
+        if( navigator.userAgent.match(/iPhone/i)
+            || navigator.userAgent.match(/webOS/i)
+            || navigator.userAgent.match(/Android/i)
+            || navigator.userAgent.match(/iPad/i)
+            || navigator.userAgent.match(/iPod/i)
+            || navigator.userAgent.match(/BlackBerry/i)
+            || navigator.userAgent.match(/Windows Phone/i)
+            ){
+                return true;
+            }
+            else {
+                return false;
+            }
     }
+
+    window.onload=function(){
+        let tailleFenetre = [window.innerHeight,window.innerWidth]
+        let flecheGaucheDiv = document.getElementById("flecheGaucheDiv")
+        let flecheDroiteDiv = document.getElementById("flecheDroiteDiv")
+        if(!checkTel()) {
+            flecheGaucheDiv.style.width = (tailleFenetre[1] / 12).toString() + "px"
+            flecheDroiteDiv.style.width = (tailleFenetre[1] / 12).toString() + "px"
+            boutonGroup.style.width = (tailleFenetre[1] / 1.25).toString() + "px"
+        }else{
+            boutonGroup.style.width="100vw"
+            boutonGroup.style.margin = "0";
+            boutonGroup.style.padding = "0";
+            boutonGroup.style.overflowX="auto"
+            var btns=document.querySelectorAll(".btnClassement")
+            for(let i of btns){
+               i.style.fontSize="24px"
+            }
+            let scrollbarTop=document.getElementById("scrollBarTop");
+            scrollbarTop.removeChild(flecheDroiteDiv)
+            scrollbarTop.removeChild(flecheGaucheDiv)
+        }
+
+    }
+
     window.onresize=function () {
-        let tailleFenetre=[window.innerHeight,window.innerWidth]
-
-        let fleceGaucheDiv=document.getElementById("flecheGaucheDiv")
-        fleceGaucheDiv.style.width=(tailleFenetre[1]/12).toString()+"px"
-
-
-        boutonGroup.style.width=(tailleFenetre[1]/1.2).toString()+"px"
+        let tailleFenetre = [screen.height, screen.width]
+        let flecheGaucheDiv = document.getElementById("flecheGaucheDiv")
+        let flecheDroiteDiv = document.getElementById("flecheDroiteDiv")
+        if(!checkTel()) {
+            flecheGaucheDiv.style.width = (tailleFenetre[1] / 12).toString() + "px"
+            flecheDroiteDiv.style.width = (tailleFenetre[1] / 12).toString() + "px"
+            boutonGroup.style.width = (tailleFenetre[1] / 1.25).toString() + "px"
+        }else{
+            boutonGroup.style.width="100vw"
+        }
     }
 
     function GetResultAjax(idtournoi){
@@ -156,16 +241,33 @@
                 }
             }
         }
+        if(checkTel()){
+            thead.style.fontSize="22px"
+            tbody.style.fontSize="22px"
+        }
     }
 
 
     function slideRight(){
-        boutonGroup.scrollLeft+=boutonGroup.offsetWidth
-
+        boutonGroup.style.animation="scroll-right 0.5s ease-in-out"
+        setTimeout(function (){
+            boutonGroup.style.animation=""
+        },500)
+        setTimeout(function (){
+            boutonGroup.scrollLeft+=boutonGroup.offsetWidth
+        },250)
+        if (boutonGroup.scrollLeft===boutonGroup.offsetHeight){
+            
+        }
     }
     function slideLeft(){
-        boutonGroup.scrollLeft-=boutonGroup.offsetWidth
-
+        boutonGroup.style.animation="scroll-left 0.5s ease-in-out"
+        setTimeout(function (){
+            boutonGroup.style.animation=""
+        },500)
+        setTimeout(function (){
+            boutonGroup.scrollLeft-=boutonGroup.offsetWidth
+        },250)
     }
 
 </script>

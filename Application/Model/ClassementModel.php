@@ -1,7 +1,25 @@
 <?php
 include_once "DatabaseConnection.php";
 
+/**
+ * @return array|false
+ * @author Gallouin matisse
+ * permet de récupérer tous les tournois dans la bdd trié par année
+ */
+function   getTournoiOrderAnnee()
+{
+    global $db;
+    $req=$db->prepare("Select * from tournoi order by year desc");
+    $req->execute();
+    return $req->fetchAll();
+}
 
+/**
+ * @param $idtournoi
+ * @return array|false
+ * @author Gallouin Matisse
+ * fonction permettant de récupérer le nombre de victoire et de défaite de chaque équipe pour un tournoi donné en les triants par leur "score"
+ */
 function getClassementByTournoi($idtournoi)
 {
     global $db ;

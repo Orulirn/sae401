@@ -2,6 +2,6 @@
 include "../View/index.php";
 include "../Model/ClassementModel.php";
 include "../Model/tournamentModel.php";
-$tournois=getAllTournaments();
+$tournois=getTournoiOrderAnnee();
 include ("../View/ClassementView.php");
 
