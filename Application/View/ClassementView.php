@@ -82,7 +82,6 @@
 <br>
 <div id="scrollBarTop" class="scrollBarTop">
     <div id="flecheGaucheDiv" class="flecheGaucheDiv">
-        <button onclick="slideLeft()" class="btn btn-outline-dark btnLeft" id="buttonLeft"> < </button>
     </div>
     <div class="btn-toolbar" role="toolbar" style="margin: 0" id="btnToolbar">
         <div class="mr-2" id="btnGroupAfficher" >
@@ -99,7 +98,6 @@
         </div>
     </div>
     <div class="flecheDroiteDiv" id="flecheDroiteDiv" >
-        <button onclick="slideRight()" class="btn btn-outline-dark btnRight" id="buttonRight"> > </button>
     </div>
 </div>
 <script>
@@ -128,7 +126,17 @@
         if(!checkTel()) {
             flecheGaucheDiv.style.width = (tailleFenetre[1] / 12).toString() + "px"
             flecheDroiteDiv.style.width = (tailleFenetre[1] / 12).toString() + "px"
-            boutonGroup.style.width = (tailleFenetre[1] / 1.25).toString() + "px"
+            /*boutonGroup.style.width=(tailleFenetre[1]/1.2).toString()+"px"*/
+            if(boutonGroup.offsetWidth<boutonGroup.scrollWidth){
+                let btnright=document.createElement("button")
+                btnright.addEventListener("click",function (){
+                    slideRight()
+                });
+                btnright.textContent=" > "
+                btnright.className="btn btn-outline-dark btnRight"
+                btnright.id="buttonRight"
+                document.getElementById("flecheDroiteDiv").appendChild(btnright)
+            }
         }else{
             boutonGroup.style.width="100vw"
             boutonGroup.style.margin = "0";
@@ -152,7 +160,6 @@
         if(!checkTel()) {
             flecheGaucheDiv.style.width = (tailleFenetre[1] / 12).toString() + "px"
             flecheDroiteDiv.style.width = (tailleFenetre[1] / 12).toString() + "px"
-            boutonGroup.style.width = (tailleFenetre[1] / 1.25).toString() + "px"
         }else{
             boutonGroup.style.width="100vw"
         }
@@ -254,19 +261,45 @@
             boutonGroup.style.animation=""
         },500)
         setTimeout(function (){
-            boutonGroup.scrollLeft+=boutonGroup.offsetWidth
+            boutonGroup.scrollLeft+=Math.round(boutonGroup.offsetWidth)
+            boutonGroup.scrollLeft=Math.round(boutonGroup.scrollLeft)
+            console.log(boutonGroup.scrollLeft,boutonGroup.offsetWidth,boutonGroup.scrollWidth)
+            if (boutonGroup.scrollLeft + boutonGroup.offsetWidth /*+10*/ >= boutonGroup.scrollWidth) {
+                document.getElementById("flecheDroiteDiv").removeChild(document.getElementById("buttonRight"))
+            }
+            if(!document.getElementById("buttonLeft")){
+                let btnleft=document.createElement("button")
+                btnleft.addEventListener("click",function (){
+                    slideLeft()
+                });
+                btnleft.textContent=" < "
+                btnleft.className="btn btn-outline-dark btnLeft"
+                btnleft.id="buttonLeft"
+                document.getElementById("flecheGaucheDiv").appendChild(btnleft)
+            }
         },250)
-        if (boutonGroup.scrollLeft===boutonGroup.offsetHeight){
-            
-        }
     }
     function slideLeft(){
+        let boutonAfficher=document.getElementById("btnGroupAfficher");
         boutonGroup.style.animation="scroll-left 0.5s ease-in-out"
         setTimeout(function (){
             boutonGroup.style.animation=""
         },500)
         setTimeout(function (){
             boutonGroup.scrollLeft-=boutonGroup.offsetWidth
+            if (boutonGroup.scrollLeft===0){
+                document.getElementById("flecheGaucheDiv").removeChild(document.getElementById("buttonLeft"))
+            }
+            if(!document.getElementById("buttonRight")){
+                let btnright=document.createElement("button")
+                btnright.addEventListener("click",function (){
+                    slideRight()
+                });
+                btnright.textContent=" > "
+                btnright.className="btn btn-outline-dark btnRight"
+                btnright.id="buttonRight"
+                document.getElementById("flecheDroiteDiv").appendChild(btnright)
+            }
         },250)
     }
 
