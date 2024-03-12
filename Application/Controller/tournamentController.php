@@ -7,7 +7,7 @@
  */
 
 
-include_once ("../Model/ChargerParcoursModel.php");
+include_once ("../Model/ParcoursModel.php");
 include_once ("../Model/tournamentModel.php");
 
 // Gestion de l'ajout d'un tournoi
