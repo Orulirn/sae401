@@ -1,0 +1,97 @@
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../bootstrap-5.3.1-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../bootstrap-5.3.1-dist/css/homepagestyle.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+    <title>Les choleux de Quarouble</title>
+</head>
+<body>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<div class="video-container">
+    <video autoplay loop muted poster="../files/poster.jpg">
+        <source src="../files/video.mp4" type="video/mp4">
+    </video>
+</div>
+<div class="rules-background">
+<div class="welcome-message">
+    <h1>
+        <span class="welcome-text">Bienvenue aux</span><br>
+        Choleux de Quarouble
+    </h1>
+    <p>Le jeu de cholage est une tradition locale. Les règles du jeu sont simples : ...</p>
+
+    <p>Continuez à explorer et à profiter du jeu passionnant de cholage dans notre belle communauté.</p>
+    <a class="scroll-down" href="#rules-section">&#8595;</a>
+</div>
+<div id="map" style="height: 400px;"></div>
+<!-- Section des règles -->
+<div id="rules-section" class="container mt-4 content">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Règles du Jeu :</h2>
+            <p class="rules-text">
+                <br><br>
+                <strong>Objectif du Jeu :</strong><br>
+                Le cholage, c’est un jeu d’équipe où on tape une cholette avec un cambot pour toucher un fût de bière.
+                <br><br>
+                <strong>Déroulement du Jeu :</strong><br>
+                On joue le mercredi des cendres dans les rues de Quarouble et Quiévrechain. Chaque équipe a un
+                nombre de coups (chole ou déchole) pour atteindre le fût. Plus on est près, plus on gagne de points.
+                <br><br>
+                <strong>Fin du Jeu :</strong><br>
+                Le jeu se termine lorsque chaque joueur ou équipe a effectué son nombre de lancers prévu ou si la cible
+                a été atteinte.
+                <br><br>
+                <strong>Fair-Play :</strong><br>
+                Il faut respecter les règles et être fair-play. C’est une fête de village où on boit de la bière et
+                on s’amuse.
+                <br><br><br>
+            </p>
+            <h2>Vive le Cholage !</h2>
+            <br><br><br><br><br><br><br><br>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+
+<script src="../bootstrap-5.3.1-dist/js/bootstrap.bundle.min.js"></script>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    // Fonction pour initialiser la carte
+    function initMap() {
+        // Centre la carte sur Quiévrechain
+        let latitude = 50.3965;
+        let longitude = 3.6695;
+        let map = L.map('map').setView([latitude, longitude], 13);
+
+
+        // Ajoute une couche de carte OpenStreetMap
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+    }
+
+    // Appelle la fonction d'initialisation de la carte lorsque la page est chargée
+    window.onload = function () {
+        initMap();
+    };
+</script>
+<script>
+    $(document).ready(function(){
+        $(".scroll-down").click(function() {
+            $('html, body').animate({
+                scrollTop: $("#rules-section").offset().top
+            }, 1000);
+        });
+    });
+</script>
+
+</body>
+</html>

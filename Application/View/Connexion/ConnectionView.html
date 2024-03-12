@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page de Connexion Design</title>
+    <link rel="stylesheet" href="../bootstrap-5.3.1-dist/css/bootstrap.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+<script>
+    window.onload = function() {
+        // Vérifie si le paramètre 'login=failed' est présent dans l'URL
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('login') && urlParams.get('login') === 'failed') {
+            Swal.fire({
+                title: 'Echec de la connexion!',
+                text: 'Veuillez verifier votre e-mail et votre mot de passe.',
+                icon: 'error',
+                confirmButtonText: 'OK'
+            });
+        }
+    };
+</script>
+
+<div class="container d-flex justify-content-center align-items-center"  style="height: 70vh;">
+    <div class="border p-5 rounded bg-light">
+        <form method="POST">
+            <div class="mb-4"></div>
+            <label for="mail" class="form-label">Adresse mail :</label>
+            <input type="text" class="form-control" id="mail" placeholder="Entrez votre adresse mail" name="mail" required>
+            <div class="mb-4"></div>
+            <label for="pwd" class="form-label">Mot de passe :</label>
+            <input type="password" class="form-control" id="pwd" placeholder="Entrez votre mot de passe" name="pwd" required>
+            <div class="mb-4"></div>
+            <button name="connect" class="btn btn-primary" id="login" disabled>Se connecter</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    const mailField = document.querySelector("#mail");
+    const pwdField = document.querySelector("#pwd");
+    const button = document.querySelector("#login");
+
+    function toggleButtonState() {
+        if (mailField.value.trim() !== "" && pwdField.value.trim() !== "") {
+            button.removeAttribute("disabled");
+        } else {
+            button.setAttribute("disabled", "disabled");
+        }
+    }
+    mailField.addEventListener("input", toggleButtonState);
+    pwdField.addEventListener("input", toggleButtonState);
+    button.addEventListener("click", function () {
+        window.location.replace('../HomePage.html');
+    });
+</script>
+</body>
+</html>
