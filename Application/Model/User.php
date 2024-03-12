@@ -50,6 +50,7 @@ class User {
             $sql->execute(array('userMail'=>$mail));
             $res=$sql->fetch();
             $this->role=$res[0];
+            $_SESSION['perms']= $res[0];
             $this->firstname=$res[1];
             $this->lastname=$res[2];
             $this->log=true;
