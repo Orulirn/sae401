@@ -8,7 +8,7 @@
 
  function selectAllTournaments(){
     global $db;
-    $sql = $db->prepare("SELECT * FROM tournoi");
+    $sql = $db->prepare("SELECT * FROM tournoi ORDER BY year DESC");
     $sql->execute();
-    return $sql->fetchAll(PDO::FETCH_ASSOC);
+    return $sql->fetch(PDO::FETCH_ASSOC);
 };

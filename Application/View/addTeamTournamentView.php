@@ -32,29 +32,22 @@
         dataTeam = document.getElementById("dataTeam").outerText;
         dataTeam = JSON.parse(dataTeam);
         
-            let labelTeamName = document.createElement('label');
-            labelTeamName.name="idTeam";
-            labelTeamName.value=dataTeam['idTeam'];
-            labelTeamName.innerText = dataTeam['idTeam'];
-            myDiv.appendChild(labelTeamName);
+        let labelTeamName = document.createElement('label');
+        labelTeamName.name="idTeam";
+        labelTeamName.value=dataTeam['idTeam'];
+        labelTeamName.innerText = dataTeam['idTeam'];
+        myDiv.appendChild(labelTeamName);
     
         const myDivTournament = document.getElementById('idTournoi');
-        
-        let div = document.createElement('div');
-        let select = document.createElement('select');
-        select.name = 'selectTournament';
-        select.id= 'selectTournament' ;
 
-        dataTournament = document.getElementById("dataTournament").outerText;
+        dataTournament = document.getElementById("dataTournament").innerText;
         dataTournament = JSON.parse(dataTournament);
-        dataTournament.forEach(item => {
-            let option = document.createElement('option');
-            option.innerText = item.idTournoi + '.' + '\t' + item.place + '\t' + item.year;
-            option.value = item['idTournoi'];
-            select.appendChild(option);
-        });
-
-        myDivTournament.appendChild(select);
+        
+        let labelTournament = document.createElement('label');
+        labelTournament.name="idTournament";
+        labelTournament.value=dataTournament['idTournoi'];
+        labelTournament.innerText = dataTournament['idTournoi'] + '.' + '\t' + dataTournament["place"] + '\t' + dataTournament["year"];
+        myDivTournament.appendChild(labelTournament);
         
 
         let myDivCotisation = document.getElementById('idCotisation');

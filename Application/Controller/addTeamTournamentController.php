@@ -27,8 +27,9 @@ echo ("<p id='dataTournament' visibility='hidden' style= 'display :none;'>".json
 echo ("<p id='dataCotisation' visibility='hidden' style= 'display :none;'>".json_encode($dataCotisation)."</p>");
 echo ("<p id='dataNumberTeamMates' visibility='hidden' style= 'display :none;'>".json_encode($dataNumberTeamMates)."</p>");
 
-var_dump($_POST["selectTournament"]);
-
+/* Regarde si la personne connecté est un admin ou non
+Si 0 alors admin donc affiche la vue admin
+Si 1 alors pas admin donc affiche la vue joueur si le joueur est capitaine */
 switch (GetRole($_SESSION['user_id'])[0]["idRole"]){
     case "0":
         require "../View/addTeamTournamentViewAdmin.php";
@@ -40,15 +41,18 @@ case "1":
         break;
     };
 
+/* Regarde si la personne connecté est un admin ou non
+Si 0 alors admin donc ajoute la team à l'equipe (avec le select)
+Si 1 alors pas admin donc ajoute l'equipe du capitaine */  
 if(isset($_POST['submit'])) {
     switch (GetRole($_SESSION['user_id'])[0]["idRole"]){
     case "1":
         if (selectCaptainWithUser($_SESSION['user_id'])["isCaptain"]){
-            addTeamToTournamentPlayer($dataTeam["idTeam"],$_POST["selectTournament"]);
+            addTeamToTournament($dataTeam["idTeam"],$dataTournament["idTournoi"]);
         }
         break;
     case "0":
-        addTeamToTournament($_POST["selectTeam"],$_POST['selectTournament']);      
+        addTeamToTournament($_POST["selectTeam"],$dataTournament["idTournoi"]);      
         break;
 }};
 

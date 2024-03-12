@@ -18,7 +18,7 @@
         <div class="mb-4"></div>
         <div id="teamName" class="mb-4" style="text-align: center"></div><br>
         <div class="mb-4"></div>
-        <label for="idTournoi" id="labTourna">A quel tournoi voulez-vous inscrire l'équipe ?</label><br>
+        <label for="idTournoi" id="labTourna">Vous allez inscrire l'équipe au tournoi actuel :</label><br>
         <div class="mb-4"></div>
         <div id="idTournoi" class="mb-4" style="text-align: center"></div><br>
         <div class="mb-4"></div>
@@ -54,22 +54,15 @@
         myDiv.appendChild(selectTeam);
 
         const myDivTournament = document.getElementById('idTournoi');
-        
-        let div = document.createElement('div');
-        let select = document.createElement('select');
-        select.name = 'selectTournament';
-        select.id= 'selectTournament' ;
 
         dataTournament = document.getElementById("dataTournament").innerText;
         dataTournament = JSON.parse(dataTournament);
-        dataTournament.forEach(item => {
-            let option = document.createElement('option');
-            option.innerText = item.idTournoi + '.' + '\t' + item.place + '\t' + item.year;
-            option.value = item['idTournoi'];
-            select.appendChild(option);
-        });
-
-        myDivTournament.appendChild(select);
+        
+        let labelTournament = document.createElement('label');
+        labelTournament.name="idTournament";
+        labelTournament.value=dataTournament['idTournoi'];
+        labelTournament.innerText = dataTournament['idTournoi'] + '.' + '\t' + dataTournament["place"] + '\t' + dataTournament["year"];
+        myDivTournament.appendChild(labelTournament);
 
         <?php if (isset($_POST['submit'])):?>
         
