@@ -2,10 +2,10 @@
 -- version 5.1.2
 -- https://www.phpmyadmin.net/
 --
--- Hôte : localhost:3306
--- Généré le : jeu. 18 jan. 2024 à 17:44
--- Version du serveur : 5.7.24
--- Version de PHP : 8.0.1
+-- Host: localhost:3306
+-- Generation Time: Mar 12, 2024 at 10:02 AM
+-- Server version: 5.7.24
+-- PHP Version: 8.0.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `sae_s3`
+-- Database: `sae_s3`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `estimation`
+-- Table structure for table `estimation`
 --
 
 CREATE TABLE `estimation` (
@@ -34,7 +34,7 @@ CREATE TABLE `estimation` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `estimation`
+-- Dumping data for table `estimation`
 --
 
 INSERT INTO `estimation` (`idRencontre`, `pariE1`, `pariE2`) VALUES
@@ -43,7 +43,7 @@ INSERT INTO `estimation` (`idRencontre`, `pariE1`, `pariE2`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `marker`
+-- Table structure for table `marker`
 --
 
 CREATE TABLE `marker` (
@@ -54,7 +54,7 @@ CREATE TABLE `marker` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `marker`
+-- Dumping data for table `marker`
 --
 
 INSERT INTO `marker` (`idParcours`, `No`, `longitude`, `latitude`) VALUES
@@ -79,7 +79,7 @@ INSERT INTO `marker` (`idParcours`, `No`, `longitude`, `latitude`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `parcours`
+-- Table structure for table `parcours`
 --
 
 CREATE TABLE `parcours` (
@@ -90,7 +90,7 @@ CREATE TABLE `parcours` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `parcours`
+-- Dumping data for table `parcours`
 --
 
 INSERT INTO `parcours` (`id`, `nom`, `ville`, `nbDecholeMax`) VALUES
@@ -101,7 +101,7 @@ INSERT INTO `parcours` (`id`, `nom`, `ville`, `nbDecholeMax`) VALUES
 (5, 'hi', 'hi', 5);
 
 --
--- Déclencheurs `parcours`
+-- Triggers `parcours`
 --
 DELIMITER $$
 CREATE TRIGGER `delete_marker_before` BEFORE DELETE ON `parcours` FOR EACH ROW BEGIN
@@ -120,7 +120,7 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Structure de la table `rencontre`
+-- Table structure for table `rencontre`
 --
 
 CREATE TABLE `rencontre` (
@@ -134,7 +134,7 @@ CREATE TABLE `rencontre` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `rencontre`
+-- Dumping data for table `rencontre`
 --
 
 INSERT INTO `rencontre` (`idRencontre`, `idTournoi`, `idTeamUn`, `idTeamDeux`, `idParcours`, `equipeChole`, `resultatRencontre`) VALUES
@@ -143,7 +143,7 @@ INSERT INTO `rencontre` (`idRencontre`, `idTournoi`, `idTeamUn`, `idTeamDeux`, `
 -- --------------------------------------------------------
 
 --
--- Structure de la table `role`
+-- Table structure for table `role`
 --
 
 CREATE TABLE `role` (
@@ -152,7 +152,7 @@ CREATE TABLE `role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `role`
+-- Dumping data for table `role`
 --
 
 INSERT INTO `role` (`idRole`, `slate`) VALUES
@@ -162,7 +162,7 @@ INSERT INTO `role` (`idRole`, `slate`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `teams`
+-- Table structure for table `teams`
 --
 
 CREATE TABLE `teams` (
@@ -171,7 +171,7 @@ CREATE TABLE `teams` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `teams`
+-- Dumping data for table `teams`
 --
 
 INSERT INTO `teams` (`idTeam`, `name`) VALUES
@@ -183,7 +183,7 @@ INSERT INTO `teams` (`idTeam`, `name`) VALUES
 (53, 'fgfg');
 
 --
--- Déclencheurs `teams`
+-- Triggers `teams`
 --
 DELIMITER $$
 CREATE TRIGGER `delete_team` AFTER DELETE ON `teams` FOR EACH ROW BEGIN
@@ -197,7 +197,7 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Structure de la table `team_player`
+-- Table structure for table `team_player`
 --
 
 CREATE TABLE `team_player` (
@@ -207,7 +207,7 @@ CREATE TABLE `team_player` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `team_player`
+-- Dumping data for table `team_player`
 --
 
 INSERT INTO `team_player` (`idTeam`, `player`, `isCaptain`) VALUES
@@ -233,7 +233,7 @@ INSERT INTO `team_player` (`idTeam`, `player`, `isCaptain`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `team_tournoi`
+-- Table structure for table `team_tournoi`
 --
 
 CREATE TABLE `team_tournoi` (
@@ -242,7 +242,7 @@ CREATE TABLE `team_tournoi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `team_tournoi`
+-- Dumping data for table `team_tournoi`
 --
 
 INSERT INTO `team_tournoi` (`idTeam`, `idTournoi`) VALUES
@@ -252,7 +252,7 @@ INSERT INTO `team_tournoi` (`idTeam`, `idTournoi`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `tournoi`
+-- Table structure for table `tournoi`
 --
 
 CREATE TABLE `tournoi` (
@@ -262,14 +262,15 @@ CREATE TABLE `tournoi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `tournoi`
+-- Dumping data for table `tournoi`
 --
 
 INSERT INTO `tournoi` (`idTournoi`, `place`, `year`) VALUES
-(1, 'Quievrechain', 2024);
+(1, 'Quievrechain', 2024),
+(2, 'Quievrechain', 2023);
 
 --
--- Déclencheurs `tournoi`
+-- Triggers `tournoi`
 --
 DELIMITER $$
 CREATE TRIGGER `delete_tournoi` BEFORE DELETE ON `tournoi` FOR EACH ROW BEGIN
@@ -283,7 +284,7 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Structure de la table `tournoi_parcours`
+-- Table structure for table `tournoi_parcours`
 --
 
 CREATE TABLE `tournoi_parcours` (
@@ -292,7 +293,7 @@ CREATE TABLE `tournoi_parcours` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `tournoi_parcours`
+-- Dumping data for table `tournoi_parcours`
 --
 
 INSERT INTO `tournoi_parcours` (`idTournoi`, `idParcours`) VALUES
@@ -302,7 +303,7 @@ INSERT INTO `tournoi_parcours` (`idTournoi`, `idParcours`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -315,19 +316,19 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`idUser`, `firstname`, `lastname`, `mail`, `password`, `cotisation`) VALUES
-(0, 'Nathan', 'Lermigeaux', 'nathanlermigeaux@gmail.com', '$2y$10$3cYr8qd.yXjx.QWYKsFgX.bEE7uKepF.tIIRYXz/GXPwG4WOMlgym', 0),
-(1, 'Océane', 'Massé', 'oceane.masse@gmail.com', '$2y$10$mOtGjLVWECzAYE27SjxHWOS.OeTYQENHfB..ran4NWwpvW4VFr2dO', 0),
-(2, 'Tristan', 'Flocon', 'flocontristan@gmail.com', '$2y$10$kcNeU9wbMbsELQenD6B/S.B9HbXt8ZgJL4fYH/8S12hW2583Q0Hdy', 0),
-(3, 'Ewen', 'Carré', 'ewencarre@gmail.com', '$2y$10$A..8Tc1KKn8YpgBfqOWOCeopWukrXIKwIigzy6Dsv7I1S43Mgw5Gy', 0),
-(4, 'Léo', 'Hannecart', 'leohannecart@gmail.com', '$2y$10$UH2LA.NE38Pk0dCxk7Rj9.7XhlnWqCkRQZHy8dEv79eBJr/0fVgpG', 0),
-(5, 'Cyran', 'Charot', 'kevinlamoula@gmail.com', '$2y$10$x1BSqJkvoGbjOJD4rgPmQOQ.MC9rta06D.1hsfQnJ6/jhqp64yRyq', 0);
+(0, 'Nathan', 'Lermigeaux', 'nathanlermigeaux@gmail.com', '$2y$10$3cYr8qd.yXjx.QWYKsFgX.bEE7uKepF.tIIRYXz/GXPwG4WOMlgym', 1),
+(1, 'Océane', 'Massé', 'oceane.masse@gmail.com', '$2y$10$Pr4RlgFPsMnWItW9hG3aPeVS0Kpwb7URYuMvOuwphB6ptwV/J2ENK', 1),
+(2, 'Tristan', 'Flocon', 'flocontristan@gmail.com', '$2y$10$kcNeU9wbMbsELQenD6B/S.B9HbXt8ZgJL4fYH/8S12hW2583Q0Hdy', 1),
+(3, 'Ewen', 'Carré', 'ewencarre@gmail.com', '$2y$10$A..8Tc1KKn8YpgBfqOWOCeopWukrXIKwIigzy6Dsv7I1S43Mgw5Gy', 1),
+(4, 'Léo', 'Hannecart', 'leohannecart@gmail.com', '$2y$10$UH2LA.NE38Pk0dCxk7Rj9.7XhlnWqCkRQZHy8dEv79eBJr/0fVgpG', 1),
+(5, 'Cyran', 'Charot', 'kevinlamoula@gmail.com', '$2y$10$Pr4RlgFPsMnWItW9hG3aPeVS0Kpwb7URYuMvOuwphB6ptwV/J2ENK', 1);
 
 --
--- Déclencheurs `users`
+-- Triggers `users`
 --
 DELIMITER $$
 CREATE TRIGGER `delete_user` BEFORE DELETE ON `users` FOR EACH ROW BEGIN
@@ -340,7 +341,7 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Structure de la table `users_role`
+-- Table structure for table `users_role`
 --
 
 CREATE TABLE `users_role` (
@@ -349,7 +350,7 @@ CREATE TABLE `users_role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `users_role`
+-- Dumping data for table `users_role`
 --
 
 INSERT INTO `users_role` (`idRole`, `idUser`) VALUES
@@ -357,7 +358,6 @@ INSERT INTO `users_role` (`idRole`, `idUser`) VALUES
 (0, 2),
 (0, 3),
 (0, 4),
-(0, 5),
 (1, 0),
 (1, 1),
 (1, 2),
@@ -368,7 +368,7 @@ INSERT INTO `users_role` (`idRole`, `idUser`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `verify`
+-- Table structure for table `verify`
 --
 
 CREATE TABLE `verify` (
@@ -381,37 +381,37 @@ CREATE TABLE `verify` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `verify`
+-- Dumping data for table `verify`
 --
 
 INSERT INTO `verify` (`idVerify`, `firstname`, `lastname`, `mail`, `idRole`, `password`) VALUES
 (1, 'Pierre', 'Badelek', 'pierrebadelek@gmail.com', 1, '$2y$10$fw6uCKysMsCy/h6eI7tYN.8Y64OaI8pzSm60coQA2Ua8BK4K.Pm4a');
 
 --
--- Index pour les tables déchargées
+-- Indexes for dumped tables
 --
 
 --
--- Index pour la table `estimation`
+-- Indexes for table `estimation`
 --
 ALTER TABLE `estimation`
   ADD PRIMARY KEY (`idRencontre`);
 
 --
--- Index pour la table `marker`
+-- Indexes for table `marker`
 --
 ALTER TABLE `marker`
   ADD PRIMARY KEY (`No`,`idParcours`),
   ADD KEY `idParcours` (`idParcours`);
 
 --
--- Index pour la table `parcours`
+-- Indexes for table `parcours`
 --
 ALTER TABLE `parcours`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `rencontre`
+-- Indexes for table `rencontre`
 --
 ALTER TABLE `rencontre`
   ADD PRIMARY KEY (`idRencontre`),
@@ -421,121 +421,122 @@ ALTER TABLE `rencontre`
   ADD KEY `idParcours` (`idParcours`);
 
 --
--- Index pour la table `role`
+-- Indexes for table `role`
 --
 ALTER TABLE `role`
   ADD PRIMARY KEY (`idRole`);
 
 --
--- Index pour la table `teams`
+-- Indexes for table `teams`
 --
 ALTER TABLE `teams`
   ADD PRIMARY KEY (`idTeam`);
 
 --
--- Index pour la table `team_player`
+-- Indexes for table `team_player`
 --
 ALTER TABLE `team_player`
   ADD PRIMARY KEY (`idTeam`,`player`),
   ADD KEY `player` (`player`);
 
 --
--- Index pour la table `team_tournoi`
+-- Indexes for table `team_tournoi`
 --
 ALTER TABLE `team_tournoi`
   ADD PRIMARY KEY (`idTeam`,`idTournoi`),
   ADD KEY `idTournoi` (`idTournoi`);
 
 --
--- Index pour la table `tournoi`
+-- Indexes for table `tournoi`
 --
 ALTER TABLE `tournoi`
-  ADD PRIMARY KEY (`idTournoi`);
+  ADD PRIMARY KEY (`idTournoi`),
+  ADD UNIQUE KEY `year` (`year`);
 
 --
--- Index pour la table `tournoi_parcours`
+-- Indexes for table `tournoi_parcours`
 --
 ALTER TABLE `tournoi_parcours`
   ADD PRIMARY KEY (`idTournoi`,`idParcours`),
   ADD KEY `idParcours` (`idParcours`);
 
 --
--- Index pour la table `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`idUser`);
 
 --
--- Index pour la table `users_role`
+-- Indexes for table `users_role`
 --
 ALTER TABLE `users_role`
   ADD PRIMARY KEY (`idUser`,`idRole`),
   ADD KEY `idRole` (`idRole`);
 
 --
--- Index pour la table `verify`
+-- Indexes for table `verify`
 --
 ALTER TABLE `verify`
   ADD PRIMARY KEY (`idVerify`);
 
 --
--- AUTO_INCREMENT pour les tables déchargées
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT pour la table `parcours`
+-- AUTO_INCREMENT for table `parcours`
 --
 ALTER TABLE `parcours`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT pour la table `rencontre`
+-- AUTO_INCREMENT for table `rencontre`
 --
 ALTER TABLE `rencontre`
   MODIFY `idRencontre` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT pour la table `role`
+-- AUTO_INCREMENT for table `role`
 --
 ALTER TABLE `role`
   MODIFY `idRole` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT pour la table `teams`
+-- AUTO_INCREMENT for table `teams`
 --
 ALTER TABLE `teams`
   MODIFY `idTeam` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
--- AUTO_INCREMENT pour la table `tournoi`
+-- AUTO_INCREMENT for table `tournoi`
 --
 ALTER TABLE `tournoi`
-  MODIFY `idTournoi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idTournoi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT pour la table `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT pour la table `verify`
+-- AUTO_INCREMENT for table `verify`
 --
 ALTER TABLE `verify`
   MODIFY `idVerify` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- Contraintes pour les tables déchargées
+-- Constraints for dumped tables
 --
 
 --
--- Contraintes pour la table `marker`
+-- Constraints for table `marker`
 --
 ALTER TABLE `marker`
   ADD CONSTRAINT `marker_ibfk_1` FOREIGN KEY (`idParcours`) REFERENCES `parcours` (`id`);
 
 --
--- Contraintes pour la table `rencontre`
+-- Constraints for table `rencontre`
 --
 ALTER TABLE `rencontre`
   ADD CONSTRAINT `rencontre_ibfk_1` FOREIGN KEY (`idTournoi`) REFERENCES `tournoi` (`idTournoi`),
@@ -544,28 +545,28 @@ ALTER TABLE `rencontre`
   ADD CONSTRAINT `rencontre_ibfk_4` FOREIGN KEY (`idParcours`) REFERENCES `parcours` (`id`);
 
 --
--- Contraintes pour la table `team_player`
+-- Constraints for table `team_player`
 --
 ALTER TABLE `team_player`
   ADD CONSTRAINT `team_player_ibfk_1` FOREIGN KEY (`idTeam`) REFERENCES `teams` (`idTeam`),
   ADD CONSTRAINT `team_player_ibfk_2` FOREIGN KEY (`player`) REFERENCES `users` (`idUser`);
 
 --
--- Contraintes pour la table `team_tournoi`
+-- Constraints for table `team_tournoi`
 --
 ALTER TABLE `team_tournoi`
   ADD CONSTRAINT `team_tournoi_ibfk_1` FOREIGN KEY (`idTeam`) REFERENCES `teams` (`idTeam`),
   ADD CONSTRAINT `team_tournoi_ibfk_2` FOREIGN KEY (`idTournoi`) REFERENCES `tournoi` (`idTournoi`);
 
 --
--- Contraintes pour la table `tournoi_parcours`
+-- Constraints for table `tournoi_parcours`
 --
 ALTER TABLE `tournoi_parcours`
   ADD CONSTRAINT `tournoi_parcours_ibfk_1` FOREIGN KEY (`idTournoi`) REFERENCES `tournoi` (`idTournoi`),
   ADD CONSTRAINT `tournoi_parcours_ibfk_2` FOREIGN KEY (`idParcours`) REFERENCES `parcours` (`id`);
 
 --
--- Contraintes pour la table `users_role`
+-- Constraints for table `users_role`
 --
 ALTER TABLE `users_role`
   ADD CONSTRAINT `users_role_ibfk_1` FOREIGN KEY (`idRole`) REFERENCES `role` (`idRole`),

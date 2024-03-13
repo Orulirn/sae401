@@ -20,7 +20,7 @@ function   getTournoiOrderAnnee()
  * @author Gallouin Matisse
  * fonction permettant de récupérer le nombre de victoire et de défaite de chaque équipe pour un tournoi donné en les triants par leur "score"
  */
-function getClassementByTournoi($idtournoi)
+function getClassementVictoireByTournoi($idtournoi)
 {
     global $db ;
     $req=$db->prepare("SELECT teams.name,COUNT(r2.resultatRencontre) as victoire,COUNT(r.idTeamUn)+COUNT(r1.idTeamDeux) as defaite
@@ -32,5 +32,23 @@ FROM teams
 GROUP BY teams.idTeam
 order by COUNT(r2.resultatRencontre)-(COUNT(r.idTeamUn)+COUNT(r1.idTeamDeux)) desc,victoire desc");
     $req->execute(array($idtournoi,$idtournoi,$idtournoi,$idtournoi));
+    return $req->fetchAll(PDO::FETCH_ASSOC);
+}
+
+/**
+ * @param $idtournoi
+ * @return array|false
+ * @author Gallouin Matisse
+ * fonction permettant le nombre de but de chaque équipe d'un tournoi en les classant dans l'ordre décroissant des buts
+ */
+function getClassementButByTournoi($idtournoi){
+    global $db;
+    $req=$db->prepare("SELECT teams.name,COUNT(r2.resultatRencontre) as but
+FROM teams
+    left join rencontre as r2 on r2.resultatRencontre=teams.idTeam and r2.idTournoi=? and r2.equipeChole=teams.idTeam
+where teams.idtournoi=?
+GROUP BY teams.idTeam
+order by but;");
+    $req->execute(array($idtournoi,$idtournoi));
     return $req->fetchAll(PDO::FETCH_ASSOC);
 }

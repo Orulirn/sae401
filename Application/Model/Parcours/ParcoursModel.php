@@ -62,7 +62,7 @@ function selectParcoursName(){
      * Return les données récupérées.
      * */
     global $db;
-    $sql = $db->prepare("SELECT idParcours,nom FROM `parcours`;");
+    $sql = $db->prepare("SELECT id,nom FROM `parcours`;");
     $sql->execute();
     $res = $sql->fetchAll();
     return $res;
@@ -269,4 +269,16 @@ function updateParcours($idParcours,$name, $city, $nbDecholeMax, $markers){
 
         $No += 1;
     }
+}
+
+function getNbParcours(){
+    /* Cette fonction récupère le nombre de parcours présent dans la base de données.
+     *
+     * Return le nombre de parcours présent dans la base de données.
+     * */
+    global $db;
+    $sql = $db->prepare("SELECT count(*) FROM `parcours`");
+    $sql->execute();
+    $res = $sql->fetch();
+    return $res;
 }
