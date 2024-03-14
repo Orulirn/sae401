@@ -1,5 +1,5 @@
 <?php
-include "../Model/ClassementModel.php";
+include "../../Model/Classement/ClassementModel.php";
 $idTournoi=$_POST["idtournoi"];
 
 if (gettype($idTournoi)!="NULL"){

@@ -48,7 +48,7 @@ FROM teams
     left join rencontre as r2 on r2.resultatRencontre=teams.idTeam and r2.idTournoi=? and r2.equipeChole=teams.idTeam
 where teams.idtournoi=?
 GROUP BY teams.idTeam
-order by but;");
+order by but desc;");
     $req->execute(array($idtournoi,$idtournoi));
     return $req->fetchAll(PDO::FETCH_ASSOC);
 }

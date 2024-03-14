@@ -24,14 +24,14 @@
 
 <div class="container d-flex justify-content-center align-items-center"  style="height: 70vh;">
     <div class="border p-5 rounded bg-light">
-        <form method="POST">
-            <div class="mb-4"></div>
-            <label for="mail" class="form-label">Adresse mail :</label>
+        <form method="POST" id="divForm">
+            <label for="mail" class="form-label" id="labelMail">Adresse mail :</label>
             <input type="text" class="form-control" id="mail" placeholder="Entrez votre adresse mail" name="mail" required>
-            <div class="mb-4"></div>
-            <label for="pwd" class="form-label">Mot de passe :</label>
+            <label for="pwd" class="form-label" id="labelPWD">Mot de passe :</label>
             <input type="password" class="form-control" id="pwd" placeholder="Entrez votre mot de passe" name="pwd" required>
-            <div class="mb-4"></div>
+            <br>
+            <input type="button" onclick="ajoutDemandeDeMDP()" value="mot de passe oublié ?">
+            <br>
             <button name="connect" class="btn btn-primary" id="login" disabled>Se connecter</button>
         </form>
     </div>
@@ -54,6 +54,40 @@
     button.addEventListener("click", function () {
         window.location.replace('../HomePage.html');
     });
+    function ajoutDemandeDeMDP(){
+        let div=document.getElementById("divForm")
+        div.innerHTML=""
+
+        let labelMailPwd=document.createElement("label")
+        labelMailPwd.textContent="Adresse mail de votre compte :"
+        labelMailPwd.className="form-label"
+        div.appendChild(labelMailPwd)
+
+        let inputMail=document.createElement("input")
+        inputMail.type="text"
+        inputMail.className="form-control"
+        div.appendChild(inputMail)
+
+        let divBtn=document.createElement("div")
+        divBtn.style.display="flex"
+        divBtn.style.justifyContent="space-between"
+
+        let btnRefuser=document.createElement("input")
+        btnRefuser.type="button"
+        btnRefuser.value="Retour"
+        btnRefuser.className="btn btn-primary"
+        divBtn.appendChild(btnRefuser)
+
+
+        let btnValider=document.createElement("input")
+        btnValider.type="button"
+        btnValider.value="Envoyer"
+        btnValider.className="btn btn-primary"
+        divBtn.appendChild(btnValider)
+
+
+        div.appendChild(divBtn)
+    }
 </script>
 </body>
 </html>
