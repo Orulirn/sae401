@@ -18,7 +18,7 @@ if(isset($_POST['Deconnexion'])){
 
 $userLoggedIn = isset($_SESSION['user_id']);
 $res = GetRole($_SESSION['user_id'])[0]["idRole"];
-echo ("<p id='currentRole' visibility='hidden' style= 'display :none;'>".json_encode($res)."</p>");
+echo ("<p id='currentRole' type='hidden' style= 'display :none;'>".json_encode($res)."</p>");
 
 ?>
 
@@ -27,7 +27,7 @@ echo ("<p id='currentRole' visibility='hidden' style= 'display :none;'>".json_en
         <ul id="navbar" class="navbar-nav">
             <li class="nav-item">
                 <a class="navbar-brand " id="backHome" href="../../Controller/Accueil/HomePageController.php" >
-                    <img src="../files/logoSite.png" width="200px" height="133px">
+                    <img src="../../View/files/logoSite.png" width="200px" height="133px">
                 </a>
             </li>
             <?php if ($userLoggedIn): ?>

@@ -7,8 +7,8 @@
  */
 
 
-include_once ("../Model/ParcoursModel.php");
-include_once ("../Model/tournamentModel.php");
+include_once ("../../Model/Parcours/ParcoursModel.php");
+include_once ("../../Model/Tournoi/tournamentModel.php");
 
 // Gestion de l'ajout d'un tournoi
 if(isset($_POST['submit'])) {
