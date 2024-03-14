@@ -4,7 +4,7 @@
 * @author MASSE Océane <oceane.masse2@uphf.fr>
 */
 
-include_once('../BDD/DatabaseConnection.php');
+include_once('../../Model/BDD/DatabaseConnection.php');
 
 //Permet d'ajouter à la table verify les informations du formulaire d'inscription
 function signUpVerify($firstname, $lastname, $mail, $password, $verification)

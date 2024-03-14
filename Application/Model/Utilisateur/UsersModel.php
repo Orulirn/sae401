@@ -6,7 +6,7 @@
 *@version 1.2 ajout d'un sum() sur la fonction GetCotisationForTeam
 */
 
-include_once('../BDD/DatabaseConnection.php');
+include_once('../../Model/BDD/DatabaseConnection.php');
 
 //Il faut tester avec des transactions en requete sql
 
