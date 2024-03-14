@@ -66,7 +66,7 @@ echo ("<p id='currentRole' type='hidden' style= 'display :none;'>".json_encode($
     const backHome = document.querySelector("#backHome");
     const goConn = document.querySelector("#Connexion")
     backHome.addEventListener("click",function (){
-        window.location.replace("../../Controller/Acceuil/HomepageController.php");
+        window.location.replace("../../Controller/Accueil/HomepageController.php");
     });
     <?php if (!$userLoggedIn): ?>
         goConn.addEventListener("click", function (){
@@ -100,7 +100,7 @@ echo ("<p id='currentRole' type='hidden' style= 'display :none;'>".json_encode($
         let menu = document.createElement("a");
         menu.setAttribute("class","nav-link fw-bold");
         menu.innerText = "Vérifier Joueur";
-        menu.setAttribute("href","../../Controller/Utilisateur/valideInscriptionController.php");
+        menu.setAttribute("href","../../Controller/Utilisateurs/valideInscriptionController.php");
         li.appendChild(menu);
         navbar.appendChild(li);
 
@@ -109,7 +109,7 @@ echo ("<p id='currentRole' type='hidden' style= 'display :none;'>".json_encode($
         menu = document.createElement("a");
         menu.setAttribute("class","nav-link fw-bold");
         menu.innerText = "Modifier joueur";
-        menu.setAttribute("href","../../Controller/Utilisateur/ModificationController.php");
+        menu.setAttribute("href","../../Controller/Utilisateurs/ModificationController.php");
         li.appendChild(menu);
         navbar.appendChild(li);
 
@@ -118,7 +118,7 @@ echo ("<p id='currentRole' type='hidden' style= 'display :none;'>".json_encode($
         menu = document.createElement("a");
         menu.setAttribute("class","nav-link fw-bold");
         menu.innerText = "Gérer Contribution";
-        menu.setAttribute("href","../../Controller/Utilisateur/ContributionConsultController.php");
+        menu.setAttribute("href","../../Controller/Utilisateurs/ContributionConsultController.php");
         li.appendChild(menu);
         navbar.appendChild(li);
 
