@@ -8,7 +8,7 @@
 
 session_start();
 include("../../Model/Utilisateur/UsersModel.php");
-include("../../Model/Utilisateur/UtilisateurVerifyModel.php");
+include("../../Model/Utilisateur/VerifyModel.php");
 include("../../Model/Utilisateur/User.php");
 include("../../View/Accueil/index.php");
 
@@ -26,7 +26,7 @@ if(isset($_POST['submit'])) {
     default :
         signUpVerify($_POST['firstname'], $_POST['lastname'], $_POST['mail'], $_POST['password'], $_POST['verification']);
         break; 
-    header ('Location : ../../Controller/Connexion/ConnectionController.php');
+    header('ConnectionController.php');
     }
 }
 require "../../View/Connexion/RegisterView.html";
