@@ -177,7 +177,7 @@
             button=event.target
         }
         $.ajax({
-            url:"../Controller/AjaxClassementVictoire.php",
+            url:"../Controller/Classement/AjaxClassementVictoire.php",
             type:"POST",
             data:{idtournoi:idtournoi},
             success: function (response){

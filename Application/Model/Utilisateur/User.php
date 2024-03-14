@@ -10,7 +10,7 @@
  * @author MASSE Océane <oceane.masse2@uphf.fr>
  */
 
-include_once('../BDD/DatabaseConnection.php');
+include_once('../../Model/BDD/DatabaseConnection.php');
 
 class
 User {
