@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Envoi d'e-mails</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../View/custom-styles.css">
+    <link rel="stylesheet" href="../../View/CSS/custom-style.css">
 </head>
 <body>
 <div class="container mt-5">
