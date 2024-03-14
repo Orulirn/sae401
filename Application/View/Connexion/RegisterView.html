@@ -88,6 +88,9 @@
                                         <div class="form-outline">
                                             <input type="password" id="verif" name="verif" class="form-control form-control-lg" />
                                             <label class="form-label" for="verif">Vérification mot de passe</label>
+                                            <ul>
+                                                <li id="correspondance" class="text-danger">Les mots de passe doivent correspondre</li>
+                                            </ul>
                                         </div>
 
                                     </div>
@@ -106,11 +109,25 @@
     </section>
     <script>
 
+        document.getElementById('verif').onkeyup = function() {
+            var verification = this.value;
+            var valeur = document.getElementById('password').value;
+
+            if (valeur === verification && valeur.length > 0) {
+                document.getElementById('correspondance').classList.remove('text-danger');
+                document.getElementById('correspondance').classList.add('text-success');
+            } else {
+                document.getElementById('correspondance').classList.remove('text-success');
+                document.getElementById('correspondance').classList.add('text-danger');
+            }
+        }
+
         document.getElementById('password').onkeyup = function() {
             var minuscule = /[a-z]/g;
             var majuscule = /[A-Z]/g;
             var special = /[\W_]/g;
             var valeur = this.value;
+            var verification = document.getElementById('verif').value;
 
 
             if(valeur.match(minuscule)) {
@@ -145,6 +162,14 @@
             } else {
                 document.getElementById('longueur').classList.remove('text-success');
                 document.getElementById('longueur').classList.add('text-danger');
+            }
+
+            if(valeur === verification && valeur.length > 0) {
+                document.getElementById('correspondance').classList.remove('text-danger');
+                document.getElementById('correspondance').classList.add('text-success');
+            } else {
+                document.getElementById('correspondance').classList.remove('text-success');
+                document.getElementById('correspondance').classList.add('text-danger');
             }
         };
 
