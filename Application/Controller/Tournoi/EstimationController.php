@@ -1,6 +1,10 @@
 <?php
 session_start();
 
+include("../../Model/Utilisateur/checkSession.php");
+checkConn();
+
+
 include '../../Model/Tournoi/EstimationModel.php';
 include '../../Model/Parcours/ParcoursModel.php';
 include '../../View/Accueil/index.php';

@@ -1,4 +1,10 @@
 <?php
+session_start();
+
+include("../../Model/Utilisateur/checkSession.php");
+checkConn();
+
+
 include "../../Model/Tournoi/tournamentModel.php";
 
 if (isset($_GET['tournamentId'])) {

@@ -7,6 +7,8 @@
  */
 session_start();
 
+include("../../Model/Utilisateur/checkSession.php");
+checkRole();
 
 
 include("../../View/Accueil/index.php");

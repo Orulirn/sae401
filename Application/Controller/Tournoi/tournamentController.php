@@ -6,6 +6,11 @@
  * 
  */
 
+session_start();
+
+include("../../Model/Utilisateur/checkSession.php");
+checkRole();
+
 
 include_once ("../Model/ParcoursModel.php");
 include_once ("../Model/tournamentModel.php");

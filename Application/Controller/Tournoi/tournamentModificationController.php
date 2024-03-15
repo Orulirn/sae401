@@ -1,6 +1,10 @@
 <?php
 session_start();
 
+include("../../Model/Utilisateur/checkSession.php");
+checkRole();
+
+
 include("../../Model/Tournoi/tournamentModel.php");
 
 

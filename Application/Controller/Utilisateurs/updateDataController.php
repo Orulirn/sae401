@@ -1,8 +1,14 @@
 <?php
+session_start();
+
+include("../../Model/Utilisateur/checkSession.php");
+checkConn();
+
+
 include "../../Model/Utilisateur/UsersModel.php";
 include "../../Model/Utilisateur/User.php";
 include "../../View/Utilisateur/updateDataView.php";
-session_start();
+
 $role = GetRole($_SESSION['user_id'])[0]["idRole"];
 if ($role == 0){
     $buttonIndex = $_GET['buttonIndex'];

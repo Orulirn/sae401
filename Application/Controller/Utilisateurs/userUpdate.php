@@ -1,8 +1,13 @@
 <?php
+session_start();
+
+include("../../Model/Utilisateur/checkSession.php");
+checkConn();
+
+
 include "../../Model/Utilisateur/UsersModel.php";
 include "../../Model/Utilisateur/User.php";
 
-session_start();
 
 $firstname = $_POST["firstname"];
 $lastname = $_POST["lastname"];

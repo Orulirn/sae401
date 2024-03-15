@@ -1,5 +1,10 @@
 <?php
 session_start();
+
+include("../../Model/Utilisateur/checkSession.php");
+checkRole();
+
+
 include "../../Model/Utilisateur/UsersModel.php";
 include "../../View/Accueil/index.php";
 include "../../View/Utilisateur/ContributionConsultView.html";
