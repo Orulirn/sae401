@@ -37,7 +37,7 @@ session_start();
                     <?php else: ?>
                         <form action="../../Controller/Tournoi/EstimationController.php" method="post">
                             <input type="hidden" name="idRencontre" value="<?= htmlspecialchars($match['idRencontre']); ?>">
-                            <button type="submit">N/A</button>
+                            <button type="submit" class="btn btn-primary">faire son pari </button>
                         </form>
                     <?php endif; ?>
                 </td>
@@ -48,12 +48,12 @@ session_start();
                         <?php if (isset($match['equipeChole'])):?>
                             <form action="../../Controller/Classement/resultatController.php" method="post">
                                 <input type="hidden" name="idRencontre" value="<?= htmlspecialchars($match['idRencontre']); ?>">
-                                <button type="submit">N/A</button>
+                                <button type="submit" class="btn btn-primary">soumettre le résultat</button>
                             </form>
                         <?php else: ?>
                             <form action="../../Controller/Classement/resultatController.php" method="post">
                                 <input type="hidden" name="idRencontre" value="<?= htmlspecialchars($match['idRencontre']); ?>">
-                                <button type="submit" disabled>N/A</button>
+                                <button type="submit" disabled class="btn btn-secondary">en attente de la rencontre</button>
                             </form>
                         <?php endif; ?>
                     <?php endif; ?>
