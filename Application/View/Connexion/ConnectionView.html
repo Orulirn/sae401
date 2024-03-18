@@ -131,6 +131,10 @@
                     Swal.fire({
                         text: "Le lien vous a été envoyé",
                         icon: "success"
+                    }).then(function (accepter) {
+                        if (accepter){
+                            window.location.reload()
+                        }
                     })
                 }
                 console.log(response)

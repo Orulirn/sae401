@@ -25,7 +25,7 @@ function EnvoiMail($adresse)
         $token=bin2hex(random_bytes(24));
         $token=base64_encode($token);
         AjoutToken($token,$user[0]);
-        $lien="http://localhost:63342/sae401/Application/Controller/Connexion/ChangerMDPView.html?token=".$token;
+        $lien="http://localhost:63342/sae401/Application/View/Connexion/ChangerMDPView.html?token=".$token;
         global $mail;
         $mail->sendCustomEmail("cholagemail@gmail.com",
             array($adresse),
@@ -39,5 +39,35 @@ function AjoutToken($token,$idUser)
     global $db;
     $req=$db->prepare("Insert into token values (?,?,NOW())");
     $req->execute(array($token,$idUser));
+}
 
+function deleteToken($token)
+{
+    global $db;
+    $req=$db->prepare("delete from token where token=?");
+    $req->execute(array($token));
+}
+
+function ChangerMDP($token,$MDP)
+{
+
+    $MDP=password_hash($MDP,PASSWORD_DEFAULT);
+    global $db;
+    $req=$db->prepare("Select * from token where token=?");
+    $req->execute(array($token));
+    $tokenRecup=$req->fetch();
+    $time=date("Y-m-d H:i:s");
+    $dateToken=date_create_from_format("Y-m-d H:i:s",$tokenRecup[2]);
+
+    $dateToken->add(date_interval_create_from_date_string("1 second"));
+    if ($time>=$dateToken){
+        echo"mabite";
+        deleteToken($token);
+        throw new Exception("Le token a expiré");
+    }
+    else {
+        $iduser = $tokenRecup[1];
+        $req = $db->prepare("Update users set password=? where idUser=?");
+        $req->execute(array($MDP, $iduser));
+    }
 }

@@ -22,7 +22,7 @@
                     <li id="special" class="text-danger">Au moins un caractère spécial</li>
                     <li id="longueur" class="text-danger">Au moins 8 caractères</li>
                 </ul>
-                <button name="connect" class="btn btn-primary" id="Valider" disabled>Valider</button>
+                <input type="button" name="connect" class="btn btn-primary" id="Valider" onclick="MDPModif()" value="Valider" disabled></button>
             </div>
         </form>
     </div>
@@ -72,6 +72,47 @@
             document.getElementById("Valider").disabled=false
         }
     };
+
+    function MDPModif(){
+        let newMDP=document.getElementById("password").value
+        let token=window.location.search.split("=")[1]
+        $.ajax({
+            url:"../../Controller/Connexion/AjaxChangementMDP.php",
+            type:"POST",
+            data:{newMDP:newMDP,token:token},
+            success: function (response){
+                if(response.includes("Error") || response.includes("Warning") || response.includes("Exception")){
+                    if (response.includes("Le token a expiré")) {
+                        Swal.fire({
+                            text: "Le token a expiré",
+                            icon: "error",
+                        })
+                    }
+                    else{
+                        Swal.fire({
+                            text: "Il y a eu une erreur lors de votre changement de mot de passe",
+                            icon: "error",
+                        })
+                    }
+                    console.log(response)
+                }
+                else{
+                    Swal.fire({
+                        text:"Votre mot de passe a été modifié",
+                        icon:"success",
+                    }).then(function (aller){
+                        if(aller){
+                            window.location.href="../../Controller/Connexion/ConnectionController.php"
+                        }
+                    })
+                }
+                console.log(response)
+            },
+            error: function (error){
+                console.error(error)
+            }
+        })
+    }
 </script>
 </body>
 </html>
