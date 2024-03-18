@@ -3,7 +3,7 @@
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\PHPMailer;
 
-require '../vendor/autoload.php';
+require '../../Model/vendor/autoload.php';
 
 class Mailing_Class {
     private $mailer;

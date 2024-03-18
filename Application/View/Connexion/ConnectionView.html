@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="../../View/bootstrap-5.3.1-dist/css/bootstrap.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
 <body>
 <script>
@@ -63,6 +64,7 @@
         div.appendChild(labelMailPwd)
 
         let inputMail=document.createElement("input")
+        inputMail.id="demandeMail"
         inputMail.type="text"
         inputMail.className="form-control"
         inputMail.addEventListener("keyup",verifyEmail)
@@ -90,6 +92,7 @@
         btnValider.className="btn btn-primary"
         btnValider.id="btnValider"
         btnValider.disabled=true
+        btnValider.onclick=AjaxMail
         divBtn.appendChild(btnValider)
 
         div.appendChild(document.createElement("br"))
@@ -116,7 +119,28 @@
             document.getElementById("btnValider").disabled=false
         }
     }
+    function AjaxMail(){
+        let mail=document.getElementById("demandeMail").value
+        $.ajax({
+            url:"../../Controller/Connexion/AjaxEnvoiMail.php",
+            type:"POST",
+            data:{mail:mail},
+            async : false,
+            success: function (response){
+                if (!response.includes("error") && !response.includes("Exception")) {
+                    Swal.fire({
+                        text: "Le lien vous a été envoyé",
+                        icon: "success"
+                    })
+                }
+                console.log(response)
+            },
+            error: function (error){
+                console.error(error)
+            }
+        })
 
+    }
 </script>
 </body>
 </html>
