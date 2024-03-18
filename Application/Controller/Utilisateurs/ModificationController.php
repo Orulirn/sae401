@@ -1,5 +1,10 @@
 <?php
 session_start();
+
+include("../../Model/Utilisateur/checkSession.php");
+checkRole();
+
+
 include "../../Model/Utilisateur/UsersModel.php";
 $dataAllUsers = GetAllOfUsersTable();
 include "../../View/Accueil/index.php";

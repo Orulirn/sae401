@@ -22,11 +22,12 @@ if(isset($_POST['submit'])) {
     switch (GetRole($_SESSION['user_id'])){
     case "0":
         signUpAdmin($_POST['firstname'], $_POST['lastname'], $_POST['mail'], $_POST['usertype'], $_POST['password'], $_POST['verification']);
+        header('Location: ConnectionController.php');
         break;
     default :
         signUpVerify($_POST['firstname'], $_POST['lastname'], $_POST['mail'], $_POST['password'], $_POST['verification']);
-        break; 
-    header('ConnectionController.php');
+        header('Location: ConnectionController.php');
+        break;
     }
 }
 require "../../View/Connexion/RegisterView.html";

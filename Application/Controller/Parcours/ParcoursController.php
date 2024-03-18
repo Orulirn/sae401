@@ -2,6 +2,9 @@
 session_start();
 header('Content-Type: text/html; charset=utf-8');
 
+include("../../Model/Utilisateur/checkSession.php");
+checkRole();
+
 
 include "../../Model/Parcours/ParcoursModel.php";
 include "../../View/Accueil/index.php";

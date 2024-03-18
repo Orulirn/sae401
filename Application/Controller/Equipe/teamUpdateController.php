@@ -5,12 +5,16 @@
  * @author MASSE Océane <oceane.masse2@uphf.fr>
  * @author LERMIGEAUX Nathan <nathan.lermigeaux@uphf.fr>
  */
- 
+session_start();
 include_once("../../View/Accueil/index.php");
 include_once("../../Model/Equipe/teams_table.php");
 include_once("../../Model/Equipe/team_player_table.php");
 include_once("../../Model/Utilisateur/UsersModel.php");
- 
+
+include("../../Model/Utilisateur/checkSession.php");
+checkRole();
+
+
 
 if (isset($_POST['submit'])){
     deleteTeamMember($_POST['teamName']);

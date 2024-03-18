@@ -180,25 +180,38 @@
              url:"../../Controller/Classement/AjaxClassementVictoire.php",
             type:"POST",
             data:{idtournoi:idtournoi},
+            async : false,
             success: function (response){
-                apparitionTableau(response)
+                apparitionTableauVictoire(response)
             },
             error: function (error){
+                console.error(error)
+            }
+        })
+        $.ajax({
+            url:"../../Controller/Classement/AjaxClassementBut.php",
+            type: "POST",
+            data:{idtournoi:idtournoi},
+            async: false,
+            success: function (response) {
+                apparitionTableauBut(response)
+            },
+            error:function (error){
                 console.error(error)
             }
         })
     }
 
 
-    function apparitionTableau(response){
+    function apparitionTableauVictoire(response){
         var result=response.split("\n")
 
-        if (document.getElementById('tableau')) {
-            document.body.removeChild(document.getElementById("tableau"))
+        if (document.getElementById('tableauVictoire')) {
+            document.body.removeChild(document.getElementById("tableauVictoire"))
         }
 
         var div=document.createElement("div")
-        div.id="tableau"
+        div.id="tableauVictoire"
         div.className="tableau"
         var table=document.createElement("table")
         table.className="table table-striped table-responsive table-bordered"
@@ -227,6 +240,66 @@
         thDefaite.scope="col"
         thDefaite.textContent="Defaite"
         tr.appendChild(thDefaite)
+        thead.appendChild(tr)
+
+        table.appendChild(thead)
+        document.body.appendChild(div)
+
+        var tbody=document.createElement("tbody")
+        table.appendChild(tbody)
+        for(let i of result) {
+            let result = i.split("/")
+            if (result.length!==1) {
+                var trbody = document.createElement("tr")
+                tbody.appendChild(trbody)
+                for (let j of result) {
+                    if (j!=="") {
+                        var td = document.createElement("td")
+                        td.textContent = j
+                        trbody.appendChild(td)
+                    }
+                }
+            }
+        }
+        if(checkTel()){
+            thead.style.fontSize="22px"
+            tbody.style.fontSize="22px"
+        }
+    }
+
+    function apparitionTableauBut(response){
+        var result=response.split("\n")
+
+        if (document.getElementById('tableauBut')) {
+            document.body.removeChild(document.getElementById("tableauBut"))
+        }
+
+        var div=document.createElement("div")
+        div.id="tableauBut"
+        div.className="tableau"
+        var table=document.createElement("table")
+        table.className="table table-striped table-responsive table-bordered"
+        div.appendChild(table)
+
+        var thead=document.createElement("thead")
+        thead.className="thead-light"
+        var tr=document.createElement("tr")
+
+        var thClassement=document.createElement("th")
+        thClassement.scope="col"
+        thClassement.textContent=""
+        tr.appendChild(thClassement)
+
+        var thEquipe=document.createElement("th")
+        thEquipe.scope="col"
+        thEquipe.textContent="Equipe"
+        tr.appendChild(thEquipe)
+
+        var thBut=document.createElement("th")
+        thBut.scope="col"
+        thBut.textContent="But"
+        tr.appendChild(thBut)
+
         thead.appendChild(tr)
 
         table.appendChild(thead)

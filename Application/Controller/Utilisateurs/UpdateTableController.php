@@ -1,4 +1,10 @@
 <?php
+session_start();
+
+include("../../Model/Utilisateur/checkSession.php");
+checkRole();
+
+
 include "../../Model/Utilisateur/UsersModel.php";
 
 session_start();

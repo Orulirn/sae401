@@ -6,6 +6,10 @@
 * @author LERMIGEAUX Nathan <nathan.lermigeaux@uphf.fr>
 */
 session_start();
+
+include("../../Model/Utilisateur/checkSession.php");
+checkConn();
+
 include_once("../../View/Accueil/index.php");
 include_once("../../Model/Utilisateur/User.php");
 include_once("../../Model/Utilisateur/UsersModel.php");

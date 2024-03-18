@@ -5,8 +5,14 @@
  * @author LERMIGEAUX Nathan <nathan.lermigeaux@uphf.fr>
  * @author MASSE Océane <oceane.masse2@uphf.fr>
  */
-
 session_start();
+
+
+include("../../Model/Utilisateur/checkSession.php");
+checkRole();
+
+
+
 include_once("../../View/Accueil/index.php");
 include_once("../../Model/Utilisateur/User.php");
 include_once("../../Model/Equipe/team_tournament_table.php");

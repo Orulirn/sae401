@@ -66,7 +66,7 @@ echo ("<p id='currentRole' type='hidden' style= 'display :none;'>".json_encode($
     const backHome = document.querySelector("#backHome");
     const goConn = document.querySelector("#Connexion")
     backHome.addEventListener("click",function (){
-        window.location.replace("../../Controller/Acceuil/HomepageController.php");
+        window.location.replace("../../Controller/Accueil/HomepageController.php");
     });
     <?php if (!$userLoggedIn): ?>
         goConn.addEventListener("click", function (){
@@ -191,6 +191,15 @@ echo ("<p id='currentRole' type='hidden' style= 'display :none;'>".json_encode($
         menu.setAttribute("class","nav-link fw-bold");
         menu.innerText = "Inscrire équipe au tournoi";
         menu.setAttribute("href","../../Controller/Tournoi/addTeamTournamentController.php");
+        li.appendChild(menu);
+        navbar.appendChild(li);
+
+        li = document.createElement("li");
+        li.setAttribute("class","nav-item mt-auto");
+        menu = document.createElement("a");
+        menu.setAttribute("class","nav-link fw-bold");
+        menu.innerText = "Classement";
+        menu.setAttribute("href","../../Controller/Classement/ClassementController.php");
         li.appendChild(menu);
         navbar.appendChild(li);
     }
