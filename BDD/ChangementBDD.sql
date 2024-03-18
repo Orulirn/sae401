@@ -20,3 +20,14 @@ GROUP BY teams.idTeam;
  */
 ALTER TABLE teams
     ADD COLUMN idTournoi int NOT NULL REFERENCES tournoi(idTournoi);
+
+
+/*
+ Ajout d'une table token pour la réinitialisation des MDP
+ */
+CREATE TABLE token(
+                      token varchar(250) PRIMARY KEY,
+                      idUser int ,
+                      FOREIGN KEY(idUser) REFERENCES users(idUser),
+                      date timestamp not null
+)
