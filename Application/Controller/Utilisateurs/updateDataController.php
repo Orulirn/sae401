@@ -1,6 +1,7 @@
 <?php
 include "../../Model/Utilisateur/UsersModel.php";
 include "../../Model/Utilisateur/User.php";
+include "../../View/Accueil/index.php";
 include "../../View/Utilisateur/updateDataView.php";
 session_start();
 $role = GetRole($_SESSION['user_id'])[0]["idRole"];

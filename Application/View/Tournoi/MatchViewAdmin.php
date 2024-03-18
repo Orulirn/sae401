@@ -4,7 +4,7 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <meta charset="UTF-8">
     <title>Rencontres du tournoi</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../View/bootstrap-5.3.1-dist/css/bootstrap.css">
 </head>
 <body>
 <?php
