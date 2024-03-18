@@ -13,18 +13,21 @@ function EnvoiMail($adresse)
         ?>
         <script>
             Swal.fire({
-                input: "text",
+                text: "Nous ne trouvons pas cet email",
                 icon:"warning"
             })
         </script>
 <?php
+        throw new Exception();
     }
     else{
-
+        $token=bin2hex(random_bytes(24));
+        $token=base64_encode($token);
+        $lien="http://localhost:63342/sae401/Application/Controller/Connexion/ChangerMDPView.html?token=".$token;
         global $mail;
         $mail->sendCustomEmail("cholagemail@gmail.com",
-            $adresse,
+            array($adresse),
             "Réinitialisation de mot de passe",
-            "Voici le lien permettant la réinitilalisation de votre mot de passe");
+            "Voici le lien permettant la réinitilalisation de votre mot de passe : \n".$lien);
     }
 }

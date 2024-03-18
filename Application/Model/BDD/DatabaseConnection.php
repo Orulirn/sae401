@@ -19,7 +19,7 @@ class Database extends PDO
          * */
         if (is_null(self::$instance)){
             try {
-                self::$instance = new Database('mysql:host=localhost;dbname=SAE_S3; charset=utf8', "root", 'root');
+                self::$instance = new Database('mysql:host=localhost;dbname=sae401; charset=utf8', "root", 'root');
             } catch(Exception $e) {
                 die('Erreur : ' . $e->getMessage());
             }
