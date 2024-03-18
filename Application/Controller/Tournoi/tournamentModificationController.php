@@ -4,7 +4,7 @@ session_start();
 include("../../Model/Utilisateur/checkSession.php");
 checkRole();
 
-
+include_once "../../View/Accueil/index.php";
 include("../../Model/Tournoi/tournamentModel.php");
 
 

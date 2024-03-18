@@ -11,9 +11,9 @@ session_start();
 include("../../Model/Utilisateur/checkSession.php");
 checkRole();
 
-
-include_once ("../Model/ParcoursModel.php");
-include_once ("../Model/tournamentModel.php");
+include_once "../../View/Accueil/index.php";
+include_once ("../../Model/Parcours/ParcoursModel.php");
+include_once ("../../Model/Tournoi/tournamentModel.php");
 
 // Gestion de l'ajout d'un tournoi
 if(isset($_POST['submit'])) {
@@ -30,4 +30,4 @@ $dataNb = getNbParcours();
 echo ("<p id='dataParcours' visibility='hidden' style= 'display :none;'>".json_encode($data)."</p>");
 echo ("<p id='dataNb' visibility='hidden' style= 'display :none;'>".json_encode($dataNb)."</p>");
 
-include "../View/tournamentView.php";
+include "../../View/Tournoi/tournamentView.php";

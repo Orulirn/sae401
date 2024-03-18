@@ -7,6 +7,7 @@ checkRole();
 
 include "../../Model/Utilisateur/UsersModel.php";
 $dataAllUsers = GetAllOfUsersTable();
+include("../../View/Accueil/index.php");
 include "../../View/Utilisateur/ModificationView.php";
 ?>
 

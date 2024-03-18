@@ -193,6 +193,15 @@ echo ("<p id='currentRole' type='hidden' style= 'display :none;'>".json_encode($
         menu.setAttribute("href","../../Controller/Tournoi/addTeamTournamentController.php");
         li.appendChild(menu);
         navbar.appendChild(li);
+
+        li = document.createElement("li");
+        li.setAttribute("class","nav-item mt-auto");
+        menu = document.createElement("a");
+        menu.setAttribute("class","nav-link fw-bold");
+        menu.innerText = "Classement";
+        menu.setAttribute("href","../../Controller/Classement/ClassementController.php");
+        li.appendChild(menu);
+        navbar.appendChild(li);
     }
     else if (role == "1"){
 
@@ -205,7 +214,7 @@ echo ("<p id='currentRole' type='hidden' style= 'display :none;'>".json_encode($
         menu = document.createElement("a");
         menu.setAttribute("class","nav-link fw-bold");
         menu.innerText = "Modifier mes infos";
-        menu.setAttribute("href","../../Controller/Utilisateur/updateDataController.php");
+        menu.setAttribute("href","../../Controller/Utilisateurs/updateDataController.php");
         li.appendChild(menu);
         navbar.appendChild(li);
         
