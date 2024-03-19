@@ -127,10 +127,16 @@
             data:{mail:mail},
             async : false,
             success: function (response){
-                Swal.fire({
-                    text: "Le lien vous a été envoyé",
-                    icon:"success"
-                })
+                if (!response.includes("error") && !response.includes("Exception")) {
+                    Swal.fire({
+                        text: "Le lien vous a été envoyé",
+                        icon: "success"
+                    }).then(function (accepter) {
+                        if (accepter){
+                            window.location.reload()
+                        }
+                    })
+                }
                 console.log(response)
             },
             error: function (error){
