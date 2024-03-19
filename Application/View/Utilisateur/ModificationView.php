@@ -16,18 +16,18 @@ function setTab($dataAllUsers)
             foreach($resultatRole as $row2){
                 $role = $row2['idRole'];
                 if ($role == 1) {
-                    echo'<td><button id="';echo $row["idUser"]; echo '" type="button" class="btn btn-white border-black border-1" name="promAdmin">Promouvoir Administrateur</button></td>';
+                    echo'<td><button id="';echo $row["idUser"]; echo '" type="button" class="btn btn-warning" name="promAdmin">Promouvoir Administrateur</button></td>';
                 }
                 else {
-                    echo'<td><button id="'; echo $row["idUser"]; echo '" type="button" class="btn btn-white border-black border-1" name="revAdmin">Révoquer Administrateur</button></td>';
+                    echo'<td><button id="'; echo $row["idUser"]; echo '" type="button" class="btn btn-warning" name="revAdmin">Révoquer Administrateur</button></td>';
                 }}
         }
         else {
-            echo'<td><button id="'; echo $row["idUser"]; echo '" type="button" class="btn btn-white border-black border-1" name="revAdmin">Révoquer Administrateur</button></td>';
+            echo'<td><button id="'; echo $row["idUser"]; echo '" type="button" class="btn btn-warning" name="revAdmin">Révoquer Administrateur</button></td>';
         }}
-        echo'<td><button id="'; echo $row["idUser"] ; echo '" type="button" class="btn btn-white border-black border-1" name="editButton">Edit</button></td>';
+        echo'<td><button id="'; echo $row["idUser"] ; echo '" type="button" class="btn btn-primary" name="editButton">Modifier</button></td>';
 
-        echo'<td><button id="'; echo $row["idUser"] ; echo '" type="button" class="btn btn-white border-black border-1" name="deleteButton">Supprimer</button></td>';
+        echo'<td><button id="'; echo $row["idUser"] ; echo '" type="button" class="btn btn-danger" name="deleteButton">Supprimer</button></td>';
         echo'</tr>';
     }
 }
@@ -86,9 +86,9 @@ function setTab($dataAllUsers)
             <th>Email</th>
             <th>Cotisation</th>
             <?php if (GetRole($_SESSION['user_id'])[0]["idRole"] == "0"):  ?>
-            <th>Admin</th>
+            <th>Administrateur</th>
             <?php endif; ?>
-            <th>Edit</th>
+            <th>Modifier</th>
             <th>Supprimer</th>
 
         </tr>
