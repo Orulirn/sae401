@@ -13,12 +13,12 @@ $listUserContrib = GetAllUserWithContribution();
 
 $listUserNoContrib = GetAllUserWithNoContribution();
 
-echo'<div class="container p-3 text-center">';
+echo'<div class="container p-3 text-center" >';
     echo'<div class="row">';
         echo'<div class="col">';
             echo'<h1>Adhérents</h1>';
 
-            echo'<table id="cotiseTable">';
+            echo'<table id="cotiseTable" >';
                 echo'<thead>';
                 echo'<tr>';
                     echo'<th>Prénom</th>';
@@ -37,8 +37,7 @@ echo'<div class="container p-3 text-center">';
                 echo'</tbody>';
             echo'</table>';
         echo'</div>';
-        echo'<div class="col pt-5">';
-            echo'<br><br><br><br><br><br><br>';
+        echo'<div class="col pt-5" style="margin-top: 100px">';
             echo'<button style="border: solid 1px #146c43; background: none;">';
                 echo '<img src="../../View/files/left.png" alt="left" id="moveLeftBtn" style="width: 35px; height: 35px;">';
             echo'</button>';
@@ -106,42 +105,51 @@ echo'</div>';
     // Fonction pour déplacer les lignes sélectionnées de sourceTable vers destinationTable
     function MoveSelectedRows(sourceTable, destinationTable) {
         var selectedRows = sourceTable.querySelectorAll('tbody tr.selected');
-
         var listEmail = [];
         var cot;
 
         if (sourceTable === document.getElementById('cotiseTable'))
             cot = 0;
-        else{
+        else {
             cot = 1;
         }
 
-
         selectedRows.forEach(function (selectedRow) {
-
-
             var email = selectedRow.cells[2].textContent;
-
-            // Clone la ligne sélectionnée
             var newRow = selectedRow.cloneNode(true);
-
-            // Ajoute la nouvelle ligne au tableau de destination
             destinationTable.querySelector('tbody').appendChild(newRow);
-
-            // Supprime la ligne du tableau source
             sourceTable.querySelector('tbody').removeChild(selectedRow);
-
             newRow.addEventListener('click', ToggleRowSelection);
-
             listEmail.push(email);
-
         });
 
 
-        
-        var queryString = "listEmail=" + encodeURIComponent(listEmail) + "&cotisation=" + encodeURIComponent(cot);
-        window.location.replace("UpdateTableController.php?" + queryString);
+        var formData = new FormData();
+        formData.append('listEmail', listEmail);
+        formData.append('cotisation', cot);
+
+        fetch('UpdateTableController.php', {
+            method: 'POST',
+            body: formData
+        }).then(response => {
+            if (!response.ok) {
+                throw new Error('non ok');
+            }
+            return response.text();
+        }).then(data => {
+            console.log(data);
+            Swal.fire({
+                title: 'Transfert',
+                text: "Transfert effectué avec succès !",
+                icon: 'success',
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'ok',
+            });
+        }).catch(error => {
+            console.error('Probleme avec le fetch:', error);
+        });
     }
+
 
     var cotiseTable = document.getElementById('cotiseTable');
     var nonCotiseTable = document.getElementById('nonCotiseTable');

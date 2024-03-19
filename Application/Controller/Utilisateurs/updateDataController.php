@@ -84,7 +84,7 @@ echo'</center>';
         Swal.fire({
             title: 'Modification',
             text: "Informations modifiées avec succès !",
-            icon: 'success', // Corrigé ici
+            icon: 'success',
             confirmButtonColor: '#3085d6',
             confirmButtonText: 'ok',
         }).then((result) => {

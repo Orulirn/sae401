@@ -4,19 +4,18 @@ session_start();
 include("../../Model/Utilisateur/checkSession.php");
 checkRole();
 
-
 include "../../Model/Utilisateur/UsersModel.php";
 
-session_start();
-$listEmail = $_GET['listEmail'];
-$cotisation = $_GET['cotisation'];
+$listEmail = isset($_POST['listEmail']) ? $_POST['listEmail'] : '';
+$cotisation = isset($_POST['cotisation']) ? $_POST['cotisation'] : '';
 
-$emailArray = explode(',', $listEmail);
-
-foreach ($emailArray as $row) {
-    updateLine($row, $cotisation);
+if (!empty($listEmail)) {
+    $emailArray = explode(',', $listEmail);
+    foreach ($emailArray as $email) {
+        updateLine($email, $cotisation);
+    }
+    echo "Mise à jour réussie.";
+} else {
+    echo "Aucune donnée reçue.";
 }
-
-header('Location: ContributionConsultController.php')
-
 ?>

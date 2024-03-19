@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../bootstrap-5.3.1-dist/css/bootstrap.css">
+    <link href="../../View/bootstrap-5.3.1-dist/css/bootstrap.css" rel="stylesheet">
     <link rel="icon" href="../files/logoSite.png">
 </head>
 <body>
