@@ -62,9 +62,10 @@ echo ("<p id='currentRole' visibility='hidden' style= 'display :none;'>".json_en
 
 <script>
 
+    let role = document.querySelector("#currentRole").innerText;
 const divDyn= document.querySelector('#navbarDynamic');
-role = <?php echo $_SESSION["perms"]; ?>;
-
+role = JSON.parse(role);
+console.log(role);
 if(role == 0) {
     //gestion menu tournoi partie admin
     let ul0 = document.createElement('ul');
