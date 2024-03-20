@@ -30,7 +30,7 @@ function EnvoiMail($adresse)
         $mail->sendCustomEmail("cholagemail@gmail.com",
             array($adresse),
             "Réinitialisation de mot de passe",
-            "Voici le lien permettant la réinitilalisation de votre mot de passe : \n".$lien);
+            "Voici le lien permettant la réinitilalisation de votre mot de passe : \n".$lien."\nVous avez 10 minutes à compter de l'envoi de ce mail pour le modifer");
     }
 }
 
@@ -56,12 +56,11 @@ function ChangerMDP($token,$MDP)
     $req=$db->prepare("Select * from token where token=?");
     $req->execute(array($token));
     $tokenRecup=$req->fetch();
-    $time=date("Y-m-d H:i:s");
+    $time=new DateTime('now',new DateTimeZone('Europe/Paris'));
     $dateToken=date_create_from_format("Y-m-d H:i:s",$tokenRecup[2]);
-
-    $dateToken->add(date_interval_create_from_date_string("1 second"));
-    if ($time>=$dateToken){
-        echo"mabite";
+    $dateToken->add(date_interval_create_from_date_string("10 minutes"));
+    echo $dateToken->format("Y-m-d H:i:s")."\n".$time->format("Y-m-d H:i:s");
+    if ($time<$dateToken){
         deleteToken($token);
         throw new Exception("Le token a expiré");
     }

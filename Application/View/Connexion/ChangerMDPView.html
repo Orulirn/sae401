@@ -84,13 +84,17 @@
                 if(response.includes("Error") || response.includes("Warning") || response.includes("Exception")){
                     if (response.includes("Le token a expiré")) {
                         Swal.fire({
-                            text: "Le token a expiré",
+                            text: "Le lien a expiré",
                             icon: "error",
+                        }).then(function (aller){
+                            if(aller){
+                                window.location.href="../../Controller/Connexion/ConnectionController.php"
+                            }
                         })
                     }
                     else{
                         Swal.fire({
-                            text: "Il y a eu une erreur lors de votre changement de mot de passe",
+                            text: "Il y a eu une erreur lors de votre changement de mot de passe veuillez réesayer",
                             icon: "error",
                         })
                     }

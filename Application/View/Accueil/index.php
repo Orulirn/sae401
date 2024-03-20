@@ -94,9 +94,22 @@ echo ("<p id='currentRole' type='hidden' style= 'display :none;'>".json_encode($
 
 
 <script>
+    
+    
+    
+    const backHome = document.querySelector("#backHome");
+    const goConn = document.querySelector("#Connexion")
+    backHome.addEventListener("click",function (){
+        window.location.replace("../../Controller/Accueil/HomepageController.php");
+    });
+    <?php if (!$userLoggedIn): ?>
+        goConn.addEventListener("click", function (){
+            window.location.replace("../../Controller/Connexion/ConnectionController.php");
+        });
+    <?php endif; ?>
 
     function toggleButtonState() {
-        
+
         console.log(document.getElementById('userState').outerText);
         if (document.getElementById('userState').outerText === "null") {
             //gestion du bouton de connexion
