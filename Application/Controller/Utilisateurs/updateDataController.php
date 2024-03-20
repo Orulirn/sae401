@@ -67,8 +67,8 @@ echo'<div hidden="hidden" class="valid-feedback">Valid.</div>';
 echo'<div hidden="hidden" class="invalid-feedback">Please fill out this field.</div>';
 echo'</div>';
 
-        echo'<button type="button" id="modify" class="btn btn-light">Modify</button>';
-        echo'<button type="reset" class="btn btn-light">Reset</button>';
+        echo'<button type="button" id="modify" class="btn btn-primary">Modifier</button>';
+        echo'<button type="reset" class="btn btn-warning">Réinitialisé</button>';
     echo'</form>';
 echo'</center>';
 
@@ -84,7 +84,7 @@ echo'</center>';
         Swal.fire({
             title: 'Modification',
             text: "Informations modifiées avec succès !",
-            icon: 'success', // Corrigé ici
+            icon: 'success',
             confirmButtonColor: '#3085d6',
             confirmButtonText: 'ok',
         }).then((result) => {

@@ -7,6 +7,14 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
+<style>
+    .btnResMDP{
+        color: blue;
+        text-decoration: underline;
+        border: none;
+        background-color: transparent;
+    }
+</style>
 <body>
 <script>
     window.onload = function() {
@@ -31,7 +39,7 @@
             <label for="pwd" class="form-label" id="labelPWD">Mot de passe :</label>
             <input type="password" class="form-control" id="pwd" placeholder="Entrez votre mot de passe" name="pwd" required>
             <br>
-            <input type="button" onclick="ajoutDemandeDeMDP()" value="mot de passe oublié ?">
+            <input type="button" onclick="ajoutDemandeDeMDP()" class="btnResMDP" value="mot de passe oublié ?">
             <br><br>
             <button name="connect" class="btn btn-primary" id="login" disabled>Se connecter</button>
         </form>
@@ -131,6 +139,10 @@
                     Swal.fire({
                         text: "Le lien vous a été envoyé",
                         icon: "success"
+                    }).then(function (accepter) {
+                        if (accepter){
+                            window.location.reload()
+                        }
                     })
                 }
                 console.log(response)
