@@ -81,7 +81,7 @@
         
         Swal.fire({
                         title: "Succès !",
-                        text: "Vous avez bien ajouté votre équipe au tournoi",
+                        text: "Vous avez bien ajouté votre équipe au tournoi, elle est désormais en cours de validation.",
                         icon: "info"
                     });
         <?php endif;?>

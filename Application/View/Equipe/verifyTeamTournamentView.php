@@ -26,7 +26,6 @@
 </head>
 <body>
     <h1 class="container-fluid p-3 bg-white text-dark text-center">Voici les équipes qui veulent s'inscrire à un tournoi</h1>
-    <div class="container-fluid p-3 bg-white text-dark text-center">Pour supprimer une équipe, cliquer deux fois sur le numéro dans la colonne désinscrire</div>
     <div class="container py-3 d-flex justify-content-center">
     <form method="POST" id="form">
     <table id="teams" class="table table-bordered">
@@ -82,9 +81,11 @@
             cellHideIndex.setAttribute("value",i);
 
             buttonValid.setAttribute("type","submit");
+            buttonValid.setAttribute("id","Valider");
             buttonValid.setAttribute("name","Valider");
             buttonValid.setAttribute("value","Valider");
             buttonRefuse.setAttribute("type","submit");
+            buttonRefuse.setAttribute("id","Rejeter");
             buttonRefuse.setAttribute("name","Rejeter");
             buttonRefuse.setAttribute("value","Rejeter");
 
@@ -110,30 +111,13 @@
             form.appendChild(cellHideIndex);
             i++;
         });
-/*
-document.getElementsByName("Valider").addEventListener("click", function() {
-        confirmation1();
-    })
 
-document.getElementsByName("Rejeter").addEventListener("click", function() {
-        confirmation2();
-    })
+    document.getElementById("Valider").addEventListener("click", function() {
+        alert("Vous avez bien validé l'équipe");
+    });
 
-function confirmation1() {
-    Swal.fire({
-        title: 'Succès !',
-        text: "Vous avez bien ajouter l'équipe au tournoi",
-        icon: 'info',
-    })
-}
-
-function confirmation2() {
-    Swal.fire({
-        title: 'Succès !',
-        text: "Vous avez bien enlever l'équipe du tournoi",
-        icon: 'info', 
-    })
-}*/
-
+    document.getElementById("Rejeter").addEventListener("click", function() {
+        alert("Vous avez bien rejeté l'équipe");
+    });
 </script>
 </body>
