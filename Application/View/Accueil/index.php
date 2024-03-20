@@ -38,10 +38,10 @@ $userLoggedIn = isset($_SESSION['user_id']);
                     <?php if (!$userLoggedIn): ?>
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a href="../../Controller/Connexion/ConnectionController.php" class="btn btn-primary nav-link">Connexion</a>
+                            <a id="Connexion" href="../../Controller/Connexion/ConnectionController.php" class="btn btn-primary nav-link">Connexion</a>
                         </li>
                         <li class="nav-item">
-                            <a href="../../Controller/Connexion/RegisterController.php" class="btn btn-primary nav-link">Inscription</a>
+                            <a id="Inscription" href="../../Controller/Connexion/RegisterController.php" class="btn btn-primary nav-link">Inscription</a>
                         </li>
                     </ul>
                     <?php else: ?>
@@ -60,7 +60,7 @@ $userLoggedIn = isset($_SESSION['user_id']);
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
                             <form method="post">
-                                <input name="Deconnexion" type="submit" value="Déconnexion" class="btn btn-danger nav-link">
+                                <input id="Deconnexion" name="Deconnexion" type="submit" value="Déconnexion" class="btn btn-danger nav-link">
                             </form>
                         </li>
                     </ul>
