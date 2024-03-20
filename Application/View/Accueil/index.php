@@ -45,87 +45,45 @@ echo ("<p id='currentRole' type='hidden' style= 'display :none;'>".json_encode($
                         <a href="../../Controller/Connexion/RegisterController.php" class="btn btn-primary nav-link">Inscription</a>
                     </li>
                 </ul>
-                        <ul class="navbar-nav">
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Utilisateur
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <li><a class="dropdown-item" href="../../Controller/Utilisateurs/ModificationController.php">Modifier les utilisateurs</a></li>
-                                    <li><a class="dropdown-item" href="../../Controller/Utilisateurs/ContributionConsultController.php">Gérere contribution</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <ul class="navbar-nav">
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Tournoi
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <li><a class="dropdown-item" href="#">Profil</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <ul class="navbar-nav ms-auto">
-                            <li class="nav-item">
-                                <form method="post">
-                                    <input name="Deconnexion" type="submit" value="Déconnexion" class="btn btn-danger nav-link">
-                                </form>
-                            </li>
-                            <li class="nav-item">
-                                <a href="../../Controller/Connexion/RegisterController.php" class="btn btn-primary nav-link">Inscription</a>
-                            </li>
-                        </ul>
-                        <ul class="navbar-nav">
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Utilisateur
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <li><a class="dropdown-item" href="#">Profil</a></li>
-                                    <li><a class="dropdown-item" href="#">Autre action</a></li>
-                                </ul>
-                            </li>
-                        </ul>
+                <?php else: ?>
+
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Utilisateur
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a class="dropdown-item" href="../../Controller/Utilisateurs/ModificationController.php">Modifier les utilisateurs</a></li>
+                                <li><a class="dropdown-item" href="../../Controller/Utilisateurs/ContributionConsultController.php">Gérere contribution</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Tournoi
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a class="dropdown-item" href="#">Profil</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <form method="post">
+                                <input name="Deconnexion" type="submit" value="Déconnexion" class="btn btn-danger nav-link">
+                            </form>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../../Controller/Connexion/RegisterController.php" class="btn btn-primary nav-link">Inscription</a>
+                        </li>
+                    </ul>
                     <?php endif;?>
         </div>
     </div>
 </nav>
 
-
-<script>
-    
-    
-    
-    const backHome = document.querySelector("#backHome");
-    const goConn = document.querySelector("#Connexion")
-    backHome.addEventListener("click",function (){
-        window.location.replace("../../Controller/Accueil/HomepageController.php");
-    });
-    <?php if (!$userLoggedIn): ?>
-        goConn.addEventListener("click", function (){
-            window.location.replace("../../Controller/Connexion/ConnectionController.php");
-        });
-    <?php endif; ?>
-
-    function toggleButtonState() {
-
-        console.log(document.getElementById('userState').outerText);
-        if (document.getElementById('userState').outerText === "null") {
-            //gestion du bouton de connexion
-            goConn.setAttribute("disabled","true");
-            goConn.classList.remove("btn-primary");
-            goConn.classList.add("btn-secondary");
-        }
-        else {
-            //gestion du bouton de déconnexion
-            goDeco.setAttribute("disabled", true);
-            goConn.classList.remove("btn-secondary");
-            goConn.classList.add("btn-primary");
-        }
-    }
-
-</script>
 
 </body>
 </html>
