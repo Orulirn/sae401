@@ -29,7 +29,7 @@ $userLoggedIn = isset($_SESSION['user_id']);
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <div id="navbarDynamic">
+            <div class="navbar-collapse" id="navbarDynamic">
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="../../Controller/Accueil/HomePageController.php">Accueil</a>
