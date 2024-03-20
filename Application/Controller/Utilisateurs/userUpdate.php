@@ -28,7 +28,7 @@ updateUserInfo($userId, $firstname, $lastname, $mail, $cotisation);
 
 // Redirection basée sur le rôle
 if ($role == 0) {?>
-<script>window.location.href = "ModificationController.php"</script>
+    <script>window.location.href = "ModificationController.php"</script>
 <?php
 } else {?>
     <script>window.location.href = "updateDataController.php"</script>
