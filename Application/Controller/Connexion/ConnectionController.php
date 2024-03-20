@@ -15,10 +15,14 @@ if (isset($_POST['connect'])) {
     if ($user->login($email, $password)) {
         $_SESSION['user_id'] = $user->getIdUser();
         $_SESSION['user']=$user;
-        $_SESSION['perms']= $user->GetRole();
-        header("Location: ../../Controller/Accueil/HomePageController.php");
+        $_SESSION['perms']= $user->GetRole();?>
+        <script>window.location.href = "../../Controller/Accueil/HomePageController.php"</script>
+    <?php
+        //header("Location: ../../Controller/Accueil/HomePageController.php");
     } else {
-        header("Location: ../../Controller/Connexion/ConnectionController.php?login=failed");
+        ?>
+        <script>window.location.href = "../../Controller/Connexion/ConnectionController.php?login=failed"</script>
+        <?php
     }
 }
 ?>

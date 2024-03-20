@@ -27,10 +27,12 @@ if ($role == 0) {
 updateUserInfo($userId, $firstname, $lastname, $mail, $cotisation);
 
 // Redirection basée sur le rôle
-if ($role == 0) {
-    header("Location: ModificationController.php");
-} else {
-    header("Location: updateDataController.php");
+if ($role == 0) {?>
+<script>window.location.href = "ModificationController.php"</script>
+<?php
+} else {?>
+    <script>window.location.href = "updateDataController.php"</script>
+    <?php
 }
     exit();
 ?>

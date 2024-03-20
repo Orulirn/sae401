@@ -32,14 +32,14 @@ function signUpAdmin($firstname, $lastname, $mail, $usertype, $password, $verifi
 
 function GetAllOfUsersTable(){
     global $db;
-    $sql = $db->prepare("SELECT users.idUser,firstname,lastname,mail,cotisation,count(idRole) as nbRole FROM Users JOIN users_role on users.iduser = users_role.iduser GROUP BY idUser");
+    $sql = $db->prepare("SELECT users.idUser,firstname,lastname,mail,cotisation,count(idRole) as nbRole FROM users JOIN users_role on users.iduser = users_role.iduser GROUP BY idUser");
     $sql->execute();
     return $sql->fetchAll(PDO::FETCH_ASSOC);
 }
 
 function Get1OfUsersTable($id){
     global $db;
-    $sql = $db->prepare("SELECT users.idUser,firstname,lastname,mail,cotisation  FROM Users JOIN users_role on users.iduser = users_role.iduser WHERE users.idUser = :id");
+    $sql = $db->prepare("SELECT users.idUser,firstname,lastname,mail,cotisation  FROM users JOIN users_role on users.iduser = users_role.iduser WHERE users.idUser = :id");
     $sql->execute(array("id"=> $id));
     return $sql->fetch(PDO::FETCH_ASSOC);
 }
@@ -89,14 +89,14 @@ function UpdateRoleAdmin($idUser,$role){
 
 function GetAllUserWithContribution(){
     global $db;
-    $sql = $db->prepare("SELECT idUser,firstname,lastname,mail,cotisation FROM Users  WHERE `cotisation`=1");
+    $sql = $db->prepare("SELECT idUser,firstname,lastname,mail,cotisation FROM users  WHERE `cotisation`=1");
     $sql->execute();
     return $sql->fetchAll(PDO::FETCH_ASSOC);
 }
 
 function GetAllUserWithNoContribution(){
     global $db;
-    $sql = $db->prepare("SELECT idUser,firstname,lastname,mail,cotisation FROM Users WHERE `cotisation`=0");
+    $sql = $db->prepare("SELECT idUser,firstname,lastname,mail,cotisation FROM users WHERE `cotisation`=0");
     $sql->execute();
     return $sql->fetchAll(PDO::FETCH_ASSOC);
 }
