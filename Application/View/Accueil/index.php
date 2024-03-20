@@ -18,6 +18,9 @@ if(isset($_POST['Deconnexion'])){
 }
 
 $userLoggedIn = isset($_SESSION['user_id']);
+$res = GetRole($_SESSION['user_id'])[0]["idRole"];
+echo ("<p id='currentRole' visibility='hidden' style= 'display :none;'>".json_encode($res)."</p>");
+
 
 ?>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="navbar">
