@@ -4,8 +4,6 @@
     <title>Classement Tournoi</title>
     <meta charset="UTF-8">
     <title>Création tournoi</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <style id="monStyle">
         @keyframes scroll-right {
