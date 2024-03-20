@@ -92,7 +92,7 @@ if(role == 0) {
     let suba0_0 = document.createElement('a');
     suba0_0.setAttribute('class', 'dropdown-item');
     suba0_0.setAttribute('id', 'navbarInscrireEquipe');
-    suba0_0.setAttribute('href', '../../Controller/Tournoi/tournamentController.php');
+    suba0_0.setAttribute('href', '../../Controller/Tournoi/addTeamTournamentController.php');
     suba0_0.innerText = 'Inscrire une équipe';
 
     let subli0_1 = document.createElement('li');
