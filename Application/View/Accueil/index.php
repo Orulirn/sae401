@@ -63,7 +63,7 @@ echo ("<p id='currentRole' visibility='hidden' style= 'display :none;'>".json_en
 <script>
 
 const divDyn= document.querySelector('#navbarDynamic');
-role = JSON.parse(role);
+role = <?php echo $_SESSION["perms"]; ?>;
 
 if(role == 0) {
     //gestion menu tournoi partie admin
