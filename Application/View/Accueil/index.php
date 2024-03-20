@@ -52,6 +52,9 @@ $userLoggedIn = isset($_SESSION['user_id']);
                                 <input id="Deconnexion" name="Deconnexion" type="submit" value="Déconnexion" class="btn btn-danger nav-link">
                             </form>
                         </li>
+                        <li class="nav-item">
+                            <a id="Inscription" href="../../Controller/Connexion/RegisterController.php" class="btn btn-primary nav-link">Inscription</a>
+                        </li>
                     </ul>
                     <?php endif;?>
         </div>
