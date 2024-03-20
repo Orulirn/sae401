@@ -21,7 +21,6 @@ $userLoggedIn = isset($_SESSION['user_id']);
 $res = GetRole($_SESSION['user_id'])[0]["idRole"];
 echo ("<p id='currentRole' visibility='hidden' style= 'display :none;'>".json_encode($res)."</p>");
 
-
 ?>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="navbar">
     <div class="container-fluid">
@@ -64,7 +63,7 @@ echo ("<p id='currentRole' visibility='hidden' style= 'display :none;'>".json_en
 <script>
 
 const divDyn= document.querySelector('#navbarDynamic');
-role= <?php echo $_SESSION['perms']; ?>;
+role = JSON.parse(role);
 
 if(role == 0) {
     //gestion menu tournoi partie admin
