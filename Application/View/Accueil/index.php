@@ -2,8 +2,8 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <link href="../../View/bootstrap-5.3.1-dist/css/bootstrap.css" rel="stylesheet">
     <link rel="icon" href="../files/logoSite.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
 </head>
 <body>
 <?php
@@ -23,17 +23,19 @@ echo ("<p id='currentRole' type='hidden' style= 'display :none;'>".json_encode($
 ?>
 
 <nav class="navbar navbar-expand-sm bg-dark-subtle">
-    <div class="container-fluid p-xl-2">
+    <a class="navbar-brand " id="backHome" href="../../Controller/Accueil/HomePageController.php" >
+        <img src="../../View/files/logoSite.png" width="200px" height="133px">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul id="navbar" class="navbar-nav">
-            <li class="nav-item">
-                <a class="navbar-brand " id="backHome" href="../../Controller/Accueil/HomePageController.php" >
-                    <img src="../../View/files/logoSite.png" width="200px" height="133px">
-                </a>
-            </li>
             <?php if ($userLoggedIn): ?>
-            <li class="nav-item mt-auto">
-                <a class="nav-link fw-bold" href="../../Controller/Tournoi/ControllerMatchPlayer.php">Les matchs</a>
-            </li>
+                <li class="nav-item mt-auto">
+                    <a class="nav-link fw-bold" href="../../Controller/Tournoi/ControllerMatchPlayer.php">Les matchs</a>
+                </li>
             <?php endif; ?>
         </ul>
     </div>
@@ -59,6 +61,7 @@ echo ("<p id='currentRole' type='hidden' style= 'display :none;'>".json_encode($
         </ul>
     </div>
 </nav>
+
 <script>
     
     
@@ -75,7 +78,7 @@ echo ("<p id='currentRole' type='hidden' style= 'display :none;'>".json_encode($
     <?php endif; ?>
 
     function toggleButtonState() {
-        
+
         console.log(document.getElementById('userState').outerText);
         if (document.getElementById('userState').outerText = "null") {
             //gestion du bouton de connexion
@@ -90,9 +93,9 @@ echo ("<p id='currentRole' type='hidden' style= 'display :none;'>".json_encode($
             goConn.classList.add("btn-primary");
         }
     }
-    let role = document.querySelector("#currentRole").innerText;
     const navbar = document.querySelector("#navbar");
-    role = JSON.parse(role);
+    role = <?php echo $_SESSION['perms'] ?>;
+
     if (role == 0 ){
 
         let li = document.createElement("li");
@@ -139,7 +142,7 @@ echo ("<p id='currentRole' type='hidden' style= 'display :none;'>".json_encode($
         menu.setAttribute("href","../../Controller/Mail/ControllerMailing.php");
         li.appendChild(menu);
         navbar.appendChild(li);
-        
+
         li = document.createElement("li");
         li.setAttribute("class","nav-item mt-auto");
         menu = document.createElement("a");
@@ -166,7 +169,7 @@ echo ("<p id='currentRole' type='hidden' style= 'display :none;'>".json_encode($
         menu.setAttribute("href","../../Controller/Tournoi/tournamentController.php");
         li.appendChild(menu);
         navbar.appendChild(li);
-        
+
         li = document.createElement("li");
         li.setAttribute("class","nav-item mt-auto");
         menu = document.createElement("a");
@@ -184,7 +187,7 @@ echo ("<p id='currentRole' type='hidden' style= 'display :none;'>".json_encode($
         menu.setAttribute("href","../../Controller/Tournoi/verifyTeamTournamentController.php");
         li.appendChild(menu);
         navbar.appendChild(li);
-        
+
         li = document.createElement("li");
         li.setAttribute("class","nav-item mt-auto");
         menu = document.createElement("a");
@@ -217,7 +220,7 @@ echo ("<p id='currentRole' type='hidden' style= 'display :none;'>".json_encode($
         menu.setAttribute("href","../../Controller/Utilisateurs/updateDataController.php");
         li.appendChild(menu);
         navbar.appendChild(li);
-        
+
         li = document.createElement("li");
         li.setAttribute("class","nav-item mt-auto");
         menu = document.createElement("a");
@@ -237,6 +240,10 @@ echo ("<p id='currentRole' type='hidden' style= 'display :none;'>".json_encode($
         navbar.appendChild(li);
     }
 </script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 
 </body>
 </html>
