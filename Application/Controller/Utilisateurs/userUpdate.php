@@ -14,7 +14,7 @@ $lastname = $_POST["lastname"];
 $mail = $_POST["mail"];
 
 $userId = $_POST["idUser"];
-$role = GetRole($userId)[0]["idRole"];
+$role = $_SESSION['perms'];
 
 $UsersData = Get1OfUsersTable($userId);
 if ($role == 0) {
