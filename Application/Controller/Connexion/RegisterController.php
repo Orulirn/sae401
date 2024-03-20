@@ -19,10 +19,10 @@ echo ("<p id='userRole' visibility='hidden' style= 'display :none;'>".json_encod
 //Si l'utilisateur connecté est un admin il peut créer n'importe quel utilisateur
 //Si l'utilisateur n'est pas connecté, alors il crée son profil qui va ensuite devoir être validé
 if(isset($_POST['submit'])) {
-    switch (GetRole($_SESSION['user_id'])){
+    switch ($role){
     case "0":
         signUpAdmin($_POST['firstname'], $_POST['lastname'], $_POST['mail'], $_POST['usertype'], $_POST['password'], $_POST['verification']);
-        header('Location: ConnectionController.php');
+        header('Location: ../../Controller/Accueil/HomePageController.php');
         break;
     default :
         signUpVerify($_POST['firstname'], $_POST['lastname'], $_POST['mail'], $_POST['password'], $_POST['verification']);

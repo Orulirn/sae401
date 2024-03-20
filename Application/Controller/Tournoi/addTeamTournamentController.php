@@ -17,18 +17,21 @@ include_once("../../Model/Equipe/teams_table.php");
 include_once("../../Model/Equipe/team_player_table.php");
 include_once("../../Model/Equipe/team_tournament_table.php");
 include_once("../../Model/Tournoi/tournament_table.php");
+include_once("../../Model/Tournoi/verifyTeamTournamentModel.php");
 
 $dataTeam = selectTeamWithCaptain($_SESSION['user_id']);
 $dataAllTeams = selectAllTeams();
 $dataTournament = selectAllTournaments();
 $dataNumberTeamMates = selectNumberOfTeamMates($dataTeam["idTeam"]);
 $dataCotisation = GetCotisationForTeam($dataTeam["idTeam"]);
+$dataAllTeamTournament = selectAllTeamTournament();
 
 echo ("<p id='dataTeam' visibility='hidden' style= 'display :none;'>".json_encode($dataTeam)."</p>");
 echo ("<p id='dataAllTeams' visibility='hidden' style= 'display :none;'>".json_encode($dataAllTeams)."</p>");
 echo ("<p id='dataTournament' visibility='hidden' style= 'display :none;'>".json_encode($dataTournament)."</p>");
 echo ("<p id='dataCotisation' visibility='hidden' style= 'display :none;'>".json_encode($dataCotisation)."</p>");
 echo ("<p id='dataNumberTeamMates' visibility='hidden' style= 'display :none;'>".json_encode($dataNumberTeamMates)."</p>");
+echo ("<p id='dataAllTeamTournament' visibility='hidden' style= 'display :none;'>".json_encode($dataAllTeamTournament)."</p>");
 
 /* Regarde si la personne connecté est un admin ou non
 Si 0 alors admin donc affiche la vue admin
@@ -47,11 +50,11 @@ case "1":
 /* Regarde si la personne connecté est un admin ou non
 Si 0 alors admin donc ajoute la team à l'equipe (avec le select)
 Si 1 alors pas admin donc ajoute l'equipe du capitaine */  
-if(isset($_POST['submit'])) {
+if($_SERVER['REQUEST_METHOD'] == 'POST') {
     switch (GetRole($_SESSION['user_id'])[0]["idRole"]){
     case "1":
         if (selectCaptainWithUser($_SESSION['user_id'])["isCaptain"]){
-            addTeamToTournament($dataTeam["idTeam"],$dataTournament["idTournoi"]);
+            addTeamTournamentVerify($dataTeam["idTeam"],$dataTournament["idTournoi"]);
         }
         break;
     case "0":
