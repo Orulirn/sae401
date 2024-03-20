@@ -18,8 +18,6 @@ if(isset($_POST['Deconnexion'])){
 }
 
 $userLoggedIn = isset($_SESSION['user_id']);
-$res = GetRole($_SESSION['user_id'])[0]["idRole"];
-echo ("<p id='currentRole' type='hidden' style= 'display :none;'>".json_encode($res)."</p>");
 
 ?>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="navbar">
@@ -31,52 +29,39 @@ echo ("<p id='currentRole' type='hidden' style= 'display :none;'>".json_encode($
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="../../Controller/Accueil/HomePageController.php">Accueil</a>
-                </li>
-            </ul>
-                <?php if (!$userLoggedIn): ?>
-                <ul class="navbar-nav ms-auto">
+            <div class="navbar-collapse" id="navbarDynamic">
+                <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a href="../../Controller/Connexion/ConnectionController.php" class="btn btn-primary nav-link">Connexion</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../../Controller/Connexion/RegisterController.php" class="btn btn-primary nav-link">Inscription</a>
+                        <a class="nav-link active" aria-current="page" href="../../Controller/Accueil/HomePageController.php">Accueil</a>
                     </li>
                 </ul>
-                <?php else: ?>
-
-                    <ul class="navbar-nav">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Utilisateur
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href="../../Controller/Utilisateurs/ModificationController.php">Modifier les utilisateurs</a></li>
-                                <li><a class="dropdown-item" href="../../Controller/Utilisateurs/ContributionConsultController.php">Gérere contribution</a></li>
-                            </ul>
+                    <?php if (!$userLoggedIn): ?>
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a id="Connexion" href="../../Controller/Connexion/ConnectionController.php" class="btn btn-primary nav-link">Connexion</a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="Inscription" href="../../Controller/Connexion/RegisterController.php" class="btn btn-primary nav-link">Inscription</a>
                         </li>
                     </ul>
-                    <ul class="navbar-nav">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Tournoi
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href="#">Profil</a></li>
-                            </ul>
-                        </li>
-                    </ul>
+                    <?php else: ?>
 
+                        <ul class="navbar-nav">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Tournoi
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <li><a class="dropdown-item" href="#">Profil</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+            </div>
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
                             <form method="post">
-                                <input name="Deconnexion" type="submit" value="Déconnexion" class="btn btn-danger nav-link">
+                                <input id="Deconnexion" name="Deconnexion" type="submit" value="Déconnexion" class="btn btn-danger nav-link">
                             </form>
-                        </li>
-                        <li class="nav-item">
-                            <a href="../../Controller/Connexion/RegisterController.php" class="btn btn-primary nav-link">Inscription</a>
                         </li>
                     </ul>
                     <?php endif;?>
@@ -84,6 +69,55 @@ echo ("<p id='currentRole' type='hidden' style= 'display :none;'>".json_encode($
     </div>
 </nav>
 
+<script>
+
+const divDyn= document.querySelector('#navbarDynamic');
+role= <?php echo $_SESSION['perms']; ?>;
+
+if(role == 0) {
+
+    let ul= document.createElement('ul');
+    ul.setAttribute('class','navbar-nav');
+
+    let li= document.createElement('li');
+    li.setAttribute('class','nav-item dropdown');
+
+    let a= document.createElement('a');
+    a.setAttribute('class', 'nav-link dropdown-toggle');
+    a.setAttribute('href', '#');
+    a.setAttribute('id', 'navbarDropdownMenuLink');
+    a.setAttribute('role', 'button');
+    a.setAttribute('data-bs-toggle', 'dropdown');
+    a.setAttribute('aria-expanded', 'false');
+    a.innerText= "Utilisateurs";
+
+    let subul= document.createElement('ul');
+    subul.setAttribute('class', 'dropdown-menu');
+    subul.setAttribute('aria-labelledby', 'navbarDropdownMenuLink');
+
+    let subli1= document.createElement('li');
+    let suba1= document.createElement('a');
+    suba1.setAttribute('class', 'dropdown-item');
+    suba1.setAttribute('href', '../../Controller/Utilisateurs/ModificationController.php');
+    suba1.innerText= 'Modifier Utilisateurs';
+
+    let subli2= document.createElement('li');
+    let suba2= document.createElement('a');
+    suba2.setAttribute('class', 'dropdown-item');
+    suba2.setAttribute('href', '../../Controller/Utilisateurs/ContributionConsultController.php');
+    suba2.innerText= 'Gestion Contribution';
+
+    subli1.appendChild(suba1);
+    subli2.appendChild(suba2);
+    subul.appendChild(subli1);
+    subul.appendChild(subli2);
+    li.appendChild(a);
+    li.appendChild(subul);
+    ul.appendChild(li);
+    divDyn.appendChild(ul);
+
+    }
+</script>
 
 </body>
 </html>
