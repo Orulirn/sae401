@@ -1,8 +1,5 @@
 <?php
 session_start();
-include("../Model/Utilisateur/checkSession.php");
-checkConn();
-
 
 include "../../Model/Classement/ClassementModel.php";
 

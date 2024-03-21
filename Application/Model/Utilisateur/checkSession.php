@@ -5,7 +5,7 @@ function checkRole(){
         return;
     }
     else {
-        header('Location: http://localhost/Application/Controller/Connexion/ConnectionController.php');
+        header('Location: ../../Controller/Connexion/ConnectionController.php');
 
     }
 }
@@ -15,7 +15,7 @@ function checkConn(){
         return;
     }
     else {
-        header('Location: http://localhost/Application/Controller/Connexion/ConnectionController.php');
+        header('Location: ../../Controller/Connexion/ConnectionController.php');
     }
 }
 
