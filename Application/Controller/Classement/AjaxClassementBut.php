@@ -1,10 +1,7 @@
 <?php
 session_start();
-include("../Model/Utilisateur/checkSession.php");
-checkConn();
 
-
-include "../Model/Classement/ClassementModel.php";
+include "../../Model/Classement/ClassementModel.php";
 $idTournoi=$_POST["idtournoi"];
 
 if (gettype($idTournoi)!="NULL"){
