@@ -129,6 +129,7 @@ echo ("<p id='currentRole' visibility='hidden' style= 'display :none;'>".json_en
         suba0_5.setAttribute('href', '../../Controller/Equipe/teamsController.php');
         suba0_5.innerText = 'Les équipes';
 
+
         subli0_0.appendChild(suba0_0);
         subli0_1.appendChild(suba0_1);
         subli0_2.appendChild(suba0_2);
@@ -210,7 +211,7 @@ echo ("<p id='currentRole' visibility='hidden' style= 'display :none;'>".json_en
         a3.setAttribute('role', 'button');
         a3.setAttribute('data-bs-toggle', 'dropdown');
         a3.setAttribute('aria-expanded', 'false');
-        a3.innerText= "Tournoi joueur";
+        a3.innerText= "Tournoi";
 
         let subul3= document.createElement('ul');
         subul3.setAttribute('class', 'dropdown-menu');
@@ -234,17 +235,50 @@ echo ("<p id='currentRole' visibility='hidden' style= 'display :none;'>".json_en
         suba3_2.setAttribute('href', '../../Controller/Classement/ClassementController.php');
         suba3_2.innerText= 'Classement';
 
+        let subli3_3= document.createElement('li');
+        let suba3_3= document.createElement('a');
+        suba3_3.setAttribute('class', 'dropdown-item');
+        suba3_3.setAttribute('href', '../../Controller/Tournoi/ControllerMyMatch.php');
+        suba3_3.innerText= 'Mes matchs';
+
+        let subli3_4= document.createElement('li');
+        let suba3_4= document.createElement('a');
+        suba3_4.setAttribute('class', 'dropdown-item');
+        suba3_4.setAttribute('href', '../../Controller/Tournoi/ControllerMatchPlayer.php');
+        suba3_4.innerText= 'Les matchs';
+
 
         subli3_0.appendChild(suba3_0);
         subli3_1.appendChild(suba3_1);
         subli3_2.appendChild(suba3_2);
+        subli3_3.appendChild(suba3_3);
+        subli3_4.appendChild(suba3_4);
         subul3.appendChild(subli3_0);
         subul3.appendChild(subli3_1);
         subul3.appendChild(subli3_2);
+        subul3.appendChild(subli3_3);
+        subul3.appendChild(subli3_4);
         li3.appendChild(a3);
         li3.appendChild(subul3);
         ul3.appendChild(li3);
         divDyn.appendChild(ul3);
+
+
+        let ul4 = document.createElement('ul');
+        ul4.setAttribute('class', 'navbar-nav');
+
+        let li4 = document.createElement('li');
+        li4.setAttribute('class', 'nav-item');
+
+        let a4 = document.createElement('a');
+        a4.setAttribute('class', 'nav-link active');
+        a4.setAttribute('aria-current', 'page');
+        a4.setAttribute('href', '../../Controller/Utilisateurs/updateDataController.php');
+        a4.innerText='modifier mon profil';
+
+        li4.appendChild(a4);
+        ul4.appendChild(li4);
+        divDyn.appendChild(ul4);
 
     }
     else if (role == "1" ) {
@@ -287,18 +321,50 @@ echo ("<p id='currentRole' visibility='hidden' style= 'display :none;'>".json_en
         suba3_2.setAttribute('href', '../../Controller/Classement/ClassementController.php');
         suba3_2.innerText= 'Classement';
 
+        let subli3_3= document.createElement('li');
+        let suba3_3= document.createElement('a');
+        suba3_3.setAttribute('class', 'dropdown-item');
+        suba3_3.setAttribute('href', '../../Controller/Tournoi/ControllerMyMatch.php');
+        suba3_3.innerText= 'Mes matchs';
+
+        let subli3_4= document.createElement('li');
+        let suba3_4= document.createElement('a');
+        suba3_4.setAttribute('class', 'dropdown-item');
+        suba3_4.setAttribute('href', '../../Controller/Tournoi/ControllerMatchPlayer.php');
+        suba3_4.innerText= 'Les matchs';
+
 
         subli3_0.appendChild(suba3_0);
         subli3_1.appendChild(suba3_1);
         subli3_2.appendChild(suba3_2);
+        subli3_3.appendChild(suba3_3);
+        subli3_4.appendChild(suba3_4);
         subul3.appendChild(subli3_0);
         subul3.appendChild(subli3_1);
         subul3.appendChild(subli3_2);
+        subul3.appendChild(subli3_3);
+        subul3.appendChild(subli3_4);
         li3.appendChild(a3);
         li3.appendChild(subul3);
         ul3.appendChild(li3);
         divDyn.appendChild(ul3);
 
+
+        let ul4 = document.createElement('ul');
+        ul4.setAttribute('class', 'navbar-nav');
+
+        let li4 = document.createElement('li');
+        li4.setAttribute('class', 'nav-item');
+
+        let a4 = document.createElement('a');
+        a4.setAttribute('class', 'nav-link active');
+        a4.setAttribute('aria-current', 'page');
+        a4.setAttribute('href', '../../Controller/Utilisateurs/updateDataController.php');
+        a4.innerText='modifier mon profil';
+
+        li4.appendChild(a4);
+        ul4.appendChild(li4);
+        divDyn.appendChild(ul4);
     }
 </script>
 
