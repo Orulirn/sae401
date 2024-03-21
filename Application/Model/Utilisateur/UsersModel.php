@@ -122,4 +122,15 @@ function updateUserInfo($buttonIndex, $firstname, $lastname, $mail, $cotisation)
     $sql->execute(array('firstname'=>$firstname,'lastname'=>$lastname,'mail'=>$mail,'cotisation'=>$cotisation,"btnIndex"=>$buttonIndex));
     return true;
 }
+
+function deleteUser($id){
+    global $db;
+    $sql = $db->prepare("DELETE FROM team_player WHERE player = :id");
+    $sql->execute(array('id'=> $id));
+    $sql = $db->prepare("DELETE FROM users_role WHERE idUser = :id");
+    $sql->execute(array('id'=> $id));
+    $sql = $db->prepare("DELETE FROM users WHERE IdUser = :id");
+    $sql->execute(array('id'=> $id));
+    return true;
+}
 ?>
