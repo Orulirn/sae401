@@ -46,7 +46,19 @@ echo ("<p id='currentRole' visibility='hidden' style= 'display :none;'>".json_en
                             <a id="Inscription" href="../../Controller/Connexion/RegisterController.php" class="btn btn-primary nav-link">Inscription</a>
                         </li>
                     </ul>
-                <?php else: ?>
+                <?php elseif ($userLoggedIn && $res === "0"): ?>
+            </div>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a id="Inscription" href="../../Controller/Connexion/RegisterController.php" class="btn btn-primary nav-link">Inscription</a>
+                    </li>
+                    <li class="nav-item">
+                        <form method="post">
+                            <input id="Deconnexion" name="Deconnexion" type="submit" value="Déconnexion" class="btn btn-danger nav-link">
+                        </form>
+                    </li>
+                </ul>
+                <?php elseif ($userLoggedIn && $res === "1"): ?>
             </div>
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
