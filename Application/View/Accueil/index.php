@@ -46,7 +46,7 @@ echo ("<p id='currentRole' visibility='hidden' style= 'display :none;'>".json_en
                             <a id="Inscription" href="../../Controller/Connexion/RegisterController.php" class="btn btn-primary nav-link">Inscription</a>
                         </li>
                     </ul>
-                <?else: ?>
+                <?php else: ?>
             </div>
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
