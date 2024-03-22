@@ -179,7 +179,7 @@
         const firstname = document.getElementById("firstname");
         const lastname = document.getElementById("lastname");
         const mail = document.getElementById("mail");
-        const regexPassword =/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&+-])[A-Za-z\d@$!%*?&+-]{8,}$/;
+        const regexPassword =/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&+-,;:{}('")])[A-Za-z\d@$!%*?&+-,;:{}('")]{8,}$/;
         const regexMail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
         mail.addEventListener('input',formIsValid);
