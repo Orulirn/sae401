@@ -41,8 +41,9 @@ if(isset($_POST['Valider'])) {
     case "0":
         addTeamToTournament($_POST["team".$i],$_POST["tournoi".$i]);
         deleteTeamTournamentVerify($_POST["team".$i],$_POST["tournoi".$i]);
-        header('Location: verifyTeamTournamentController.php');
-        break;
+        //header('Location: verifyTeamTournamentController.php');?>
+        <script>window.location.href = "../../Controller/Tournoi/verifyTeamTournamentController.php"</script>
+        <?php break;
     } 
 }
 
@@ -51,8 +52,9 @@ if(isset($_POST['Rejeter'])) {
     switch (GetRole($_SESSION['user_id'])[0]["idRole"]){
     case "0":
         deleteTeamTournamentVerify($_POST["team".$i],$_POST["tournoi".$i]);
-        header('Location: verifyTeamTournamentController.php');
-        break;
+        //header('Location: verifyTeamTournamentController.php');?>
+        <script>window.location.href = "../../Controller/Tournoi/verifyTeamTournamentController.php"</script>
+        <?php break;
     } 
 }
 

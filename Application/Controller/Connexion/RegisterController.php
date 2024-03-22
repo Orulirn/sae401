@@ -22,11 +22,17 @@ if(isset($_POST['submit'])) {
     switch ($role){
     case "0":
         signUpAdmin($_POST['firstname'], $_POST['lastname'], $_POST['mail'], $_POST['usertype'], $_POST['password'], $_POST['verification']);
-        header('Location: ../../Controller/Accueil/HomePageController.php');
+        //header('Location: ../../Controller/Accueil/HomePageController.php');
+        ?>
+        <script>window.location.href = "../../Controller/Accueil/HomePageController.php"</script>
+        <?php
         break;
     default :
         signUpVerify($_POST['firstname'], $_POST['lastname'], $_POST['mail'], $_POST['password'], $_POST['verification']);
-        header('Location: ConnectionController.php');
+        //header('Location: ConnectionController.php');
+        ?>
+        <script>window.location.href = "../../Controller/Connexion/ConnectionController.php"</script>
+        <?php
         break;
     }
 }
