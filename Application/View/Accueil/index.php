@@ -46,7 +46,7 @@ echo ("<p id='currentRole' visibility='hidden' style= 'display :none;'>".json_en
                             <a id="Inscription" href="../../Controller/Connexion/RegisterController.php" class="btn btn-primary nav-link">Inscription</a>
                         </li>
                     </ul>
-                <?php else: ?>
+                <?else:?>
             </div>
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
@@ -94,6 +94,13 @@ echo ("<p id='currentRole' visibility='hidden' style= 'display :none;'>".json_en
         suba0_0.setAttribute('href', '../../Controller/Tournoi/addTeamTournamentController.php');
         suba0_0.innerText = 'Inscrire une équipe';
 
+        let subli0_6 = document.createElement('li');
+        let suba0_6 = document.createElement('a');
+        suba0_6.setAttribute('class', 'dropdown-item');
+        suba0_6.setAttribute('id', 'navbarInscrireEquipe');
+        suba0_6.setAttribute('href', '../../Controller/Tournoi/verifyTeamTournamentController.php');
+        suba0_6.innerText = "Valider l'inscription d'une équipe";
+
         let subli0_1 = document.createElement('li');
         let suba0_1 = document.createElement('a');
         suba0_1.setAttribute('class', 'dropdown-item');
@@ -131,12 +138,14 @@ echo ("<p id='currentRole' visibility='hidden' style= 'display :none;'>".json_en
 
 
         subli0_0.appendChild(suba0_0);
+        subli0_6.appendChild(suba0_6);
         subli0_1.appendChild(suba0_1);
         subli0_2.appendChild(suba0_2);
         subli0_3.appendChild(suba0_3);
         subli0_4.appendChild(suba0_4);
         subli0_5.appendChild(suba0_5);
         subul0.appendChild(subli0_0);
+        subul0.appendChild(subli0_6);
         subul0.appendChild(subli0_1);
         subul0.appendChild(subli0_2);
         subul0.appendChild(subli0_3);
