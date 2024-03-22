@@ -11,6 +11,7 @@ $role = $_GET['role'];
 
 UpdateRoleAdmin($id,$role);
 
-header('Location: ModificationController.php');
+//header('Location: ModificationController.php');
 
 ?>
+<script>window.location.href = "../../Controller/Utilisateur/ModificationController.php"</script>
