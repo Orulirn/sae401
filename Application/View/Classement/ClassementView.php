@@ -211,6 +211,9 @@
         var div=document.createElement("div")
         div.id="tableauVictoire"
         div.className="tableau"
+        var h1=document.createElement("h1")
+        h1.textContent="Classement des équipes"
+        div.appendChild(h1)
         var table=document.createElement("table")
         table.className="table table-striped table-responsive table-bordered"
         div.appendChild(table)
@@ -275,6 +278,11 @@
         var div=document.createElement("div")
         div.id="tableauBut"
         div.className="tableau"
+
+        var h1=document.createElement("h1")
+        h1.textContent="Classement des meilleurs buteurs"
+        div.appendChild(h1)
+
         var table=document.createElement("table")
         table.className="table table-striped table-responsive table-bordered"
         div.appendChild(table)

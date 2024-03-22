@@ -25,7 +25,10 @@ function EnvoiMail($adresse)
         $token=bin2hex(random_bytes(24));
         $token=base64_encode($token);
         AjoutToken($token,$user[0]);
-        $lien="http://localhost:63342/sae401/Application/View/Connexion/ChangerMDPView.html?token=".$token;
+        $lienPage = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+        $lienArray =parse_url($lienPage);
+        $lienPage=$lienArray["scheme"]."://".$lienArray["host"]."/Application/View/Connexion/ChangerMDPView.html";
+        $lien=$lienPage."?token=".$token;
         global $mail;
         $mail->sendCustomEmail("cholagemail@gmail.com",
             array($adresse),

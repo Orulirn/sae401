@@ -12,4 +12,7 @@ $id = $_GET['buttonIndex'];
 deleteUser($id);
 
 
-header('Location: ModificationController.php');
+//header('Location: ModificationController.php');
+?>
+<script>window.location.href = "../../Controller/Utilisateur/ModificationController.php"</script>
+

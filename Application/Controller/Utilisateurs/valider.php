@@ -16,5 +16,6 @@ else {
     rejete($id);
 }
 
-header("Location: valideInscriptionController.php")
+//header("Location: valideInscriptionController.php")
 ?>
+<script>window.location.href = "../../Controller/Utilisateur/valideInscriptionController.php"</script>
