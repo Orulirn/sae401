@@ -18,4 +18,4 @@ else {
 
 //header("Location: valideInscriptionController.php")
 ?>
-<script>window.location.href = "../../Controller/Utilisateur/valideInscriptionController.php"</script>
+<script>window.location.href = "../../Controller/Utilisateurs/valideInscriptionController.php"</script>
