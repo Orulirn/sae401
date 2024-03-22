@@ -264,22 +264,6 @@ echo ("<p id='currentRole' visibility='hidden' style= 'display :none;'>".json_en
         divDyn.appendChild(ul3);
 
 
-        let ul4 = document.createElement('ul');
-        ul4.setAttribute('class', 'navbar-nav');
-
-        let li4 = document.createElement('li');
-        li4.setAttribute('class', 'nav-item');
-
-        let a4 = document.createElement('a');
-        a4.setAttribute('class', 'nav-link active');
-        a4.setAttribute('aria-current', 'page');
-        a4.setAttribute('href', '../../Controller/Utilisateurs/updateDataController.php');
-        a4.innerText='modifier mon profil';
-
-        li4.appendChild(a4);
-        ul4.appendChild(li4);
-        divDyn.appendChild(ul4);
-
     }
     else if (role == "1" ) {
 
