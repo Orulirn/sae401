@@ -87,7 +87,7 @@ echo ("<p id='currentRole' visibility='hidden' style= 'display :none;'>".json_en
 
         let a0 = document.createElement('a');
         a0.setAttribute('class', 'nav-link dropdown-toggle');
-        a0.setAttribute('id', 'navbarDropdownAdminTournament');
+        a0.setAttribute('id', 'navbarDropdownTournoiAdmin');
         a0.setAttribute('href', '#');
         a0.setAttribute('id', 'navbarDropdownMenuLink');
         a0.setAttribute('role', 'button');
@@ -109,7 +109,7 @@ echo ("<p id='currentRole' visibility='hidden' style= 'display :none;'>".json_en
         let subli0_6 = document.createElement('li');
         let suba0_6 = document.createElement('a');
         suba0_6.setAttribute('class', 'dropdown-item');
-        suba0_6.setAttribute('id', 'navbarInscrireEquipe');
+        suba0_6.setAttribute('id', 'navbarValiderInscrireEquipe');
         suba0_6.setAttribute('href', '../../Controller/Tournoi/verifyTeamTournamentController.php');
         suba0_6.innerText = "Valider l'inscription d'une équipe";
 
@@ -144,7 +144,7 @@ echo ("<p id='currentRole' visibility='hidden' style= 'display :none;'>".json_en
         let subli0_5 = document.createElement('li');
         let suba0_5 = document.createElement('a');
         suba0_5.setAttribute('class', 'dropdown-item');
-        suba0_5.setAttribute('id', 'navbarModifierTournoi');
+        suba0_5.setAttribute('id', 'navbarLesEquipes');
         suba0_5.setAttribute('href', '../../Controller/Equipe/teamsController.php');
         suba0_5.innerText = 'Les équipes';
 
@@ -178,7 +178,7 @@ echo ("<p id='currentRole' visibility='hidden' style= 'display :none;'>".json_en
         let a1 = document.createElement('a');
         a1.setAttribute('class', 'nav-link dropdown-toggle');
         a1.setAttribute('href', '#');
-        a1.setAttribute('id', 'navbarDropdownMenuLink');
+        a1.setAttribute('id', 'navbarDropdownUtilisateurs');
         a1.setAttribute('role', 'button');
         a1.setAttribute('data-bs-toggle', 'dropdown');
         a1.setAttribute('aria-expanded', 'false');
@@ -191,18 +191,21 @@ echo ("<p id='currentRole' visibility='hidden' style= 'display :none;'>".json_en
         let subli1_0 = document.createElement('li');
         let suba1_0 = document.createElement('a');
         suba1_0.setAttribute('class', 'dropdown-item');
+        suba1_0.setAttribute('id', 'navbarModifierUtilisateurs');
         suba1_0.setAttribute('href', '../../Controller/Utilisateurs/ModificationController.php');
         suba1_0.innerText = 'Modifier Utilisateurs';
 
         let subli1_1 = document.createElement('li');
         let suba1_1 = document.createElement('a');
         suba1_1.setAttribute('class', 'dropdown-item');
+        suba1_1.setAttribute('id', 'navbarGererContribution');
         suba1_1.setAttribute('href', '../../Controller/Utilisateurs/ContributionConsultController.php');
         suba1_1.innerText = 'Gestion Contribution';
 
         let subli1_2 = document.createElement('li');
         let suba1_2 = document.createElement('a');
         suba1_2.setAttribute('class', 'dropdown-item');
+        suba1_2.setAttribute('id', 'navbarValiderAdhesion');
         suba1_2.setAttribute('href', '../../Controller/Utilisateurs/valideInscriptionController.php');
         suba1_2.innerText = 'Valider adhésion';
 
@@ -228,7 +231,7 @@ echo ("<p id='currentRole' visibility='hidden' style= 'display :none;'>".json_en
         let a3= document.createElement('a');
         a3.setAttribute('class', 'nav-link dropdown-toggle');
         a3.setAttribute('href', '#');
-        a3.setAttribute('id', 'navbarDropdownMenuLink');
+        a3.setAttribute('id', 'navbarDropdownTournoi');
         a3.setAttribute('role', 'button');
         a3.setAttribute('data-bs-toggle', 'dropdown');
         a3.setAttribute('aria-expanded', 'false');
@@ -241,30 +244,35 @@ echo ("<p id='currentRole' visibility='hidden' style= 'display :none;'>".json_en
         let subli3_0= document.createElement('li');
         let suba3_0= document.createElement('a');
         suba3_0.setAttribute('class', 'dropdown-item');
+        suba3_0.setAttribute('id', 'navbarMonEquipe');
         suba3_0.setAttribute('href', '../../Controller/Equipe/myTeamController.php');
         suba3_0.innerText= 'Mon équipe';
 
         let subli3_1= document.createElement('li');
         let suba3_1= document.createElement('a');
         suba3_1.setAttribute('class', 'dropdown-item');
+        suba3_1.setAttribute('id', 'navbarCreerEquipe');
         suba3_1.setAttribute('href', '../../Controller/Equipe/addTeamController.php');
         suba3_1.innerText= 'Créer une équipe';
 
         let subli3_2= document.createElement('li');
         let suba3_2= document.createElement('a');
         suba3_2.setAttribute('class', 'dropdown-item');
+        suba3_2.setAttribute('id', 'navbarClassement');
         suba3_2.setAttribute('href', '../../Controller/Classement/ClassementController.php');
         suba3_2.innerText= 'Classement';
 
         let subli3_3= document.createElement('li');
         let suba3_3= document.createElement('a');
         suba3_3.setAttribute('class', 'dropdown-item');
+        suba3_3.setAttribute('id', 'navbarMesMatchs');
         suba3_3.setAttribute('href', '../../Controller/Tournoi/ControllerMyMatch.php');
         suba3_3.innerText= 'Mes matchs';
 
         let subli3_4= document.createElement('li');
         let suba3_4= document.createElement('a');
         suba3_4.setAttribute('class', 'dropdown-item');
+        suba3_4.setAttribute('id', 'navbarLesMatchs');
         suba3_4.setAttribute('href', '../../Controller/Tournoi/ControllerMatchPlayer.php');
         suba3_4.innerText= 'Les matchs';
 
@@ -284,7 +292,6 @@ echo ("<p id='currentRole' visibility='hidden' style= 'display :none;'>".json_en
         ul3.appendChild(li3);
         divDyn.appendChild(ul3);
 
-
     }
     else if (role == "1" ) {
 
@@ -298,7 +305,7 @@ echo ("<p id='currentRole' visibility='hidden' style= 'display :none;'>".json_en
         let a3= document.createElement('a');
         a3.setAttribute('class', 'nav-link dropdown-toggle');
         a3.setAttribute('href', '#');
-        a3.setAttribute('id', 'navbarDropdownMenuLink');
+        a3.setAttribute('id', 'navbarDropdownTournoi');
         a3.setAttribute('role', 'button');
         a3.setAttribute('data-bs-toggle', 'dropdown');
         a3.setAttribute('aria-expanded', 'false');
@@ -311,30 +318,35 @@ echo ("<p id='currentRole' visibility='hidden' style= 'display :none;'>".json_en
         let subli3_0= document.createElement('li');
         let suba3_0= document.createElement('a');
         suba3_0.setAttribute('class', 'dropdown-item');
+        suba3_0.setAttribute('id', 'navbarMonEquipe');
         suba3_0.setAttribute('href', '../../Controller/Equipe/myTeamController.php');
         suba3_0.innerText= 'Mon équipe';
 
         let subli3_1= document.createElement('li');
         let suba3_1= document.createElement('a');
         suba3_1.setAttribute('class', 'dropdown-item');
+        suba3_1.setAttribute('id', 'navbarCreerEquipe');
         suba3_1.setAttribute('href', '../../Controller/Equipe/addTeamController.php');
         suba3_1.innerText= 'Créer une équipe';
 
         let subli3_2= document.createElement('li');
         let suba3_2= document.createElement('a');
         suba3_2.setAttribute('class', 'dropdown-item');
+        suba3_2.setAttribute('id', 'navbarClassement');
         suba3_2.setAttribute('href', '../../Controller/Classement/ClassementController.php');
         suba3_2.innerText= 'Classement';
 
         let subli3_3= document.createElement('li');
         let suba3_3= document.createElement('a');
         suba3_3.setAttribute('class', 'dropdown-item');
+        suba3_3.setAttribute('id', 'navbarMesMatchs');
         suba3_3.setAttribute('href', '../../Controller/Tournoi/ControllerMyMatch.php');
         suba3_3.innerText= 'Mes matchs';
 
         let subli3_4= document.createElement('li');
         let suba3_4= document.createElement('a');
         suba3_4.setAttribute('class', 'dropdown-item');
+        suba3_4.setAttribute('id', 'navbarLesMatchs');
         suba3_4.setAttribute('href', '../../Controller/Tournoi/ControllerMatchPlayer.php');
         suba3_4.innerText= 'Les matchs';
 
@@ -364,6 +376,7 @@ echo ("<p id='currentRole' visibility='hidden' style= 'display :none;'>".json_en
         let a4 = document.createElement('a');
         a4.setAttribute('class', 'nav-link active');
         a4.setAttribute('aria-current', 'page');
+        a4.setAttribute('id', 'navbarModifierProfil');
         a4.setAttribute('href', '../../Controller/Utilisateurs/updateDataController.php');
         a4.innerText='modifier mon profil';
 
