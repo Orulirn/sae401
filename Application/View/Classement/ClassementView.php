@@ -87,7 +87,7 @@
             global $tournois;
             $i=0;
             foreach($tournois as $tournoi){
-                echo '<button type="button" class="btn btn-outline-secondary btnClassement"
+                echo '<button type="button" class="btn btn-outline-secondary btnClassement" id="'.$tournoi["idTournoi"].'"
     onclick="GetResultAjax('.$tournoi["idTournoi"].')">'.$tournoi["place"]." | ".$tournoi["year"].'
     </button>';
 
@@ -148,6 +148,8 @@
             scrollbarTop.removeChild(flecheDroiteDiv)
             scrollbarTop.removeChild(flecheGaucheDiv)
         }
+        var btns2=document.querySelectorAll(".btnClassement")
+        GetResultAjax(btns2[0].id)
 
     }
 
@@ -164,15 +166,26 @@
     }
 
     function GetResultAjax(idtournoi){
-        event.target.style.backgroundColor="#6c757d"
-        event.target.style.color="#ffffffff"
-        if(button===null){
-            button=event.target
-        }
-        else if (button!==event.target){
-            button.style.backgroundColor="#ffffff"
-            button.style.color="#6c757d"
-            button=event.target
+        console.log(event.target.textContent)
+        if (event.target.textContent) {
+            event.target.style.backgroundColor = "#6c757d"
+            event.target.style.color = "#ffffffff"
+            if (button === null) {
+                button = event.target
+            } else if (button !== event.target) {
+                button.style.backgroundColor = "#ffffff"
+                button.style.color = "#6c757d"
+                button = event.target
+            }
+        }else{
+            let btns=document.querySelectorAll(".btnClassement")
+            for (let btn of btns){
+                if (btn.id===idtournoi){
+                    btn.style.backgroundColor="#6c757d"
+                    btn.style.color="#ffffffff"
+                    button=btn
+                }
+            }
         }
         $.ajax({
              url:"../../Controller/Classement/AjaxClassementVictoire.php",
@@ -203,7 +216,6 @@
 
     function apparitionTableauVictoire(response){
         var result=response.split("\n")
-
         if (document.getElementById('tableauVictoire')) {
             document.body.removeChild(document.getElementById("tableauVictoire"))
         }
@@ -212,7 +224,7 @@
         div.id="tableauVictoire"
         div.className="tableau"
         var h1=document.createElement("h1")
-        h1.textContent="Classement des équipes"
+        h1.textContent="Classement du tournoi de "+button.textContent
         div.appendChild(h1)
         var table=document.createElement("table")
         table.className="table table-striped table-responsive table-bordered"
@@ -343,7 +355,7 @@
             boutonGroup.scrollLeft+=Math.round(boutonGroup.offsetWidth)
             boutonGroup.scrollLeft=Math.round(boutonGroup.scrollLeft)
             console.log(boutonGroup.scrollLeft,boutonGroup.offsetWidth,boutonGroup.scrollWidth)
-            if (boutonGroup.scrollLeft + boutonGroup.offsetWidth /*+10*/ >= boutonGroup.scrollWidth) {
+            if (boutonGroup.scrollLeft + boutonGroup.offsetWidth +10 >= boutonGroup.scrollWidth) {
                 document.getElementById("flecheDroiteDiv").removeChild(document.getElementById("buttonRight"))
             }
             if(!document.getElementById("buttonLeft")){
@@ -359,7 +371,6 @@
         },250)
     }
     function slideLeft(){
-        let boutonAfficher=document.getElementById("btnGroupAfficher");
         boutonGroup.style.animation="scroll-left 0.5s ease-in-out"
         setTimeout(function (){
             boutonGroup.style.animation=""

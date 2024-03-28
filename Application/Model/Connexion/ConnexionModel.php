@@ -61,10 +61,8 @@ function ChangerMDP($token,$MDP)
     $tokenRecup=$req->fetch();
     $time=new DateTime('now',new DateTimeZone('Europe/Paris'));
     $dateToken=date_create_from_format("Y-m-d H:i:s",$tokenRecup[2]);
-    $dateToken->add(date_interval_create_from_date_string("10 minutes"));
-    echo $dateToken->format("Y-m-d H:i:s")."\n".$time->format("Y-m-d H:i:s");
-    if ($time<$dateToken){
-        deleteToken($token);
+    $time->add(date_interval_create_from_date_string("10 minutes"));
+    if ($time>$dateToken){
         throw new Exception("Le token a expiré");
     }
     else {
