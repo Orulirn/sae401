@@ -167,7 +167,7 @@ echo'</div>';
     });
 
     function FirstFilterTable() {
-        const filterValue = filterInput.value.toLowerCase();
+        const filterValue = document.getElementById("filterInput").value.toLowerCase();
         const tableRows = document.querySelectorAll('#cotiseTable tbody tr');
 
         tableRows.forEach(row => {
@@ -183,7 +183,7 @@ echo'</div>';
     }
 
     function SecondFilterTable() {
-        const filterValue = filterInput.value.toLowerCase();
+        const filterValue = document.getElementById("filterInput").value.toLowerCase();
         const tableRows = document.querySelectorAll('#nonCotiseTable tbody tr');
 
         tableRows.forEach(row => {

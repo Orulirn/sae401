@@ -13,7 +13,13 @@ session_start();
 <body>
 <div class="container mt-5">
     <h1 class="mb-4">Tableau des Rencontres</h1>
-    <table class="table table-bordered">
+
+    <div class="container-fluid p-3 bg-white text-dark text-center">
+        <input type="text" id="filterInput" placeholder="Filtrer par parcours">
+    </div>
+
+
+    <table id="rencontre" class="table table-bordered">
         <thead>
         <tr>
             <th scope="col">Equipe 1</th>
@@ -34,12 +40,20 @@ session_start();
                     <?php if (isset($match['equipeChole'])): ?>
                     <?php $name = getTeamNameById($match['equipeChole']); ?>
                         <?= htmlspecialchars($name); ?>
-                    <?php else: ?>
-                        <form action="../../Controller/Tournoi/EstimationController.php" method="post">
-                            <input type="hidden" name="idRencontre" value="<?= htmlspecialchars($match['idRencontre']); ?>">
-                            <button type="submit" class="btn btn-primary">faire son pari </button>
-                        </form>
-                    <?php endif; ?>
+                    <?php else:
+                            if ($cpt <= 0):?>
+                            <form action="../../Controller/Tournoi/EstimationController.php" method="post">
+                                <input type="hidden" name="idRencontre" value="<?= htmlspecialchars($match['idRencontre']); ?>">
+                                <button type="submit" class="btn btn-primary">faire son pari </button>
+                            </form>
+                    <?php $cpt+=1;
+                            else: ?>
+                                <form action="../../Controller/Tournoi/EstimationController.php" method="post">
+                                    <input type="hidden" name="idRencontre" value="<?= htmlspecialchars($match['idRencontre']); ?>">
+                                    <button type="submit" disabled class="btn btn-secondary">faire son pari </button>
+                                </form>
+                            <?php endif;
+                    endif;?>
                 </td>
                 <td>
                     <?php if (isset($match['resultatRencontre'])): ?>
@@ -67,22 +81,28 @@ session_start();
     </table>
 </div>
 <script>
-    function redirectTo(id,page){
-        if (page === "resultatRencontre"){
-            <?php $_SESSION['idRencontre'] = $matchesTable["<script>id</script>"]["idRencontre"]?>
-            window.location.href = "../../Controller/Classement/resultatController.php"
-        }else if (page === "equipeChole"){
-            <?php $_SESSION['idRencontre']?> = id;
-            window.location.href = "../../Controller/Tournoi/EstimationController.php"
-        }else {
-            Swal.fire({
-                title: 'Erreur!',
-                text: 'Il y a eu une erreur de redirection.',
-                icon: 'error',
-                confirmButtonText: 'OK'
-            });
-        }
+
+    function FirstFilterTable() {
+        console.log('ok');
+        const filterValue = document.getElementById("filterInput").value.toLowerCase();
+        const tableRows = document.querySelectorAll('#rencontre tbody tr');
+
+        tableRows.forEach(row => {
+            const courses = row.querySelector('td:nth-child(3)').textContent.toLowerCase();
+
+            console.log(courses);
+
+            if (courses.includes(filterValue)) {
+                row.style.display = ''; // Affiche la ligne si le filtre correspond.
+            } else {
+                row.style.display = 'none'; // Cache la ligne si le filtre ne correspond pas.
+            }
+        });
     }
+
+    const filterField = document.getElementById('filterInput');
+    filterField.addEventListener('input', FirstFilterTable);
+
 </script>
 </body>
 </html>
