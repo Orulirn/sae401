@@ -38,6 +38,15 @@ body {
     font-size: 2em;
     font-weight: lighter;
 }
+@media only screen and (max-width: 600px) {
+    .welcome-message {
+        top: 50%;
+        left: 5%;
+        width: 90%;
+        text-align: center;
+    }
+}
+
 
 .content {
     position: relative;
