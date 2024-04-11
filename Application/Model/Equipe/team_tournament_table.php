@@ -6,7 +6,7 @@
  * 
  */
 
- include_once('../BDD/DatabaseConnection.php');
+ include_once('../../Model/BDD/DatabaseConnection.php');
 
 
  function selectAllTeamTournament(){

@@ -215,9 +215,9 @@
         addMarkerMode = !addMarkerMode;
         var deleteButton = document.getElementById('deleteMode');
         if (addMarkerMode) {
-            deleteButton.innerHTML = 'Activer Mode Suppression';
+            deleteButton.textContent = 'Activer Mode Suppression';
         } else {
-            deleteButton.innerHTML = 'Mode: Suppression (Actif)';
+            deleteButton.textContent = 'Mode: Suppression (Actif)';
         }
     });
 

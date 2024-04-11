@@ -77,6 +77,7 @@
                                             <ul>
                                                 <li id="minuscule" class="text-danger">Au moins une minuscule</li>
                                                 <li id="majuscule" class="text-danger">Au moins une majuscule</li>
+                                                <li id="chiffre" class="text-danger">Au moins un chiffre</li>
                                                 <li id="special" class="text-danger">Au moins un caractère spécial</li>
                                                 <li id="longueur" class="text-danger">Au moins 8 caractères</li>
                                             </ul>
@@ -125,6 +126,7 @@
         document.getElementById('password').onkeyup = function() {
             var minuscule = /[a-z]/g;
             var majuscule = /[A-Z]/g;
+            var chiffre = /[1-9]/g;
             var special = /[\W_]/g;
             var valeur = this.value;
             var verification = document.getElementById('verif').value;
@@ -136,6 +138,14 @@
             } else {
                 document.getElementById('minuscule').classList.remove('text-success');
                 document.getElementById('minuscule').classList.add('text-danger');
+            }
+
+            if(valeur.match(chiffre)) {
+                document.getElementById('chiffre').classList.remove('text-danger');
+                document.getElementById('chiffre').classList.add('text-success');
+            } else {
+                document.getElementById('chiffre').classList.remove('text-success');
+                document.getElementById('chiffre').classList.add('text-danger');
             }
 
 

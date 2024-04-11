@@ -70,7 +70,7 @@
             var fileNamesList = document.getElementById('fileNamesList');
             var files = input.files;
 
-            label.innerHTML = 'Fichiers sélectionnés';
+            label.textContent = 'Fichiers sélectionnés';
 
             for (var j = 0; j < files.length; j++) {
                 var fileId = generateId(); // Générer un identifiant unique pour chaque fichier
@@ -138,10 +138,10 @@
                 }
 
                 // Afficher les noms des fichiers dans la barre de sélection
-                label.innerHTML = fileNames.join(', ');
+                label.textContent = fileNames.join(', ');
             } else {
                 // Si aucun fichier n'est sélectionné, afficher le message par défaut
-                label.innerHTML = 'Choisir des fichiers';
+                label.textContent = 'Choisir des fichiers';
             }
         }
 

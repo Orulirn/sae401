@@ -6,16 +6,28 @@ include("../../Model/Utilisateur/checkSession.php");
 checkRole();
 
 
-$id = $_GET['idVerif'];
-$nb = $_GET['index'];
+// Vérification de l'existence des données POST avant de les utiliser
+if(isset($_POST['idVerif']) && isset($_POST['index'])) {
+    $id = $_POST['idVerif'];
+    $nb = $_POST['index'];
 
-if($nb === '1'){
-    valide($id);
+    if($nb === '1'){
+        valide($id);
+    }
+    else {
+        rejete($id);
+    }
+
+    echo "Inscription validée avec succès.";
+
+} else {
+
+    http_response_code(400);
+    echo "Erreur: Les données nécessaires ne sont pas fournies.";
 }
-else {
-    rejete($id);
-}
+
+
+
 
 //header("Location: valideInscriptionController.php")
 ?>
-<script>window.location.href = "../../Controller/Utilisateur/valideInscriptionController.php"</script>
