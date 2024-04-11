@@ -12,7 +12,7 @@ include "../../View/Utilisateur/updateDataView.php";
 
 $role = GetRole($_SESSION['user_id'])[0]["idRole"];
 if ($role == 0){
-    $buttonIndex = $_GET['buttonIndex'];
+    $buttonIndex = $_POST['buttonIndex'];
 }
 else{
     $buttonIndex = $_SESSION['user_id'];
