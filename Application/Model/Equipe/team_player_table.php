@@ -6,7 +6,7 @@
  * @author LERMIGEAUX Nathan <nathan.lermigeaux@uphf.fr>
  */
 
- include_once('../BDD/DatabaseConnection.php');
+ include_once('../../Model/BDD/DatabaseConnection.php');
 
 function deleteTeamMember($idTeam){
     global $db;
