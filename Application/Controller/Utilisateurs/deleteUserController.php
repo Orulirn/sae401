@@ -14,5 +14,5 @@ deleteUser($id);
 
 //header('Location: ModificationController.php');
 ?>
-<script>window.location.href = "../../Controller/Utilisateur/ModificationController.php"</script>
+<script>window.location.href = "../../Controller/Utilisateurs/ModificationController.php"</script>
 

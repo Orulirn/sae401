@@ -5,8 +5,7 @@ function checkRole(){
         return;
     }
     else {
-        header('Location: ../../Controller/Connexion/ConnectionController.php');
-
+        header('Location: ../../Controller/Accueil/HomePageController.php');
     }
 }
 
