@@ -13,7 +13,7 @@ function addTeamVerify($name){
     try{
         $db->beginTransaction();
         $sql = $db->prepare("INSERT INTO `verify_teams`(`name`) VALUES (:name)");
-        $sql->execute(array('name' => $name));
+        $sql->execute(array('name' =>htmlspecialchars($name)));
         $db->commit(); 
     }
     catch (PDOException $e){

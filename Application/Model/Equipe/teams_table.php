@@ -13,7 +13,7 @@ function addTeam($name){
     try{
         $db->beginTransaction();
         $sql = $db->prepare("INSERT INTO `teams`(`name`) VALUES (:name)");
-        $sql->execute(array('name' => $name));
+        $sql->execute(array('name' =>htmlspecialchars($name)));
         $db->commit(); 
     }
     catch (PDOException $e){

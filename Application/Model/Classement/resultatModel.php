@@ -32,7 +32,7 @@ function selectProposition($idRencontre){
 function insertResultat($resultat,$idRencontre){
     global $db;
     $sql = $db->prepare("UPDATE rencontre SET resultatRencontre = :resultatRencontre WHERE idRencontre = :idRencontre");
-    $sql->execute(array('resultatRencontre' => $resultat, 'idRencontre' => $idRencontre));
+    $sql->execute(array('resultatRencontre' => filter_var($resultat,FILTER_VALIDATE_INT), 'idRencontre' => filter_var($idRencontre,FILTER_VALIDATE_INT)));
 }
 /**
  * Supprime la proposition de résultat pour une rencontre spécifique.
@@ -42,7 +42,7 @@ function insertResultat($resultat,$idRencontre){
 function deleteProposition($idRencontre){
     global $db;
     $sql = $db->prepare("UPDATE rencontre SET propositionResultat = null WHERE idRencontre = :idRencontre");
-    $sql->execute(array('idRencontre' => $idRencontre));
+    $sql->execute(array('idRencontre' => filter_var($idRencontre,FILTER_VALIDATE_INT)));
 }
 /**
  * Insère ou met à jour la proposition de résultat pour une rencontre.
@@ -53,5 +53,5 @@ function deleteProposition($idRencontre){
 function insertProposition($prop,$idRencontre){
     global $db;
     $sql = $db->prepare("UPDATE rencontre SET propositionResultat = :prop WHERE idRencontre = :idRencontre");
-    $sql->execute(array('prop' => $prop,'idRencontre' => $idRencontre));
+    $sql->execute(array('prop' => filter_var($prop,FILTER_VALIDATE_INT),'idRencontre' => filter_var($idRencontre,FILTER_VALIDATE_INT)));
 }

@@ -25,7 +25,7 @@
     try{
         $db->beginTransaction();
         $sql = $db->prepare("INSERT INTO team_tournoi(idTeam, idTournoi) VALUES (:idTeam,:idTournoi)");
-        $sql->execute(array('idTeam' => $idTeam, 'idTournoi' => $idTournoi));
+        $sql->execute(array('idTeam' => filter_var($idTeam,FILTER_VALIDATE_INT), 'idTournoi' => filter_var($idTournoi,FILTER_VALIDATE_INT)));
         $db->commit();
     }
     catch( PDOException $e) {
@@ -39,7 +39,7 @@
     try{
         $db->beginTransaction();
         $sql = $db->prepare("INSERT INTO valid_team_tournoi(id, idTeam, idTournoi) VALUES (default,:idTeam,:idTournoi)");
-        $sql->execute(array('idTeam' => $idTeam, 'idTournoi' => $idTournoi));
+        $sql->execute(array('idTeam' =>filter_var($idTeam,FILTER_VALIDATE_INT), 'idTournoi' =>filter_var($idTournoi,FILTER_VALIDATE_INT)));
         $db->commit();
     }
     catch( PDOException $e) {
@@ -53,7 +53,7 @@
     try{
         $db->beginTransaction();
         $sql = $db->prepare("DELETE FROM team_tournoi WHERE idTeam = :idTeam and idTournoi = :idTournoi");
-        $sql->execute(array('idTeam' => $idTeam, 'idTournoi' => $idTournoi));
+        $sql->execute(array('idTeam' =>filter_var($idTeam,FILTER_VALIDATE_INT), 'idTournoi' =>filter_var($idTournoi,FILTER_VALIDATE_INT)));
         $db->commit();
     }
     catch( PDOException $e) {
