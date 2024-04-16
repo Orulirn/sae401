@@ -209,12 +209,21 @@ echo ("<p id='currentRole' visibility='hidden' style= 'display :none;'>".json_en
         suba1_2.setAttribute('href', '../../Controller/Utilisateurs/valideInscriptionController.php');
         suba1_2.innerText = 'Valider adhésion';
 
+        let subli1_3 = document.createElement('li');
+        let suba1_3 = document.createElement('a');
+        suba1_3.setAttribute('class', 'dropdown-item');
+        suba1_3.setAttribute('id', 'navbarValiderAdhesion');
+        suba1_3.setAttribute('href', '../../Controller/Equipe/verifyTeamsController.php');
+        suba1_3.innerText = "Valider la création d'une équipe";
+
         subli1_0.appendChild(suba1_0);
         subli1_1.appendChild(suba1_1);
         subli1_2.appendChild(suba1_2);
+        subli1_3.appendChild(suba1_3);
         subul1.appendChild(subli1_0);
         subul1.appendChild(subli1_1);
         subul1.appendChild(subli1_2);
+        subul1.appendChild(subli1_3);
         li1.appendChild(a1);
         li1.appendChild(subul1);
         ul1.appendChild(li1);
