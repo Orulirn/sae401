@@ -41,14 +41,14 @@ function AjoutToken($token,$idUser)
 {
     global $db;
     $req=$db->prepare("Insert into token values (?,?,NOW())");
-    $req->execute(array($token,$idUser));
+    $req->execute(array(htmlspecialchars($token),filter_var($idUser,FILTER_VALIDATE_INT)));
 }
 
 function deleteToken($token)
 {
     global $db;
     $req=$db->prepare("delete from token where token=?");
-    $req->execute(array($token));
+    $req->execute(array(htmlspecialchars($token)));
 }
 
 function ChangerMDP($token,$MDP)
@@ -68,6 +68,6 @@ function ChangerMDP($token,$MDP)
     else {
         $iduser = $tokenRecup[1];
         $req = $db->prepare("Update users set password=? where idUser=?");
-        $req->execute(array($MDP, $iduser));
+        $req->execute(array(htmlspecialchars($MDP), filter_var($iduser,FILTER_VALIDATE_INT)));
     }
 }

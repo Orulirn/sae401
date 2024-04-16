@@ -13,7 +13,7 @@ function deleteTeamMember($idTeam){
     try{
         $db->beginTransaction();
         $sql = $db->prepare("DELETE FROM team_player WHERE idTeam = :idTeam");
-        $sql->execute(array("idTeam"=> $idTeam));
+        $sql->execute(array("idTeam"=> filter_var($idTeam,FILTER_VALIDATE_INT)));
         $db->commit();
     }
     catch( PDOException $e) {
@@ -28,7 +28,7 @@ function addPlayer($idTeam, $player, $captain)
     try{
         $db->beginTransaction();
         $sql = $db->prepare("INSERT INTO team_player(idTeam, player,isCaptain) VALUES (:idTeam,:player,:captain)");
-        $sql->execute(array('idTeam' => $idTeam, 'player' => $player,"captain"=> $captain));
+        $sql->execute(array('idTeam' => filter_var($idTeam,FILTER_VALIDATE_INT), 'player' => filter_var($player,FILTER_VALIDATE_INT),"captain"=> filter_var($captain,FILTER_VALIDATE_INT)));
         $db->commit();
     }
     catch( PDOException $e) {

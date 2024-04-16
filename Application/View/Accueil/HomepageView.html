@@ -70,15 +70,13 @@
         let map = L.map('map').setView([latitude, longitude], 13);
         map.scrollWheelZoom.disable();
 
-        map.on('click', function(e) {
+        map.on('contextmenu', function(e) {
             if (map.scrollWheelZoom.enabled()) {
                 map.scrollWheelZoom.disable();
             } else {
                 map.scrollWheelZoom.enable();
             }
         });
-
-
         // Ajoute une couche de carte OpenStreetMap
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '© OpenStreetMap contributors'

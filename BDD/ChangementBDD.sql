@@ -23,3 +23,10 @@ CREATE TABLE token(
                       FOREIGN KEY(idUser) REFERENCES users(idUser),
                       date timestamp not null
 )
+
+/*
+ ajout de la colonne proposition resultat
+ Bdd matisse
+ */
+alter TABLE rencontre
+    add COLUMN propositionResultat int REFERENCES teams(idTeam)
