@@ -10,7 +10,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
-class TestDisconnect():
+class TestAddTeamTournoiFail():
   def setup_method(self, method):
     self.driver = webdriver.Chrome()
     self.vars = {}
@@ -18,17 +18,16 @@ class TestDisconnect():
   def teardown_method(self, method):
     self.driver.quit()
   
-  def test_disconnect(self):
+  def test_addTeamTournoiFail(self):
     self.driver.get("http://localhost/Application/Controller/Accueil/HomePageController.php")
-    self.driver.set_window_size(1528, 820)
-    self.driver.find_element(By.ID, "Connexion").click()
-    self.driver.find_element(By.ID, "mail").click()
-    self.driver.find_element(By.ID, "mail").send_keys("corentin.gauquier@gmail.com")
-    self.driver.find_element(By.ID, "pwd").click()
-    self.driver.find_element(By.ID, "pwd").send_keys("Aaaaaaa-6")
-    self.driver.find_element(By.ID, "login").click()
-    self.driver.find_element(By.NAME, "Deconnexion").click()
-    elements = self.driver.find_elements(By.ID, "Connexion")
-    assert len(elements) > 0
+    self.driver.set_window_size(1527, 804)
+    self.driver.find_element(By.ID, "navbarDropdownMenuLink").click()
+    self.driver.find_element(By.ID, "navbarInscrireEquipe").click()
+    self.driver.find_element(By.ID, "selectTeam").click()
+    dropdown = self.driver.find_element(By.ID, "selectTeam")
+    dropdown.find_element(By.XPATH, "//option[. = 'ZEHEF']").click()
+    self.driver.find_element(By.ID, "submittqt").click()
+    assert self.driver.find_element(By.ID, "swal2-title").text == "Erreur !"
+    self.driver.find_element(By.CSS_SELECTOR, ".swal2-confirm").click()
     self.driver.close()
   

@@ -27,4 +27,8 @@ class TestLogin():
     self.driver.find_element(By.ID, "pwd").click()
     self.driver.find_element(By.ID, "pwd").send_keys("Aaaaaaa-6")
     self.driver.find_element(By.ID, "login").click()
+    elements = self.driver.find_elements(By.ID, "Deconnexion")
+    assert len(elements) > 0
+    self.driver.find_element(By.ID, "Deconnexion").click()
+    self.driver.close()
   

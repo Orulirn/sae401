@@ -48,6 +48,6 @@ if(isset($_POST['submit'])) {
 $data = GetAllOfUsersTable();
 echo ("<p id='dataUsers' visibility='hidden' style= 'display :none;'>".json_encode($data)."</p>");
 
-include "../../View/Equipe/addTeamView.html";
+include "../../View/Equipe/addTeamView.php";
 
 ?>

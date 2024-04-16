@@ -10,7 +10,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
-class TestRegister():
+class TestLoginFailure():
   def setup_method(self, method):
     self.driver = webdriver.Chrome()
     self.vars = {}
@@ -18,20 +18,15 @@ class TestRegister():
   def teardown_method(self, method):
     self.driver.quit()
   
-  def test_register(self):
+  def test_loginFailure(self):
     self.driver.get("http://localhost/Application/Controller/Accueil/HomePageController.php")
     self.driver.set_window_size(1528, 820)
-    self.driver.find_element(By.ID, "Inscription").click()
-    self.driver.find_element(By.ID, "firstname").click()
-    self.driver.find_element(By.ID, "firstname").send_keys("Corentin")
-    self.driver.find_element(By.ID, "lastname").click()
-    self.driver.find_element(By.ID, "lastname").send_keys("Gauquier")
+    self.driver.find_element(By.ID, "Connexion").click()
     self.driver.find_element(By.ID, "mail").click()
-    self.driver.find_element(By.ID, "mail").send_keys("cgauquier@gmail.com")
-    self.driver.find_element(By.ID, "password").click()
-    self.driver.find_element(By.ID, "password").send_keys("Bbbbbbb-6")
-    self.driver.find_element(By.ID, "verif").click()
-    self.driver.find_element(By.ID, "verif").send_keys("Bbbbbbb-6")
-    self.driver.find_element(By.ID, "register").click()
+    self.driver.find_element(By.ID, "mail").send_keys("corentin.gauquier@gmail.com")
+    self.driver.find_element(By.ID, "pwd").click()
+    self.driver.find_element(By.ID, "pwd").send_keys("Aaaaa-6")
+    self.driver.find_element(By.ID, "login").click()
+    assert self.driver.find_element(By.ID, "swal2-title").text == "Echec de la connexion!"
     self.driver.close()
   
