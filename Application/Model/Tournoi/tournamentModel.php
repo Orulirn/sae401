@@ -19,7 +19,7 @@ function addTournament($place, $year){
     try{
         $db->beginTransaction();
         $sql = $db->prepare("INSERT INTO `tournoi`(`place`, `year`) VALUES (:place, :year)");
-        $sql->execute(array('place' => $place, 'year' => $year));
+        $sql->execute(array('place' => htmlspecialchars($place), 'year' => filter_var($year,FILTER_VALIDATE_INT)));
         $db->commit(); 
     }
     catch (PDOException $e){
@@ -40,12 +40,12 @@ function addCourseToTournament($tournamentId, $courseId) {
     try {
         // Vérifie si le parcours est déjà associé au tournoi
         $checkSql = $db->prepare("SELECT COUNT(*) FROM tournoi_parcours WHERE idTournoi = :tournamentId AND idParcours = :courseId");
-        $checkSql->execute(['tournamentId' => $tournamentId, 'courseId' => $courseId]);
+        $checkSql->execute(['tournamentId' => filter_var($tournamentId,FILTER_VALIDATE_INT), 'courseId' => filter_var($courseId,FILTER_VALIDATE_INT)]);
         $exists = $checkSql->fetchColumn();
 
         if ($exists == 0) {
             $insertSql = $db->prepare("INSERT INTO tournoi_parcours (idTournoi, idParcours) VALUES (:tournamentId, :courseId)");
-            $insertSql->execute(['tournamentId' => $tournamentId, 'courseId' => $courseId]);
+            $insertSql->execute(['tournamentId' => filter_var($tournamentId,FILTER_VALIDATE_INT), 'courseId' => filter_var($courseId,FILTER_VALIDATE_INT)]);
             return ["status" => "success", "message" => "Parcours ajouté avec succès."];
         } else {
             return ["status" => "error", "message" => "Ce parcours existe déjà dans ce tournoi."];

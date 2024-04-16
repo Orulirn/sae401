@@ -197,8 +197,6 @@
     let map = L.map('map').setView([latitude, longitude], 13);
     map.dragging.disable();
 
-    //retrait de la fonction non utilisée et mal parenthésée !!
-
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
     }).addTo(map);
@@ -242,7 +240,7 @@
         p.setAttribute('type','text'); // à voir pour le type.
         p.setAttribute('name',name); // à voir pour le type.
         p.setAttribute('value',val);
-        //p.setAttribute('visibility','hidden');//on les laisse apparaitre pour le moment, à cacher ensuite
+        p.setAttribute('visibility','hidden');
         return(p);
     }
 
@@ -256,7 +254,6 @@
             let idb="LNG"+i;
             ourForm.appendChild(addHiddenItem(idb,lng));
         }
-        //reste à soumettre le formulaire une fois tout construit
         document.getElementById('formCreer').submit();
     }
 

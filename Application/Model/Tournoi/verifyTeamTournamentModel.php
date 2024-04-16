@@ -13,7 +13,7 @@ function addTeamTournamentVerify($idTeam,$idTournoi){
     try{
         $db->beginTransaction();
         $sql = $db->prepare("INSERT INTO `verify_team_tournoi`(`idTeam`, `idTournoi`) VALUES (:idTeam, :idTournoi)");
-        $sql->execute(array('idTeam' => $idTeam, 'idTournoi' => $idTournoi));
+        $sql->execute(array('idTeam' => filter_var($idTeam,FILTER_VALIDATE_INT), 'idTournoi' => filter_var($idTournoi,FILTER_VALIDATE_INT)));
         $db->commit();
     }
     catch( PDOException $e) {

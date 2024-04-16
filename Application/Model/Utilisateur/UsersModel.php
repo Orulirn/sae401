@@ -15,7 +15,7 @@ function signUpAdmin($firstname, $lastname, $mail, $usertype, $password, $verifi
 {
     global $db;
     $sql = $db->prepare("INSERT INTO users( firstname, lastname, mail, password) VALUES (:firstname,:lastname,:mail,:password)");
-    $sql->execute(array('firstname' => $firstname, 'lastname' => $lastname, 'mail' => $mail, 'password' => password_hash($password, PASSWORD_DEFAULT)));
+    $sql->execute(array('firstname' => htmlspecialchars($firstname), 'lastname' => htmlspecialchars($lastname), 'mail' => filter_var($mail,FILTER_VALIDATE_EMAIL), 'password' => password_hash($password, PASSWORD_DEFAULT)));
     $sql = $db->prepare("INSERT INTO users_role (idRole,idUser) VALUES (:idRole,:idUser)");
     $lastid = $db->lastInsertID();
     if ($usertype == "both") {
@@ -119,7 +119,7 @@ function updateLine($email, $cotisation){
 function updateUserInfo($buttonIndex, $firstname, $lastname, $mail, $cotisation) {
     global $db;
     $sql = $db->prepare("UPDATE `users` SET `firstname`=:firstname,`lastname`=:lastname,`mail`=:mail,`cotisation`=:cotisation WHERE `idUser`=:btnIndex");
-    $sql->execute(array('firstname'=>$firstname,'lastname'=>$lastname,'mail'=>$mail,'cotisation'=>$cotisation,"btnIndex"=>$buttonIndex));
+    $sql->execute(array('firstname'=>htmlspecialchars($firstname),'lastname'=>htmlspecialchars($lastname),'mail'=>filter_var($mail,FILTER_VALIDATE_EMAIL),'cotisation'=>$cotisation,"btnIndex"=>$buttonIndex));
     return true;
 }
 
