@@ -20,7 +20,7 @@ function deleteTeamMemberVerify($idTeam){
         $db->rollBack();
         echo($e->getMessage());
     }
-}
+};
 
 function addPlayerVerify($idTeam, $player, $captain)
 {
@@ -35,4 +35,11 @@ function addPlayerVerify($idTeam, $player, $captain)
         $db->rollBack();
         echo($e->getMessage());
     }
+};
+
+function selectAllVerifyPlayerByTeam($idTeam){
+    global $db;
+    $sql = $db->prepare("SELECT * FROM verify_team_player WHERE idTeam = :idTeam");
+    $sql->execute(array("idTeam"=> $idTeam));
+    return $sql->fetchAll(PDO::FETCH_ASSOC);
 }

@@ -38,6 +38,7 @@
     <div class="col text-center">
           <button id="button" class="btn btn-primary btn-lg">Ajouter une équipe</button>
           <button id="modification" class="btn btn-primary btn-lg">Modifier une équipe</button>
+          <button id="valider" class="btn btn-primary btn-lg">Valider une équipe</button>
     </div>
     <script>
         let x = document.getElementById("button");
@@ -47,6 +48,10 @@
         let y = document.getElementById("modification");
         y.addEventListener("click", function(){
             window.location.replace("../../Controller/Equipe/teamUpdateController.php");
+        });
+        let z = document.getElementById("valider");
+        z.addEventListener("click", function(){
+            window.location.replace("../../Controller/Equipe/verifyTeamsController.php");
         });
         const table=document.getElementById("teams");
         dataTeams = document.getElementById("dataTeams").outerText;
