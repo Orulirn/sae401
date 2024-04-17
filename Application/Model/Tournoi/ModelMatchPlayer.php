@@ -61,3 +61,29 @@ function getTournamentIdByCurrentYear(){
         return null;
     }
 }
+
+function getMatchesTableByPlayer($idTournoi,$user) {
+    $db = Database::getInstance();
+
+    try {
+        $sql = "SELECT DISTINCT r.idRencontre, e1.name AS equipe_un_nom, e2.name AS equipe_deux_nom, p.nom AS parcours_nom, r.equipeChole, r.resultatRencontre
+                FROM rencontre r
+                INNER JOIN teams e1 ON r.idTeamUn = e1.idTeam
+                INNER JOIN teams e2 ON r.idTeamDeux = e2.idTeam
+                INNER JOIN parcours p ON r.idParcours = p.id
+                INNER JOIN team_player tp1 ON r.idTeamUn = tp1.idTeam
+                INNER JOIN team_player tp2 ON r.idTeamDeux = tp2.idTeam
+                WHERE tp1.player = :user OR tp2.player = :user
+				AND r.idTournoi = :idTournoi";
+
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(':idTournoi', $idTournoi);
+        $stmt->bindParam(':user', $user);
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        echo "Erreur lors de la récupération des matches : " . $e->getMessage();
+        return [];
+    }
+}

@@ -1,11 +1,18 @@
 <?php
+session_start();
+
+include("../../Model/Utilisateur/checkSession.php");
+checkConn();
+
+
 include "../../Model/Utilisateur/UsersModel.php";
 include "../../Model/Utilisateur/User.php";
+include "../../View/Accueil/index.php";
 include "../../View/Utilisateur/updateDataView.php";
-session_start();
+
 $role = GetRole($_SESSION['user_id'])[0]["idRole"];
 if ($role == 0){
-    $buttonIndex = $_GET['buttonIndex'];
+    $buttonIndex = $_POST['buttonIndex'];
 }
 else{
     $buttonIndex = $_SESSION['user_id'];
@@ -60,8 +67,8 @@ echo'<div hidden="hidden" class="valid-feedback">Valid.</div>';
 echo'<div hidden="hidden" class="invalid-feedback">Please fill out this field.</div>';
 echo'</div>';
 
-        echo'<button type="button" id="modify" class="btn btn-light">Modify</button>';
-        echo'<button type="reset" class="btn btn-light">Reset</button>';
+        echo'<button type="button" id="modify" class="btn btn-primary">Modifier</button>';
+        echo'<button type="reset" class="btn btn-warning">Réinitialisé</button>';
     echo'</form>';
 echo'</center>';
 
@@ -77,7 +84,7 @@ echo'</center>';
         Swal.fire({
             title: 'Modification',
             text: "Informations modifiées avec succès !",
-            icon: 'success', // Corrigé ici
+            icon: 'success',
             confirmButtonColor: '#3085d6',
             confirmButtonText: 'ok',
         }).then((result) => {

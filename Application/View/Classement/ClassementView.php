@@ -4,8 +4,6 @@
     <title>Classement Tournoi</title>
     <meta charset="UTF-8">
     <title>Création tournoi</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <style id="monStyle">
         @keyframes scroll-right {
@@ -89,7 +87,7 @@
             global $tournois;
             $i=0;
             foreach($tournois as $tournoi){
-                echo '<button type="button" class="btn btn-outline-secondary btnClassement"
+                echo '<button type="button" class="btn btn-outline-secondary btnClassement" id="'.$tournoi["idTournoi"].'"
     onclick="GetResultAjax('.$tournoi["idTournoi"].')">'.$tournoi["place"]." | ".$tournoi["year"].'
     </button>';
 
@@ -150,6 +148,8 @@
             scrollbarTop.removeChild(flecheDroiteDiv)
             scrollbarTop.removeChild(flecheGaucheDiv)
         }
+        var btns2=document.querySelectorAll(".btnClassement")
+        GetResultAjax(btns2[0].id)
 
     }
 
@@ -166,40 +166,66 @@
     }
 
     function GetResultAjax(idtournoi){
-        event.target.style.backgroundColor="#6c757d"
-        event.target.style.color="#ffffffff"
-        if(button===null){
-            button=event.target
-        }
-        else if (button!==event.target){
-            button.style.backgroundColor="#ffffff"
-            button.style.color="#6c757d"
-            button=event.target
+        console.log(event.target.textContent)
+        if (event.target.textContent) {
+            event.target.style.backgroundColor = "#6c757d"
+            event.target.style.color = "#ffffffff"
+            if (button === null) {
+                button = event.target
+            } else if (button !== event.target) {
+                button.style.backgroundColor = "#ffffff"
+                button.style.color = "#6c757d"
+                button = event.target
+            }
+        }else{
+            let btns=document.querySelectorAll(".btnClassement")
+            for (let btn of btns){
+                if (btn.id===idtournoi){
+                    btn.style.backgroundColor="#6c757d"
+                    btn.style.color="#ffffffff"
+                    button=btn
+                }
+            }
         }
         $.ajax({
-            url:"../Controller/Classement/AjaxClassementVictoire.php",
+            url:"../../Controller/Classement/AjaxClassementVictoire.php",
             type:"POST",
             data:{idtournoi:idtournoi},
+            async : false,
             success: function (response){
-                apparitionTableau(response)
+                apparitionTableauVictoire(response)
             },
             error: function (error){
+                console.error(error)
+            }
+        })
+        $.ajax({
+            url:"../../Controller/Classement/AjaxClassementBut.php",
+            type: "POST",
+            data:{idtournoi:idtournoi},
+            async: false,
+            success: function (response) {
+                apparitionTableauBut(response)
+            },
+            error:function (error){
                 console.error(error)
             }
         })
     }
 
 
-    function apparitionTableau(response){
+    function apparitionTableauVictoire(response){
         var result=response.split("\n")
-
-        if (document.getElementById('tableau')) {
-            document.body.removeChild(document.getElementById("tableau"))
+        if (document.getElementById('tableauVictoire')) {
+            document.body.removeChild(document.getElementById("tableauVictoire"))
         }
 
         var div=document.createElement("div")
-        div.id="tableau"
+        div.id="tableauVictoire"
         div.className="tableau"
+        var h1=document.createElement("h1")
+        h1.textContent="Classement du tournoi de "+button.textContent
+        div.appendChild(h1)
         var table=document.createElement("table")
         table.className="table table-striped table-responsive table-bordered"
         div.appendChild(table)
@@ -254,6 +280,71 @@
         }
     }
 
+    function apparitionTableauBut(response){
+        var result=response.split("\n")
+
+        if (document.getElementById('tableauBut')) {
+            document.body.removeChild(document.getElementById("tableauBut"))
+        }
+
+        var div=document.createElement("div")
+        div.id="tableauBut"
+        div.className="tableau"
+
+        var h1=document.createElement("h1")
+        h1.textContent="Classement des meilleurs buteurs"
+        div.appendChild(h1)
+
+        var table=document.createElement("table")
+        table.className="table table-striped table-responsive table-bordered"
+        div.appendChild(table)
+
+        var thead=document.createElement("thead")
+        thead.className="thead-light"
+        var tr=document.createElement("tr")
+
+        var thClassement=document.createElement("th")
+        thClassement.scope="col"
+        thClassement.textContent=""
+        tr.appendChild(thClassement)
+
+        var thEquipe=document.createElement("th")
+        thEquipe.scope="col"
+        thEquipe.textContent="Equipe"
+        tr.appendChild(thEquipe)
+
+        var thBut=document.createElement("th")
+        thBut.scope="col"
+        thBut.textContent="But"
+        tr.appendChild(thBut)
+
+        thead.appendChild(tr)
+
+        table.appendChild(thead)
+        document.body.appendChild(div)
+
+        var tbody=document.createElement("tbody")
+        table.appendChild(tbody)
+        for(let i of result) {
+            let result = i.split("/")
+            if (result.length!==1) {
+                var trbody = document.createElement("tr")
+                tbody.appendChild(trbody)
+                for (let j of result) {
+                    if (j!=="") {
+                        var td = document.createElement("td")
+                        td.textContent = j
+                        trbody.appendChild(td)
+                    }
+                }
+            }
+        }
+        if(checkTel()){
+            thead.style.fontSize="22px"
+            tbody.style.fontSize="22px"
+        }
+    }
+
 
     function slideRight(){
         boutonGroup.style.animation="scroll-right 0.5s ease-in-out"
@@ -264,7 +355,7 @@
             boutonGroup.scrollLeft+=Math.round(boutonGroup.offsetWidth)
             boutonGroup.scrollLeft=Math.round(boutonGroup.scrollLeft)
             console.log(boutonGroup.scrollLeft,boutonGroup.offsetWidth,boutonGroup.scrollWidth)
-            if (boutonGroup.scrollLeft + boutonGroup.offsetWidth /*+10*/ >= boutonGroup.scrollWidth) {
+            if (boutonGroup.scrollLeft + boutonGroup.offsetWidth +10 >= boutonGroup.scrollWidth) {
                 document.getElementById("flecheDroiteDiv").removeChild(document.getElementById("buttonRight"))
             }
             if(!document.getElementById("buttonLeft")){
@@ -280,7 +371,6 @@
         },250)
     }
     function slideLeft(){
-        let boutonAfficher=document.getElementById("btnGroupAfficher");
         boutonGroup.style.animation="scroll-left 0.5s ease-in-out"
         setTimeout(function (){
             boutonGroup.style.animation=""

@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../bootstrap-5.3.1-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../../View/bootstrap-5.3.1-dist/css/bootstrap.css">
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Page d'ajout d'équipe dans un tournois</title>
 </head>
@@ -81,7 +81,7 @@
         
         Swal.fire({
                         title: "Succès !",
-                        text: "Vous avez bien ajouté votre équipe au tournoi",
+                        text: "Vous avez bien ajouté votre équipe au tournoi, elle est désormais en cours de validation.",
                         icon: "info"
                     });
         <?php endif;?>

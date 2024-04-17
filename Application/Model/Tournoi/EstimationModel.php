@@ -20,7 +20,7 @@ function selectCaptainIdWithTeam($idTeam){
 function insertPariE1($pari,$idRencontre){
     global $db;
     $sql = $db->prepare("UPDATE estimation set pariE1 = :pari WHERE idRencontre = :idRencontre");
-    $sql->execute(array('pari' => $pari, 'idRencontre' => $idRencontre));
+    $sql->execute(array('pari' => filter_var($pari,FILTER_VALIDATE_INT), 'idRencontre' => filter_var($idRencontre,FILTER_VALIDATE_INT)));
 }
 /**
  * Sélectionne le nombre maximum de décholes pour une rencontre.
@@ -43,7 +43,7 @@ function selectMaxDechole($idRencontre){
 function insertPariE2($pari,$idRencontre){
     global $db;
     $sql = $db->prepare("UPDATE estimation set pariE2 = :pari WHERE idRencontre = :idRencontre");
-    $sql->execute(array('pari' => $pari, 'idRencontre' => $idRencontre));
+    $sql->execute(array('pari' => filter_var($pari,FILTER_VALIDATE_INT), 'idRencontre' => filter_var($idRencontre,FILTER_VALIDATE_INT)));
 }
 /**
  * Sélectionne les paris pour les deux équipes dans une rencontre.
@@ -54,7 +54,7 @@ function insertPariE2($pari,$idRencontre){
 function selectPari($idRencontre){
     global $db;
     $sql = $db->prepare("SELECT pariE1,pariE2 FROM estimation WHERE idRencontre = :idRencontre");
-    $sql->execute(array('idRencontre' => $idRencontre));
+    $sql->execute(array('idRencontre' => filter_var($idRencontre,FILTER_VALIDATE_INT)));
     return $sql->fetch();
 }
 /**
@@ -66,7 +66,7 @@ function selectPari($idRencontre){
 function insertEquipeChole($equipe,$idRencontre){
     global $db;
     $sql = $db->prepare("UPDATE rencontre SET equipeChole = :equipe WHERE idRencontre = :idRencontre");
-    $sql->execute(array('equipe' => $equipe, 'idRencontre' => $idRencontre));
+    $sql->execute(array('equipe' => filter_var($equipe,FILTER_VALIDATE_INT), 'idRencontre' => filter_var($idRencontre,FILTER_VALIDATE_INT)));
 }
 /**
  * Sélectionne l'équipe qui commence (chole) pour une rencontre donnée.
@@ -77,7 +77,7 @@ function insertEquipeChole($equipe,$idRencontre){
 function selectEquipeChole($idRencontre){
     global $db;
     $sql = $db->prepare("SELECT equipeChole FROM rencontre WHERE idRencontre = :idRencontre");
-    $sql->execute(array('idRencontre' => $idRencontre));
+    $sql->execute(array(filter_var($idRencontre,FILTER_VALIDATE_INT)));
     return $sql->fetch();
 }
 /**

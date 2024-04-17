@@ -6,14 +6,14 @@
  * @author LERMIGEAUX Nathan <nathan.lermigeaux@uphf.fr>
  */
 
- include_once('../BDD/DatabaseConnection.php');
+ include_once('../../Model/BDD/DatabaseConnection.php');
 
 function addTeam($name){
     global $db;
     try{
         $db->beginTransaction();
         $sql = $db->prepare("INSERT INTO `teams`(`name`) VALUES (:name)");
-        $sql->execute(array('name' => $name));
+        $sql->execute(array('name' =>htmlspecialchars($name)));
         $db->commit(); 
     }
     catch (PDOException $e){

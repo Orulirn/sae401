@@ -1,0 +1,4140 @@
+{
+  "id": "5aed90b8-ee32-46b0-b802-87511ff5c1cf",
+  "version": "2.0",
+  "name": "SAE401",
+  "url": "http://localhost/Application/Controller/Accueil/HomePageController.php",
+  "tests": [{
+    "id": "12cbf56a-9853-470b-9140-22a851d7afca",
+    "name": "Login",
+    "commands": [{
+      "id": "c5fbc545-daae-43cc-a8c3-ea3a145eaa9f",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost/Application/Controller/Accueil/HomePageController.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2297e6eb-5fe3-478b-a972-3b33b40fa2dd",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1528x820",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c56ceece-c9ee-4568-b0c7-d4d3f36bed19",
+      "comment": "",
+      "command": "click",
+      "target": "id=Connexion",
+      "targets": [
+        ["id=Connexion", "id"],
+        ["name=Connexion", "name"],
+        ["css=#Connexion", "css:finder"],
+        ["xpath=//button[@id='Connexion']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Connexion')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6f9d73c8-ca8b-4776-bb86-8900e35bcccd",
+      "comment": "",
+      "command": "click",
+      "target": "id=mail",
+      "targets": [
+        ["id=mail", "id"],
+        ["name=mail", "name"],
+        ["css=#mail", "css:finder"],
+        ["xpath=//input[@id='mail']", "xpath:attributes"],
+        ["xpath=//form[@id='divForm']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6b678be8-cccd-4c67-8cd2-ae1925a19c04",
+      "comment": "",
+      "command": "type",
+      "target": "id=mail",
+      "targets": [
+        ["id=mail", "id"],
+        ["name=mail", "name"],
+        ["css=#mail", "css:finder"],
+        ["xpath=//input[@id='mail']", "xpath:attributes"],
+        ["xpath=//form[@id='divForm']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "corentin.gauquier@gmail.com"
+    }, {
+      "id": "701f13f4-65f5-49f0-9a30-7958bf31554b",
+      "comment": "",
+      "command": "click",
+      "target": "id=pwd",
+      "targets": [
+        ["id=pwd", "id"],
+        ["name=pwd", "name"],
+        ["css=#pwd", "css:finder"],
+        ["xpath=//input[@id='pwd']", "xpath:attributes"],
+        ["xpath=//form[@id='divForm']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c384e309-e677-4d13-8697-cac652414bd5",
+      "comment": "",
+      "command": "type",
+      "target": "id=pwd",
+      "targets": [
+        ["id=pwd", "id"],
+        ["name=pwd", "name"],
+        ["css=#pwd", "css:finder"],
+        ["xpath=//input[@id='pwd']", "xpath:attributes"],
+        ["xpath=//form[@id='divForm']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "Aaaaaaa-6"
+    }, {
+      "id": "41f7dc8c-58b8-4c64-9002-667ac36d7812",
+      "comment": "",
+      "command": "click",
+      "target": "id=login",
+      "targets": [
+        ["id=login", "id"],
+        ["name=connect", "name"],
+        ["css=#login", "css:finder"],
+        ["xpath=//button[@id='login']", "xpath:attributes"],
+        ["xpath=//form[@id='divForm']/button", "xpath:idRelative"],
+        ["xpath=//form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Se connecter')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "50d33073-aff0-4d86-8be1-5f81e3089d29",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "id=Deconnexion",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "12548f1c-ea99-48de-8ff7-17a5baf4db0c",
+      "comment": "",
+      "command": "click",
+      "target": "id=Deconnexion",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "aa3e38d8-a952-4abf-a3b4-d9a246f5c993",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "1cf07459-0a2f-4d01-b420-c056fdf244ee",
+    "name": "Register",
+    "commands": [{
+      "id": "9ccf1af3-3c83-4ac4-88fe-c70dabc7aff1",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost/Application/Controller/Accueil/HomePageController.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8fcd83f2-2b2c-43d2-a286-17452b51f113",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1528x820",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "597f6c01-8989-4d26-b007-be90204bde3b",
+      "comment": "",
+      "command": "click",
+      "target": "id=Inscription",
+      "targets": [
+        ["linkText=Inscription", "linkText"],
+        ["css=.nav-item:nth-child(2) > .btn", "css:finder"],
+        ["xpath=//a[contains(text(),'Inscription')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '../../Controller/Connexion/RegisterController.php')]", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Inscription')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b6cb7d6d-bf9d-402b-9503-93c74ea1d0b8",
+      "comment": "",
+      "command": "click",
+      "target": "id=firstname",
+      "targets": [
+        ["id=firstname", "id"],
+        ["name=firstname", "name"],
+        ["css=#firstname", "css:finder"],
+        ["xpath=//input[@id='firstname']", "xpath:attributes"],
+        ["xpath=//form[@id='formulaire']/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "71fd3cf8-51a4-4aec-b7d9-d8f1161409c4",
+      "comment": "",
+      "command": "type",
+      "target": "id=firstname",
+      "targets": [
+        ["id=firstname", "id"],
+        ["name=firstname", "name"],
+        ["css=#firstname", "css:finder"],
+        ["xpath=//input[@id='firstname']", "xpath:attributes"],
+        ["xpath=//form[@id='formulaire']/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Corentin"
+    }, {
+      "id": "6d7e28ec-53b0-49d1-980a-4c55f0d88550",
+      "comment": "",
+      "command": "click",
+      "target": "id=lastname",
+      "targets": [
+        ["id=lastname", "id"],
+        ["name=lastname", "name"],
+        ["css=#lastname", "css:finder"],
+        ["xpath=//input[@id='lastname']", "xpath:attributes"],
+        ["xpath=//form[@id='formulaire']/div/div[2]/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "29c4cd62-bc62-4a7c-a382-4873cd098e4d",
+      "comment": "",
+      "command": "type",
+      "target": "id=lastname",
+      "targets": [
+        ["id=lastname", "id"],
+        ["name=lastname", "name"],
+        ["css=#lastname", "css:finder"],
+        ["xpath=//input[@id='lastname']", "xpath:attributes"],
+        ["xpath=//form[@id='formulaire']/div/div[2]/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": "Gauquier"
+    }, {
+      "id": "b5d94a4b-4463-42d8-bda2-cad8afe7dedc",
+      "comment": "",
+      "command": "click",
+      "target": "id=mail",
+      "targets": [
+        ["id=mail", "id"],
+        ["name=mail", "name"],
+        ["css=#mail", "css:finder"],
+        ["xpath=//input[@id='mail']", "xpath:attributes"],
+        ["xpath=//form[@id='formulaire']/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "eec18697-cd06-4f99-9b05-f10b05c921be",
+      "comment": "",
+      "command": "type",
+      "target": "id=mail",
+      "targets": [
+        ["id=mail", "id"],
+        ["name=mail", "name"],
+        ["css=#mail", "css:finder"],
+        ["xpath=//input[@id='mail']", "xpath:attributes"],
+        ["xpath=//form[@id='formulaire']/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/input", "xpath:position"]
+      ],
+      "value": "cgauquier@gmail.com"
+    }, {
+      "id": "911ac27f-bf4c-4e68-86f5-159533197efd",
+      "comment": "",
+      "command": "click",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//form[@id='formulaire']/div[3]/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bba22dd8-e16d-4b45-b2b0-c063917f8d9b",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//form[@id='formulaire']/div[3]/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/input", "xpath:position"]
+      ],
+      "value": "Bbbbbbb-6"
+    }, {
+      "id": "67583bff-8958-4ee5-a40a-b77c1cd94ebe",
+      "comment": "",
+      "command": "click",
+      "target": "id=verif",
+      "targets": [
+        ["id=verif", "id"],
+        ["name=verif", "name"],
+        ["css=#verif", "css:finder"],
+        ["xpath=//input[@id='verif']", "xpath:attributes"],
+        ["xpath=//form[@id='formulaire']/div[3]/div[2]/div/input", "xpath:idRelative"],
+        ["xpath=//div[3]/div[2]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "63315041-fe5e-4c0d-8f3c-ae6b1cf4ee8d",
+      "comment": "",
+      "command": "type",
+      "target": "id=verif",
+      "targets": [
+        ["id=verif", "id"],
+        ["name=verif", "name"],
+        ["css=#verif", "css:finder"],
+        ["xpath=//input[@id='verif']", "xpath:attributes"],
+        ["xpath=//form[@id='formulaire']/div[3]/div[2]/div/input", "xpath:idRelative"],
+        ["xpath=//div[3]/div[2]/div/input", "xpath:position"]
+      ],
+      "value": "Bbbbbbb-6"
+    }, {
+      "id": "49951e56-127b-49b2-981c-6ade6714b723",
+      "comment": "",
+      "command": "click",
+      "target": "id=register",
+      "targets": [
+        ["id=register", "id"],
+        ["name=submit", "name"],
+        ["css=#register", "css:finder"],
+        ["xpath=//input[@id='register']", "xpath:attributes"],
+        ["xpath=//form[@id='formulaire']/div[4]/input", "xpath:idRelative"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d2aa5bfb-a4f8-4137-b9b0-07e1e1efd89e",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "e4ecd359-1111-4b62-9458-0757c9c2cdb8",
+    "name": "Disconnect",
+    "commands": [{
+      "id": "c2d2da7c-fcbe-47fe-96fb-c0a26522b573",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost/Application/Controller/Accueil/HomePageController.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ecd66841-bcb2-4ab2-b735-91ba66194cee",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1528x820",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "de9d4dec-72be-4b71-89f0-b55551cdd5dc",
+      "comment": "",
+      "command": "click",
+      "target": "id=Connexion",
+      "targets": [
+        ["id=Connexion", "id"],
+        ["name=Connexion", "name"],
+        ["css=#Connexion", "css:finder"],
+        ["xpath=//button[@id='Connexion']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Connexion')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2b1d361d-c8d3-4c4b-9c15-e0e6120af2c7",
+      "comment": "",
+      "command": "click",
+      "target": "id=mail",
+      "targets": [
+        ["id=mail", "id"],
+        ["name=mail", "name"],
+        ["css=#mail", "css:finder"],
+        ["xpath=//input[@id='mail']", "xpath:attributes"],
+        ["xpath=//form[@id='divForm']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b4ff4f13-86de-4877-9241-936d9e4d4d78",
+      "comment": "",
+      "command": "type",
+      "target": "id=mail",
+      "targets": [
+        ["id=mail", "id"],
+        ["name=mail", "name"],
+        ["css=#mail", "css:finder"],
+        ["xpath=//input[@id='mail']", "xpath:attributes"],
+        ["xpath=//form[@id='divForm']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "corentin.gauquier@gmail.com"
+    }, {
+      "id": "e9f331c6-e895-4335-aa8c-438e62326f22",
+      "comment": "",
+      "command": "click",
+      "target": "id=pwd",
+      "targets": [
+        ["id=pwd", "id"],
+        ["name=pwd", "name"],
+        ["css=#pwd", "css:finder"],
+        ["xpath=//input[@id='pwd']", "xpath:attributes"],
+        ["xpath=//form[@id='divForm']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "10c763bb-720e-4b8e-8ac4-1a1575c40132",
+      "comment": "",
+      "command": "type",
+      "target": "id=pwd",
+      "targets": [
+        ["id=pwd", "id"],
+        ["name=pwd", "name"],
+        ["css=#pwd", "css:finder"],
+        ["xpath=//input[@id='pwd']", "xpath:attributes"],
+        ["xpath=//form[@id='divForm']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "Aaaaaaa-6"
+    }, {
+      "id": "c3431ccf-aa36-42b8-aabf-0065eb47c509",
+      "comment": "",
+      "command": "click",
+      "target": "id=login",
+      "targets": [
+        ["id=login", "id"],
+        ["name=connect", "name"],
+        ["css=#login", "css:finder"],
+        ["xpath=//button[@id='login']", "xpath:attributes"],
+        ["xpath=//form[@id='divForm']/button", "xpath:idRelative"],
+        ["xpath=//form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Se connecter')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "747306e7-0284-4a65-a3b4-ea41ad21fd75",
+      "comment": "",
+      "command": "click",
+      "target": "name=Deconnexion",
+      "targets": [
+        ["name=Deconnexion", "name"],
+        ["css=.btn-danger", "css:finder"],
+        ["xpath=//input[@name='Deconnexion']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3ec54d23-bbc0-44f5-86be-a5f9addab1bf",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "id=Connexion",
+      "targets": [],
+      "value": "close"
+    }, {
+      "id": "2dfaa399-91ec-4feb-bb51-d9d2c28c7e7e",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "3c8523e5-c493-49a8-8747-4094c30acaa9",
+    "name": "LoginFailure",
+    "commands": [{
+      "id": "40f65bca-0f65-4cc9-b37b-822b882680ab",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost/Application/Controller/Accueil/HomePageController.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "066cbc69-fb93-4146-b310-de42adf2c348",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1528x820",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "12683ee9-d6e6-496f-bfee-cafe107509fe",
+      "comment": "",
+      "command": "click",
+      "target": "id=Connexion",
+      "targets": [
+        ["id=Connexion", "id"],
+        ["name=Connexion", "name"],
+        ["css=#Connexion", "css:finder"],
+        ["xpath=//button[@id='Connexion']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Connexion')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "831e5cf0-da56-4116-96d6-d667acc0f7e8",
+      "comment": "",
+      "command": "click",
+      "target": "id=mail",
+      "targets": [
+        ["id=mail", "id"],
+        ["name=mail", "name"],
+        ["css=#mail", "css:finder"],
+        ["xpath=//input[@id='mail']", "xpath:attributes"],
+        ["xpath=//form[@id='divForm']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3247ddde-e024-4375-b61e-8fbf6b3d3056",
+      "comment": "",
+      "command": "type",
+      "target": "id=mail",
+      "targets": [
+        ["id=mail", "id"],
+        ["name=mail", "name"],
+        ["css=#mail", "css:finder"],
+        ["xpath=//input[@id='mail']", "xpath:attributes"],
+        ["xpath=//form[@id='divForm']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "corentin.gauquier@gmail.com"
+    }, {
+      "id": "222769f0-b0a3-49ce-b43e-442350df6246",
+      "comment": "",
+      "command": "click",
+      "target": "id=pwd",
+      "targets": [
+        ["id=pwd", "id"],
+        ["name=pwd", "name"],
+        ["css=#pwd", "css:finder"],
+        ["xpath=//input[@id='pwd']", "xpath:attributes"],
+        ["xpath=//form[@id='divForm']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "20cd88a1-fdab-4980-8a7d-fd5c6eeb52c7",
+      "comment": "",
+      "command": "type",
+      "target": "id=pwd",
+      "targets": [
+        ["id=pwd", "id"],
+        ["name=pwd", "name"],
+        ["css=#pwd", "css:finder"],
+        ["xpath=//input[@id='pwd']", "xpath:attributes"],
+        ["xpath=//form[@id='divForm']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "Aaaaa-6"
+    }, {
+      "id": "4426ea0c-d560-4fff-a76b-8dd9a0cd9ba0",
+      "comment": "",
+      "command": "click",
+      "target": "id=login",
+      "targets": [
+        ["id=login", "id"],
+        ["name=connect", "name"],
+        ["css=#login", "css:finder"],
+        ["xpath=//button[@id='login']", "xpath:attributes"],
+        ["xpath=//form[@id='divForm']/button", "xpath:idRelative"],
+        ["xpath=//form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Se connecter')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "954f7185-241e-4b17-bac1-20ce7a2b4d63",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=swal2-title",
+      "targets": [],
+      "value": "Echec de la connexion!"
+    }, {
+      "id": "9f691064-190e-4795-ab59-85430cbe8aec",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "1a5f2eee-2d21-4eb3-bab0-cf23fccd9604",
+    "name": "RegisterFailure",
+    "commands": [{
+      "id": "1ef502a5-9aa3-4a4d-bd7d-d9fe0d053bc0",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost/Application/Controller/Accueil/HomePageController.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f6a1c391-d7eb-4d0d-836b-77288457b112",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1528x820",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c0404da1-fc43-4bf7-81d1-c87eae35122f",
+      "comment": "",
+      "command": "click",
+      "target": "id=Inscription",
+      "targets": [
+        ["linkText=Inscription", "linkText"],
+        ["css=.nav-item:nth-child(2) > .btn", "css:finder"],
+        ["xpath=//a[contains(text(),'Inscription')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '../../Controller/Connexion/RegisterController.php')]", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Inscription')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "181dff96-8a81-4180-83a3-196c4f131de9",
+      "comment": "",
+      "command": "click",
+      "target": "id=firstname",
+      "targets": [
+        ["id=firstname", "id"],
+        ["name=firstname", "name"],
+        ["css=#firstname", "css:finder"],
+        ["xpath=//input[@id='firstname']", "xpath:attributes"],
+        ["xpath=//form[@id='formulaire']/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3be71979-5fa9-4000-b24d-f449b5e5ae9c",
+      "comment": "",
+      "command": "type",
+      "target": "id=firstname",
+      "targets": [
+        ["id=firstname", "id"],
+        ["name=firstname", "name"],
+        ["css=#firstname", "css:finder"],
+        ["xpath=//input[@id='firstname']", "xpath:attributes"],
+        ["xpath=//form[@id='formulaire']/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Corentin"
+    }, {
+      "id": "e06ea760-9560-46c6-af05-a1626ebdef82",
+      "comment": "",
+      "command": "click",
+      "target": "id=lastname",
+      "targets": [
+        ["id=lastname", "id"],
+        ["name=lastname", "name"],
+        ["css=#lastname", "css:finder"],
+        ["xpath=//input[@id='lastname']", "xpath:attributes"],
+        ["xpath=//form[@id='formulaire']/div/div[2]/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6fd1059d-be34-45d5-9a1f-4f09dce570ec",
+      "comment": "",
+      "command": "type",
+      "target": "id=lastname",
+      "targets": [
+        ["id=lastname", "id"],
+        ["name=lastname", "name"],
+        ["css=#lastname", "css:finder"],
+        ["xpath=//input[@id='lastname']", "xpath:attributes"],
+        ["xpath=//form[@id='formulaire']/div/div[2]/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": "Gauquier"
+    }, {
+      "id": "757a441c-1a96-4f9c-a79f-ec14a0605a51",
+      "comment": "",
+      "command": "click",
+      "target": "id=mail",
+      "targets": [
+        ["id=mail", "id"],
+        ["name=mail", "name"],
+        ["css=#mail", "css:finder"],
+        ["xpath=//input[@id='mail']", "xpath:attributes"],
+        ["xpath=//form[@id='formulaire']/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "07e17db1-5cd5-4570-b6d2-b0dbf121911e",
+      "comment": "",
+      "command": "type",
+      "target": "id=mail",
+      "targets": [
+        ["id=mail", "id"],
+        ["name=mail", "name"],
+        ["css=#mail", "css:finder"],
+        ["xpath=//input[@id='mail']", "xpath:attributes"],
+        ["xpath=//form[@id='formulaire']/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/input", "xpath:position"]
+      ],
+      "value": "cgauquier@gmail.com"
+    }, {
+      "id": "ea7abad3-8d90-4163-ac7a-e18edf57359b",
+      "comment": "",
+      "command": "click",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//form[@id='formulaire']/div[3]/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "aa128e33-2dab-47be-8428-7d5cf5308dda",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//form[@id='formulaire']/div[3]/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/input", "xpath:position"]
+      ],
+      "value": "Bbbbbbb-6"
+    }, {
+      "id": "2b4c1749-bdcb-4eb4-8c24-de62ba0cecbf",
+      "comment": "",
+      "command": "click",
+      "target": "id=verif",
+      "targets": [
+        ["id=verif", "id"],
+        ["name=verif", "name"],
+        ["css=#verif", "css:finder"],
+        ["xpath=//input[@id='verif']", "xpath:attributes"],
+        ["xpath=//form[@id='formulaire']/div[3]/div[2]/div/input", "xpath:idRelative"],
+        ["xpath=//div[3]/div[2]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ce9ec6f4-16d7-47e8-9041-c8793b7f58b3",
+      "comment": "",
+      "command": "type",
+      "target": "id=verif",
+      "targets": [
+        ["id=verif", "id"],
+        ["name=verif", "name"],
+        ["css=#verif", "css:finder"],
+        ["xpath=//input[@id='verif']", "xpath:attributes"],
+        ["xpath=//form[@id='formulaire']/div[3]/div[2]/div/input", "xpath:idRelative"],
+        ["xpath=//div[3]/div[2]/div/input", "xpath:position"]
+      ],
+      "value": "Bbbbb-6"
+    }, {
+      "id": "dc0aa5e4-909e-4374-87ad-be50b5f87e5d",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "id=register[@disabled]",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7c53d1e5-29e4-44ff-83c7-94333a736644",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "8d109382-45f5-41fc-8fdd-1b19c64333ee",
+    "name": "ValiderAdhesion",
+    "commands": [{
+      "id": "01e8b6e1-fb29-46fc-b151-1ceda167fe80",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost/Application/Controller/Accueil/HomePageController.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a23189f3-8f82-43de-b78c-daa4d42d0db2",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1532x820",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "cf6718dd-33e7-465a-9076-fb9ffeac12f3",
+      "comment": "",
+      "command": "click",
+      "target": "id=Connexion",
+      "targets": [
+        ["id=Connexion", "id"],
+        ["linkText=Connexion", "linkText"],
+        ["css=#Connexion", "css:finder"],
+        ["xpath=//a[contains(text(),'Connexion')]", "xpath:link"],
+        ["xpath=//a[@id='Connexion']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarDynamic']/ul[2]/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '../../Controller/Connexion/ConnectionController.php')]", "xpath:href"],
+        ["xpath=//ul[2]/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Connexion')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8954b9bc-551d-4cf2-bd96-20b87f26f51b",
+      "comment": "",
+      "command": "click",
+      "target": "id=mail",
+      "targets": [
+        ["id=mail", "id"],
+        ["name=mail", "name"],
+        ["css=#mail", "css:finder"],
+        ["xpath=//input[@id='mail']", "xpath:attributes"],
+        ["xpath=//form[@id='divForm']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0ef44c2d-0be6-4823-950d-8d0266e742b1",
+      "comment": "",
+      "command": "type",
+      "target": "id=mail",
+      "targets": [
+        ["id=mail", "id"],
+        ["name=mail", "name"],
+        ["css=#mail", "css:finder"],
+        ["xpath=//input[@id='mail']", "xpath:attributes"],
+        ["xpath=//form[@id='divForm']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "corentin.gauquier@gmail.com"
+    }, {
+      "id": "d131541d-3c87-46e7-8794-b5610d683749",
+      "comment": "",
+      "command": "type",
+      "target": "id=pwd",
+      "targets": [
+        ["id=pwd", "id"],
+        ["name=pwd", "name"],
+        ["css=#pwd", "css:finder"],
+        ["xpath=//input[@id='pwd']", "xpath:attributes"],
+        ["xpath=//form[@id='divForm']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "Aaaaaaa-6"
+    }, {
+      "id": "6294dbbb-b40a-4881-8b15-60e6aae76488",
+      "comment": "",
+      "command": "click",
+      "target": "id=login",
+      "targets": [
+        ["id=login", "id"],
+        ["name=connect", "name"],
+        ["css=#login", "css:finder"],
+        ["xpath=//button[@id='login']", "xpath:attributes"],
+        ["xpath=//form[@id='divForm']/button", "xpath:idRelative"],
+        ["xpath=//form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Se connecter')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "fd07e240-d385-4dd2-a884-ab2dcabee062",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Utilisateurs",
+      "targets": [
+        ["linkText=Utilisateurs", "linkText"],
+        ["css=.navbar-nav:nth-child(3) #navbarDropdownMenuLink", "css:finder"],
+        ["xpath=//a[contains(text(),'Utilisateurs')]", "xpath:link"],
+        ["xpath=(//a[@id='navbarDropdownMenuLink'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='navbarDynamic']/ul[3]/li/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '#')])[2]", "xpath:href"],
+        ["xpath=//ul[3]/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Utilisateurs')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "216dd98c-c40c-4e62-a6b3-fd67636274df",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Valider adhésion",
+      "targets": [
+        ["linkText=Valider adhésion", "linkText"],
+        ["css=.show > li:nth-child(3) > .dropdown-item", "css:finder"],
+        ["xpath=//a[contains(text(),'Valider adhésion')]", "xpath:link"],
+        ["xpath=//div[@id='navbarDynamic']/ul[3]/li/ul/li[3]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '../../Controller/Utilisateurs/valideInscriptionController.php')]", "xpath:href"],
+        ["xpath=//ul[3]/li/ul/li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Valider adhésion')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "24066ae3-1307-4f50-8512-b4ef0afa2589",
+      "comment": "",
+      "command": "click",
+      "target": "id=1",
+      "targets": [
+        ["id=1", "id"],
+        ["name=Valider", "name"],
+        ["xpath=//button[@id='1']", "xpath:attributes"],
+        ["xpath=//table[@id='ins']/tbody/tr[2]/td[4]/button", "xpath:idRelative"],
+        ["xpath=//td[4]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Valider')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "bd24dbd8-7053-4360-b563-49cf8345b79b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.swal2-confirm",
+      "targets": [
+        ["css=.swal2-confirm", "css:finder"],
+        ["xpath=(//button[@type='button'])[19]", "xpath:attributes"],
+        ["xpath=//div[6]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Oui, valider!')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "24469980-c64b-4991-bed4-4e17388dab3f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.swal2-confirm",
+      "targets": [
+        ["css=.swal2-confirm", "css:finder"],
+        ["xpath=(//button[@type='button'])[19]", "xpath:attributes"],
+        ["xpath=//div[6]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'OK')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "9b1d2ab9-d42f-4017-a4fb-ccef0336c937",
+      "comment": "",
+      "command": "click",
+      "target": "id=Deconnexion",
+      "targets": [
+        ["id=Deconnexion", "id"],
+        ["name=Deconnexion", "name"],
+        ["css=#Deconnexion", "css:finder"],
+        ["xpath=//input[@id='Deconnexion']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarNavDropdown']/ul/li/form/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4e2d2917-88c1-456b-8182-19a0743fce49",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "f0c25f62-5b23-40da-9a9a-73216735d830",
+    "name": "AddTeamAdmin",
+    "commands": [{
+      "id": "d76cc3ed-c1fb-4cf6-9c15-364af3e00265",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost/Application/Controller/Accueil/HomePageController.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "fb282eeb-25d1-4f53-9276-4a04f5267bea",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1531x804",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4bbe4431-944a-4657-9919-7753d3657168",
+      "comment": "",
+      "command": "click",
+      "target": "id=navbarDropdownTournoi",
+      "targets": [
+        ["id=navbarDropdownTournoi", "id"],
+        ["linkText=Tournoi", "linkText"],
+        ["css=#navbarDropdownTournoi", "css:finder"],
+        ["xpath=(//a[contains(text(),'Tournoi')])[2]", "xpath:link"],
+        ["xpath=//a[@id='navbarDropdownTournoi']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarDynamic']/ul[4]/li/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '#')])[3]", "xpath:href"],
+        ["xpath=//ul[4]/li/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e255724a-7215-4d97-a461-72bdb32c6414",
+      "comment": "",
+      "command": "click",
+      "target": "id=navbarCreerEquipe",
+      "targets": [
+        ["id=navbarCreerEquipe", "id"],
+        ["linkText=Créer une équipe", "linkText"],
+        ["css=#navbarCreerEquipe", "css:finder"],
+        ["xpath=//a[contains(text(),'Créer une équipe')]", "xpath:link"],
+        ["xpath=//a[@id='navbarCreerEquipe']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarDynamic']/ul[4]/li/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '../../Controller/Equipe/addTeamController.php')]", "xpath:href"],
+        ["xpath=//ul[4]/li/ul/li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Créer une équipe')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f2fdc6e6-9e35-40cb-bcae-2e1b403f2859",
+      "comment": "",
+      "command": "click",
+      "target": "id=teamName",
+      "targets": [
+        ["id=teamName", "id"],
+        ["name=teamName", "name"],
+        ["css=#teamName", "css:finder"],
+        ["xpath=//input[@id='teamName']", "xpath:attributes"],
+        ["xpath=//form[@id='formulaire']/input", "xpath:idRelative"],
+        ["xpath=//div/form/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1734d8d6-c8b0-4fa6-b234-493203b2cc70",
+      "comment": "",
+      "command": "type",
+      "target": "id=teamName",
+      "targets": [
+        ["id=teamName", "id"],
+        ["name=teamName", "name"],
+        ["css=#teamName", "css:finder"],
+        ["xpath=//input[@id='teamName']", "xpath:attributes"],
+        ["xpath=//form[@id='formulaire']/input", "xpath:idRelative"],
+        ["xpath=//div/form/input", "xpath:position"]
+      ],
+      "value": "Test"
+    }, {
+      "id": "fcd15daf-7025-4e55-8070-b2faf0af14c8",
+      "comment": "",
+      "command": "click",
+      "target": "id=0",
+      "targets": [
+        ["id=0", "id"],
+        ["name=selectTeam0", "name"],
+        ["css=#\\30", "css:finder"],
+        ["xpath=//select[@id='0']", "xpath:attributes"],
+        ["xpath=//div[@id='member']/div/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9b0fd6c1-f0be-46fe-a717-2be130773a42",
+      "comment": "",
+      "command": "select",
+      "target": "id=0",
+      "targets": [],
+      "value": "label=Massé Océane"
+    }, {
+      "id": "2d7287e3-d510-48fd-bd8d-a57ad1157898",
+      "comment": "",
+      "command": "click",
+      "target": "id=1",
+      "targets": [
+        ["id=1", "id"],
+        ["name=selectTeam1", "name"],
+        ["css=#\\31", "css:finder"],
+        ["xpath=//select[@id='1']", "xpath:attributes"],
+        ["xpath=//div[@id='member']/div[2]/select", "xpath:idRelative"],
+        ["xpath=//div[2]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ec4330d0-6fa4-47a0-8a52-4460217b9f95",
+      "comment": "",
+      "command": "select",
+      "target": "id=1",
+      "targets": [],
+      "value": "label=Gauquier Corentin"
+    }, {
+      "id": "23c2cec9-60fd-4cb1-bfff-6fbb0c67a3a4",
+      "comment": "",
+      "command": "click",
+      "target": "id=2",
+      "targets": [
+        ["id=2", "id"],
+        ["name=selectTeam2", "name"],
+        ["css=#\\32", "css:finder"],
+        ["xpath=//select[@id='2']", "xpath:attributes"],
+        ["xpath=//div[@id='member']/div[3]/select", "xpath:idRelative"],
+        ["xpath=//div[3]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "472fc6e1-6146-4620-8d98-64dd0ff7e8f9",
+      "comment": "",
+      "command": "select",
+      "target": "id=2",
+      "targets": [],
+      "value": "label=Carré Ewen"
+    }, {
+      "id": "e72b6d6b-ec2b-4be8-be07-d21b817305de",
+      "comment": "",
+      "command": "click",
+      "target": "id=submit",
+      "targets": [
+        ["id=submit", "id"],
+        ["name=submit", "name"],
+        ["css=#submit", "css:finder"],
+        ["xpath=//input[@id='submit']", "xpath:attributes"],
+        ["xpath=//form[@id='formulaire']/div[5]/input", "xpath:idRelative"],
+        ["xpath=//div[5]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c8535e22-0e19-48fa-98b1-b2634fd73525",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=swal2-title",
+      "targets": [],
+      "value": "Succès !"
+    }, {
+      "id": "e0f09b32-e6a5-41d4-9117-86748e0430e2",
+      "comment": "",
+      "command": "click",
+      "target": "css=.swal2-confirm",
+      "targets": [
+        ["css=.swal2-confirm", "css:finder"],
+        ["xpath=(//button[@type='button'])[3]", "xpath:attributes"],
+        ["xpath=//div[6]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'OK')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1c066bfa-b70b-47bb-be68-a59452fb6af9",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "ce591e59-b3b1-45c9-86c1-8b2e6ef9edd1",
+    "name": "AddTeamTournoiFail",
+    "commands": [{
+      "id": "77d6a911-e484-44df-8d6a-eb4a41bc93d8",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost/Application/Controller/Accueil/HomePageController.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ef4384c6-2a3a-4d99-9f16-6d38cf233112",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1527x804",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d819f6fa-1ec6-417b-b100-ad11509fabf0",
+      "comment": "",
+      "command": "click",
+      "target": "id=navbarDropdownMenuLink",
+      "targets": [
+        ["id=navbarDropdownMenuLink", "id"],
+        ["linkText=Tournoi admin", "linkText"],
+        ["css=#navbarDropdownMenuLink", "css:finder"],
+        ["xpath=//a[contains(text(),'Tournoi admin')]", "xpath:link"],
+        ["xpath=//a[@id='navbarDropdownMenuLink']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarDynamic']/ul[2]/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#')]", "xpath:href"],
+        ["xpath=//ul[2]/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Tournoi admin')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "88923383-9f35-48ad-aa89-6e7c1cfac56e",
+      "comment": "",
+      "command": "click",
+      "target": "id=navbarInscrireEquipe",
+      "targets": [
+        ["id=navbarInscrireEquipe", "id"],
+        ["linkText=Inscrire une équipe", "linkText"],
+        ["css=#navbarInscrireEquipe", "css:finder"],
+        ["xpath=//a[contains(text(),'Inscrire une équipe')]", "xpath:link"],
+        ["xpath=//a[@id='navbarInscrireEquipe']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarDynamic']/ul[2]/li/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '../../Controller/Tournoi/addTeamTournamentController.php')]", "xpath:href"],
+        ["xpath=//li/ul/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Inscrire une équipe')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1c78761b-1b3e-4081-af13-26589679e363",
+      "comment": "",
+      "command": "click",
+      "target": "id=selectTeam",
+      "targets": [
+        ["id=selectTeam", "id"],
+        ["name=selectTeam", "name"],
+        ["css=#selectTeam", "css:finder"],
+        ["xpath=//select[@id='selectTeam']", "xpath:attributes"],
+        ["xpath=//div[@id='teamName']/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4168f507-7c9c-4a7b-b7b5-c89f74efbcd5",
+      "comment": "",
+      "command": "select",
+      "target": "id=selectTeam",
+      "targets": [],
+      "value": "label=ZEHEF"
+    }, {
+      "id": "a33490cb-ec02-4d01-8156-322c9681ce02",
+      "comment": "",
+      "command": "click",
+      "target": "id=submittqt",
+      "targets": [
+        ["id=submittqt", "id"],
+        ["name=submittqt", "name"],
+        ["css=#submittqt", "css:finder"],
+        ["xpath=//input[@id='submittqt']", "xpath:attributes"],
+        ["xpath=//form[@id='myForm']/div[9]/input", "xpath:idRelative"],
+        ["xpath=//div[9]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3a4b7ae0-1c76-46de-903b-7d3c3ab0aabb",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=swal2-title",
+      "targets": [],
+      "value": "Erreur !"
+    }, {
+      "id": "3f81930c-a2a3-4cb2-b4a8-3818e2db86a8",
+      "comment": "",
+      "command": "click",
+      "target": "css=.swal2-confirm",
+      "targets": [
+        ["css=.swal2-confirm", "css:finder"],
+        ["xpath=(//button[@type='button'])[3]", "xpath:attributes"],
+        ["xpath=//div[6]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'OK')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0a77c31c-4250-4193-a2a1-f5a39c515ba4",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "3ae73511-0ce5-4bc5-88be-072bf0c05880",
+    "name": "AddTeamTournoi",
+    "commands": [{
+      "id": "4bea670b-572f-4352-816c-cac4c8b8f750",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost/Application/Controller/Accueil/HomePageController.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "de9d7680-df6b-4e32-9989-df7047e03332",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1528x804",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "520dd9da-4cd0-436b-85bb-833297bed46d",
+      "comment": "",
+      "command": "click",
+      "target": "id=navbarDropdownMenuLink",
+      "targets": [
+        ["id=navbarDropdownMenuLink", "id"],
+        ["linkText=Tournoi admin", "linkText"],
+        ["css=#navbarDropdownMenuLink", "css:finder"],
+        ["xpath=//a[contains(text(),'Tournoi admin')]", "xpath:link"],
+        ["xpath=//a[@id='navbarDropdownMenuLink']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarDynamic']/ul[2]/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#')]", "xpath:href"],
+        ["xpath=//ul[2]/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Tournoi admin')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "64234c39-daac-495f-924e-2c0629fb8128",
+      "comment": "",
+      "command": "click",
+      "target": "id=navbarInscrireEquipe",
+      "targets": [
+        ["id=navbarInscrireEquipe", "id"],
+        ["linkText=Inscrire une équipe", "linkText"],
+        ["css=#navbarInscrireEquipe", "css:finder"],
+        ["xpath=//a[contains(text(),'Inscrire une équipe')]", "xpath:link"],
+        ["xpath=//a[@id='navbarInscrireEquipe']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarDynamic']/ul[2]/li/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '../../Controller/Tournoi/addTeamTournamentController.php')]", "xpath:href"],
+        ["xpath=//li/ul/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Inscrire une équipe')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "271b3709-8d21-4973-8647-1ed4a0113f83",
+      "comment": "",
+      "command": "click",
+      "target": "id=selectTeam",
+      "targets": [
+        ["id=selectTeam", "id"],
+        ["name=selectTeam", "name"],
+        ["css=#selectTeam", "css:finder"],
+        ["xpath=//select[@id='selectTeam']", "xpath:attributes"],
+        ["xpath=//div[@id='teamName']/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2ed5f7fa-dd1e-45f0-a966-a1cb28cd17e6",
+      "comment": "",
+      "command": "select",
+      "target": "id=selectTeam",
+      "targets": [],
+      "value": "label=BBB"
+    }, {
+      "id": "c0589d2c-2684-45be-abfc-645afd26cd53",
+      "comment": "",
+      "command": "click",
+      "target": "id=submittqt",
+      "targets": [
+        ["id=submittqt", "id"],
+        ["name=submittqt", "name"],
+        ["css=#submittqt", "css:finder"],
+        ["xpath=//input[@id='submittqt']", "xpath:attributes"],
+        ["xpath=//form[@id='myForm']/div[9]/input", "xpath:idRelative"],
+        ["xpath=//div[9]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ed7aae45-1093-4683-913d-98b33815af10",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=swal2-title",
+      "targets": [],
+      "value": "Succès !"
+    }, {
+      "id": "dd5bf1bb-f11c-41dd-b403-2ca1e1582e35",
+      "comment": "",
+      "command": "click",
+      "target": "css=.swal2-confirm",
+      "targets": [
+        ["css=.swal2-confirm", "css:finder"],
+        ["xpath=(//button[@type='button'])[3]", "xpath:attributes"],
+        ["xpath=//div[6]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Ok')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ef77e793-4975-4ad4-a9e1-ab849f38b3b4",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "46868a89-f2e5-4e78-86ce-425474915603",
+    "name": "CreerParcours_BTNOnly",
+    "commands": [{
+      "id": "1f16dc24-f850-4096-a719-253cafbdf944",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost/Application/Controller/Accueil/HomePageController.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "40a47f75-92d7-4ee5-bd82-9695dbdaa0fc",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1531x804",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3745baa4-6167-4169-b32a-a111c0ab45ae",
+      "comment": "",
+      "command": "click",
+      "target": "id=navbarDropdownMenuLink",
+      "targets": [
+        ["id=navbarDropdownMenuLink", "id"],
+        ["linkText=Tournoi admin", "linkText"],
+        ["css=#navbarDropdownMenuLink", "css:finder"],
+        ["xpath=//a[contains(text(),'Tournoi admin')]", "xpath:link"],
+        ["xpath=//a[@id='navbarDropdownMenuLink']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarDynamic']/ul[2]/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#')]", "xpath:href"],
+        ["xpath=//ul[2]/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Tournoi admin')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4f969ef2-2877-473f-b442-6ef9612a391b",
+      "comment": "",
+      "command": "click",
+      "target": "id=navbarGererParcours",
+      "targets": [
+        ["id=navbarGererParcours", "id"],
+        ["linkText=Gérer Parcours", "linkText"],
+        ["css=#navbarGererParcours", "css:finder"],
+        ["xpath=//a[contains(text(),'Gérer Parcours')]", "xpath:link"],
+        ["xpath=//a[@id='navbarGererParcours']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarDynamic']/ul[2]/li/ul/li[3]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '../../Controller/Parcours/ParcoursController.php')]", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Gérer Parcours')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "870da71c-d2ce-4562-899d-c68e198883c6",
+      "comment": "",
+      "command": "click",
+      "target": "id=city",
+      "targets": [
+        ["id=city", "id"],
+        ["name=city", "name"],
+        ["css=#city", "css:finder"],
+        ["xpath=//input[@id='city']", "xpath:attributes"],
+        ["xpath=//form[@id='formCreer']/div/input", "xpath:idRelative"],
+        ["xpath=//div[4]/div/div/form/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "61df9936-bac5-4bb9-a518-d2543f89bd1c",
+      "comment": "",
+      "command": "type",
+      "target": "id=city",
+      "targets": [
+        ["id=city", "id"],
+        ["name=city", "name"],
+        ["css=#city", "css:finder"],
+        ["xpath=//input[@id='city']", "xpath:attributes"],
+        ["xpath=//form[@id='formCreer']/div/input", "xpath:idRelative"],
+        ["xpath=//div[4]/div/div/form/div/input", "xpath:position"]
+      ],
+      "value": "Quiévrechain"
+    }, {
+      "id": "836a7bd1-db8e-4b2b-9479-68d5190b6ee2",
+      "comment": "",
+      "command": "click",
+      "target": "id=name",
+      "targets": [
+        ["id=name", "id"],
+        ["name=name", "name"],
+        ["css=#name", "css:finder"],
+        ["xpath=//input[@id='name']", "xpath:attributes"],
+        ["xpath=//form[@id='formCreer']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[4]/div/div/form/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "df9f50b2-b7a9-4ee2-9561-612165abc9e8",
+      "comment": "",
+      "command": "type",
+      "target": "id=name",
+      "targets": [
+        ["id=name", "id"],
+        ["name=name", "name"],
+        ["css=#name", "css:finder"],
+        ["xpath=//input[@id='name']", "xpath:attributes"],
+        ["xpath=//form[@id='formCreer']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[4]/div/div/form/div[2]/input", "xpath:position"]
+      ],
+      "value": "NewParcours"
+    }, {
+      "id": "854c1a9a-704f-4c14-a3e8-68e9c80dc64f",
+      "comment": "",
+      "command": "click",
+      "target": "id=NombreDechole",
+      "targets": [
+        ["id=NombreDechole", "id"],
+        ["name=NombreDechole", "name"],
+        ["css=#NombreDechole", "css:finder"],
+        ["xpath=//input[@id='NombreDechole']", "xpath:attributes"],
+        ["xpath=//form[@id='formCreer']/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[4]/div/div/form/div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c804c222-c8c2-4830-96bc-280d0b6b3fd7",
+      "comment": "",
+      "command": "type",
+      "target": "id=NombreDechole",
+      "targets": [
+        ["id=NombreDechole", "id"],
+        ["name=NombreDechole", "name"],
+        ["css=#NombreDechole", "css:finder"],
+        ["xpath=//input[@id='NombreDechole']", "xpath:attributes"],
+        ["xpath=//form[@id='formCreer']/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[4]/div/div/form/div[3]/input", "xpath:position"]
+      ],
+      "value": "3"
+    }, {
+      "id": "029b0b28-7ed4-4fa4-80e4-16662def8aed",
+      "comment": "",
+      "command": "click",
+      "target": "id=map",
+      "targets": [
+        ["id=map", "id"],
+        ["css=#map", "css:finder"],
+        ["xpath=//div[@id='map']", "xpath:attributes"],
+        ["xpath=//body/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c55d3b54-b81a-4217-b5fc-7a5b2900e377",
+      "comment": "",
+      "command": "mouseDownAt",
+      "target": "id=map",
+      "targets": [
+        ["id=map", "id"],
+        ["css=#map", "css:finder"],
+        ["xpath=//div[@id='map']", "xpath:attributes"],
+        ["xpath=//body/div/div", "xpath:position"]
+      ],
+      "value": "622.4000015258789,146"
+    }, {
+      "id": "3a7efc7c-1927-4b05-9c4f-6ae9c82240f0",
+      "comment": "",
+      "command": "mouseMoveAt",
+      "target": "id=map",
+      "targets": [
+        ["id=map", "id"],
+        ["css=#map", "css:finder"],
+        ["xpath=//div[@id='map']", "xpath:attributes"],
+        ["xpath=//body/div/div", "xpath:position"]
+      ],
+      "value": "622.4000015258789,146"
+    }, {
+      "id": "9409aae4-d043-4945-9fee-727e8eecb3d0",
+      "comment": "",
+      "command": "mouseUpAt",
+      "target": "id=map",
+      "targets": [
+        ["id=map", "id"],
+        ["css=#map", "css:finder"],
+        ["xpath=//div[@id='map']", "xpath:attributes"],
+        ["xpath=//body/div/div", "xpath:position"]
+      ],
+      "value": "622.4000015258789,146"
+    }, {
+      "id": "ac992201-9a59-4f33-ac77-87b346269d0f",
+      "comment": "",
+      "command": "click",
+      "target": "id=map",
+      "targets": [
+        ["id=map", "id"],
+        ["css=#map", "css:finder"],
+        ["xpath=//div[@id='map']", "xpath:attributes"],
+        ["xpath=//body/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b54caf87-5b9b-4518-8f42-552c07d6225d",
+      "comment": "",
+      "command": "click",
+      "target": "id=removeLastMarker",
+      "targets": [
+        ["id=removeLastMarker", "id"],
+        ["css=#removeLastMarker", "css:finder"],
+        ["xpath=//button[@id='removeLastMarker']", "xpath:attributes"],
+        ["xpath=//div[@id='CreerParcoursButtons']/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Supprimer le dernier marqueur')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "98695389-375b-463c-8682-a304ca9c5fc2",
+      "comment": "",
+      "command": "click",
+      "target": "id=map",
+      "targets": [
+        ["id=map", "id"],
+        ["css=#map", "css:finder"],
+        ["xpath=//div[@id='map']", "xpath:attributes"],
+        ["xpath=//body/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4783b6ff-fcb7-41df-b79c-0c899c31be98",
+      "comment": "",
+      "command": "click",
+      "target": "id=map",
+      "targets": [
+        ["id=map", "id"],
+        ["css=#map", "css:finder"],
+        ["xpath=//div[@id='map']", "xpath:attributes"],
+        ["xpath=//body/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c990ac8b-68b1-4722-8cc2-4093eb4fdcca",
+      "comment": "",
+      "command": "click",
+      "target": "id=btn-create",
+      "targets": [
+        ["id=btn-create", "id"],
+        ["css=#btn-create", "css:finder"],
+        ["xpath=//button[@id='btn-create']", "xpath:attributes"],
+        ["xpath=//form[@id='formCreer']/button", "xpath:idRelative"],
+        ["xpath=//div[4]/div/div/form/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f20f7723-074f-46e9-8762-36616c5867f4",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "e9b0f93d-90d8-499e-8599-b9fa5c91f924",
+    "name": "GenererRencontreFail",
+    "commands": [{
+      "id": "99ee0342-96d0-406d-a6a4-cb76f872de2a",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost/Application/Controller/Accueil/HomePageController.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "87fa2586-bed0-430e-ad8b-2b8184e92e91",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1532x804",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "65c5cb8a-8606-4be5-bfc2-24418178eda1",
+      "comment": "",
+      "command": "click",
+      "target": "id=navbarDropdownMenuLink",
+      "targets": [
+        ["id=navbarDropdownMenuLink", "id"],
+        ["linkText=Tournoi admin", "linkText"],
+        ["css=#navbarDropdownMenuLink", "css:finder"],
+        ["xpath=//a[contains(text(),'Tournoi admin')]", "xpath:link"],
+        ["xpath=//a[@id='navbarDropdownMenuLink']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarDynamic']/ul[2]/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#')]", "xpath:href"],
+        ["xpath=//ul[2]/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Tournoi admin')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a5236823-0651-40fe-beee-e10d0a2dcf99",
+      "comment": "",
+      "command": "click",
+      "target": "id=navbarModifierRecontre",
+      "targets": [
+        ["id=navbarModifierRecontre", "id"],
+        ["linkText=Modifier les rencontres", "linkText"],
+        ["css=#navbarModifierRecontre", "css:finder"],
+        ["xpath=//a[contains(text(),'Modifier les rencontres')]", "xpath:link"],
+        ["xpath=//a[@id='navbarModifierRecontre']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarDynamic']/ul[2]/li/ul/li[4]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '../../Controller/Tournoi/ControllerMatch.php')]", "xpath:href"],
+        ["xpath=//li[4]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Modifier les rencontres')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4fc07196-fb85-4331-a584-3451bd72da11",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-success",
+      "targets": [
+        ["css=.btn-success", "css:finder"],
+        ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
+        ["xpath=//div/div/form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Générer Rencontres Aléatoires')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "9db258b3-6138-4bfd-8824-eb0d2b7c1fbc",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=swal2-title",
+      "targets": [],
+      "value": "Succès!"
+    }, {
+      "id": "fb915cda-b46c-41c4-9df2-9ac5374bc5eb",
+      "comment": "",
+      "command": "click",
+      "target": "css=.swal2-confirm",
+      "targets": [
+        ["css=.swal2-confirm", "css:finder"],
+        ["xpath=(//button[@type='button'])[3]", "xpath:attributes"],
+        ["xpath=//div[6]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'OK')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "5c118c3f-878e-462d-8f57-c84ee497b48d",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "1c983352-98f3-4829-932b-fe59a6c40455",
+    "name": "CreerRencontre",
+    "commands": [{
+      "id": "782d18b9-7fcb-43f3-94ca-7c24ccda65c8",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost/Application/Controller/Accueil/HomePageController.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "99b42124-c304-473b-8959-bdeac93a7750",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1532x804",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ed9b0dbf-90ea-42e2-8560-bf9aaa0f44f5",
+      "comment": "",
+      "command": "click",
+      "target": "id=navbarDropdownMenuLink",
+      "targets": [
+        ["id=navbarDropdownMenuLink", "id"],
+        ["linkText=Tournoi admin", "linkText"],
+        ["css=#navbarDropdownMenuLink", "css:finder"],
+        ["xpath=//a[contains(text(),'Tournoi admin')]", "xpath:link"],
+        ["xpath=//a[@id='navbarDropdownMenuLink']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarDynamic']/ul[2]/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#')]", "xpath:href"],
+        ["xpath=//ul[2]/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Tournoi admin')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8e63a9d9-dfd4-4e10-a260-c13b9c9cec25",
+      "comment": "",
+      "command": "click",
+      "target": "id=navbarModifierRecontre",
+      "targets": [
+        ["id=navbarModifierRecontre", "id"],
+        ["linkText=Modifier les rencontres", "linkText"],
+        ["css=#navbarModifierRecontre", "css:finder"],
+        ["xpath=//a[contains(text(),'Modifier les rencontres')]", "xpath:link"],
+        ["xpath=//a[@id='navbarModifierRecontre']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarDynamic']/ul[2]/li/ul/li[4]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '../../Controller/Tournoi/ControllerMatch.php')]", "xpath:href"],
+        ["xpath=//li[4]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Modifier les rencontres')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8b3d727f-00be-469e-8bc0-e5c05318b49b",
+      "comment": "",
+      "command": "click",
+      "target": "id=equipe1",
+      "targets": [
+        ["id=equipe1", "id"],
+        ["name=equipe1", "name"],
+        ["css=#equipe1", "css:finder"],
+        ["xpath=//select[@id='equipe1']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e3a59228-1951-4779-b687-628a617eaec9",
+      "comment": "",
+      "command": "click",
+      "target": "id=equipe2",
+      "targets": [
+        ["id=equipe2", "id"],
+        ["name=equipe2", "name"],
+        ["css=#equipe2", "css:finder"],
+        ["xpath=//select[@id='equipe2']", "xpath:attributes"],
+        ["xpath=//div[2]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8b00e18e-b26e-44db-b43f-6d2cd2ff1c78",
+      "comment": "",
+      "command": "select",
+      "target": "id=equipe2",
+      "targets": [],
+      "value": "label=DAHAK"
+    }, {
+      "id": "156d6d9e-726c-4921-8653-37c6d1103731",
+      "comment": "",
+      "command": "click",
+      "target": "id=parcours",
+      "targets": [
+        ["id=parcours", "id"],
+        ["name=parcours", "name"],
+        ["css=#parcours", "css:finder"],
+        ["xpath=//select[@id='parcours']", "xpath:attributes"],
+        ["xpath=//div[3]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9e67ac53-c2bc-459a-bcf1-4192a350880f",
+      "comment": "",
+      "command": "select",
+      "target": "id=parcours",
+      "targets": [],
+      "value": "label=NewParcours"
+    }, {
+      "id": "397adac6-7a19-4aa6-ad7d-a0dfe1291f66",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn:nth-child(5)",
+      "targets": [
+        ["css=.btn:nth-child(5)", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Ajouter la rencontre')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c8a4613c-63e0-41a7-849b-b51e64794804",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "6428ef0f-5b19-4d42-a318-616d7daee81a",
+    "name": "CreerRencontreFail",
+    "commands": [{
+      "id": "876cb600-6e26-4ec9-8d8b-aa3a3fe0e007",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost/Application/Controller/Accueil/HomePageController.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "090e96c1-c9d2-4107-af9e-0454afcc8bc9",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1532x804",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4ccc44cb-aaaa-4d83-81f1-df90513c3426",
+      "comment": "",
+      "command": "click",
+      "target": "id=navbarDropdownMenuLink",
+      "targets": [
+        ["id=navbarDropdownMenuLink", "id"],
+        ["linkText=Tournoi admin", "linkText"],
+        ["css=#navbarDropdownMenuLink", "css:finder"],
+        ["xpath=//a[contains(text(),'Tournoi admin')]", "xpath:link"],
+        ["xpath=//a[@id='navbarDropdownMenuLink']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarDynamic']/ul[2]/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#')]", "xpath:href"],
+        ["xpath=//ul[2]/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Tournoi admin')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1f4ea1f2-55df-4ccb-8d20-449af6d42e20",
+      "comment": "",
+      "command": "click",
+      "target": "id=navbarModifierRecontre",
+      "targets": [
+        ["id=navbarModifierRecontre", "id"],
+        ["linkText=Modifier les rencontres", "linkText"],
+        ["css=#navbarModifierRecontre", "css:finder"],
+        ["xpath=//a[contains(text(),'Modifier les rencontres')]", "xpath:link"],
+        ["xpath=//a[@id='navbarModifierRecontre']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarDynamic']/ul[2]/li/ul/li[4]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '../../Controller/Tournoi/ControllerMatch.php')]", "xpath:href"],
+        ["xpath=//li[4]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Modifier les rencontres')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "305151a0-8ec1-4f5b-a94b-ad9470f9a4c0",
+      "comment": "",
+      "command": "click",
+      "target": "id=equipe1",
+      "targets": [
+        ["id=equipe1", "id"],
+        ["name=equipe1", "name"],
+        ["css=#equipe1", "css:finder"],
+        ["xpath=//select[@id='equipe1']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4a00288d-dd6d-41b0-a2a1-0605926e2af2",
+      "comment": "",
+      "command": "click",
+      "target": "id=equipe2",
+      "targets": [
+        ["id=equipe2", "id"],
+        ["name=equipe2", "name"],
+        ["css=#equipe2", "css:finder"],
+        ["xpath=//select[@id='equipe2']", "xpath:attributes"],
+        ["xpath=//div[2]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "81b68aeb-bf5d-413b-aa85-fd4524dac925",
+      "comment": "",
+      "command": "select",
+      "target": "id=equipe2",
+      "targets": [],
+      "value": "label=DAHAK"
+    }, {
+      "id": "bc409aab-6bf0-4591-8deb-ee355ffe4f5e",
+      "comment": "",
+      "command": "click",
+      "target": "id=parcours",
+      "targets": [
+        ["id=parcours", "id"],
+        ["name=parcours", "name"],
+        ["css=#parcours", "css:finder"],
+        ["xpath=//select[@id='parcours']", "xpath:attributes"],
+        ["xpath=//div[3]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f4e5395b-fb93-47a1-b63f-743345eac123",
+      "comment": "",
+      "command": "select",
+      "target": "id=parcours",
+      "targets": [],
+      "value": "label=NewParcours"
+    }, {
+      "id": "052fded2-b6b3-44a9-afd8-b2a437d502d1",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn:nth-child(5)",
+      "targets": [
+        ["css=.btn:nth-child(5)", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Ajouter la rencontre')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f2360ec3-4deb-44dc-af27-765588c93dda",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=swal2-title",
+      "targets": [],
+      "value": "Erreur!"
+    }, {
+      "id": "13fbed25-fcbc-4bee-b4e2-afc3f8b66778",
+      "comment": "",
+      "command": "click",
+      "target": "css=.swal2-confirm",
+      "targets": [
+        ["css=.swal2-confirm", "css:finder"],
+        ["xpath=(//button[@type='button'])[3]", "xpath:attributes"],
+        ["xpath=//div[6]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'OK')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "88542866-d1df-489c-bf21-fb262be49b6d",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "2c62a455-6e07-47b2-a327-5bb33f635588",
+    "name": "GenererRencontre",
+    "commands": [{
+      "id": "3aa66aa9-5a9f-4017-b3e0-02f948c7a5ba",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost/Application/Controller/Accueil/HomePageController.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "76751621-f84c-48bb-b83a-4627c4639c39",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1532x804",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "03391661-209a-42e4-8722-7aba60e2b10f",
+      "comment": "",
+      "command": "click",
+      "target": "id=navbarDropdownMenuLink",
+      "targets": [
+        ["id=navbarDropdownMenuLink", "id"],
+        ["linkText=Tournoi admin", "linkText"],
+        ["css=#navbarDropdownMenuLink", "css:finder"],
+        ["xpath=//a[contains(text(),'Tournoi admin')]", "xpath:link"],
+        ["xpath=//a[@id='navbarDropdownMenuLink']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarDynamic']/ul[2]/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#')]", "xpath:href"],
+        ["xpath=//ul[2]/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Tournoi admin')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e7b3f51a-d6fe-464d-aa98-cc97772e7e8b",
+      "comment": "",
+      "command": "click",
+      "target": "id=navbarModifierRecontre",
+      "targets": [
+        ["id=navbarModifierRecontre", "id"],
+        ["linkText=Modifier les rencontres", "linkText"],
+        ["css=#navbarModifierRecontre", "css:finder"],
+        ["xpath=//a[contains(text(),'Modifier les rencontres')]", "xpath:link"],
+        ["xpath=//a[@id='navbarModifierRecontre']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarDynamic']/ul[2]/li/ul/li[4]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '../../Controller/Tournoi/ControllerMatch.php')]", "xpath:href"],
+        ["xpath=//li[4]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Modifier les rencontres')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "17136ec4-103b-4b5a-8516-3333920b042d",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-success",
+      "targets": [
+        ["css=.btn-success", "css:finder"],
+        ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
+        ["xpath=//div/div/form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Générer Rencontres Aléatoires')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "304ecffe-b279-478c-876e-9941e2062481",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=swal2-title",
+      "targets": [],
+      "value": "Erreur!"
+    }, {
+      "id": "fc5c28a0-1bf8-4b9a-9a76-75d8634b1205",
+      "comment": "",
+      "command": "click",
+      "target": "css=.swal2-confirm",
+      "targets": [
+        ["css=.swal2-confirm", "css:finder"],
+        ["xpath=(//button[@type='button'])[3]", "xpath:attributes"],
+        ["xpath=//div[6]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'OK')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a1049911-93c3-443a-ae59-98583cab6ce6",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "cec3fde3-efc1-4e77-970b-30b7f9ff8a93",
+    "name": "SupprimerRencontre",
+    "commands": [{
+      "id": "681935cd-6da7-4507-a03e-c4300c553a99",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost/Application/Controller/Accueil/HomePageController.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "cf4eb987-3e5d-40a7-bda8-13083da83bb4",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1532x804",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0f0cf0c2-111f-4a97-94f9-a5352b0e2a42",
+      "comment": "",
+      "command": "click",
+      "target": "id=navbarDropdownMenuLink",
+      "targets": [
+        ["id=navbarDropdownMenuLink", "id"],
+        ["linkText=Tournoi admin", "linkText"],
+        ["css=#navbarDropdownMenuLink", "css:finder"],
+        ["xpath=//a[contains(text(),'Tournoi admin')]", "xpath:link"],
+        ["xpath=//a[@id='navbarDropdownMenuLink']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarDynamic']/ul[2]/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#')]", "xpath:href"],
+        ["xpath=//ul[2]/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Tournoi admin')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0ac69397-6579-4894-9d21-05337234ba5a",
+      "comment": "",
+      "command": "click",
+      "target": "id=navbarModifierRecontre",
+      "targets": [
+        ["id=navbarModifierRecontre", "id"],
+        ["linkText=Modifier les rencontres", "linkText"],
+        ["css=#navbarModifierRecontre", "css:finder"],
+        ["xpath=//a[contains(text(),'Modifier les rencontres')]", "xpath:link"],
+        ["xpath=//a[@id='navbarModifierRecontre']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarDynamic']/ul[2]/li/ul/li[4]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '../../Controller/Tournoi/ControllerMatch.php')]", "xpath:href"],
+        ["xpath=//li[4]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Modifier les rencontres')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "fc10e7d2-fd91-4689-bd81-23dde311b23d",
+      "comment": "",
+      "command": "click",
+      "target": "css=tr:nth-child(1) .btn-danger",
+      "targets": [
+        ["css=tr:nth-child(1) .btn-danger", "css:finder"],
+        ["xpath=(//button[@type='submit'])[3]", "xpath:attributes"],
+        ["xpath=//td[6]/form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Supprimer')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3b85a4b1-60c4-4d88-973b-0ad7ed7f9116",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "9dca8316-5a9a-43d5-a283-4f6c1b6c6ecc",
+    "name": "ModifierRencontre",
+    "commands": [{
+      "id": "5e957f80-692d-4ac6-80e2-2ee586d15b60",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost/Application/Controller/Accueil/HomePageController.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4e7a8ef3-ee3b-4479-ba73-56d1c181a552",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1532x804",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b69e46d4-d73d-4fb5-8684-23627560ac82",
+      "comment": "",
+      "command": "click",
+      "target": "id=navbarDropdownMenuLink",
+      "targets": [
+        ["id=navbarDropdownMenuLink", "id"],
+        ["linkText=Tournoi admin", "linkText"],
+        ["css=#navbarDropdownMenuLink", "css:finder"],
+        ["xpath=//a[contains(text(),'Tournoi admin')]", "xpath:link"],
+        ["xpath=//a[@id='navbarDropdownMenuLink']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarDynamic']/ul[2]/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#')]", "xpath:href"],
+        ["xpath=//ul[2]/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Tournoi admin')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "968e3357-d8d3-4bd2-be36-937c129331e4",
+      "comment": "",
+      "command": "click",
+      "target": "id=navbarModifierRecontre",
+      "targets": [
+        ["id=navbarModifierRecontre", "id"],
+        ["linkText=Modifier les rencontres", "linkText"],
+        ["css=#navbarModifierRecontre", "css:finder"],
+        ["xpath=//a[contains(text(),'Modifier les rencontres')]", "xpath:link"],
+        ["xpath=//a[@id='navbarModifierRecontre']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarDynamic']/ul[2]/li/ul/li[4]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '../../Controller/Tournoi/ControllerMatch.php')]", "xpath:href"],
+        ["xpath=//li[4]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Modifier les rencontres')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3b85f3e0-75cb-4f76-a3f2-72150e1add32",
+      "comment": "",
+      "command": "click",
+      "target": "css=tr:nth-child(1) .btn-secondary",
+      "targets": [
+        ["css=tr:nth-child(1) .btn-secondary", "css:finder"],
+        ["xpath=(//button[@type='submit'])[4]", "xpath:attributes"],
+        ["xpath=//form[2]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Modifier')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "edfb36dc-23a0-4c4e-a836-2111f4d73601",
+      "comment": "",
+      "command": "click",
+      "target": "id=equipe1",
+      "targets": [
+        ["id=equipe1", "id"],
+        ["name=equipe1", "name"],
+        ["css=#equipe1", "css:finder"],
+        ["xpath=//select[@id='equipe1']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "270e1612-e545-47c3-b0f8-893910887408",
+      "comment": "",
+      "command": "select",
+      "target": "id=equipe1",
+      "targets": [],
+      "value": "label=ZEHEF"
+    }, {
+      "id": "2ad59b6b-eb38-417b-9183-f454b4218cb9",
+      "comment": "",
+      "command": "click",
+      "target": "id=equipe2",
+      "targets": [
+        ["id=equipe2", "id"],
+        ["name=equipe2", "name"],
+        ["css=#equipe2", "css:finder"],
+        ["xpath=//select[@id='equipe2']", "xpath:attributes"],
+        ["xpath=//div[2]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f80cbd6a-a260-4c05-9efc-b20d0ae60087",
+      "comment": "",
+      "command": "select",
+      "target": "id=equipe2",
+      "targets": [],
+      "value": "label=DAHAK"
+    }, {
+      "id": "cb1efc83-8dbd-4b7c-9eb3-90cd84a5b352",
+      "comment": "",
+      "command": "click",
+      "target": "id=parcours",
+      "targets": [
+        ["id=parcours", "id"],
+        ["name=parcours", "name"],
+        ["css=#parcours", "css:finder"],
+        ["xpath=//select[@id='parcours']", "xpath:attributes"],
+        ["xpath=//div[3]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "08681cee-fc55-4467-852b-910602200e3c",
+      "comment": "",
+      "command": "select",
+      "target": "id=parcours",
+      "targets": [],
+      "value": "label=NewParcours"
+    }, {
+      "id": "02e6f979-6310-4cd7-9e99-5a79d8a24def",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn:nth-child(6)",
+      "targets": [
+        ["css=.btn:nth-child(6)", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Mettre à jour')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0931dbd0-9ea5-48f8-9dce-bc4e983ced16",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "f82bd38e-83ce-4f01-b1fb-8cc3785056a6",
+    "name": "CreerTournoi",
+    "commands": [{
+      "id": "588ba2d8-1379-4cf7-a362-e4afee32c791",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost/Application/Controller/Accueil/HomePageController.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "13651128-c0ea-4f6d-b4ba-6dca64566168",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1532x804",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "fed3bd38-684e-436b-ae44-820d352df7f1",
+      "comment": "",
+      "command": "click",
+      "target": "id=navbarDropdownMenuLink",
+      "targets": [
+        ["id=navbarDropdownMenuLink", "id"],
+        ["linkText=Tournoi admin", "linkText"],
+        ["css=#navbarDropdownMenuLink", "css:finder"],
+        ["xpath=//a[contains(text(),'Tournoi admin')]", "xpath:link"],
+        ["xpath=//a[@id='navbarDropdownMenuLink']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarDynamic']/ul[2]/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#')]", "xpath:href"],
+        ["xpath=//ul[2]/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Tournoi admin')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "46a1cc4d-fe31-49c5-98f9-53539d38b9c0",
+      "comment": "",
+      "command": "click",
+      "target": "id=navbarCreerTournoi",
+      "targets": [
+        ["id=navbarCreerTournoi", "id"],
+        ["linkText=Créer un tournoi", "linkText"],
+        ["css=#navbarCreerTournoi", "css:finder"],
+        ["xpath=//a[contains(text(),'Créer un tournoi')]", "xpath:link"],
+        ["xpath=//a[@id='navbarCreerTournoi']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarDynamic']/ul[2]/li/ul/li[5]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '../../Controller/Tournoi/tournamentController.php')]", "xpath:href"],
+        ["xpath=//li[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Créer un tournoi')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b549ccc1-6057-4711-a494-50ba39878f41",
+      "comment": "",
+      "command": "click",
+      "target": "id=place",
+      "targets": [
+        ["id=place", "id"],
+        ["name=place", "name"],
+        ["css=#place", "css:finder"],
+        ["xpath=//input[@id='place']", "xpath:attributes"],
+        ["xpath=//div/form/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a1be4550-9dfe-41db-aee4-05a10154eba8",
+      "comment": "",
+      "command": "type",
+      "target": "id=place",
+      "targets": [
+        ["id=place", "id"],
+        ["name=place", "name"],
+        ["css=#place", "css:finder"],
+        ["xpath=//input[@id='place']", "xpath:attributes"],
+        ["xpath=//div/form/input", "xpath:position"]
+      ],
+      "value": "Quarouble"
+    }, {
+      "id": "c72d32ad-3c43-477d-a867-883c8899ce20",
+      "comment": "",
+      "command": "mouseDownAt",
+      "target": "id=nbParcours",
+      "targets": [
+        ["id=nbParcours", "id"],
+        ["name=nbParcours", "name"],
+        ["css=#nbParcours", "css:finder"],
+        ["xpath=//input[@id='nbParcours']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "0.21246337890625,9.6875"
+    }, {
+      "id": "a4d50b39-9049-4830-b795-537d04d3b6e3",
+      "comment": "",
+      "command": "mouseMoveAt",
+      "target": "id=nbParcours",
+      "targets": [
+        ["id=nbParcours", "id"],
+        ["name=nbParcours", "name"],
+        ["css=#nbParcours", "css:finder"],
+        ["xpath=//input[@id='nbParcours']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "0.21246337890625,9.6875"
+    }, {
+      "id": "88f7dfaa-d1af-496b-97c0-f748720c951c",
+      "comment": "",
+      "command": "mouseUpAt",
+      "target": "id=nbParcours",
+      "targets": [
+        ["id=nbParcours", "id"],
+        ["name=nbParcours", "name"],
+        ["css=#nbParcours", "css:finder"],
+        ["xpath=//input[@id='nbParcours']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "0.21246337890625,9.6875"
+    }, {
+      "id": "479727e2-bb83-4611-8589-c3cfd0903af1",
+      "comment": "",
+      "command": "click",
+      "target": "id=nbParcours",
+      "targets": [
+        ["id=nbParcours", "id"],
+        ["name=nbParcours", "name"],
+        ["css=#nbParcours", "css:finder"],
+        ["xpath=//input[@id='nbParcours']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b76742f9-96c8-47c8-b72a-cdf449128f1d",
+      "comment": "",
+      "command": "type",
+      "target": "id=nbParcours",
+      "targets": [
+        ["id=nbParcours", "id"],
+        ["name=nbParcours", "name"],
+        ["css=#nbParcours", "css:finder"],
+        ["xpath=//input[@id='nbParcours']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "4"
+    }, {
+      "id": "31c10e04-6dfd-421d-a465-9a5da1887fda",
+      "comment": "",
+      "command": "click",
+      "target": "id=0",
+      "targets": [
+        ["id=0", "id"],
+        ["name=selectParcours0", "name"],
+        ["css=#\\30", "css:finder"],
+        ["xpath=//select[@id='0']", "xpath:attributes"],
+        ["xpath=//div[@id='parcours']/div/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "cd76238f-124a-44dd-942e-df6dc4a2cd5f",
+      "comment": "",
+      "command": "select",
+      "target": "id=0",
+      "targets": [],
+      "value": "label=ikjuyhtr"
+    }, {
+      "id": "74862804-0a70-472b-be39-bddd753fb3ac",
+      "comment": "",
+      "command": "click",
+      "target": "id=1",
+      "targets": [
+        ["id=1", "id"],
+        ["name=selectParcours1", "name"],
+        ["css=#\\31", "css:finder"],
+        ["xpath=//select[@id='1']", "xpath:attributes"],
+        ["xpath=//div[@id='parcours']/div[2]/select", "xpath:idRelative"],
+        ["xpath=//div[2]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d6b66767-adf1-4c43-a603-32b74ad26f32",
+      "comment": "",
+      "command": "select",
+      "target": "id=1",
+      "targets": [],
+      "value": "label=parcoursTest"
+    }, {
+      "id": "a9af3a9c-4519-468b-bd88-577a1b293408",
+      "comment": "",
+      "command": "click",
+      "target": "id=2",
+      "targets": [
+        ["id=2", "id"],
+        ["name=selectParcours2", "name"],
+        ["css=#\\32", "css:finder"],
+        ["xpath=//select[@id='2']", "xpath:attributes"],
+        ["xpath=//div[@id='parcours']/div[3]/select", "xpath:idRelative"],
+        ["xpath=//div[3]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "236a5c61-0db2-40b3-a660-3ea5841bcda5",
+      "comment": "",
+      "command": "select",
+      "target": "id=2",
+      "targets": [],
+      "value": "label=hy"
+    }, {
+      "id": "39687d46-4bb0-41e2-be47-a777c467ee87",
+      "comment": "",
+      "command": "click",
+      "target": "id=3",
+      "targets": [
+        ["id=3", "id"],
+        ["name=selectParcours3", "name"],
+        ["css=#\\33", "css:finder"],
+        ["xpath=//select[@id='3']", "xpath:attributes"],
+        ["xpath=//div[@id='parcours']/div[4]/select", "xpath:idRelative"],
+        ["xpath=//div[4]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3a15d26a-e7b6-47e2-9605-ac9fc44c31d7",
+      "comment": "",
+      "command": "select",
+      "target": "id=3",
+      "targets": [],
+      "value": "label=NewParcours"
+    }, {
+      "id": "4e4e99a8-70aa-4830-89e4-a6aaa0a7959f",
+      "comment": "",
+      "command": "click",
+      "target": "id=submit",
+      "targets": [
+        ["id=submit", "id"],
+        ["name=submit", "name"],
+        ["css=#submit", "css:finder"],
+        ["xpath=//input[@id='submit']", "xpath:attributes"],
+        ["xpath=//div[7]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "45ae9c90-177f-4872-adcb-dffd0a1d4efc",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "031ae675-3333-4514-a5cc-bb51245982c2",
+    "name": "AjouterParcoursTournoiFail",
+    "commands": [{
+      "id": "f5aa7e43-41f5-4cca-b36b-8c0a8287cc08",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost/Application/Controller/Accueil/HomePageController.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f585c785-d1fd-412c-a1ce-0af717696d5c",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1532x804",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c0896162-fc96-4c77-b1e2-009353128b85",
+      "comment": "",
+      "command": "click",
+      "target": "id=navbarDropdownMenuLink",
+      "targets": [
+        ["id=navbarDropdownMenuLink", "id"],
+        ["linkText=Tournoi admin", "linkText"],
+        ["css=#navbarDropdownMenuLink", "css:finder"],
+        ["xpath=//a[contains(text(),'Tournoi admin')]", "xpath:link"],
+        ["xpath=//a[@id='navbarDropdownMenuLink']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarDynamic']/ul[2]/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#')]", "xpath:href"],
+        ["xpath=//ul[2]/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Tournoi admin')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c18e9528-77fc-4469-a61f-84d17b31d7d9",
+      "comment": "",
+      "command": "click",
+      "target": "id=navbarModifierTournoi",
+      "targets": [
+        ["id=navbarModifierTournoi", "id"],
+        ["linkText=Modifier le tournoi", "linkText"],
+        ["css=#navbarModifierTournoi", "css:finder"],
+        ["xpath=//a[contains(text(),'Modifier le tournoi')]", "xpath:link"],
+        ["xpath=//a[@id='navbarModifierTournoi']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarDynamic']/ul[2]/li/ul/li[6]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '../../Controller/Tournoi/tournamentModificationController.php')]", "xpath:href"],
+        ["xpath=//li[6]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Modifier le tournoi')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "83a54b4f-b002-4a4c-b43d-365d4079c651",
+      "comment": "",
+      "command": "click",
+      "target": "id=tournamentId",
+      "targets": [
+        ["id=tournamentId", "id"],
+        ["name=tournamentId", "name"],
+        ["css=#tournamentId", "css:finder"],
+        ["xpath=//select[@id='tournamentId']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e55dce69-3705-452a-bb6d-94856c0c12d7",
+      "comment": "",
+      "command": "click",
+      "target": "id=courseId",
+      "targets": [
+        ["id=courseId", "id"],
+        ["name=courseId", "name"],
+        ["css=#courseId", "css:finder"],
+        ["xpath=//select[@id='courseId']", "xpath:attributes"],
+        ["xpath=//div[3]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ce268619-5193-4a4f-8f06-a9fa3dccba23",
+      "comment": "",
+      "command": "select",
+      "target": "id=courseId",
+      "targets": [],
+      "value": "label=NewParcours"
+    }, {
+      "id": "8f10bb17-013d-4ffd-9c7a-cb82d0d88192",
+      "comment": "",
+      "command": "click",
+      "target": "name=addCourse",
+      "targets": [
+        ["name=addCourse", "name"],
+        ["css=.btn:nth-child(5)", "css:finder"],
+        ["xpath=//button[@name='addCourse']", "xpath:attributes"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Ajouter Parcours')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "89c63d21-4fbc-4447-91f5-25c088d0b4c1",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=swal2-title",
+      "targets": [],
+      "value": "Erreur"
+    }, {
+      "id": "7ddb7404-000c-448e-860b-b41cdcd8a5fc",
+      "comment": "",
+      "command": "click",
+      "target": "css=.swal2-confirm",
+      "targets": [
+        ["css=.swal2-confirm", "css:finder"],
+        ["xpath=(//button[@type='button'])[3]", "xpath:attributes"],
+        ["xpath=//div[6]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'OK')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2f29dcfb-7274-4f5b-90b2-44e170cadf10",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "58001fe5-b155-4dda-9b2e-16642937af30",
+    "name": "AjouterParcoursTournoi",
+    "commands": [{
+      "id": "b15962a7-b669-4eff-aec3-0bce030b9004",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost/Application/Controller/Accueil/HomePageController.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9143ba02-1a1d-4ac5-b0e7-b0f9d96aa21e",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1532x804",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "13f7b990-3e6e-4b12-ade0-11f770c8d6a4",
+      "comment": "",
+      "command": "click",
+      "target": "id=navbarDropdownMenuLink",
+      "targets": [
+        ["id=navbarDropdownMenuLink", "id"],
+        ["linkText=Tournoi admin", "linkText"],
+        ["css=#navbarDropdownMenuLink", "css:finder"],
+        ["xpath=//a[contains(text(),'Tournoi admin')]", "xpath:link"],
+        ["xpath=//a[@id='navbarDropdownMenuLink']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarDynamic']/ul[2]/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#')]", "xpath:href"],
+        ["xpath=//ul[2]/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Tournoi admin')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "553a07ee-7b6b-43f1-9271-aed31ee38040",
+      "comment": "",
+      "command": "click",
+      "target": "id=navbarModifierTournoi",
+      "targets": [
+        ["id=navbarModifierTournoi", "id"],
+        ["linkText=Modifier le tournoi", "linkText"],
+        ["css=#navbarModifierTournoi", "css:finder"],
+        ["xpath=//a[contains(text(),'Modifier le tournoi')]", "xpath:link"],
+        ["xpath=//a[@id='navbarModifierTournoi']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarDynamic']/ul[2]/li/ul/li[6]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '../../Controller/Tournoi/tournamentModificationController.php')]", "xpath:href"],
+        ["xpath=//li[6]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Modifier le tournoi')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b8bf2675-f5e5-4131-8ed6-2adc7eb6826b",
+      "comment": "",
+      "command": "click",
+      "target": "id=tournamentId",
+      "targets": [
+        ["id=tournamentId", "id"],
+        ["name=tournamentId", "name"],
+        ["css=#tournamentId", "css:finder"],
+        ["xpath=//select[@id='tournamentId']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ce26bf6b-b225-4c77-bf81-4a3904c6c119",
+      "comment": "",
+      "command": "click",
+      "target": "id=courseId",
+      "targets": [
+        ["id=courseId", "id"],
+        ["name=courseId", "name"],
+        ["css=#courseId", "css:finder"],
+        ["xpath=//select[@id='courseId']", "xpath:attributes"],
+        ["xpath=//div[3]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "30056b1b-a5fb-491e-8f41-47eabda9e824",
+      "comment": "",
+      "command": "select",
+      "target": "id=courseId",
+      "targets": [],
+      "value": "label=NewParcours"
+    }, {
+      "id": "f3593385-d48e-4a74-9960-383bc7bb72e8",
+      "comment": "",
+      "command": "click",
+      "target": "name=addCourse",
+      "targets": [
+        ["name=addCourse", "name"],
+        ["css=.btn:nth-child(5)", "css:finder"],
+        ["xpath=//button[@name='addCourse']", "xpath:attributes"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Ajouter Parcours')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "7e92d4eb-7031-4c3f-8bc3-579ac1909d90",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=swal2-title",
+      "targets": [],
+      "value": "Succès"
+    }, {
+      "id": "7f6c7f12-aa98-414b-a727-b374a26c3e25",
+      "comment": "",
+      "command": "click",
+      "target": "css=.swal2-confirm",
+      "targets": [
+        ["css=.swal2-confirm", "css:finder"],
+        ["xpath=(//button[@type='button'])[3]", "xpath:attributes"],
+        ["xpath=//div[6]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'OK')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c9db1305-8af2-48a4-a8dc-e2187ef70cc4",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "a6021fdb-32ba-4e56-bdd3-89526b6d5a22",
+    "name": "SupprimerParcoursTournoi",
+    "commands": [{
+      "id": "5b46397b-5bf5-412a-bbe3-f7ef1426fcf4",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost/Application/Controller/Accueil/HomePageController.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4ee20e8e-7118-4861-a16b-b1d166e718cd",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1532x804",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "bd265521-7317-41e5-82fb-9e62e1107e85",
+      "comment": "",
+      "command": "click",
+      "target": "id=navbarDropdownMenuLink",
+      "targets": [
+        ["id=navbarDropdownMenuLink", "id"],
+        ["linkText=Tournoi admin", "linkText"],
+        ["css=#navbarDropdownMenuLink", "css:finder"],
+        ["xpath=//a[contains(text(),'Tournoi admin')]", "xpath:link"],
+        ["xpath=//a[@id='navbarDropdownMenuLink']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarDynamic']/ul[2]/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#')]", "xpath:href"],
+        ["xpath=//ul[2]/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Tournoi admin')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "fdee4160-8883-4efb-8a73-5209c2bcc0d8",
+      "comment": "",
+      "command": "click",
+      "target": "id=navbarModifierTournoi",
+      "targets": [
+        ["id=navbarModifierTournoi", "id"],
+        ["linkText=Modifier le tournoi", "linkText"],
+        ["css=#navbarModifierTournoi", "css:finder"],
+        ["xpath=//a[contains(text(),'Modifier le tournoi')]", "xpath:link"],
+        ["xpath=//a[@id='navbarModifierTournoi']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarDynamic']/ul[2]/li/ul/li[6]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '../../Controller/Tournoi/tournamentModificationController.php')]", "xpath:href"],
+        ["xpath=//li[6]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Modifier le tournoi')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "9b26bc8d-5289-48fb-8180-9294505f032c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.form-check:nth-child(4) > .form-check-input",
+      "targets": [
+        ["css=.form-check:nth-child(4) > .form-check-input", "css:finder"],
+        ["xpath=(//input[@name='courseIds[]'])[4]", "xpath:attributes"],
+        ["xpath=//div[@id='tournamentCourses']/div[4]/input", "xpath:idRelative"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "381d5b81-4c22-458c-80fb-7099e7f0e0df",
+      "comment": "",
+      "command": "click",
+      "target": "name=removeSelectedCourses",
+      "targets": [
+        ["name=removeSelectedCourses", "name"],
+        ["css=.btn:nth-child(3)", "css:finder"],
+        ["xpath=//button[@name='removeSelectedCourses']", "xpath:attributes"],
+        ["xpath=//form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Supprimer Parcours')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1811e871-dee5-4638-afa8-8424ff03efd7",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=swal2-title",
+      "targets": [],
+      "value": "Succès"
+    }, {
+      "id": "1bbf3536-c5de-4c8e-803f-821579cea604",
+      "comment": "",
+      "command": "click",
+      "target": "css=.swal2-confirm",
+      "targets": [
+        ["css=.swal2-confirm", "css:finder"],
+        ["xpath=(//button[@type='button'])[3]", "xpath:attributes"],
+        ["xpath=//div[6]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'OK')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6f3bc615-bbdd-4f30-86a8-ec019b00c647",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "aa83dca7-d5c0-4d8d-b795-3177388557a8",
+    "name": "ModifierEquipe",
+    "commands": [{
+      "id": "3f314c30-540c-4cba-939c-9b7f7b671468",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost/Application/Controller/Accueil/HomePageController.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7d5ee9d8-19ae-42e1-8c72-4a08779fb595",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1532x804",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "13540e7a-5bb5-49b3-9e1e-34f68f9c3c7d",
+      "comment": "",
+      "command": "click",
+      "target": "id=navbarDropdownMenuLink",
+      "targets": [
+        ["id=navbarDropdownMenuLink", "id"],
+        ["linkText=Tournoi admin", "linkText"],
+        ["css=#navbarDropdownMenuLink", "css:finder"],
+        ["xpath=//a[contains(text(),'Tournoi admin')]", "xpath:link"],
+        ["xpath=//a[@id='navbarDropdownMenuLink']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarDynamic']/ul[2]/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#')]", "xpath:href"],
+        ["xpath=//ul[2]/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Tournoi admin')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "bc610dbf-b9be-44b4-9a55-9f22694b76b8",
+      "comment": "",
+      "command": "click",
+      "target": "id=navbarLesEquipes",
+      "targets": [
+        ["id=navbarLesEquipes", "id"],
+        ["linkText=Les équipes", "linkText"],
+        ["css=#navbarLesEquipes", "css:finder"],
+        ["xpath=//a[contains(text(),'Les équipes')]", "xpath:link"],
+        ["xpath=//a[@id='navbarLesEquipes']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarDynamic']/ul[2]/li/ul/li[7]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '../../Controller/Equipe/teamsController.php')]", "xpath:href"],
+        ["xpath=//li[7]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Les équipes')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "9e3e7210-04ec-46a1-aeaf-f69b2164e339",
+      "comment": "",
+      "command": "click",
+      "target": "id=modification",
+      "targets": [
+        ["id=modification", "id"],
+        ["css=#modification", "css:finder"],
+        ["xpath=//button[@id='modification']", "xpath:attributes"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Modifier une équipe')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "809babde-b152-41ce-9a79-1d9284f684af",
+      "comment": "",
+      "command": "click",
+      "target": "id=teamName",
+      "targets": [
+        ["id=teamName", "id"],
+        ["name=teamName", "name"],
+        ["css=#teamName", "css:finder"],
+        ["xpath=//select[@id='teamName']", "xpath:attributes"],
+        ["xpath=//div[@id='team']/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "fe1f2669-6922-4e9f-946b-77dcb57d43c1",
+      "comment": "",
+      "command": "select",
+      "target": "id=teamName",
+      "targets": [],
+      "value": "label=ZEHEF"
+    }, {
+      "id": "4799549c-04f4-4c52-9458-9396884e9715",
+      "comment": "",
+      "command": "click",
+      "target": "id=2",
+      "targets": [
+        ["id=2", "id"],
+        ["name=selectTeam2", "name"],
+        ["css=#\\32", "css:finder"],
+        ["xpath=//select[@id='2']", "xpath:attributes"],
+        ["xpath=//div[@id='member']/div[3]/select", "xpath:idRelative"],
+        ["xpath=//div[3]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "13b4e04f-4516-4041-998d-529f4e868e35",
+      "comment": "",
+      "command": "select",
+      "target": "id=2",
+      "targets": [],
+      "value": "label=Hannecart Léo"
+    }, {
+      "id": "c0625874-81aa-4717-9b01-b417f352f894",
+      "comment": "",
+      "command": "click",
+      "target": "css=.mb-2:nth-child(2) > input",
+      "targets": [
+        ["css=.mb-2:nth-child(2) > input", "css:finder"],
+        ["xpath=(//input[@name='captain'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='member']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9d3d2829-54aa-4327-a05e-bba9f0120561",
+      "comment": "",
+      "command": "click",
+      "target": "id=submit",
+      "targets": [
+        ["id=submit", "id"],
+        ["name=submit", "name"],
+        ["css=#submit", "css:finder"],
+        ["xpath=//input[@id='submit']", "xpath:attributes"],
+        ["xpath=//form[@id='formulaire']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "cc2a1ede-f66b-47fc-8c07-73fd01ceb749",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "b9a246a9-ce7e-4072-8e95-b1e963e0bbd6",
+    "name": "BoutonChangerPermission",
+    "commands": [{
+      "id": "71360d02-0f6a-4cc7-b548-57ca37fe2682",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost/Application/Controller/Accueil/HomePageController.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5781f095-6f54-49df-b9e8-083fdf6c43fa",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1532x804",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f4cc7780-4ce4-4eb9-9b18-2d49cebb71ca",
+      "comment": "",
+      "command": "click",
+      "target": "id=navbarDropdownUtilisateurs",
+      "targets": [
+        ["id=navbarDropdownUtilisateurs", "id"],
+        ["linkText=Utilisateurs", "linkText"],
+        ["css=#navbarDropdownUtilisateurs", "css:finder"],
+        ["xpath=//a[contains(text(),'Utilisateurs')]", "xpath:link"],
+        ["xpath=//a[@id='navbarDropdownUtilisateurs']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarDynamic']/ul[3]/li/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '#')])[2]", "xpath:href"],
+        ["xpath=//ul[3]/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Utilisateurs')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "720c3f84-19d7-4c82-9769-9b2fa6e3e261",
+      "comment": "",
+      "command": "click",
+      "target": "id=navbarModifierUtilisateurs",
+      "targets": [
+        ["id=navbarModifierUtilisateurs", "id"],
+        ["linkText=Modifier Utilisateurs", "linkText"],
+        ["css=#navbarModifierUtilisateurs", "css:finder"],
+        ["xpath=//a[contains(text(),'Modifier Utilisateurs')]", "xpath:link"],
+        ["xpath=//a[@id='navbarModifierUtilisateurs']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarDynamic']/ul[3]/li/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '../../Controller/Utilisateurs/ModificationController.php')]", "xpath:href"],
+        ["xpath=//ul[3]/li/ul/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Modifier Utilisateurs')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f657edb7-2c76-48ff-9715-a70f4471d05b",
+      "comment": "",
+      "command": "click",
+      "target": "id=0",
+      "targets": [
+        ["id=0", "id"],
+        ["name=promAdmin", "name"],
+        ["css=td:nth-child(5) > #\\30", "css:finder"],
+        ["xpath=//button[@id='0']", "xpath:attributes"],
+        ["xpath=//td[5]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Promouvoir Administrateur')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "9a1639e2-02d8-45a4-a80c-583d40574793",
+      "comment": "",
+      "command": "click",
+      "target": "css=.swal2-confirm",
+      "targets": [
+        ["css=.swal2-confirm", "css:finder"],
+        ["xpath=(//button[@type='button'])[30]", "xpath:attributes"],
+        ["xpath=//div[6]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Oui, valider!')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6a2e634f-f040-4768-955c-36cd7d403df0",
+      "comment": "",
+      "command": "click",
+      "target": "css=.swal2-confirm",
+      "targets": [
+        ["css=.swal2-confirm", "css:finder"],
+        ["xpath=(//button[@type='button'])[30]", "xpath:attributes"],
+        ["xpath=//div[6]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'OK')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "7e5beb88-a69e-4dea-929b-1ecece2dbc3a",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "31e5e360-f84d-4f69-83dc-67d9ea502c75",
+    "name": "ModifierUtilisateurAdmin",
+    "commands": [{
+      "id": "965dc92b-81a4-4801-805e-0e514a64c852",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost/Application/Controller/Accueil/HomePageController.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f93b06bb-6f2e-47ef-98d8-fa182e70dbf4",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1532x804",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "10a65d6b-09a6-48f1-8962-c33634c4c87d",
+      "comment": "",
+      "command": "click",
+      "target": "id=navbarDropdownUtilisateurs",
+      "targets": [
+        ["id=navbarDropdownUtilisateurs", "id"],
+        ["linkText=Utilisateurs", "linkText"],
+        ["css=#navbarDropdownUtilisateurs", "css:finder"],
+        ["xpath=//a[contains(text(),'Utilisateurs')]", "xpath:link"],
+        ["xpath=//a[@id='navbarDropdownUtilisateurs']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarDynamic']/ul[3]/li/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '#')])[2]", "xpath:href"],
+        ["xpath=//ul[3]/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Utilisateurs')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4a810b28-5b4d-4426-928f-8e13e8d42e51",
+      "comment": "",
+      "command": "click",
+      "target": "id=navbarModifierUtilisateurs",
+      "targets": [
+        ["id=navbarModifierUtilisateurs", "id"],
+        ["linkText=Modifier Utilisateurs", "linkText"],
+        ["css=#navbarModifierUtilisateurs", "css:finder"],
+        ["xpath=//a[contains(text(),'Modifier Utilisateurs')]", "xpath:link"],
+        ["xpath=//a[@id='navbarModifierUtilisateurs']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarDynamic']/ul[3]/li/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '../../Controller/Utilisateurs/ModificationController.php')]", "xpath:href"],
+        ["xpath=//ul[3]/li/ul/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Modifier Utilisateurs')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0f2308b3-4ff4-426b-9f59-78041bbef462",
+      "comment": "",
+      "command": "click",
+      "target": "name=editButton",
+      "targets": [
+        ["name=editButton", "name"],
+        ["css=td:nth-child(6) > #\\30", "css:finder"],
+        ["xpath=(//button[@id='0'])[2]", "xpath:attributes"],
+        ["xpath=//td[6]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Modifier')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ab2bcbf2-96ad-4b79-8412-611025df7918",
+      "comment": "",
+      "command": "click",
+      "target": "css=.swal2-confirm",
+      "targets": [
+        ["css=.swal2-confirm", "css:finder"],
+        ["xpath=(//button[@type='button'])[30]", "xpath:attributes"],
+        ["xpath=//div[6]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Oui, valider!')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "bc5663e4-5287-41a9-a870-002b7e7d2a1a",
+      "comment": "",
+      "command": "click",
+      "target": "name=firstname",
+      "targets": [
+        ["name=firstname", "name"],
+        ["css=.w-50:nth-child(1) > .form-control", "css:finder"],
+        ["xpath=//input[@name='firstname']", "xpath:attributes"],
+        ["xpath=//form[@id='form']/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7b607ca0-4909-4176-9cd1-8bdd58dc5d34",
+      "comment": "",
+      "command": "click",
+      "target": "name=firstname",
+      "targets": [
+        ["name=firstname", "name"],
+        ["css=.w-50:nth-child(1) > .form-control", "css:finder"],
+        ["xpath=//input[@name='firstname']", "xpath:attributes"],
+        ["xpath=//form[@id='form']/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0010e7bb-7370-4408-a53f-c00402471d3b",
+      "comment": "",
+      "command": "type",
+      "target": "name=firstname",
+      "targets": [
+        ["name=firstname", "name"],
+        ["css=.w-50:nth-child(1) > .form-control", "css:finder"],
+        ["xpath=//input[@name='firstname']", "xpath:attributes"],
+        ["xpath=//form[@id='form']/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "Nathan2"
+    }, {
+      "id": "a92100a4-96f6-4fb9-a5df-7065ceeb74b4",
+      "comment": "",
+      "command": "click",
+      "target": "id=form",
+      "targets": [
+        ["id=form", "id"],
+        ["css=#form", "css:finder"],
+        ["xpath=//form[@id='form']", "xpath:attributes"],
+        ["xpath=//center/form", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4a02b531-8eea-46ee-a93e-460c03dc818a",
+      "comment": "",
+      "command": "type",
+      "target": "name=lastname",
+      "targets": [
+        ["name=lastname", "name"],
+        ["css=.w-50:nth-child(2) > .form-control", "css:finder"],
+        ["xpath=//input[@name='lastname']", "xpath:attributes"],
+        ["xpath=//form[@id='form']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "LermiX"
+    }, {
+      "id": "8d9659bc-4ab9-48c5-9a94-bd18839d1f86",
+      "comment": "",
+      "command": "click",
+      "target": "id=form",
+      "targets": [
+        ["id=form", "id"],
+        ["css=#form", "css:finder"],
+        ["xpath=//form[@id='form']", "xpath:attributes"],
+        ["xpath=//center/form", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0c020fd0-c3fa-4373-b073-a71784d67bbd",
+      "comment": "",
+      "command": "type",
+      "target": "name=cotisation",
+      "targets": [
+        ["name=cotisation", "name"],
+        ["css=.form-control:nth-child(3)", "css:finder"],
+        ["xpath=//input[@name='cotisation']", "xpath:attributes"],
+        ["xpath=//form[@id='form']/div[4]/input", "xpath:idRelative"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": "1"
+    }, {
+      "id": "fef3f9d8-aadd-4f5b-9344-e2e34eacf0cb",
+      "comment": "",
+      "command": "click",
+      "target": "id=modify",
+      "targets": [
+        ["id=modify", "id"],
+        ["css=#modify", "css:finder"],
+        ["xpath=//button[@id='modify']", "xpath:attributes"],
+        ["xpath=//form[@id='form']/button", "xpath:idRelative"],
+        ["xpath=//form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Modifier')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "606be755-1309-4aaa-9fca-4edd009d4162",
+      "comment": "",
+      "command": "click",
+      "target": "css=.swal2-confirm",
+      "targets": [
+        ["css=.swal2-confirm", "css:finder"],
+        ["xpath=(//button[@type='button'])[4]", "xpath:attributes"],
+        ["xpath=//div[6]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'ok')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "58d91bc9-7172-485b-8685-415eae4c6c62",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "b9156a71-eabf-41a7-a0f2-0057819be5c4",
+    "name": "SupprimerUtilisateur",
+    "commands": [{
+      "id": "8928fe8d-bd95-4b1a-a108-7dcd3feaa868",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost/Application/Controller/Accueil/HomePageController.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1b6f9cb3-6047-4100-b2ff-00008234b88a",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1532x804",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "99117f40-0ae7-420d-94b9-e2ca6e91731b",
+      "comment": "",
+      "command": "click",
+      "target": "id=navbarDropdownUtilisateurs",
+      "targets": [
+        ["id=navbarDropdownUtilisateurs", "id"],
+        ["linkText=Utilisateurs", "linkText"],
+        ["css=#navbarDropdownUtilisateurs", "css:finder"],
+        ["xpath=//a[contains(text(),'Utilisateurs')]", "xpath:link"],
+        ["xpath=//a[@id='navbarDropdownUtilisateurs']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarDynamic']/ul[3]/li/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '#')])[2]", "xpath:href"],
+        ["xpath=//ul[3]/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Utilisateurs')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "17b6cb5a-f635-4669-904e-3c611799e81f",
+      "comment": "",
+      "command": "click",
+      "target": "id=navbarModifierUtilisateurs",
+      "targets": [
+        ["id=navbarModifierUtilisateurs", "id"],
+        ["linkText=Modifier Utilisateurs", "linkText"],
+        ["css=#navbarModifierUtilisateurs", "css:finder"],
+        ["xpath=//a[contains(text(),'Modifier Utilisateurs')]", "xpath:link"],
+        ["xpath=//a[@id='navbarModifierUtilisateurs']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarDynamic']/ul[3]/li/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '../../Controller/Utilisateurs/ModificationController.php')]", "xpath:href"],
+        ["xpath=//ul[3]/li/ul/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Modifier Utilisateurs')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "edc97299-409b-4e86-a2bc-0bbd6915d8c1",
+      "comment": "",
+      "command": "click",
+      "target": "css=td:nth-child(7) > #\\38",
+      "targets": [
+        ["css=td:nth-child(7) > #\\38", "css:finder"],
+        ["xpath=(//button[@id='8'])[3]", "xpath:attributes"],
+        ["xpath=//tr[10]/td[7]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "156a3a6e-e912-446f-815a-239352068179",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=td:nth-child(7) > #\\38",
+      "targets": [
+        ["css=td:nth-child(7) > #\\38", "css:finder"],
+        ["xpath=(//button[@id='8'])[3]", "xpath:attributes"],
+        ["xpath=//tr[10]/td[7]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "cf8c961e-4f27-46ca-b646-6f86cd5f8bc8",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "css=td:nth-child(7) > #\\38",
+      "targets": [
+        ["css=td:nth-child(7) > #\\38", "css:finder"],
+        ["xpath=(//button[@id='8'])[3]", "xpath:attributes"],
+        ["xpath=//tr[10]/td[7]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4866eb78-0894-44e4-9f54-e01633f198bb",
+      "comment": "",
+      "command": "click",
+      "target": "css=.swal2-confirm",
+      "targets": [
+        ["css=.swal2-confirm", "css:finder"],
+        ["xpath=(//button[@type='button'])[30]", "xpath:attributes"],
+        ["xpath=//div[6]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Oui, valider!')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8553ebaf-511c-4f2b-8778-b5992e0a1c0c",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "3beb5ab8-5442-4cc3-b5e1-fa1f0cf5c521",
+    "name": "AjouterContribution",
+    "commands": [{
+      "id": "d74db722-7b89-4758-9c22-a741ac5721e3",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost/Application/Controller/Accueil/HomePageController.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f8435cb5-8a20-43f2-95f9-68155b6c94d8",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1532x804",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0c22f3e1-ea40-45e2-8294-ba2d1d369308",
+      "comment": "",
+      "command": "click",
+      "target": "id=navbarDropdownUtilisateurs",
+      "targets": [
+        ["id=navbarDropdownUtilisateurs", "id"],
+        ["linkText=Utilisateurs", "linkText"],
+        ["css=#navbarDropdownUtilisateurs", "css:finder"],
+        ["xpath=//a[contains(text(),'Utilisateurs')]", "xpath:link"],
+        ["xpath=//a[@id='navbarDropdownUtilisateurs']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarDynamic']/ul[3]/li/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '#')])[2]", "xpath:href"],
+        ["xpath=//ul[3]/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Utilisateurs')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8f9e47c7-3172-48dd-a266-5bdbbb3f54c9",
+      "comment": "",
+      "command": "click",
+      "target": "id=navbarGererContribution",
+      "targets": [
+        ["id=navbarGererContribution", "id"],
+        ["linkText=Gestion Contribution", "linkText"],
+        ["css=#navbarGererContribution", "css:finder"],
+        ["xpath=//a[contains(text(),'Gestion Contribution')]", "xpath:link"],
+        ["xpath=//a[@id='navbarGererContribution']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarDynamic']/ul[3]/li/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '../../Controller/Utilisateurs/ContributionConsultController.php')]", "xpath:href"],
+        ["xpath=//ul[3]/li/ul/li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Gestion Contribution')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "5efd537b-fa6f-40ef-a7f5-40790693d622",
+      "comment": "",
+      "command": "click",
+      "target": "css=tr:nth-child(6) > td:nth-child(1)",
+      "targets": [
+        ["css=tr:nth-child(6) > td:nth-child(1)", "css:finder"],
+        ["xpath=//table[@id='nonCotiseTable']/tbody/tr[6]/td", "xpath:idRelative"],
+        ["xpath=//tr[6]/td", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0afa2467-1eb2-4928-ad20-fdd4422e3e9e",
+      "comment": "",
+      "command": "click",
+      "target": "id=moveLeftBtn",
+      "targets": [
+        ["id=moveLeftBtn", "id"],
+        ["css=#moveLeftBtn", "css:finder"],
+        ["xpath=//img[@alt='left']", "xpath:img"],
+        ["xpath=//img[@id='moveLeftBtn']", "xpath:attributes"],
+        ["xpath=//button/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "49f33928-1392-4ecb-aa65-db47ae47ccd8",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "id=moveLeftBtn",
+      "targets": [
+        ["id=moveLeftBtn", "id"],
+        ["css=#moveLeftBtn", "css:finder"],
+        ["xpath=//img[@alt='left']", "xpath:img"],
+        ["xpath=//img[@id='moveLeftBtn']", "xpath:attributes"],
+        ["xpath=//button/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "df3f1725-1cf8-4324-8d06-1bfefff56eb7",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "id=moveLeftBtn",
+      "targets": [
+        ["id=moveLeftBtn", "id"],
+        ["css=#moveLeftBtn", "css:finder"],
+        ["xpath=//img[@alt='left']", "xpath:img"],
+        ["xpath=//img[@id='moveLeftBtn']", "xpath:attributes"],
+        ["xpath=//button/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "94ccba86-e3b8-45ba-8536-ac39e0e660e2",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=swal2-title",
+      "targets": [],
+      "value": "Transfert"
+    }, {
+      "id": "0963cf73-8d5b-43ec-bf72-423debcd68ce",
+      "comment": "",
+      "command": "click",
+      "target": "css=.swal2-confirm",
+      "targets": [
+        ["css=.swal2-confirm", "css:finder"],
+        ["xpath=(//button[@type='button'])[3]", "xpath:attributes"],
+        ["xpath=//div[6]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'ok')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3f00544e-7e28-4c0a-8784-279ba81bf483",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "39003ae6-ae9a-4381-af42-42972fb342df",
+    "name": "EnleverContribution",
+    "commands": [{
+      "id": "1c9d1a6e-2b1c-4d28-9041-7dee1413acc0",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost/Application/Controller/Accueil/HomePageController.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "67a3ea53-9a40-4962-87c7-1466a6123ef0",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1532x804",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5228d638-8266-4f0a-8189-9df25783ca9d",
+      "comment": "",
+      "command": "click",
+      "target": "id=navbarDropdownUtilisateurs",
+      "targets": [
+        ["id=navbarDropdownUtilisateurs", "id"],
+        ["linkText=Utilisateurs", "linkText"],
+        ["css=#navbarDropdownUtilisateurs", "css:finder"],
+        ["xpath=//a[contains(text(),'Utilisateurs')]", "xpath:link"],
+        ["xpath=//a[@id='navbarDropdownUtilisateurs']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarDynamic']/ul[3]/li/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '#')])[2]", "xpath:href"],
+        ["xpath=//ul[3]/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Utilisateurs')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a73d641d-ea9d-42ee-bbe4-5599e723506e",
+      "comment": "",
+      "command": "click",
+      "target": "id=navbarGererContribution",
+      "targets": [
+        ["id=navbarGererContribution", "id"],
+        ["linkText=Gestion Contribution", "linkText"],
+        ["css=#navbarGererContribution", "css:finder"],
+        ["xpath=//a[contains(text(),'Gestion Contribution')]", "xpath:link"],
+        ["xpath=//a[@id='navbarGererContribution']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarDynamic']/ul[3]/li/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '../../Controller/Utilisateurs/ContributionConsultController.php')]", "xpath:href"],
+        ["xpath=//ul[3]/li/ul/li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Gestion Contribution')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "cabae616-f238-4e5b-9355-73e63429eec2",
+      "comment": "",
+      "command": "click",
+      "target": "css=#cotiseTable tr:nth-child(1) > td:nth-child(3)",
+      "targets": [
+        ["css=#cotiseTable tr:nth-child(1) > td:nth-child(3)", "css:finder"],
+        ["xpath=//table[@id='cotiseTable']/tbody/tr/td[3]", "xpath:idRelative"],
+        ["xpath=//td[3]", "xpath:position"],
+        ["xpath=//td[contains(.,'nathanlermigeaux@gmail.com')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6a9efd58-d802-4989-bacb-2faf5108d160",
+      "comment": "",
+      "command": "click",
+      "target": "id=moveRightBtn",
+      "targets": [
+        ["id=moveRightBtn", "id"],
+        ["css=#moveRightBtn", "css:finder"],
+        ["xpath=//img[@alt='right']", "xpath:img"],
+        ["xpath=//img[@id='moveRightBtn']", "xpath:attributes"],
+        ["xpath=//button[2]/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f5452f15-4bb2-4c63-ab76-64208f864daf",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=swal2-title",
+      "targets": [],
+      "value": "Transfert"
+    }, {
+      "id": "fd5b4594-7325-44bc-b806-2676bfd6bbb1",
+      "comment": "",
+      "command": "click",
+      "target": "css=.swal2-confirm",
+      "targets": [
+        ["css=.swal2-confirm", "css:finder"],
+        ["xpath=(//button[@type='button'])[3]", "xpath:attributes"],
+        ["xpath=//div[6]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'ok')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "baaa3a87-c453-44ba-b1cc-2f5402be9411",
+    "name": "ValiderEquipe",
+    "commands": [{
+      "id": "fee2287f-a0b5-4cb3-8ee1-10c075fb752d",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost/Application/Controller/Accueil/HomePageController.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "68379a53-e3dc-4116-bf8c-720fe403a7e3",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1532x804",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "497ad46c-23fa-42b3-a8b5-fb7c9d0816ff",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Valider la création d'une équipe",
+      "targets": [
+        ["linkText=Valider la création d'une équipe", "linkText"],
+        ["css=li:nth-child(4) > #navbarValiderAdhesion", "css:finder"],
+        ["xpath=(//a[@id='navbarValiderAdhesion'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='navbarDynamic']/ul[3]/li/ul/li[4]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '../../Controller/Equipe/verifyTeamsController.php')]", "xpath:href"],
+        ["xpath=//ul[3]/li/ul/li[4]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1dc9fb6f-b4a3-4428-b715-2f108bd5ce66",
+      "comment": "",
+      "command": "click",
+      "target": "id=Valider",
+      "targets": [
+        ["id=Valider", "id"],
+        ["name=Valider", "name"],
+        ["css=#Valider", "css:finder"],
+        ["xpath=//input[@id='Valider']", "xpath:attributes"],
+        ["xpath=//table[@id='teams']/tbody/tr/td[3]/input", "xpath:idRelative"],
+        ["xpath=//td[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4271dd31-aa42-46aa-9dee-54d7a927a4f3",
+      "comment": "",
+      "command": "assertAlert",
+      "target": "Vous avez bien validé l'équipe",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "55a7c509-4e3a-43a9-b7cb-f05e713f6a5c",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "9eae55ed-3751-4809-a288-f0a1a6bd3028",
+    "name": "FairePari",
+    "commands": [{
+      "id": "35d14b93-ebeb-4496-978e-5ffbf96dba59",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost/Application/Controller/Accueil/HomePageController.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2529f150-bac3-4bf3-a4f6-4a21170226e6",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1532x804",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "34f33d73-36ff-4602-8f44-dd340bee3225",
+      "comment": "",
+      "command": "click",
+      "target": "id=navbarDropdownTournoi",
+      "targets": [
+        ["id=navbarDropdownTournoi", "id"],
+        ["linkText=Tournoi", "linkText"],
+        ["css=#navbarDropdownTournoi", "css:finder"],
+        ["xpath=(//a[contains(text(),'Tournoi')])[2]", "xpath:link"],
+        ["xpath=//a[@id='navbarDropdownTournoi']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarDynamic']/ul[4]/li/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '#')])[3]", "xpath:href"],
+        ["xpath=//ul[4]/li/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ffbe014b-db98-466c-b6e9-3253745f33e1",
+      "comment": "",
+      "command": "click",
+      "target": "id=navbarMesMatchs",
+      "targets": [
+        ["id=navbarMesMatchs", "id"],
+        ["linkText=Mes matchs", "linkText"],
+        ["css=#navbarMesMatchs", "css:finder"],
+        ["xpath=//a[contains(text(),'Mes matchs')]", "xpath:link"],
+        ["xpath=//a[@id='navbarMesMatchs']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarDynamic']/ul[4]/li/ul/li[4]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '../../Controller/Tournoi/ControllerMyMatch.php')]", "xpath:href"],
+        ["xpath=//ul[4]/li/ul/li[4]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Mes matchs')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e7697c45-e4e8-42fa-9753-059c3dcd171e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-primary:nth-child(2)",
+      "targets": [
+        ["css=.btn-primary:nth-child(2)", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//table[@id='rencontre']/tbody/tr/td[4]/form/button", "xpath:idRelative"],
+        ["xpath=//form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'faire son pari')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "125f0efb-1c12-4432-a594-2980c5f6273c",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "8edb7112-3729-4ce2-ad03-cfd544b83eb3",
+    "name": "ModifierProfilUser",
+    "commands": [{
+      "id": "1a8eb33c-a7dc-45db-9358-129856e2053c",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost/Application/Controller/Accueil/HomePageController.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c5931f36-f21d-4a54-ad25-fba4ee8c9ac4",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1526x804",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ecaaeda8-cfa7-4cfb-9756-c20b1e36eb41",
+      "comment": "",
+      "command": "click",
+      "target": "id=navbarDropdownTournoi",
+      "targets": [
+        ["id=navbarDropdownTournoi", "id"],
+        ["linkText=Tournoi", "linkText"],
+        ["css=#navbarDropdownTournoi", "css:finder"],
+        ["xpath=//a[contains(text(),'Tournoi')]", "xpath:link"],
+        ["xpath=//a[@id='navbarDropdownTournoi']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarDynamic']/ul[2]/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#')]", "xpath:href"],
+        ["xpath=//ul[2]/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Tournoi')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "df3ead23-328a-425f-8990-57a48f5488f3",
+      "comment": "",
+      "command": "click",
+      "target": "id=navbarModifierProfil",
+      "targets": [
+        ["id=navbarModifierProfil", "id"],
+        ["linkText=modifier mon profil", "linkText"],
+        ["css=#navbarModifierProfil", "css:finder"],
+        ["xpath=//a[contains(text(),'modifier mon profil')]", "xpath:link"],
+        ["xpath=//a[@id='navbarModifierProfil']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarDynamic']/ul[3]/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '../../Controller/Utilisateurs/updateDataController.php')]", "xpath:href"],
+        ["xpath=//ul[3]/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'modifier mon profil')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "acf26836-1ea8-45cf-9386-d9483a3bed16",
+      "comment": "",
+      "command": "click",
+      "target": "name=firstname",
+      "targets": [
+        ["name=firstname", "name"],
+        ["css=.w-50:nth-child(1) > .form-control", "css:finder"],
+        ["xpath=//input[@name='firstname']", "xpath:attributes"],
+        ["xpath=//form[@id='form']/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "928c73c2-61a0-4a1b-bdbb-877a13770b7f",
+      "comment": "",
+      "command": "type",
+      "target": "name=firstname",
+      "targets": [
+        ["name=firstname", "name"],
+        ["css=.w-50:nth-child(1) > .form-control", "css:finder"],
+        ["xpath=//input[@name='firstname']", "xpath:attributes"],
+        ["xpath=//form[@id='form']/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "Corentin2"
+    }, {
+      "id": "49c7a627-1388-4eed-a784-1406d81e9412",
+      "comment": "",
+      "command": "click",
+      "target": "name=lastname",
+      "targets": [
+        ["name=lastname", "name"],
+        ["css=.w-50:nth-child(2) > .form-control", "css:finder"],
+        ["xpath=//input[@name='lastname']", "xpath:attributes"],
+        ["xpath=//form[@id='form']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "37f3f15e-4a28-41b6-b827-10637a37be89",
+      "comment": "",
+      "command": "type",
+      "target": "name=lastname",
+      "targets": [
+        ["name=lastname", "name"],
+        ["css=.w-50:nth-child(2) > .form-control", "css:finder"],
+        ["xpath=//input[@name='lastname']", "xpath:attributes"],
+        ["xpath=//form[@id='form']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "Gauquier3"
+    }, {
+      "id": "1024e48e-bc48-4c4f-9e38-d98c581cdbb3",
+      "comment": "",
+      "command": "click",
+      "target": "id=modify",
+      "targets": [
+        ["id=modify", "id"],
+        ["css=#modify", "css:finder"],
+        ["xpath=//button[@id='modify']", "xpath:attributes"],
+        ["xpath=//form[@id='form']/button", "xpath:idRelative"],
+        ["xpath=//form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Modifier')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2d7c6a66-a6fc-445c-b3dd-315f8523171f",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=swal2-title",
+      "targets": [],
+      "value": "Modification"
+    }, {
+      "id": "9a732554-66c4-4acc-b116-39d0505c48f9",
+      "comment": "",
+      "command": "click",
+      "target": "css=.swal2-confirm",
+      "targets": [
+        ["css=.swal2-confirm", "css:finder"],
+        ["xpath=(//button[@type='button'])[4]", "xpath:attributes"],
+        ["xpath=//div[6]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'ok')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "cc4fa689-5919-467c-b323-2c238dc386e3",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "adc34746-6a53-4b3c-9f26-74485187cbbf",
+    "name": "CreerEquipeUser",
+    "commands": [{
+      "id": "4f166d57-41f9-4f92-940d-a0d3441cfaa3",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost/Application/Controller/Accueil/HomePageController.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5144b2ec-055a-43c6-8c69-63e7d57310a7",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1527x804",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "85e23bee-cde1-4f23-93c0-68bba1a03536",
+      "comment": "",
+      "command": "click",
+      "target": "id=navbarDropdownTournoi",
+      "targets": [
+        ["id=navbarDropdownTournoi", "id"],
+        ["linkText=Tournoi", "linkText"],
+        ["css=#navbarDropdownTournoi", "css:finder"],
+        ["xpath=//a[contains(text(),'Tournoi')]", "xpath:link"],
+        ["xpath=//a[@id='navbarDropdownTournoi']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarDynamic']/ul[2]/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#')]", "xpath:href"],
+        ["xpath=//ul[2]/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Tournoi')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "990d0e5c-1f38-4b9b-a84c-dae46e7b1839",
+      "comment": "",
+      "command": "click",
+      "target": "id=navbarCreerEquipe",
+      "targets": [
+        ["id=navbarCreerEquipe", "id"],
+        ["linkText=Créer une équipe", "linkText"],
+        ["css=#navbarCreerEquipe", "css:finder"],
+        ["xpath=//a[contains(text(),'Créer une équipe')]", "xpath:link"],
+        ["xpath=//a[@id='navbarCreerEquipe']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarDynamic']/ul[2]/li/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '../../Controller/Equipe/addTeamController.php')]", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Créer une équipe')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "9eb59b84-d50b-435c-a24e-23fd9a546ce8",
+      "comment": "",
+      "command": "click",
+      "target": "id=teamName",
+      "targets": [
+        ["id=teamName", "id"],
+        ["name=teamName", "name"],
+        ["css=#teamName", "css:finder"],
+        ["xpath=//input[@id='teamName']", "xpath:attributes"],
+        ["xpath=//form[@id='formulaire']/input", "xpath:idRelative"],
+        ["xpath=//div/form/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d6b56fe7-9950-4603-9091-f8ff77c55559",
+      "comment": "",
+      "command": "type",
+      "target": "id=teamName",
+      "targets": [
+        ["id=teamName", "id"],
+        ["name=teamName", "name"],
+        ["css=#teamName", "css:finder"],
+        ["xpath=//input[@id='teamName']", "xpath:attributes"],
+        ["xpath=//form[@id='formulaire']/input", "xpath:idRelative"],
+        ["xpath=//div/form/input", "xpath:position"]
+      ],
+      "value": "AZER"
+    }, {
+      "id": "e2610a34-d8c8-47f1-b196-126629bd9956",
+      "comment": "",
+      "command": "click",
+      "target": "id=nbMember",
+      "targets": [
+        ["id=nbMember", "id"],
+        ["name=nbMember", "name"],
+        ["css=#nbMember", "css:finder"],
+        ["xpath=//input[@id='nbMember']", "xpath:attributes"],
+        ["xpath=//form[@id='formulaire']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2a677110-fc87-47a7-9cab-b48d1634f8a4",
+      "comment": "",
+      "command": "type",
+      "target": "id=nbMember",
+      "targets": [
+        ["id=nbMember", "id"],
+        ["name=nbMember", "name"],
+        ["css=#nbMember", "css:finder"],
+        ["xpath=//input[@id='nbMember']", "xpath:attributes"],
+        ["xpath=//form[@id='formulaire']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "4"
+    }, {
+      "id": "7e02b4cc-f095-4958-8642-c3d7f6501dbd",
+      "comment": "",
+      "command": "click",
+      "target": "id=0",
+      "targets": [
+        ["id=0", "id"],
+        ["name=selectTeam0", "name"],
+        ["css=#\\30", "css:finder"],
+        ["xpath=//select[@id='0']", "xpath:attributes"],
+        ["xpath=//div[@id='member']/div/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "eb3bb10e-13f3-4878-8746-59f94ffaac71",
+      "comment": "",
+      "command": "select",
+      "target": "id=0",
+      "targets": [],
+      "value": "label=LermiX Nathan2"
+    }, {
+      "id": "e30293b5-ae59-4d22-aa08-f013c30b7e4c",
+      "comment": "",
+      "command": "click",
+      "target": "id=1",
+      "targets": [
+        ["id=1", "id"],
+        ["name=selectTeam1", "name"],
+        ["css=#\\31", "css:finder"],
+        ["xpath=//select[@id='1']", "xpath:attributes"],
+        ["xpath=//div[@id='member']/div[2]/select", "xpath:idRelative"],
+        ["xpath=//div[2]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ddc880d5-3196-4059-95ea-3a5f93cb9a66",
+      "comment": "",
+      "command": "select",
+      "target": "id=1",
+      "targets": [],
+      "value": "label=Flocon Tristan"
+    }, {
+      "id": "48ea0922-64eb-4995-bb00-7847bd15a7a1",
+      "comment": "",
+      "command": "click",
+      "target": "id=2",
+      "targets": [
+        ["id=2", "id"],
+        ["name=selectTeam2", "name"],
+        ["css=#\\32", "css:finder"],
+        ["xpath=//select[@id='2']", "xpath:attributes"],
+        ["xpath=//div[@id='member']/div[3]/select", "xpath:idRelative"],
+        ["xpath=//div[3]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "53f2845a-8ddf-46bd-8a4b-3c20b3d0ed98",
+      "comment": "",
+      "command": "select",
+      "target": "id=2",
+      "targets": [],
+      "value": "label=Gauquier34 Corentin2"
+    }, {
+      "id": "c9102ea1-423c-4055-92d0-2d1278152409",
+      "comment": "",
+      "command": "click",
+      "target": "id=3",
+      "targets": [
+        ["id=3", "id"],
+        ["name=selectTeam3", "name"],
+        ["css=#\\33", "css:finder"],
+        ["xpath=//select[@id='3']", "xpath:attributes"],
+        ["xpath=//div[@id='member']/div[4]/select", "xpath:idRelative"],
+        ["xpath=//div[4]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "56ddc97e-6a86-43bc-b355-5c7605dcab50",
+      "comment": "",
+      "command": "select",
+      "target": "id=3",
+      "targets": [],
+      "value": "label=Carré Ewen"
+    }, {
+      "id": "b64aba3c-e4fa-40ca-8026-0da5ea7727d2",
+      "comment": "",
+      "command": "click",
+      "target": "id=submit",
+      "targets": [
+        ["id=submit", "id"],
+        ["name=submit", "name"],
+        ["css=#submit", "css:finder"],
+        ["xpath=//input[@id='submit']", "xpath:attributes"],
+        ["xpath=//form[@id='formulaire']/div[5]/input", "xpath:idRelative"],
+        ["xpath=//div[5]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "73a12294-16dc-4976-8d76-37bbd2d9939d",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=swal2-title",
+      "targets": [],
+      "value": "Succès !"
+    }, {
+      "id": "32659645-7779-4011-b9c8-fbb1e6986030",
+      "comment": "",
+      "command": "click",
+      "target": "css=.swal2-confirm",
+      "targets": [
+        ["css=.swal2-confirm", "css:finder"],
+        ["xpath=(//button[@type='button'])[3]", "xpath:attributes"],
+        ["xpath=//div[6]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'OK')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d6ac833f-0a3a-4084-8bf4-df572edf3dfa",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "24c32c8b-bf3b-4458-8399-80db5eb9a91b",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": ["http://localhost/Application/Controller/Accueil/HomePageController.php"],
+  "plugins": []
+}

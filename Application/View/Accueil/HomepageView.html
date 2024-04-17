@@ -2,8 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../../View/bootstrap-5.3.1-dist/css/bootstrap.css">
-    <link rel="stylesheet" href="../../View/bootstrap-5.3.1-dist/css/homepagestyle.css">
+    <link rel="stylesheet" href="../../View/bootstrap-5.3.1-dist/css/homepage.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 
     <title>Les choleux de Quarouble</title>
@@ -11,12 +10,12 @@
 <body>
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <div class="video-container">
-    <video autoplay loop muted poster="../files/poster.jpg">
+    <video autoplay loop muted poster="../../View/files/poster.jpg">
         <source src="../../View/files/video.mp4" type="video/mp4">
     </video>
 </div>
 <div class="rules-background">
-<div class="welcome-message">
+<div class="welcome-message" id="welcome-message">
     <h1>
         <span class="welcome-text">Bienvenue aux</span><br>
         Choleux de Quarouble
@@ -59,29 +58,69 @@
 </div>
 
 
-<script src="../bootstrap-5.3.1-dist/js/bootstrap.bundle.min.js"></script>
-
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 <script>
     // Fonction pour initialiser la carte
     function initMap() {
-        // Centre la carte sur Quiévrechain
-        let latitude = 50.3965;
-        let longitude = 3.6695;
+        // Centre la carte sur Quarouble
+        let latitude = 50.3863821;
+        let longitude = 3.6244948;
         let map = L.map('map').setView([latitude, longitude], 13);
+        map.scrollWheelZoom.disable();
 
-
+        map.on('contextmenu', function(e) {
+            if (map.scrollWheelZoom.enabled()) {
+                map.scrollWheelZoom.disable();
+            } else {
+                map.scrollWheelZoom.enable();
+            }
+        });
         // Ajoute une couche de carte OpenStreetMap
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '© OpenStreetMap contributors'
         }).addTo(map);
     }
 
+
+    function adjustTextPosition() {
+        var videoContainer = document.querySelector('.video-container');
+        var welcomeMessage = document.getElementById('welcome-message');
+
+        var videoRect = videoContainer.getBoundingClientRect();
+        var centerY = videoRect.top + (videoRect.height / 2);
+        var centerX = videoRect.left + (videoRect.width / 2);
+
+        welcomeMessage.style.top = centerY + 'px';
+        welcomeMessage.style.left = centerX + 'px';
+        welcomeMessage.style.transform = 'translate(-50%, -50%)';
+        welcomeMessage.style.position = 'absolute';
+    }
+
     // Appelle la fonction d'initialisation de la carte lorsque la page est chargée
-    window.onload = function () {
+    // Initialisation des écouteurs au chargement de la fenêtre
+    window.onload = function() {
         initMap();
-    };
+        adjustTextPosition();
+        window.onresize = adjustTextPosition;
+
+        document.querySelectorAll('.nav-item').forEach(button => {
+            button.addEventListener('click', function() {
+                adjustTextPosition();
+            });
+        });
+
+        document.querySelectorAll('.navbar-toggler').forEach(button => {
+            button.addEventListener('click', function() {
+                setTimeout(adjustTextPosition, 300);
+            });
+        });
+
+    }
+
+
+
 </script>
 <script>
     $(document).ready(function(){

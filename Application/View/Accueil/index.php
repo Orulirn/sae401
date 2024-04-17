@@ -2,8 +2,9 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../bootstrap-5.3.1-dist/css/bootstrap.css">
-    <link rel="icon" href="../files/logoSite.png">
+    <link href="../../View/bootstrap-5.3.1-dist/css/bootstrap.css" rel="stylesheet">
+    <script src="../../View/bootstrap-5.3.1-dist/js/bootstrap.bundle.js"></script>
+    <link rel="icon" href="../../View/files/logoSite.png">
 </head>
 <body>
 <?php
@@ -17,215 +18,380 @@ if(isset($_POST['Deconnexion'])){
 }
 
 $userLoggedIn = isset($_SESSION['user_id']);
-$res = GetRole($_SESSION['user_id'])[0]["idRole"];
-echo ("<p id='currentRole' type='hidden' style= 'display :none;'>".json_encode($res)."</p>");
+$res = $_SESSION["perms"];
+echo ("<p id='currentRole' visibility='hidden' style= 'display :none;'>".json_encode($res)."</p>");
 
 ?>
-
-<nav class="navbar navbar-expand-sm bg-dark-subtle">
-    <div class="container-fluid p-xl-2">
-        <ul id="navbar" class="navbar-nav">
-            <li class="nav-item">
-                <a class="navbar-brand " id="backHome" href="../../Controller/Accueil/HomePageController.php" >
-                    <img src="../../View/files/logoSite.png" width="200px" height="133px">
-                </a>
-            </li>
-            <?php if ($userLoggedIn): ?>
-            <li class="nav-item mt-auto">
-                <a class="nav-link fw-bold" href="../../Controller/Tournoi/ControllerMatchPlayer.php">Les matchs</a>
-            </li>
-            <?php endif; ?>
-        </ul>
-    </div>
-    <div class="p-xl-4">
-        <ul class="navbar-nav">
-            <?php if (!$userLoggedIn): ?>
-                <li class="nav-item p-xl-1">
-                    <button name="Connexion" id="Connexion" class="btn btn-primary" >Connexion</button>
-                </li>
-                <li class="nav-item p-xl-1">
-                    <a href="../../Controller/Connexion/RegisterController.php" class="btn btn-primary">Inscription</a>
-                </li>
-            <?php else: ?>
-                <li class="nav-item p-xl-1">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="navbar">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="../../Controller/Accueil/HomePageController.php">
+            <img src="../../View/files/logoSite.png" alt="" style="filter: invert(1) brightness(100)" width="150" height="100" >
+        </a>
+        <button class="navbar-toggler" id="menuButton" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <div class="navbar-collapse" id="navbarDynamic">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="../../Controller/Accueil/HomePageController.php">Accueil</a>
+                    </li>
+                </ul>
+                <?php if (!$userLoggedIn): ?>
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a id="Connexion" href="../../Controller/Connexion/ConnectionController.php" class="btn btn-primary nav-link">Connexion</a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="Inscription" href="../../Controller/Connexion/RegisterController.php" class="btn btn-primary nav-link">Inscription</a>
+                        </li>
+                    </ul>
+                <?php elseif ($userLoggedIn && $res === "0"): ?>
+            </div>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <form method="post">
+                            <input id="Deconnexion" name="Deconnexion" type="submit" value="Déconnexion" class="btn btn-danger nav-link">
+                        </form>
+                    </li>
+                    <li class="nav-item">
+                        <a id="Inscription" href="../../Controller/Connexion/RegisterController.php" class="btn btn-primary nav-link">Inscription</a>
+                    </li>
+                </ul>
+                <?php elseif ($userLoggedIn && $res === "1"): ?>
+            </div>
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
                     <form method="post">
-                        <input name="Deconnexion" type="submit" value="Deconnexion" class="btn btn-danger">
+                        <input id="Deconnexion" name="Deconnexion" type="submit" value="Déconnexion" class="btn btn-danger nav-link">
                     </form>
                 </li>
-                <li class="nav-item p-xl-1">
-                    <a href="../../Controller/Connexion/RegisterController.php" class="btn btn-primary">Inscription</a>
-                </li>
-            <?php endif; ?>
-        </ul>
+            </ul>
+            <?php endif;?>
+        </div>
     </div>
 </nav>
+
 <script>
-    
-    
-    
-    const backHome = document.querySelector("#backHome");
-    const goConn = document.querySelector("#Connexion")
-    backHome.addEventListener("click",function (){
-        window.location.replace("../../Controller/Acceuil/HomepageController.php");
-    });
-    <?php if (!$userLoggedIn): ?>
-        goConn.addEventListener("click", function (){
-            window.location.replace("../../Controller/Connexion/ConnectionController.php");
-        });
-    <?php endif; ?>
 
-    function toggleButtonState() {
-        
-        console.log(document.getElementById('userState').outerText);
-        if (document.getElementById('userState').outerText = "null") {
-            //gestion du bouton de connexion
-            goConn.setAttribute("disabled",true);
-            goConn.classList.remove("btn-primary");
-            goConn.classList.add("btn-secondary");
-        }
-        else {
-            //gestion du bouton de déconnexion
-            goDeco.setAttribute("disabled", true);
-            goConn.classList.remove("btn-secondary");
-            goConn.classList.add("btn-primary");
-        }
-    }
     let role = document.querySelector("#currentRole").innerText;
-    const navbar = document.querySelector("#navbar");
+    const divDyn= document.querySelector('#navbarDynamic');
     role = JSON.parse(role);
-    if (role == 0 ){
+    if(role == 0) {
+        //gestion menu tournoi partie admin
+        let ul0 = document.createElement('ul');
+        ul0.setAttribute('class', 'navbar-nav');
 
-        let li = document.createElement("li");
-        li.setAttribute("class","nav-item mt-auto");
-        let menu = document.createElement("a");
-        menu.setAttribute("class","nav-link fw-bold");
-        menu.innerText = "Vérifier Joueur";
-        menu.setAttribute("href","../../Controller/Utilisateur/valideInscriptionController.php");
-        li.appendChild(menu);
-        navbar.appendChild(li);
+        let li0 = document.createElement('li');
+        li0.setAttribute('class', 'nav-item dropdown');
 
-        li = document.createElement("li");
-        li.setAttribute("class","nav-item mt-auto");
-        menu = document.createElement("a");
-        menu.setAttribute("class","nav-link fw-bold");
-        menu.innerText = "Modifier joueur";
-        menu.setAttribute("href","../../Controller/Utilisateur/ModificationController.php");
-        li.appendChild(menu);
-        navbar.appendChild(li);
+        let a0 = document.createElement('a');
+        a0.setAttribute('class', 'nav-link dropdown-toggle');
+        a0.setAttribute('id', 'navbarDropdownTournoiAdmin');
+        a0.setAttribute('href', '#');
+        a0.setAttribute('id', 'navbarDropdownMenuLink');
+        a0.setAttribute('role', 'button');
+        a0.setAttribute('data-bs-toggle', 'dropdown');
+        a0.setAttribute('aria-expanded', 'false');
+        a0.innerText = "Tournoi admin";
 
-        li = document.createElement("li");
-        li.setAttribute("class","nav-item mt-auto");
-        menu = document.createElement("a");
-        menu.setAttribute("class","nav-link fw-bold");
-        menu.innerText = "Gérer Contribution";
-        menu.setAttribute("href","../../Controller/Utilisateur/ContributionConsultController.php");
-        li.appendChild(menu);
-        navbar.appendChild(li);
+        let subul0 = document.createElement('ul');
+        subul0.setAttribute('class', 'dropdown-menu');
+        subul0.setAttribute('aria-labelledby', 'navbarDropdownMenuLink');
 
-        li = document.createElement("li");
-        li.setAttribute("class","nav-item mt-auto");
-        menu = document.createElement("a");
-        menu.setAttribute("class","nav-link fw-bold");
-        menu.innerText = "Gérer Parcours";
-        menu.setAttribute("href","../../Controller/Parcours/ParcoursController.php");
-        li.appendChild(menu);
-        navbar.appendChild(li);
+        let subli0_0 = document.createElement('li');
+        let suba0_0 = document.createElement('a');
+        suba0_0.setAttribute('class', 'dropdown-item');
+        suba0_0.setAttribute('id', 'navbarInscrireEquipe');
+        suba0_0.setAttribute('href', '../../Controller/Tournoi/addTeamTournamentController.php');
+        suba0_0.innerText = 'Inscrire une équipe';
 
-        li = document.createElement("li");
-        li.setAttribute("class","nav-item mt-auto");
-        menu = document.createElement("a");
-        menu.setAttribute("class","nav-link fw-bold");
-        menu.innerText = "Mail";
-        menu.setAttribute("href","../../Controller/Mail/ControllerMailing.php");
-        li.appendChild(menu);
-        navbar.appendChild(li);
-        
-        li = document.createElement("li");
-        li.setAttribute("class","nav-item mt-auto");
-        menu = document.createElement("a");
-        menu.setAttribute("class","nav-link fw-bold");
-        menu.innerText = "Modifier les rencontres";
-        menu.setAttribute("href","../../Controller/Tournoi/ControllerMatch.php");
-        li.appendChild(menu);
-        navbar.appendChild(li);
+        let subli0_6 = document.createElement('li');
+        let suba0_6 = document.createElement('a');
+        suba0_6.setAttribute('class', 'dropdown-item');
+        suba0_6.setAttribute('id', 'navbarValiderInscrireEquipe');
+        suba0_6.setAttribute('href', '../../Controller/Tournoi/verifyTeamTournamentController.php');
+        suba0_6.innerText = "Valider l'inscription d'une équipe";
 
-        li = document.createElement("li");
-        li.setAttribute("class","nav-item mt-auto");
-        menu = document.createElement("a");
-        menu.setAttribute("class","nav-link fw-bold");
-        menu.innerText = "Les Equipes";
-        menu.setAttribute("href","../../Controller/Equipe/teamsController.php");
-        li.appendChild(menu);
-        navbar.appendChild(li);
+        let subli0_1 = document.createElement('li');
+        let suba0_1 = document.createElement('a');
+        suba0_1.setAttribute('class', 'dropdown-item');
+        suba0_1.setAttribute('id', 'navbarGererParcours');
+        suba0_1.setAttribute('href', '../../Controller/Parcours/ParcoursController.php');
+        suba0_1.innerText = 'Gérer Parcours';
 
-        li = document.createElement("li");
-        li.setAttribute("class","nav-item mt-auto");
-        menu = document.createElement("a");
-        menu.setAttribute("class","nav-link fw-bold");
-        menu.innerText = "Créer Tournoi";
-        menu.setAttribute("href","../../Controller/Tournoi/tournamentController.php");
-        li.appendChild(menu);
-        navbar.appendChild(li);
-        
-        li = document.createElement("li");
-        li.setAttribute("class","nav-item mt-auto");
-        menu = document.createElement("a");
-        menu.setAttribute("class","nav-link fw-bold");
-        menu.innerText = "Modifier Tournoi";
-        menu.setAttribute("href","../../Controller/Tournoi/tournamentModificationController.php");
-        li.appendChild(menu);
-        navbar.appendChild(li);
+        let subli0_2 = document.createElement('li');
+        let suba0_2 = document.createElement('a');
+        suba0_2.setAttribute('class', 'dropdown-item');
+        suba0_2.setAttribute('id', 'navbarModifierRecontre');
+        suba0_2.setAttribute('href', '../../Controller/Tournoi/ControllerMatch.php');
+        suba0_2.innerText = 'Modifier les rencontres';
 
-        li = document.createElement("li");
-        li.setAttribute("class","nav-item mt-auto");
-        menu = document.createElement("a");
-        menu.setAttribute("class","nav-link fw-bold");
-        menu.innerText = "Modifier Equipes sur les tournois";
-        menu.setAttribute("href","../../Controller/Tournoi/verifyTeamTournamentController.php");
-        li.appendChild(menu);
-        navbar.appendChild(li);
-        
-        li = document.createElement("li");
-        li.setAttribute("class","nav-item mt-auto");
-        menu = document.createElement("a");
-        menu.setAttribute("class","nav-link fw-bold");
-        menu.innerText = "Inscrire équipe au tournoi";
-        menu.setAttribute("href","../../Controller/Tournoi/addTeamTournamentController.php");
-        li.appendChild(menu);
-        navbar.appendChild(li);
+        let subli0_3 = document.createElement('li');
+        let suba0_3 = document.createElement('a');
+        suba0_3.setAttribute('class', 'dropdown-item');
+        suba0_3.setAttribute('id', 'navbarCreerTournoi');
+        suba0_3.setAttribute('href', '../../Controller/Tournoi/tournamentController.php');
+        suba0_3.innerText = 'Créer un tournoi';
+
+        let subli0_4 = document.createElement('li');
+        let suba0_4 = document.createElement('a');
+        suba0_4.setAttribute('class', 'dropdown-item');
+        suba0_4.setAttribute('id', 'navbarModifierTournoi');
+        suba0_4.setAttribute('href', '../../Controller/Tournoi/tournamentModificationController.php');
+        suba0_4.innerText = 'Modifier le tournoi';
+
+        let subli0_5 = document.createElement('li');
+        let suba0_5 = document.createElement('a');
+        suba0_5.setAttribute('class', 'dropdown-item');
+        suba0_5.setAttribute('id', 'navbarLesEquipes');
+        suba0_5.setAttribute('href', '../../Controller/Equipe/teamsController.php');
+        suba0_5.innerText = 'Les équipes';
+
+
+        subli0_0.appendChild(suba0_0);
+        subli0_6.appendChild(suba0_6);
+        subli0_1.appendChild(suba0_1);
+        subli0_2.appendChild(suba0_2);
+        subli0_3.appendChild(suba0_3);
+        subli0_4.appendChild(suba0_4);
+        subli0_5.appendChild(suba0_5);
+        subul0.appendChild(subli0_0);
+        subul0.appendChild(subli0_6);
+        subul0.appendChild(subli0_1);
+        subul0.appendChild(subli0_2);
+        subul0.appendChild(subli0_3);
+        subul0.appendChild(subli0_4);
+        subul0.appendChild(subli0_5);
+        li0.appendChild(a0);
+        li0.appendChild(subul0);
+        ul0.appendChild(li0);
+        divDyn.appendChild(ul0);
+
+        //gestion utilisateurs
+        let ul1 = document.createElement('ul');
+        ul1.setAttribute('class', 'navbar-nav');
+
+        let li1 = document.createElement('li');
+        li1.setAttribute('class', 'nav-item dropdown');
+
+        let a1 = document.createElement('a');
+        a1.setAttribute('class', 'nav-link dropdown-toggle');
+        a1.setAttribute('href', '#');
+        a1.setAttribute('id', 'navbarDropdownUtilisateurs');
+        a1.setAttribute('role', 'button');
+        a1.setAttribute('data-bs-toggle', 'dropdown');
+        a1.setAttribute('aria-expanded', 'false');
+        a1.innerText = "Utilisateurs";
+
+        let subul1 = document.createElement('ul');
+        subul1.setAttribute('class', 'dropdown-menu');
+        subul1.setAttribute('aria-labelledby', 'navbarDropdownMenuLink');
+
+        let subli1_0 = document.createElement('li');
+        let suba1_0 = document.createElement('a');
+        suba1_0.setAttribute('class', 'dropdown-item');
+        suba1_0.setAttribute('id', 'navbarModifierUtilisateurs');
+        suba1_0.setAttribute('href', '../../Controller/Utilisateurs/ModificationController.php');
+        suba1_0.innerText = 'Modifier Utilisateurs';
+
+        let subli1_1 = document.createElement('li');
+        let suba1_1 = document.createElement('a');
+        suba1_1.setAttribute('class', 'dropdown-item');
+        suba1_1.setAttribute('id', 'navbarGererContribution');
+        suba1_1.setAttribute('href', '../../Controller/Utilisateurs/ContributionConsultController.php');
+        suba1_1.innerText = 'Gestion Contribution';
+
+        let subli1_2 = document.createElement('li');
+        let suba1_2 = document.createElement('a');
+        suba1_2.setAttribute('class', 'dropdown-item');
+        suba1_2.setAttribute('id', 'navbarValiderAdhesion');
+        suba1_2.setAttribute('href', '../../Controller/Utilisateurs/valideInscriptionController.php');
+        suba1_2.innerText = 'Valider adhésion';
+
+        let subli1_3 = document.createElement('li');
+        let suba1_3 = document.createElement('a');
+        suba1_3.setAttribute('class', 'dropdown-item');
+        suba1_3.setAttribute('id', 'navbarValiderAdhesion');
+        suba1_3.setAttribute('href', '../../Controller/Equipe/verifyTeamsController.php');
+        suba1_3.innerText = "Valider la création d'une équipe";
+
+        subli1_0.appendChild(suba1_0);
+        subli1_1.appendChild(suba1_1);
+        subli1_2.appendChild(suba1_2);
+        subli1_3.appendChild(suba1_3);
+        subul1.appendChild(subli1_0);
+        subul1.appendChild(subli1_1);
+        subul1.appendChild(subli1_2);
+        subul1.appendChild(subli1_3);
+        li1.appendChild(a1);
+        li1.appendChild(subul1);
+        ul1.appendChild(li1);
+        divDyn.appendChild(ul1);
+
+        //temporaire
+        //gestion tournoi pour un joueur
+        let ul3= document.createElement('ul');
+        ul3.setAttribute('class','navbar-nav');
+
+        let li3= document.createElement('li');
+        li3.setAttribute('class','nav-item dropdown');
+
+        let a3= document.createElement('a');
+        a3.setAttribute('class', 'nav-link dropdown-toggle');
+        a3.setAttribute('href', '#');
+        a3.setAttribute('id', 'navbarDropdownTournoi');
+        a3.setAttribute('role', 'button');
+        a3.setAttribute('data-bs-toggle', 'dropdown');
+        a3.setAttribute('aria-expanded', 'false');
+        a3.innerText= "Tournoi";
+
+        let subul3= document.createElement('ul');
+        subul3.setAttribute('class', 'dropdown-menu');
+        subul3.setAttribute('aria-labelledby', 'navbarDropdownMenuLink');
+
+        let subli3_0= document.createElement('li');
+        let suba3_0= document.createElement('a');
+        suba3_0.setAttribute('class', 'dropdown-item');
+        suba3_0.setAttribute('id', 'navbarMonEquipe');
+        suba3_0.setAttribute('href', '../../Controller/Equipe/myTeamController.php');
+        suba3_0.innerText= 'Mon équipe';
+
+        let subli3_1= document.createElement('li');
+        let suba3_1= document.createElement('a');
+        suba3_1.setAttribute('class', 'dropdown-item');
+        suba3_1.setAttribute('id', 'navbarCreerEquipe');
+        suba3_1.setAttribute('href', '../../Controller/Equipe/addTeamController.php');
+        suba3_1.innerText= 'Créer une équipe';
+
+        let subli3_2= document.createElement('li');
+        let suba3_2= document.createElement('a');
+        suba3_2.setAttribute('class', 'dropdown-item');
+        suba3_2.setAttribute('id', 'navbarClassement');
+        suba3_2.setAttribute('href', '../../Controller/Classement/ClassementController.php');
+        suba3_2.innerText= 'Classement';
+
+        let subli3_3= document.createElement('li');
+        let suba3_3= document.createElement('a');
+        suba3_3.setAttribute('class', 'dropdown-item');
+        suba3_3.setAttribute('id', 'navbarMesMatchs');
+        suba3_3.setAttribute('href', '../../Controller/Tournoi/ControllerMyMatch.php');
+        suba3_3.innerText= 'Mes matchs';
+
+        let subli3_4= document.createElement('li');
+        let suba3_4= document.createElement('a');
+        suba3_4.setAttribute('class', 'dropdown-item');
+        suba3_4.setAttribute('id', 'navbarLesMatchs');
+        suba3_4.setAttribute('href', '../../Controller/Tournoi/ControllerMatchPlayer.php');
+        suba3_4.innerText= 'Les matchs';
+
+
+        subli3_0.appendChild(suba3_0);
+        subli3_1.appendChild(suba3_1);
+        subli3_2.appendChild(suba3_2);
+        subli3_3.appendChild(suba3_3);
+        subli3_4.appendChild(suba3_4);
+        subul3.appendChild(subli3_0);
+        subul3.appendChild(subli3_1);
+        subul3.appendChild(subli3_2);
+        subul3.appendChild(subli3_3);
+        subul3.appendChild(subli3_4);
+        li3.appendChild(a3);
+        li3.appendChild(subul3);
+        ul3.appendChild(li3);
+        divDyn.appendChild(ul3);
+
     }
-    else if (role == "1"){
+    else if (role == "1" ) {
 
-        let li = document.createElement("li");
-        li.setAttribute("class","nav-item mt-auto");
-        let menu = document.createElement("a");
+        //gestion tournoi pour un joueur
+        let ul3= document.createElement('ul');
+        ul3.setAttribute('class','navbar-nav');
 
-        li = document.createElement("li");
-        li.setAttribute("class","nav-item mt-auto");
-        menu = document.createElement("a");
-        menu.setAttribute("class","nav-link fw-bold");
-        menu.innerText = "Modifier mes infos";
-        menu.setAttribute("href","../../Controller/Utilisateur/updateDataController.php");
-        li.appendChild(menu);
-        navbar.appendChild(li);
-        
-        li = document.createElement("li");
-        li.setAttribute("class","nav-item mt-auto");
-        menu = document.createElement("a");
-        menu.setAttribute("class","nav-link fw-bold");
-        menu.innerText = "Mes Equipes";
-        menu.setAttribute("href","../../Controller/Equipe/myTeamController.php");
-        li.appendChild(menu);
-        navbar.appendChild(li);
+        let li3= document.createElement('li');
+        li3.setAttribute('class','nav-item dropdown');
 
-        li = document.createElement("li");
-        li.setAttribute("class","nav-item mt-auto");
-        menu = document.createElement("a");
-        menu.setAttribute("class","nav-link fw-bold");
-        menu.innerText = "Inscrire équipe au tournoi";
-        menu.setAttribute("href","../../Controller/Tournoi/addTeamTournamentController.php");
-        li.appendChild(menu);
-        navbar.appendChild(li);
+        let a3= document.createElement('a');
+        a3.setAttribute('class', 'nav-link dropdown-toggle');
+        a3.setAttribute('href', '#');
+        a3.setAttribute('id', 'navbarDropdownTournoi');
+        a3.setAttribute('role', 'button');
+        a3.setAttribute('data-bs-toggle', 'dropdown');
+        a3.setAttribute('aria-expanded', 'false');
+        a3.innerText= "Tournoi";
+
+        let subul3= document.createElement('ul');
+        subul3.setAttribute('class', 'dropdown-menu');
+        subul3.setAttribute('aria-labelledby', 'navbarDropdownMenuLink');
+
+        let subli3_0= document.createElement('li');
+        let suba3_0= document.createElement('a');
+        suba3_0.setAttribute('class', 'dropdown-item');
+        suba3_0.setAttribute('id', 'navbarMonEquipe');
+        suba3_0.setAttribute('href', '../../Controller/Equipe/myTeamController.php');
+        suba3_0.innerText= 'Mon équipe';
+
+        let subli3_1= document.createElement('li');
+        let suba3_1= document.createElement('a');
+        suba3_1.setAttribute('class', 'dropdown-item');
+        suba3_1.setAttribute('id', 'navbarCreerEquipe');
+        suba3_1.setAttribute('href', '../../Controller/Equipe/addTeamController.php');
+        suba3_1.innerText= 'Créer une équipe';
+
+        let subli3_2= document.createElement('li');
+        let suba3_2= document.createElement('a');
+        suba3_2.setAttribute('class', 'dropdown-item');
+        suba3_2.setAttribute('id', 'navbarClassement');
+        suba3_2.setAttribute('href', '../../Controller/Classement/ClassementController.php');
+        suba3_2.innerText= 'Classement';
+
+        let subli3_3= document.createElement('li');
+        let suba3_3= document.createElement('a');
+        suba3_3.setAttribute('class', 'dropdown-item');
+        suba3_3.setAttribute('id', 'navbarMesMatchs');
+        suba3_3.setAttribute('href', '../../Controller/Tournoi/ControllerMyMatch.php');
+        suba3_3.innerText= 'Mes matchs';
+
+        let subli3_4= document.createElement('li');
+        let suba3_4= document.createElement('a');
+        suba3_4.setAttribute('class', 'dropdown-item');
+        suba3_4.setAttribute('id', 'navbarLesMatchs');
+        suba3_4.setAttribute('href', '../../Controller/Tournoi/ControllerMatchPlayer.php');
+        suba3_4.innerText= 'Les matchs';
+
+
+        subli3_0.appendChild(suba3_0);
+        subli3_1.appendChild(suba3_1);
+        subli3_2.appendChild(suba3_2);
+        subli3_3.appendChild(suba3_3);
+        subli3_4.appendChild(suba3_4);
+        subul3.appendChild(subli3_0);
+        subul3.appendChild(subli3_1);
+        subul3.appendChild(subli3_2);
+        subul3.appendChild(subli3_3);
+        subul3.appendChild(subli3_4);
+        li3.appendChild(a3);
+        li3.appendChild(subul3);
+        ul3.appendChild(li3);
+        divDyn.appendChild(ul3);
+
+
+        let ul4 = document.createElement('ul');
+        ul4.setAttribute('class', 'navbar-nav');
+
+        let li4 = document.createElement('li');
+        li4.setAttribute('class', 'nav-item');
+
+        let a4 = document.createElement('a');
+        a4.setAttribute('class', 'nav-link active');
+        a4.setAttribute('aria-current', 'page');
+        a4.setAttribute('id', 'navbarModifierProfil');
+        a4.setAttribute('href', '../../Controller/Utilisateurs/updateDataController.php');
+        a4.innerText='modifier mon profil';
+
+        li4.appendChild(a4);
+        ul4.appendChild(li4);
+        divDyn.appendChild(ul4);
     }
 </script>
 

@@ -7,6 +7,10 @@
  */
 session_start();
 
+include("../../Model/Utilisateur/checkSession.php");
+checkConn();
+
+
 include_once("../../View/Accueil/index.php");
 include_once("../../Model/Equipe/team_player_table.php");
 include_once("../../Model/Utilisateur/User.php");

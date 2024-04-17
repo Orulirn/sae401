@@ -3,7 +3,7 @@
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\PHPMailer;
 
-require '../vendor/autoload.php';
+require '../../Model/vendor/autoload.php';
 
 class Mailing_Class {
     private $mailer;
@@ -47,10 +47,10 @@ class Mailing_Class {
 
 
     public function getAvailableEmails(){
-        require_once('../Model/DatabaseConnection.php');
+        require_once('../../Model/BDD/DatabaseConnection.php');
 
         $db = Database::getInstance();
-        $stmt = $db->prepare("SELECT mail FROM users WHERE cotisation = 1");
+        $stmt = $db->prepare("SELECT mail FROM users WHERE cotisation = 0");
         $stmt->execute();
 
         return $stmt->fetchAll(PDO::FETCH_COLUMN);
