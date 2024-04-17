@@ -1,8 +1,7 @@
     <!DOCTYPE html>
     <html lang="fr">
     <head>
-        <link rel="stylesheet" href="../bootstrap-5.3.1-dist/css/bootstrap.css">
-        <link rel="stylesheet" href="../View/ux.css">
+        <link rel="stylesheet" href="../../View/bootstrap-5.3.1-dist/css/bootstrap.css">
         <meta charset="UTF-8">
         <title>Page d'inscription</title>
     </head>
@@ -13,7 +12,7 @@
                 <div class="col-12 col-lg-9 col-xl-7">
                     <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
                         <div class="card-body p-4 p-md-5">
-                            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Demande d'adhésion</h3>
+                            <h3 id="title" class="mb-4 pb-2 pb-md-0 mb-md-5">Inscrire un utilisateur</h3>
                             <form method="POST" id="formulaire">
 
                                 <div class="row">
@@ -73,8 +72,15 @@
                                     <div class="col-md-6 mb-4 pb-2">
 
                                         <div class="form-outline">
-                                            <input type="password" id="password" name="password" class="form-control form-control-lg" />
-                                            <label class="form-label" for="password">Mot de passe</label>
+                                            <input type="password" id="password" name="password" class="form-control form-control-lg">
+                                            <label for="password">Mot de passe</label>
+                                            <ul>
+                                                <li id="minuscule" class="text-danger">Au moins une minuscule</li>
+                                                <li id="majuscule" class="text-danger">Au moins une majuscule</li>
+                                                <li id="chiffre" class="text-danger">Au moins un chiffre</li>
+                                                <li id="special" class="text-danger">Au moins un caractère spécial</li>
+                                                <li id="longueur" class="text-danger">Au moins 8 caractères</li>
+                                            </ul>
                                         </div>
 
                                     </div>
@@ -83,6 +89,9 @@
                                         <div class="form-outline">
                                             <input type="password" id="verif" name="verif" class="form-control form-control-lg" />
                                             <label class="form-label" for="verif">Vérification mot de passe</label>
+                                            <ul>
+                                                <li id="correspondance" class="text-danger">Les mots de passe doivent correspondre</li>
+                                            </ul>
                                         </div>
 
                                     </div>
@@ -100,6 +109,79 @@
         </div>
     </section>
     <script>
+
+        document.getElementById('verif').onkeyup = function() {
+            var verification = this.value;
+            var valeur = document.getElementById('password').value;
+
+            if (valeur === verification && valeur.length > 0) {
+                document.getElementById('correspondance').classList.remove('text-danger');
+                document.getElementById('correspondance').classList.add('text-success');
+            } else {
+                document.getElementById('correspondance').classList.remove('text-success');
+                document.getElementById('correspondance').classList.add('text-danger');
+            }
+        }
+
+        document.getElementById('password').onkeyup = function() {
+            var minuscule = /[a-z]/g;
+            var majuscule = /[A-Z]/g;
+            var chiffre = /[1-9]/g;
+            var special = /[\W_]/g;
+            var valeur = this.value;
+            var verification = document.getElementById('verif').value;
+
+
+            if(valeur.match(minuscule)) {
+                document.getElementById('minuscule').classList.remove('text-danger');
+                document.getElementById('minuscule').classList.add('text-success');
+            } else {
+                document.getElementById('minuscule').classList.remove('text-success');
+                document.getElementById('minuscule').classList.add('text-danger');
+            }
+
+            if(valeur.match(chiffre)) {
+                document.getElementById('chiffre').classList.remove('text-danger');
+                document.getElementById('chiffre').classList.add('text-success');
+            } else {
+                document.getElementById('chiffre').classList.remove('text-success');
+                document.getElementById('chiffre').classList.add('text-danger');
+            }
+
+
+            if(valeur.match(majuscule)) {
+                document.getElementById('majuscule').classList.remove('text-danger');
+                document.getElementById('majuscule').classList.add('text-success');
+            } else {
+                document.getElementById('majuscule').classList.remove('text-success');
+                document.getElementById('majuscule').classList.add('text-danger');
+            }
+
+
+            if(valeur.match(special)) {
+                document.getElementById('special').classList.remove('text-danger');
+                document.getElementById('special').classList.add('text-success');
+            } else {
+                document.getElementById('special').classList.remove('text-success');
+                document.getElementById('special').classList.add('text-danger');
+            }
+
+            if(valeur.length >= 8) {
+                document.getElementById('longueur').classList.remove('text-danger');
+                document.getElementById('longueur').classList.add('text-success');
+            } else {
+                document.getElementById('longueur').classList.remove('text-success');
+                document.getElementById('longueur').classList.add('text-danger');
+            }
+
+            if(valeur === verification && valeur.length > 0) {
+                document.getElementById('correspondance').classList.remove('text-danger');
+                document.getElementById('correspondance').classList.add('text-success');
+            } else {
+                document.getElementById('correspondance').classList.remove('text-success');
+                document.getElementById('correspondance').classList.add('text-danger');
+            }
+        };
 
         const register = document.getElementById("register");
         const password = document.getElementById("password");
@@ -142,7 +224,10 @@
 
         if (JSON.parse(document.getElementById('userRole').outerText)!=="0"){
             document.getElementById("type").style.visibility="hidden";
+            document.getElementById("title").innerText = "Demande d'adhésion"
         }
+
+
     </script>
     </body>
     </html>

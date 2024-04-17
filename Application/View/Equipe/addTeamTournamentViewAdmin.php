@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../bootstrap-5.3.1-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../../View/bootstrap-5.3.1-dist/css/bootstrap.css">
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Page d'ajout d'équipe dans un tournois</title>
 </head>
@@ -10,7 +10,7 @@
     <div class="container d-flex justify-content-center align-items-center"  style="height: 90vh;">
         <div class="border p-5 rounded bg-light">
     <h1>Inscrire une équipe à un tournoi</h1>
-    <form method="POST">
+    <form id="myForm" method="POST" action="#">
         <div class="mb-4"></div>
         <label for="role" id="role">Vous êtes administrateur</label><br>
         <div class="mb-4"></div>
@@ -23,7 +23,8 @@
         <div id="idTournoi" class="mb-4" style="text-align: center"></div><br>
         <div class="mb-4"></div>
         <div class="col text-center">
-        <input type="submit" class="btn btn-primary" name="submit" id="submit" value="Ajouter">
+        <input type="button" class="btn btn-primary" name="submittqt" id="submittqt" value="Ajouter">
+        <input type="submit" name="submitok" hidden>
         </div>
     </div>
     </form>
@@ -45,7 +46,6 @@
         dataAllTeams = document.getElementById("dataAllTeams").innerText;
         dataAllTeams = JSON.parse(dataAllTeams);
         dataAllTeams.forEach(team => {
-            console.log(team);
             let optionTeam = document.createElement('option');
             optionTeam.innerText = team.name;
             optionTeam.value = team['idTeam'];
@@ -64,14 +64,49 @@
         labelTournament.innerText = dataTournament['idTournoi'] + '.' + '\t' + dataTournament["place"] + '\t' + dataTournament["year"];
         myDivTournament.appendChild(labelTournament);
 
-        <?php if (isset($_POST['submit'])):?>
-        
-        Swal.fire({
+        dataAllTeamTournament = document.getElementById("dataAllTeamTournament").innerText;
+        dataAllTeamTournament = JSON.parse(dataAllTeamTournament);
+
+        let myForm = document.getElementById("myForm");
+
+        let monTab = [];
+        dataAllTeamTournament.forEach(team => {
+
+            //console.log(team[0]); //idteam
+            //console.log(team[1]); //idtournoi
+            monTab.push([team[0],team[1]]);
+        });
+
+        function PopUp(){
+                if(monTab.some(function(row){
+                    return JSON.stringify(row) === JSON.stringify([selectTeam.value,labelTournament.value])
+                })){
+                    Swal.fire({
+                        title: "Erreur !",
+                        text: "La team est déjà inscrite",
+                        icon: "warning"
+                    })
+                    return 0;
+                
+            }
+            Swal.fire({
                         title: "Succès !",
                         text: "Vous avez bien ajouté l'équipe au tournoi",
-                        icon: "info"
+                        icon: "info",
+                        confirmButtonText: 'Ok'
+                    }).then((result)=>{
+                        if (result.isConfirmed){
+                            myForm.submit();
+                            
+                        }
                     });
-        <?php endif;?>
+        }
+        
+        document.getElementById("submittqt").addEventListener("click", function(event) {
+            PopUp();
+        })
 
     </script>
 </body>
+
+ 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <link rel="stylesheet" href="../bootstrap-5.3.1-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../../View/bootstrap-5.3.1-dist/css/bootstrap.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css">
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
@@ -197,8 +197,6 @@
     let map = L.map('map').setView([latitude, longitude], 13);
     map.dragging.disable();
 
-    //retrait de la fonction non utilisée et mal parenthésée !!
-
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
     }).addTo(map);
@@ -215,9 +213,9 @@
         addMarkerMode = !addMarkerMode;
         var deleteButton = document.getElementById('deleteMode');
         if (addMarkerMode) {
-            deleteButton.innerHTML = 'Activer Mode Suppression';
+            deleteButton.textContent = 'Activer Mode Suppression';
         } else {
-            deleteButton.innerHTML = 'Mode: Suppression (Actif)';
+            deleteButton.textContent = 'Mode: Suppression (Actif)';
         }
     });
 
@@ -242,7 +240,7 @@
         p.setAttribute('type','text'); // à voir pour le type.
         p.setAttribute('name',name); // à voir pour le type.
         p.setAttribute('value',val);
-        //p.setAttribute('visibility','hidden');//on les laisse apparaitre pour le moment, à cacher ensuite
+        p.setAttribute('visibility','hidden');
         return(p);
     }
 
@@ -256,7 +254,6 @@
             let idb="LNG"+i;
             ourForm.appendChild(addHiddenItem(idb,lng));
         }
-        //reste à soumettre le formulaire une fois tout construit
         document.getElementById('formCreer').submit();
     }
 

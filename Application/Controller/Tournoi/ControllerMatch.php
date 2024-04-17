@@ -1,4 +1,9 @@
 <?php
+session_start();
+
+include("../../Model/Utilisateur/checkSession.php");
+checkRole();
+
 include_once "../../View/Accueil/index.php";
 require_once '../../Model/Tournoi/ModelMatch.php';
 
@@ -26,7 +31,7 @@ class ControllerMatch
                 $equipe1 = $_POST['equipe1'];
                 $equipe2 = $_POST['equipe2'];
                 $parcours = $_POST['parcours'];
-                $this->matchModel->insertManualRencontre($idTournoi, $equipe1, $equipe2, $parcours);
+                $this->matchModel->insertManualRencontre(filter_var($idTournoi,FILTER_VALIDATE_INT), filter_var($equipe1,FILTER_VALIDATE_INT), filter_var($equipe2,FILTER_VALIDATE_INT), filter_var($parcours,FILTER_VALIDATE_INT));
 
                 // Redirection pour éviter la soumission multiple du formulaire
                 header("Location: " . $_SERVER['PHP_SELF']);
@@ -63,7 +68,7 @@ class ControllerMatch
                 $newResultatRencontre = $_POST['resultatRencontre'] ?? null;
 
                 if ($idRencontreToUpdate !== null) {
-                    $rowCount = $this->matchModel->updateRencontre($idRencontreToUpdate, $newEquipe1, $newEquipe2, $newParcours);
+                    $rowCount = $this->matchModel->updateRencontre(filter_var($idRencontreToUpdate,FILTER_VALIDATE_INT), filter_var($newEquipe1,FILTER_VALIDATE_INT), filter_var($newEquipe2,FILTER_VALIDATE_INT), filter_var($newParcours,FILTER_VALIDATE_INT));
 
                     if ($rowCount > 0) {
                         header("Location: " . $_SERVER['PHP_SELF']);

@@ -133,14 +133,16 @@ function insertParcours($name,$city,$nbDecholeMax,$markerData){
      *     markerData (lst) : liste contenant les coordonnées des markers, ces derniers sont dans l'ordre
      * */
     global $db;
+    //insertion du parcours
     try {
         $sql = $db->prepare("INSERT INTO parcours (nom,ville,nbDecholeMax) VALUES (:name,:city,:nbDecholeMax)");
-        $sql->execute(array( 'name' => $name, 'city' => $city, 'nbDecholeMax' => $nbDecholeMax));
+        $sql->execute(array( 'name' => htmlspecialchars($name), 'city' => htmlspecialchars($city), 'nbDecholeMax' => filter_var($nbDecholeMax,FILTER_VALIDATE_INT)));
         $db->lastInsertId();
     } catch(PDOException $error){
         $_SESSION['error'] = "Une donnée saisie est erronée";
     }
 
+    //insertion des markers
     $lastid=$db->lastInsertID();
     $No = 0;
     foreach ($markerData as $marker){
@@ -149,13 +151,16 @@ function insertParcours($name,$city,$nbDecholeMax,$markerData){
 
         try {
             $sql = $db->prepare("INSERT INTO marker (idParcours,`No`,longitude,latitude) VALUES (:idParcours,:N,:longitude,:latitude)");
-            $sql->execute(array('idParcours' => $lastid, 'N' => $No, 'longitude' => $longitude, 'latitude' => $latitude));
+            $sql->execute(array('idParcours' => filter_var($lastid,FILTER_VALIDATE_INT), 'N' => filter_var($No,FILTER_VALIDATE_INT), 'longitude' => filter_var($longitude,FILTER_VALIDATE_FLOAT), 'latitude' => filter_var($latitude,FILTER_VALIDATE_FLOAT)));
         } catch(PDOException $error){
-            var_dump($error);
         }
 
         $No += 1;
     }
+    //insertion dans le tournoi
+    $idtournoi = getTournamentId();
+    $sql = $db->prepare("INSERT INTO tournoi_parcours VALUES (:idTournoi,:idParcours)");
+    $sql->execute(array('idTournoi'=> filter_var($idtournoi,FILTER_VALIDATE_INT),'idParcours' => filter_var($lastid,FILTER_VALIDATE_INT)));
 }
 
 function saveParcours(){
@@ -212,7 +217,7 @@ function saveModification(){
         );
         array_push($markers,$newMarker);
     }
-    updateParcours($idParcours,$name, $city, $nbDecholeMax, $markers);
+    updateParcours(htmlspecialchars($idParcours),htmlspecialchars($name), htmlspecialchars($city), htmlspecialchars($nbDecholeMax), htmlspecialchars($markers));
 }
 
 function DeleteMarkerByIdParcours($idParcours){
@@ -227,7 +232,7 @@ function DeleteMarkerByIdParcours($idParcours){
 
         // Suppression des markers lié au parcours
         $sqlDeleteMarkers = $db->prepare("DELETE FROM marker WHERE idParcours = :idParcours");
-        $sqlDeleteMarkers->execute(array("idParcours" => $idParcours));
+        $sqlDeleteMarkers->execute(array("idParcours" => filter_var($idParcours,FILTER_VALIDATE_INT)));
         $db->commit();
     }
     catch( PDOException $e) {
@@ -249,7 +254,7 @@ function updateParcours($idParcours,$name, $city, $nbDecholeMax, $markers){
     global $db;
     try{//update du parcours
         $sql = $db->prepare("UPDATE parcours SET nom = :name, ville = :city, nbDecholeMax = :nbDecholeMax WHERE id = :idParcours");
-        $sql->execute(array( 'name' => $name, 'city' => $city, 'nbDecholeMax' => $nbDecholeMax, 'idParcours' => $idParcours));
+        $sql->execute(array( 'name' => htmlspecialchars($name), 'city' => htmlspecialchars($city), 'nbDecholeMax' => filter_var($nbDecholeMax,FILTER_VALIDATE_INT), 'idParcours' => filter_var($idParcours,FILTER_VALIDATE_INT)));
     }catch (PDOException $e){
         var_dump($e);
         $db->rollBack();
@@ -262,7 +267,7 @@ function updateParcours($idParcours,$name, $city, $nbDecholeMax, $markers){
 
         try {
             $sql = $db->prepare("INSERT INTO marker (idParcours,`No`,longitude,latitude) VALUES (:idParcours,:N,:longitude,:latitude)");
-            $sql->execute(array('idParcours' => $idParcours, 'N' => $No, 'longitude' => $longitude, 'latitude' => $latitude));
+            $sql->execute(array('idParcours' => filter_var($idParcours,FILTER_VALIDATE_INT), 'N' => $No, 'longitude' => filter_var($longitude,FILTER_VALIDATE_FLOAT), 'latitude' => filter_var($latitude,FILTER_VALIDATE_FLOAT)));
         } catch(PDOException $error){
             var_dump($error);
         }
@@ -272,7 +277,7 @@ function updateParcours($idParcours,$name, $city, $nbDecholeMax, $markers){
 }
 
 function getNbParcours(){
-    /* Cette fonction récupère le nombre de parcours présent dans la base de données.
+    /** Cette fonction récupère le nombre de parcours présent dans la base de données.
      *
      * Return le nombre de parcours présent dans la base de données.
      * */
@@ -281,4 +286,17 @@ function getNbParcours(){
     $sql->execute();
     $res = $sql->fetch();
     return $res;
+}
+
+function getTournamentId(){
+    /** Cette fonction permet de récupérer l'id du tournoi en cours
+     *
+     * return l'id du tournoi
+     * */
+    global $db;
+    $sql = $db->prepare("SELECT idTournoi FROM `tournoi` ORDER BY year DESC LIMIT 1");
+    $sql->execute();
+    $res = $sql->fetch();
+    $id = $res[0];
+    return $id;
 }

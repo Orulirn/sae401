@@ -2,10 +2,19 @@
 <html>
 <head>
     <title>Page de Connexion Design</title>
-    <link rel="stylesheet" href="../bootstrap-5.3.1-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../../View/bootstrap-5.3.1-dist/css/bootstrap.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
+<style>
+    .btnResMDP{
+        color: blue;
+        text-decoration: underline;
+        border: none;
+        background-color: transparent;
+    }
+</style>
 <body>
 <script>
     window.onload = function() {
@@ -24,14 +33,14 @@
 
 <div class="container d-flex justify-content-center align-items-center"  style="height: 70vh;">
     <div class="border p-5 rounded bg-light">
-        <form method="POST">
-            <div class="mb-4"></div>
-            <label for="mail" class="form-label">Adresse mail :</label>
+        <form method="POST" id="divForm">
+            <label for="mail" class="form-label" id="labelMail">Adresse mail :</label>
             <input type="text" class="form-control" id="mail" placeholder="Entrez votre adresse mail" name="mail" required>
-            <div class="mb-4"></div>
-            <label for="pwd" class="form-label">Mot de passe :</label>
+            <label for="pwd" class="form-label" id="labelPWD">Mot de passe :</label>
             <input type="password" class="form-control" id="pwd" placeholder="Entrez votre mot de passe" name="pwd" required>
-            <div class="mb-4"></div>
+            <br>
+            <input type="button" onclick="ajoutDemandeDeMDP()" class="btnResMDP" value="mot de passe oublié ?">
+            <br><br>
             <button name="connect" class="btn btn-primary" id="login" disabled>Se connecter</button>
         </form>
     </div>
@@ -54,6 +63,96 @@
     button.addEventListener("click", function () {
         window.location.replace('../HomePage.html');
     });
+    function ajoutDemandeDeMDP(){
+        let div=document.getElementById("divForm")
+        div.innerHTML=""
+        let labelMailPwd=document.createElement("label")
+        labelMailPwd.textContent="Adresse mail de votre compte :"
+        labelMailPwd.className="form-label"
+        div.appendChild(labelMailPwd)
+
+        let inputMail=document.createElement("input")
+        inputMail.id="demandeMail"
+        inputMail.type="text"
+        inputMail.className="form-control"
+        inputMail.addEventListener("keyup",verifyEmail)
+        div.appendChild(inputMail)
+
+        let divBtn =document.createElement("div")
+        divBtn.id="divBtn"
+
+
+        let btnRefuser=document.createElement("input")
+        btnRefuser.type="button"
+        btnRefuser.value="Retour"
+        btnRefuser.style.float="left"
+        btnRefuser.className="btn btn-primary"
+        btnRefuser.onclick=function (){
+            window.location.reload()
+        }
+        divBtn.appendChild(btnRefuser)
+
+
+        let btnValider=document.createElement("input")
+        btnValider.type="button"
+        btnValider.value="Envoyer"
+        btnValider.style.float="right"
+        btnValider.className="btn btn-primary"
+        btnValider.id="btnValider"
+        btnValider.disabled=true
+        btnValider.onclick=AjaxMail
+        divBtn.appendChild(btnValider)
+
+        div.appendChild(document.createElement("br"))
+        div.appendChild(divBtn)
+    }
+
+    function verifyEmail(){
+        let text=event.target.value
+        let isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(text);
+        if (!isValidEmail){
+            if (!document.getElementById("messageErreur")) {
+                let messageErreur = document.createElement("p")
+                messageErreur.textContent = "adresse non valide"
+                messageErreur.style.color = "red"
+                messageErreur.id = "messageErreur"
+                document.getElementById("divBtn").prepend(messageErreur)
+            }
+        }
+        else{
+            if (document.getElementById("messageErreur")) {
+                let message = document.getElementById("messageErreur")
+                message.remove()
+            }
+            document.getElementById("btnValider").disabled=false
+        }
+    }
+    function AjaxMail(){
+        let mail=document.getElementById("demandeMail").value
+        $.ajax({
+            url:"../../Controller/Connexion/AjaxEnvoiMail.php",
+            type:"POST",
+            data:{mail:mail},
+            async : false,
+            success: function (response){
+                if (!response.includes("error") && !response.includes("Exception")) {
+                    Swal.fire({
+                        text: "Le lien vous a été envoyé",
+                        icon: "success"
+                    }).then(function (accepter) {
+                        if (accepter){
+                            window.location.reload()
+                        }
+                    })
+                }
+                console.log(response)
+            },
+            error: function (error){
+                console.error(error)
+            }
+        })
+
+    }
 </script>
 </body>
 </html>

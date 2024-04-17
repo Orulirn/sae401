@@ -1,7 +1,13 @@
 <?php
 session_start();
+
+include("../../Model/Utilisateur/checkSession.php");
+checkRole();
+
+
 include "../../Model/Utilisateur/UsersModel.php";
 $dataAllUsers = GetAllOfUsersTable();
+include "../../View/Accueil/index.php";
 include "../../View/Utilisateur/ModificationView.php";
 ?>
 
@@ -42,7 +48,22 @@ include "../../View/Utilisateur/ModificationView.php";
             cancelButtonText: 'Non, annuler!'
         }).then((result) => {
             if (result.isConfirmed) {
-                window.location.href = "updateDataController.php?buttonIndex=" + buttonIndex;
+
+                var form = document.createElement("form");
+                form.method = "POST";
+                form.action = "../../Controller/Utilisateurs/updateDataController.php";
+                form.target = "_self";
+
+
+                var input = document.createElement("input");
+                input.type = "hidden";
+                input.name = "buttonIndex";
+                input.value = buttonIndex;
+                form.appendChild(input);
+
+                document.body.appendChild(form);
+
+                form.submit();
             }
         });
     }
@@ -60,8 +81,33 @@ include "../../View/Utilisateur/ModificationView.php";
             cancelButtonText: 'Non, annuler!'
         }).then((result) => {
             if (result.isConfirmed) {
-                var queryString = "buttonIndex=" + encodeURIComponent(buttonIndex) + "&role=" + encodeURIComponent(role);
-                window.location.replace("ModifRoleController.php?" + queryString);
+
+                var formData = new FormData();
+                formData.append("buttonIndex", buttonIndex);
+                formData.append("role", role);
+
+
+                fetch("ModifRoleController.php", {
+                    method: "POST",
+                    body: formData
+                }).then(response => {
+
+                    if (response.ok) {
+                        return response.text();
+                    }
+                    throw new Error('Quelque chose s\'est mal passé lors de l\'envoi de la requête');
+                }).then(() => {
+                    Swal.fire(
+                        'Validé!',
+                        'Rôle mis à jour.',
+                        'success'
+                    ).then(() => {
+                        window.location.replace("../../Controller/Utilisateurs/ModificationController.php")
+                    });
+
+                }).catch(error => {
+                    console.error('Erreur:', error);
+                });
             }
         });
     }
@@ -80,8 +126,33 @@ include "../../View/Utilisateur/ModificationView.php";
             cancelButtonText: 'Non, annuler!'
         }).then((result) => {
             if (result.isConfirmed) {
-                var queryString = "buttonIndex=" + encodeURIComponent(buttonIndex) + "&role=" + encodeURIComponent(role);
-                window.location.replace("ModifRoleController.php?" + queryString);
+
+                var formData = new FormData();
+                formData.append("buttonIndex", buttonIndex);
+                formData.append("role", role);
+
+
+                fetch("ModifRoleController.php", {
+                    method: "POST",
+                    body: formData
+                }).then(response => {
+
+                    if (response.ok) {
+                        return response.text();
+                    }
+                    throw new Error('Quelque chose s\'est mal passé lors de l\'envoi de la requête');
+                }).then(() => {
+                    Swal.fire(
+                        'Validé!',
+                        'Rôle mis à jour.',
+                        'success'
+                    ).then(() => {
+                        window.location.replace("../../Controller/Utilisateurs/ModificationController.php")
+                    });
+
+                }).catch(error => {
+                    console.error('Erreur:', error);
+                });
             }
         });
     }
@@ -98,7 +169,33 @@ include "../../View/Utilisateur/ModificationView.php";
             cancelButtonText: 'Non, annuler!'
         }).then((result) => {
             if (result.isConfirmed) {
-                window.location.href = "deleteUserController.php?buttonIndex=" + buttonIndex;
+
+                var formData = new FormData();
+                formData.append("buttonIndex", buttonIndex);
+                formData.append("role", role);
+
+
+                fetch("deleteUserController.php", {
+                    method: "POST",
+                    body: formData
+                }).then(response => {
+
+                    if (response.ok) {
+                        return response.text();
+                    }
+                    throw new Error('Quelque chose s\'est mal passé lors de l\'envoi de la requête');
+                }).then(() => {
+                    Swal.fire(
+                        'Validé!',
+                        'Utilisateur supprimé avec succès.',
+                        'success'
+                    ).then(() => {
+                        window.location.replace("../../Controller/Utilisateurs/ModificationController.php")
+                    });
+
+                }).catch(error => {
+                    console.error('Erreur:', error);
+                });
             }
         });
     }

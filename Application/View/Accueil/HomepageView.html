@@ -2,8 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../../View/bootstrap-5.3.1-dist/css/bootstrap.css">
-    <link rel="stylesheet" href="../../View/bootstrap-5.3.1-dist/css/homepagestyle.css">
+    <link rel="stylesheet" href="../../View/bootstrap-5.3.1-dist/css/homepage.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 
     <title>Les choleux de Quarouble</title>
@@ -11,7 +10,7 @@
 <body>
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <div class="video-container">
-    <video autoplay loop muted poster="../files/poster.jpg">
+    <video autoplay loop muted poster="../../View/files/poster.jpg">
         <source src="../../View/files/video.mp4" type="video/mp4">
     </video>
 </div>
@@ -59,19 +58,25 @@
 </div>
 
 
-<script src="../bootstrap-5.3.1-dist/js/bootstrap.bundle.min.js"></script>
-
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 <script>
     // Fonction pour initialiser la carte
     function initMap() {
-        // Centre la carte sur Quiévrechain
-        let latitude = 50.3965;
-        let longitude = 3.6695;
+        // Centre la carte sur Quarouble
+        let latitude = 50.3863821;
+        let longitude = 3.6244948;
         let map = L.map('map').setView([latitude, longitude], 13);
+        map.scrollWheelZoom.disable();
 
-
+        map.on('contextmenu', function(e) {
+            if (map.scrollWheelZoom.enabled()) {
+                map.scrollWheelZoom.disable();
+            } else {
+                map.scrollWheelZoom.enable();
+            }
+        });
         // Ajoute une couche de carte OpenStreetMap
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '© OpenStreetMap contributors'
@@ -82,6 +87,9 @@
     window.onload = function () {
         initMap();
     };
+
+
+
 </script>
 <script>
     $(document).ready(function(){

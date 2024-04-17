@@ -47,4 +47,7 @@ class ControllerMailing
 $controller = new ControllerMailing();
 $controller->processRequest();
 $emails = $controller->getEmailsForView();
+ob_start();
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
 include('../../View/Mail/MailingView.php');

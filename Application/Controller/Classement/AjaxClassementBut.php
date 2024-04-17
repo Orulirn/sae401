@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 include "../../Model/Classement/ClassementModel.php";
 $idTournoi=$_POST["idtournoi"];
 

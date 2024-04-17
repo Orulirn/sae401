@@ -1,5 +1,10 @@
 <?php
 session_start();
+
+include("../../Model/Utilisateur/checkSession.php");
+checkRole();
+
+
 include "../../Model/Utilisateur/VerifyModel.php";
 include "../../View/Accueil/index.php";
 include "../../View/Utilisateur/valideInscriptionView.html";
@@ -19,7 +24,7 @@ foreach ($res as $row) {
     echo'<td>'.$row['firstname'].'</td>';
     echo'<td>' .$row['lastname'].'</td>';
     echo'<td>' .$row['mail'].'</td>';
-    echo'<td><button id="';echo $row['idVerify'];echo'" type="button" class="btn btn-white border-black border-1" name="Valider">Valider</button> <button id="';echo $row['idVerify']; echo'" type="button" class="btn btn-white border-black border-1" name="Rejeter">Rejeter</button></td>';
+    echo'<td><button id="';echo $row['idVerify'];echo'" type="button" class="btn btn-success" name="Valider">Valider</button> <button id="';echo $row['idVerify']; echo'" type="button" class="btn btn-danger" name="Rejeter">Rejeter</button></td>';
     echo '</tr>';
 
 };
@@ -56,13 +61,32 @@ echo'</div>';
             cancelButtonText: 'Non, annuler!'
         }).then((result) => {
             if (result.isConfirmed) {
-                var data = "idVerif=" + encodeURIComponent(buttonIndex) + "&index=" + encodeURIComponent(1);
-                Swal.fire(
-                    'Validé!',
-                    'Inscription validée.',
-                    'success'
-                ).then(() => {
-                    window.location.replace("valider.php?" + data);
+
+                var formData = new FormData();
+                formData.append("idVerif", buttonIndex);
+                formData.append("index", "1");
+
+
+                fetch("valider.php", {
+                    method: "POST",
+                    body: formData
+                }).then(response => {
+
+                    if (response.ok) {
+                        return response.text();
+                    }
+                    throw new Error('Quelque chose s\'est mal passé lors de l\'envoi de la requête');
+                }).then(() => {
+                    Swal.fire(
+                        'Validé!',
+                        'Inscription validée.',
+                        'success'
+                    ).then(() => {
+                        window.location.replace("../../Controller/Utilisateurs/valideInscriptionController.php")
+                    });
+
+                }).catch(error => {
+                    console.error('Erreur:', error);
                 });
             }
         });
@@ -80,13 +104,31 @@ echo'</div>';
             cancelButtonText: 'Non, annuler!'
         }).then((result) => {
             if (result.isConfirmed) {
-                var data = "idVerif=" + encodeURIComponent(buttonIndex) + "&index=" + encodeURIComponent(0);
-                Swal.fire(
-                    'Validé!',
-                    'Inscription rejetée.',
-                    'success'
-                ).then(() => {
-                    window.location.replace("valider.php?" + data);
+
+                var formData = new FormData();
+                formData.append("idVerif", buttonIndex);
+                formData.append("index", "0");
+
+
+                fetch("valider.php", {
+                    method: "POST",
+                    body: formData
+                }).then(response => {
+
+                    if (response.ok) {
+                        return response.text();
+                    }
+                    throw new Error('Quelque chose s\'est mal passé lors de l\'envoi de la requête');
+                }).then(() => {
+                    Swal.fire(
+                        'Rejeté!',
+                        'Inscription rejetée.',
+                        'success'
+                    ).then(() => {
+                        window.location.replace("../../Controller/Utilisateurs/valideInscriptionController.php")
+                    });
+                }).catch(error => {
+                    console.error('Erreur:', error);
                 });
             }
         });

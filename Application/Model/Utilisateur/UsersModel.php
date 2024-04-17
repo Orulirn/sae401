@@ -15,7 +15,7 @@ function signUpAdmin($firstname, $lastname, $mail, $usertype, $password, $verifi
 {
     global $db;
     $sql = $db->prepare("INSERT INTO users( firstname, lastname, mail, password) VALUES (:firstname,:lastname,:mail,:password)");
-    $sql->execute(array('firstname' => $firstname, 'lastname' => $lastname, 'mail' => $mail, 'password' => password_hash($password, PASSWORD_DEFAULT)));
+    $sql->execute(array('firstname' => htmlspecialchars($firstname), 'lastname' => htmlspecialchars($lastname), 'mail' => filter_var($mail,FILTER_VALIDATE_EMAIL), 'password' => password_hash($password, PASSWORD_DEFAULT)));
     $sql = $db->prepare("INSERT INTO users_role (idRole,idUser) VALUES (:idRole,:idUser)");
     $lastid = $db->lastInsertID();
     if ($usertype == "both") {
@@ -32,14 +32,14 @@ function signUpAdmin($firstname, $lastname, $mail, $usertype, $password, $verifi
 
 function GetAllOfUsersTable(){
     global $db;
-    $sql = $db->prepare("SELECT users.idUser,firstname,lastname,mail,cotisation,count(idRole) as nbRole FROM Users JOIN users_role on users.iduser = users_role.iduser GROUP BY idUser");
+    $sql = $db->prepare("SELECT users.idUser,firstname,lastname,mail,cotisation,count(idRole) as nbRole FROM users JOIN users_role on users.iduser = users_role.iduser GROUP BY idUser");
     $sql->execute();
     return $sql->fetchAll(PDO::FETCH_ASSOC);
 }
 
 function Get1OfUsersTable($id){
     global $db;
-    $sql = $db->prepare("SELECT users.idUser,firstname,lastname,mail,cotisation  FROM Users JOIN users_role on users.iduser = users_role.iduser WHERE users.idUser = :id");
+    $sql = $db->prepare("SELECT users.idUser,firstname,lastname,mail,cotisation  FROM users JOIN users_role on users.iduser = users_role.iduser WHERE users.idUser = :id");
     $sql->execute(array("id"=> $id));
     return $sql->fetch(PDO::FETCH_ASSOC);
 }
@@ -89,14 +89,14 @@ function UpdateRoleAdmin($idUser,$role){
 
 function GetAllUserWithContribution(){
     global $db;
-    $sql = $db->prepare("SELECT idUser,firstname,lastname,mail,cotisation FROM Users  WHERE `cotisation`=1");
+    $sql = $db->prepare("SELECT idUser,firstname,lastname,mail,cotisation FROM users  WHERE `cotisation`=1");
     $sql->execute();
     return $sql->fetchAll(PDO::FETCH_ASSOC);
 }
 
 function GetAllUserWithNoContribution(){
     global $db;
-    $sql = $db->prepare("SELECT idUser,firstname,lastname,mail,cotisation FROM Users WHERE `cotisation`=0");
+    $sql = $db->prepare("SELECT idUser,firstname,lastname,mail,cotisation FROM users WHERE `cotisation`=0");
     $sql->execute();
     return $sql->fetchAll(PDO::FETCH_ASSOC);
 }
@@ -119,7 +119,18 @@ function updateLine($email, $cotisation){
 function updateUserInfo($buttonIndex, $firstname, $lastname, $mail, $cotisation) {
     global $db;
     $sql = $db->prepare("UPDATE `users` SET `firstname`=:firstname,`lastname`=:lastname,`mail`=:mail,`cotisation`=:cotisation WHERE `idUser`=:btnIndex");
-    $sql->execute(array('firstname'=>$firstname,'lastname'=>$lastname,'mail'=>$mail,'cotisation'=>$cotisation,"btnIndex"=>$buttonIndex));
+    $sql->execute(array('firstname'=>htmlspecialchars($firstname),'lastname'=>htmlspecialchars($lastname),'mail'=>filter_var($mail,FILTER_VALIDATE_EMAIL),'cotisation'=>$cotisation,"btnIndex"=>$buttonIndex));
+    return true;
+}
+
+function deleteUser($id){
+    global $db;
+    $sql = $db->prepare("DELETE FROM team_player WHERE player = :id");
+    $sql->execute(array('id'=> $id));
+    $sql = $db->prepare("DELETE FROM users_role WHERE idUser = :id");
+    $sql->execute(array('id'=> $id));
+    $sql = $db->prepare("DELETE FROM users WHERE IdUser = :id");
+    $sql->execute(array('id'=> $id));
     return true;
 }
 ?>
