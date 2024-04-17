@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../../View/bootstrap-5.3.1-dist/css/bootstrap.css">
-    <title>Page d'équipe à vérifier pour le tournoi</title>
+    <title>Vérification équipe pour le tournoi</title>
     <style>
 
 
