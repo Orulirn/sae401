@@ -8,8 +8,7 @@ body {
 
 
 .video-container {
-    position: static;
-    top: -50;
+    position: relative;
     left: 0;
     width: 100%;
     height: 100vh;

@@ -15,7 +15,7 @@
     </video>
 </div>
 <div class="rules-background">
-<div class="welcome-message">
+<div class="welcome-message" id="welcome-message">
     <h1>
         <span class="welcome-text">Bienvenue aux</span><br>
         Choleux de Quarouble
@@ -83,10 +83,41 @@
         }).addTo(map);
     }
 
+
+    function adjustTextPosition() {
+        var videoContainer = document.querySelector('.video-container');
+        var welcomeMessage = document.getElementById('welcome-message');
+
+        var videoRect = videoContainer.getBoundingClientRect();
+        var centerY = videoRect.top + (videoRect.height / 2);
+        var centerX = videoRect.left + (videoRect.width / 2);
+
+        welcomeMessage.style.top = centerY + 'px';
+        welcomeMessage.style.left = centerX + 'px';
+        welcomeMessage.style.transform = 'translate(-50%, -50%)';
+        welcomeMessage.style.position = 'absolute';
+    }
+
     // Appelle la fonction d'initialisation de la carte lorsque la page est chargée
-    window.onload = function () {
+    // Initialisation des écouteurs au chargement de la fenêtre
+    window.onload = function() {
         initMap();
-    };
+        adjustTextPosition();
+        window.onresize = adjustTextPosition;
+
+        document.querySelectorAll('.nav-item').forEach(button => {
+            button.addEventListener('click', function() {
+                adjustTextPosition();
+            });
+        });
+
+        document.querySelectorAll('.navbar-toggler').forEach(button => {
+            button.addEventListener('click', function() {
+                setTimeout(adjustTextPosition, 300);
+            });
+        });
+
+    }
 
 
 
