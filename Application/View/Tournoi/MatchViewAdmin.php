@@ -37,6 +37,7 @@ if (isset($_SESSION['success'])) {
 <div class="container mt-5">
     <h1 class="mb-4">Rencontres du tournoi</h1>
 
+
     <form action="../../Controller/Tournoi/ControllerMatch.php" method="POST">
         <input type="hidden" name="action" value="insertManualRencontres">
 
