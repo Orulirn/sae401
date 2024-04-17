@@ -1,6 +1,6 @@
 <?php
 
-include '../../Model/BDD/DatabaseConnection.php';
+include_once '../../Model/BDD/DatabaseConnection.php';
 
 function selectInParcours(){
     /** Cette fonction récupère toutes les informations d'un parcours
