@@ -19,7 +19,7 @@ class TestLogin():
     self.driver.quit()
   
   def test_login(self):
-    self.driver.get("http://4.234.188.41/Application/Controller/Accueil/HomePageController.php")
+    self.driver.get("http://4.234.188.41/Controller/Accueil/HomePageController.php")
     self.driver.set_window_size(1528, 820)
     self.driver.find_element(By.ID, "Connexion").click()
     self.driver.find_element(By.ID, "mail").click()

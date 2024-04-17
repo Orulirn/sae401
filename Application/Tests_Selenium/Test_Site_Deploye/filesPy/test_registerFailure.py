@@ -19,7 +19,7 @@ class TestRegisterFailure():
     self.driver.quit()
   
   def test_registerFailure(self):
-    self.driver.get("http://4.234.188.41/Application/Controller/Accueil/HomePageController.php")
+    self.driver.get("http://4.234.188.41/Controller/Accueil/HomePageController.php")
     self.driver.set_window_size(1528, 820)
     self.driver.find_element(By.ID, "Inscription").click()
     self.driver.find_element(By.ID, "firstname").click()
