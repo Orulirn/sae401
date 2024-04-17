@@ -100,8 +100,8 @@ if (isset($_SESSION['success'])) {
                 <td><?= $match['equipe_un_nom']; ?></td>
                 <td><?= $match['equipe_deux_nom']; ?></td>
                 <td><?= $match['parcours_nom']; ?></td>
-                <td><?= $match['equipeChole'] ?? "pas encore parier"; ?></td>
-                <td><?= $match['resultatRencontre'] ?? "match pas encore jouer"; ?></td>
+                <td><?= $match['equipeChole'] ?? "pas encore parié"; ?></td>
+                <td><?= $match['resultatRencontre'] ?? "match pas encore joué"; ?></td>
                 <td>
                     <form action="../../Controller/Tournoi/ControllerMatch.php" method="POST">
                         <input type="hidden" name="action" value="deleteRencontre">
