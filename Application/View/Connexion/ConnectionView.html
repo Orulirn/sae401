@@ -130,7 +130,7 @@
     function AjaxMail(){
         let mail=document.getElementById("demandeMail").value
         $.ajax({
-            url:"AjaxEnvoiMail.php",
+            url:"../../Controller/Connexion/AjaxEnvoiMail.php",
             type:"POST",
             data:{mail:mail},
             async : false,
