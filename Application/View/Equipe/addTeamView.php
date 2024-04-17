@@ -11,7 +11,7 @@
 
 <div class="container d-flex justify-content-center align-items-center"  style="height: 90vh;">
     <div class="border p-5 rounded bg-light">
-        <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Créer 25 équipe</h3>
+        <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Créer une équipe</h3>
 
         <form method="POST" id="formulaire">
 

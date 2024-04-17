@@ -19,7 +19,7 @@ class TestFairePari():
     self.driver.quit()
   
   def test_fairePari(self):
-    self.driver.get("http://4.234.188.41/Application/Controller/Accueil/HomePageController.php")
+    self.driver.get("http://4.234.188.41/Controller/Accueil/HomePageController.php")
     self.driver.set_window_size(1532, 804)
     self.driver.find_element(By.ID, "navbarDropdownTournoi").click()
     self.driver.find_element(By.ID, "navbarMesMatchs").click()
