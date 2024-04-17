@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+ob_start();
 include("../../Model/Utilisateur/checkSession.php");
 checkRole();
 
