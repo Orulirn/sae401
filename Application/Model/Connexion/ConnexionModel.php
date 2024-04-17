@@ -40,8 +40,10 @@ function EnvoiMail($adresse)
 function AjoutToken($token,$idUser)
 {
     global $db;
-    $req=$db->prepare("Insert into token values (?,?,NOW())");
-    $req->execute(array(htmlspecialchars($token),filter_var($idUser,FILTER_VALIDATE_INT)));
+    $date = new DateTime('now', new DateTimeZone('Europe/Paris'));
+    $date_formatted = $date->format('Y-m-d H:i:s');
+    $req=$db->prepare("Insert into token values (?,?,?)");
+    $req->execute(array(htmlspecialchars($token),filter_var($idUser,FILTER_VALIDATE_INT),$date_formatted));
 }
 
 function deleteToken($token)
