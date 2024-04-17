@@ -92,8 +92,8 @@
             cellIdEquipe.setAttribute("style","text-align:center");
             cellTournoi.setAttribute("style","text-align:center");
             cellButton.setAttribute("style","text-align:center");
-            buttonRefuse.setAttribute("class","btn btn-dark");
-            buttonValid.setAttribute("class","btn btn-dark");
+            buttonRefuse.setAttribute("class","btn btn-danger");
+            buttonValid.setAttribute("class","btn btn-succes");
 
             cellHideTeam.style.visibility='hidden';
             cellHideTour.style.visibility='hidden';

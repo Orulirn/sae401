@@ -24,7 +24,7 @@ foreach ($res as $row) {
     echo'<td>'.$row['firstname'].'</td>';
     echo'<td>' .$row['lastname'].'</td>';
     echo'<td>' .$row['mail'].'</td>';
-    echo'<td><button id="';echo $row['idVerify'];echo'" type="button" class="btn btn-success" name="Valider">Valider</button> <button id="';echo $row['idVerify']; echo'" type="button" class="btn btn-danger" name="Rejeter">Rejeter</button></td>';
+    echo'<td><button id="';echo $row['idVerify'];echo'" type="button" class="btn btn-primary" name="Valider">Valider</button> <button id="';echo $row['idVerify']; echo'" type="button" class="btn btn-danger" name="Rejeter">Rejeter</button></td>';
     echo '</tr>';
 
 };
