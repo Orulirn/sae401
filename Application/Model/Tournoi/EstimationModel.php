@@ -76,7 +76,7 @@ function insertEquipeChole($equipe,$idRencontre){
  */
 function selectEquipeChole($idRencontre){
     global $db;
-    $sql = $db->prepare("SELECT equipeChole FROM rencontre WHERE idRencontre = :idRencontre");
+    $sql = $db->prepare("SELECT equipeChole FROM rencontre WHERE idRencontre = ?");
     $sql->execute(array(filter_var($idRencontre,FILTER_VALIDATE_INT)));
     return $sql->fetch();
 }
