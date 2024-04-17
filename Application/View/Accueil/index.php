@@ -216,20 +216,28 @@ echo ("<p id='currentRole' visibility='hidden' style= 'display :none;'>".json_en
         suba1_3.setAttribute('href', '../../Controller/Equipe/verifyTeamsController.php');
         suba1_3.innerText = "Valider la création d'une équipe";
 
+        let subli1_4 = document.createElement('li');
+        let suba1_4 = document.createElement('a');
+        suba1_4.setAttribute('class', 'dropdown-item');
+        suba1_4.setAttribute('id', 'navbarMail');
+        suba1_4.setAttribute('href', '../../Controller/Mail/ControllerMailing.php');
+        suba1_4.innerText = "Mail";
+
         subli1_0.appendChild(suba1_0);
         subli1_1.appendChild(suba1_1);
         subli1_2.appendChild(suba1_2);
         subli1_3.appendChild(suba1_3);
+        subli1_4.appendChild(suba1_4);
         subul1.appendChild(subli1_0);
         subul1.appendChild(subli1_1);
         subul1.appendChild(subli1_2);
         subul1.appendChild(subli1_3);
+        subul1.appendChild(subli1_4);
         li1.appendChild(a1);
         li1.appendChild(subul1);
         ul1.appendChild(li1);
         divDyn.appendChild(ul1);
 
-        //temporaire
         //gestion tournoi pour un joueur
         let ul3= document.createElement('ul');
         ul3.setAttribute('class','navbar-nav');
