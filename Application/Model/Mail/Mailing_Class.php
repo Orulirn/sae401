@@ -50,7 +50,7 @@ class Mailing_Class {
         require_once('../../Model/BDD/DatabaseConnection.php');
 
         $db = Database::getInstance();
-        $stmt = $db->prepare("SELECT mail FROM users WHERE cotisation = 0");
+        $stmt = $db->prepare("SELECT mail FROM users ");
         $stmt->execute();
 
         return $stmt->fetchAll(PDO::FETCH_COLUMN);
