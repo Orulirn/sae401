@@ -7,7 +7,7 @@ session_start();
 <head>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <meta charset="UTF-8">
-    <title>Mes Rencontres</title>
+    <title>Mes matchs</title>
     <link rel="stylesheet" href="../../View/bootstrap-5.3.1-dist/css/bootstrap.css">
 </head>
 <body>

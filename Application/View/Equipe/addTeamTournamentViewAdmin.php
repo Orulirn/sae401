@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../../View/bootstrap-5.3.1-dist/css/bootstrap.css">
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <title>Page d'ajout d'équipe dans un tournois</title>
+    <title>ajouter une équipe dans un tournoi</title>
 </head>
 <body>
     <div class="container d-flex justify-content-center align-items-center"  style="height: 90vh;">

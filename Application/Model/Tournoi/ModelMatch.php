@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once '../BDD/DatabaseConnection.php';
+include_once '../../Model/BDD/DatabaseConnection.php';
 class ModelMatch
 {
     public function generateMatches($idTournoi)
@@ -95,7 +95,7 @@ class ModelMatch
         $db = Database::getInstance();
 
         try {
-            $sql = "SELECT * FROM teams";
+            $sql = "SELECT * FROM team_tournoi JOIN teams ON team_tournoi.idTeam = teams.idTeam";
             $stmt = $db->prepare($sql);
             $stmt->execute();
 

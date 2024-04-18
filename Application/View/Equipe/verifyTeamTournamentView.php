@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../../View/bootstrap-5.3.1-dist/css/bootstrap.css">
-    <title>Page d'équipe à vérifier pour le tournoi</title>
+    <title>Vérification équipe pour le tournoi</title>
     <style>
 
 
@@ -92,8 +92,8 @@
             cellIdEquipe.setAttribute("style","text-align:center");
             cellTournoi.setAttribute("style","text-align:center");
             cellButton.setAttribute("style","text-align:center");
-            buttonRefuse.setAttribute("class","btn btn-dark");
-            buttonValid.setAttribute("class","btn btn-dark");
+            buttonRefuse.setAttribute("class","btn btn-danger");
+            buttonValid.setAttribute("class","btn btn-primary");
 
             cellHideTeam.style.visibility='hidden';
             cellHideTour.style.visibility='hidden';

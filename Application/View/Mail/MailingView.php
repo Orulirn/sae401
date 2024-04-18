@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Envoi d'e-mails</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../../View/CSS/custom-style.css">
 </head>
 <body>
@@ -41,9 +40,6 @@
                 <button type="button" class="btn btn-primary" onclick="sendEmails()">Envoyer les e-mails</button>
         </form>
     </div>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script>
         var selectedFiles = []; // Liste des pièces jointes pour l'envoi d'e-mails
         function toggleSelection(email) {

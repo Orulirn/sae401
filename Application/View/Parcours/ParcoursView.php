@@ -192,8 +192,8 @@
         return Array.from(data);
     }
 
-    let latitude = 50.3965;
-    let longitude = 3.6695;
+    let latitude = 50.386;
+    let longitude = 3.624;
     let map = L.map('map').setView([latitude, longitude], 13);
     map.dragging.disable();
 
@@ -204,8 +204,25 @@
     var markers = [];
     var routingControl; // Pour stocker le contrôle d'itinéraire
 
+    var isDragging = false;
 
-    map.on('click', onMapClick);
+    map.on('mousedown', function() {
+        isDragging = false;
+    });
+
+    map.on('mousemove', function() {
+        isDragging = true;
+    });
+
+    map.on('mouseup', function(e) {
+        if (isDragging) {
+            map.dragging.enable();
+        } else {
+            map.dragging.disable();
+        }
+    });
+
+    map.on('contextmenu', onMapClick);
 
     document.getElementById('clearRoute').addEventListener('click', clearRoute);
     document.getElementById('removeLastMarker').addEventListener('click', removeLastMarker);

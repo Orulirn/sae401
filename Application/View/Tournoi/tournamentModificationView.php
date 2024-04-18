@@ -9,7 +9,7 @@ include_once "../Accueil/index.php";
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Gestion des tournois</title>
+    <title>Modifier le tournoi</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
