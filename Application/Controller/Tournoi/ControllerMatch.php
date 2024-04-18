@@ -1,9 +1,8 @@
 <?php
 session_start();
 ob_start();
-include("../../Model/Utilisateur/checkSession.php");
+include_once("../../Model/Utilisateur/checkSession.php");
 checkRole();
-
 include_once "../../View/Accueil/index.php";
 require_once '../../Model/Tournoi/ModelMatch.php';
 

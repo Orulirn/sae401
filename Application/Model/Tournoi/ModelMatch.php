@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once '../BDD/DatabaseConnection.php';
+include_once '../../Model/BDD/DatabaseConnection.php';
 class ModelMatch
 {
     public function generateMatches($idTournoi)
