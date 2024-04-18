@@ -188,7 +188,7 @@
             }
         }
         $.ajax({
-            url:"../../Controller/Classement/AjaxClassementVictoire.php",
+            url:"AjaxClassementVictoire.php",
             type:"POST",
             data:{idtournoi:idtournoi},
             async : false,
@@ -200,7 +200,7 @@
             }
         })
         $.ajax({
-            url:"../../Controller/Classement/AjaxClassementBut.php",
+            url:"AjaxClassementBut.php",
             type: "POST",
             data:{idtournoi:idtournoi},
             async: false,

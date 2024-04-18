@@ -1,6 +1,6 @@
 <?php
 
-include '../BDD/DatabaseConnection.php';
+include_once '../../Model/BDD/DatabaseConnection.php';
 
 function selectInParcours(){
     /** Cette fonction récupère toutes les informations d'un parcours
@@ -151,7 +151,7 @@ function insertParcours($name,$city,$nbDecholeMax,$markerData){
 
         try {
             $sql = $db->prepare("INSERT INTO marker (idParcours,`No`,longitude,latitude) VALUES (:idParcours,:N,:longitude,:latitude)");
-            $sql->execute(array('idParcours' => filter_var($lastid,FILTER_VALIDATE_INT), 'N' => filter_var($No,FILTER_VALIDATE_INT), 'longitude' => filter_var($longitude,FILTER_VALIDATE_FLOAT), 'latitude' => filter_var($latitude,FILTER_VALIDATE_FLOAT)));
+            $sql->execute(array('idParcours' => filter_var($lastid,FILTER_VALIDATE_INT), 'N' => filter_var($No,FILTER_VALIDATE_INT), 'longitude' => $longitude, 'latitude' => $latitude));
         } catch(PDOException $error){
         }
 
@@ -217,7 +217,7 @@ function saveModification(){
         );
         array_push($markers,$newMarker);
     }
-    updateParcours(htmlspecialchars($idParcours),htmlspecialchars($name), htmlspecialchars($city), htmlspecialchars($nbDecholeMax), htmlspecialchars($markers));
+    updateParcours($idParcours,htmlspecialchars($name), htmlspecialchars($city), $nbDecholeMax, $markers);
 }
 
 function DeleteMarkerByIdParcours($idParcours){
@@ -267,7 +267,7 @@ function updateParcours($idParcours,$name, $city, $nbDecholeMax, $markers){
 
         try {
             $sql = $db->prepare("INSERT INTO marker (idParcours,`No`,longitude,latitude) VALUES (:idParcours,:N,:longitude,:latitude)");
-            $sql->execute(array('idParcours' => filter_var($idParcours,FILTER_VALIDATE_INT), 'N' => $No, 'longitude' => filter_var($longitude,FILTER_VALIDATE_FLOAT), 'latitude' => filter_var($latitude,FILTER_VALIDATE_FLOAT)));
+            $sql->execute(array('idParcours' => filter_var($idParcours,FILTER_VALIDATE_INT), 'N' => $No, 'longitude' => $longitude, 'latitude' => $latitude));
         } catch(PDOException $error){
             var_dump($error);
         }
